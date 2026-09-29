@@ -1,5 +1,5 @@
 // 코스닥 상장심사 사례집 - 오프라인 캐시
-const VERSION = 'ksc-2026-09-28-r2';
+const VERSION = 'ksc-2026-09-29-icon2';
 const CORE = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
