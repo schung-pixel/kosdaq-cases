@@ -158,8 +158,8 @@ table.deals{width:100%;border-collapse:collapse;min-width:1000px}
 .parties{display:flex;flex-direction:column;gap:4px;min-width:230px}
 .party{display:flex;align-items:baseline;gap:7px;min-width:0}
 .party .nm{font-weight:600;min-width:0}
-.role{flex:0 0 auto;font-size:10px;font-weight:600;letter-spacing:.04em;line-height:16px;padding:0 5px;border-radius:4px;border:1px solid var(--rule);color:var(--muted);transform:translateY(-1px)}
-.party.le .role{border-color:transparent;background:var(--accent);color:var(--accent-ink)}
+.role{flex:0 0 auto;font-size:10px;font-weight:600;letter-spacing:.04em;line-height:16px;padding:0 5px;border-radius:4px;background:var(--muted);color:var(--accent-ink);transform:translateY(-1px)}
+.party.le .role{background:var(--accent)}
 .party.le .nm{color:var(--accent)}
 .ko{font-size:12px;font-weight:400;color:var(--faint);margin-left:6px}
 .asset{max-width:260px}
@@ -582,7 +582,7 @@ function drawList(){
       <div class="who">${party(d,"lr",true)}${party(d,"le",true)}</div>
       <div class="drug"><span class="an">${esc(d.asset||"물질 비공개")}</span>${drugLine(d)}</div>
       <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span>${d.platform==="Y"?'<span class="tag plat">플랫폼</span>':""}</div>
-      <div class="money"><span><span class="lab">총액</span><b>${d.total==null?"–":"$"+fmtM(d.total)+(d.total>=10000?"":"M")}</b></span><span class="up"><span class="lab">Upfront</span><b>${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront<10?1:0)+"M"}</b>${d.ratio==null?"":` <span class="hint">(${fmt(d.ratio*100,1)}%)</span>`}</span>${qaTag(d)}</div>
+      <div class="money"><span><span class="lab">총액</span><b>${d.total==null?"–":"$"+fmtM(d.total)+(d.total>=10000?"":"M")}</b></span><span class="${d.upfront==null?"":"up"}"><span class="lab">Upfront</span><b>${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront<10?1:0)+"M"}</b>${d.ratio==null?"":` <span class="hint">(${fmt(d.ratio*100,1)}%)</span>`}</span>${qaTag(d)}</div>
     </article>`).join("");
   }else{
     $("rows").innerHTML=list.map((d,i)=>`<tr data-i="${i}" tabindex="0">
