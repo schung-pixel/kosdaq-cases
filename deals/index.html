@@ -123,6 +123,30 @@ select.sort{height:42px;border:1px solid var(--rule);border-radius:var(--r);back
 .why.near{color:var(--warn)}
 .btn.ai{color:var(--accent);border-color:var(--accent);font-weight:600}
 
+/* Claude에게 묻기 */
+.askbtn{height:32px;display:inline-flex;align-items:center;gap:6px;padding-inline:12px;border-radius:999px;border:1px solid var(--gold);background:var(--gold-soft);color:var(--gold);font-size:13px;font-weight:600;white-space:nowrap}
+.askbtn svg{width:15px;height:15px}
+.ask textarea{width:100%;min-height:104px;resize:vertical;border-radius:var(--r);border:1px solid var(--rule);background:var(--raised);color:var(--ink);font:inherit;font-size:15px;line-height:1.6;padding:10px 12px}
+.ask textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.ask .hint{margin:0}
+.askrow{display:flex;gap:8px}.askrow .primary{flex:1}
+.askstat{font-size:13px;color:var(--muted);min-height:1em}
+.askres{display:grid;gap:12px}
+.asksum{font-weight:600;line-height:1.55}
+.askbench{background:var(--gold-soft);border:1px solid var(--gold);border-radius:8px;padding:9px 12px;font-size:13px;display:grid;gap:2px}
+.askacts{display:flex;gap:6px;flex-wrap:wrap}
+.askitem{display:grid;gap:6px;padding-top:12px;border-top:1px solid var(--rule)}
+.askwhy{display:flex;gap:9px;font-size:13px;line-height:1.55}
+.askwhy b{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-content:center;font-size:12px}
+.askwhy .tk{display:block;color:var(--muted);margin-top:2px}
+.mini{display:grid;gap:5px;padding:11px 12px;background:var(--raised);border:1px solid var(--rule);border-radius:8px;cursor:pointer}
+.mini .meta{font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.mini .who{display:grid;gap:3px}.mini .an{font-weight:600;font-size:13.5px}
+.mini .ti{font-size:12px;color:var(--muted)}.mini .ti b{font-weight:500;color:var(--faint);font-size:11px;margin-right:4px}
+.mini .tags{display:flex;gap:5px;flex-wrap:wrap}
+.mini .money{display:flex;gap:14px;font-size:13px;align-items:baseline}.mini .money b{font-family:var(--f-mono);font-weight:500}.mini .money .up b{color:var(--gold)}.mini .money .lab{color:var(--faint);font-size:11px;margin-right:4px}
+#sheetBg{z-index:22}#sheet{z-index:23}
+
 /* KPI strip */
 .summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:var(--r);overflow:hidden}
 .summary>div{padding:12px 16px;background:var(--surface);display:flex;flex-direction:column;gap:2px;min-width:0}
@@ -292,6 +316,7 @@ img{max-width:100%}
       </div>
     </div>
     <div class="upd">
+      <button class="askbtn" id="askBtn" type="button" hidden><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg>Claude에게 묻기</button>
       <span class="stamp" id="stamp" title="최근 업데이트">불러오는 중</span>
       <button class="icon-btn" id="themeBtn" type="button" hidden aria-label="화면 밝기 전환"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
     </div>
@@ -301,7 +326,6 @@ img{max-width:100%}
     <div class="bar-row">
       <label class="search" for="q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
         <input type="search" id="q" placeholder="회사·물질·표적 또는 문장으로 검색 (예: 한국 전임상 ADC 빅파마)" autocomplete="off" enterkeyhint="search"></label>
-      <button class="btn ai" id="aiBtn" type="button" hidden title="Claude가 문장을 해석해 비슷한 거래를 고릅니다">✦ AI</button>
       <button class="btn" id="fBtn" type="button" aria-expanded="false" aria-controls="fpanel">필터 <span class="cnt" id="fCnt"></span></button>
       <select class="sort" id="sort" aria-label="정렬">
         <option value="_score:-1" id="relOpt" hidden>관련도순</option>
@@ -400,6 +424,15 @@ img{max-width:100%}
   </footer>
 </div>
 
+<div class="shade" id="askShade" hidden></div>
+<aside class="sheet ask" id="askSheet" hidden role="dialog" aria-modal="true" aria-labelledby="askTitle">
+  <div class="sheet-head"><h2 id="askTitle"><span style="color:var(--gold)">✦</span> Claude에게 묻기</h2><button class="btn sm" id="askClose" type="button">닫기</button></div>
+  <textarea id="askQ" placeholder="예) 한국 바이오텍이 전임상 단계 TROP2 ADC를 빅파마에 기술수출한다면 비교할 만한 거래와 upfront 수준은?"></textarea>
+  <p class="hint">기술수출을 검토 중인 물질이나 상황을 문장으로 적으면, 수록된 거래 중 비슷한 것을 골라 이유와 참고할 점, 조건 범위를 알려 드립니다. 처음 물을 때 Claude 사용 허용을 묻습니다.</p>
+  <div class="askrow"><button class="btn primary" id="askGo" type="button">비슷한 거래 찾기</button><button class="btn" id="askStop" type="button" hidden>중지</button></div>
+  <div class="askstat" id="askStat" role="status" aria-live="polite"></div>
+  <div class="askres" id="askRes"></div>
+</aside>
 <div class="shade" id="sheetBg" hidden></div>
 <aside class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sTitle"></aside>
 
@@ -756,82 +789,70 @@ function similarTo(base){
   }).filter(x=>x.sc>=4).sort((a,b)=>b.sc-a.sc||b.d.date.localeCompare(a.d.date)).slice(0,20);
 }
 
-/* ---------- AI search (Claude 딜북 only; SAMPLE is set by the loader when available) ---------- */
-let SAMPLE=null, aiCtl=null, aiQuery="";
-const MOD_LIST=["저분자","항체","이중·다중항체","ADC","TPD(분해제)","펩타이드","RNA(siRNA·ASO·mRNA 등)","유전자치료·편집","세포치료","백신","방사성의약품","기타 단백질·융합단백","전달·제형 플랫폼","디스커버리·AI 플랫폼","기타·미상"];
-function specFilter(d,S,relax){
-  const inSet=(arr,v)=>!arr||!arr.length||arr.includes(v);
-  if(!inSet(S.reg,d.lr_region||"미상"))return false;
-  if(S.exclude_reg&&S.exclude_reg.includes(d.lr_region))return false;
-  if(S.licensee_reg&&S.licensee_reg.length&&!S.licensee_reg.some(r=>(LE_COUNTRY[r]||[]).includes(d.le_country)))return false;
-  if(!inSet(S.le_type,d.le_type))return false;
-  if(!relax&&!inSet(S.stage,d.stage||"미상"))return false;
-  if(!relax&&!inSet(S.modality,d.modality||"기타·미상"))return false;
-  if(S.platform==="Y"||S.platform==="N"){if(d.platform!==S.platform)return false}
-  if(S.returned&&!(d.status||"").startsWith("권리반환"))return false;
-  if(S.date_from&&d.date<S.date_from)return false;
-  if(S.date_to&&d.date>S.date_to)return false;
-  const n=v=>typeof v==="number"&&isFinite(v);
-  if(n(S.min_total)&&!(d.total>=S.min_total))return false;
-  if(n(S.max_total)&&!(d.total<=S.max_total))return false;
-  if(n(S.min_upfront)&&!(d.upfront>=S.min_upfront))return false;
-  if(n(S.max_upfront)&&!(d.upfront<=S.max_upfront))return false;
-  return true;
+/* ---------- Claude에게 묻기 (Claude 딜북 only; SAMPLE is set by the loader when available) ---------- */
+let SAMPLE=null, askCtl=null, aiCtl=null, aiQuery="", ASK_LAST=null;
+const ASK_ERR={not_granted:"Claude 사용이 허용되지 않아 이 기능을 쓸 수 없습니다.",sampling_disabled:"이 계정에서는 Claude를 쓸 수 없습니다.",rate_limited:"요청이 많아 잠시 뒤에 다시 시도해 주세요.",session_expired:"Claude에 다시 로그인해 주세요.",refused:"이 질문에는 답할 수 없다고 합니다. 문장을 바꿔 보세요.",invalid_json:"답을 읽지 못했습니다. 다시 시도해 주세요.",prompt_too_large:"질문이 너무 깁니다. 줄여서 다시 시도해 주세요."};
+const detail=d=>`[${d.id}] ${d.date} | ${d.lr_ko||d.licensor}(${d.lr_region||"-"}) → ${d.le_ko||d.licensee}(${d.le_type||"-"}) | 물질: ${d.asset||"-"} | 표적: ${d.target||"-"} | 적응증: ${d.indication||"-"} | ${d.modality||"-"}${d.platform==="Y"?"(플랫폼)":""} | 단계: ${d.stage||"미상"} | 총액 ${d.total==null?"비공개":"$"+d.total+"M"}, upfront ${d.upfront==null?"비공개":"$"+d.upfront+"M"}${d.status?` | ${d.status}`:""}`;
+const brief=d=>`[${d.id}] ${d.date.slice(0,7)} ${d.lr_ko||d.licensor}→${d.le_ko||d.licensee} | ${d.asset||"-"} | ${d.target||"-"} | ${d.modality||"-"} | ${d.stage||"-"}`;
+function askCandidates(q){
+  const P=parseNL(q);let ranked=[];
+  ALL.forEach(d=>{const fails=nlFails(d,P);if(P.noReg.size&&P.noReg.has(d.lr_region))return;
+    const r=P.groups.length?scoreDeal(d,P.groups):{sc:0,hit:0};
+    const s=(P.labels.length?(P.labels.length-fails.length)*3:0)+r.sc;if(s>0)ranked.push({d,s})});
+  ranked.sort((a,b)=>b.s-a.s||b.d.date.localeCompare(a.d.date));
+  return ranked.slice(0,45).map(x=>x.d);
 }
-const line=d=>[d.id,d.date,`${d.lr_ko||d.licensor} → ${d.le_ko||d.licensee}`,d.asset||"-",d.target||"-",d.indication||"-",d.modality||"-",d.stage||"-",d.total??"-",d.upfront??"-"].join(" | ");
-async function aiSearch(question){
-  if(!SAMPLE||!question.trim())return;
-  aiCtl?.abort(); aiCtl=new AbortController(); const signal=aiCtl.signal; aiQuery=question.trim();
-  MODE={type:"ai",loading:true,label:"Claude가 질문을 해석하는 중…",ids:[],why:{}}; apply();
-  const today=new Date().toISOString().slice(0,10);
+function askPrompt(q){
+  const cand=askCandidates(q), cset=new Set(cand.map(d=>d.id));
+  const rest=cand.length<20?ALL.filter(d=>!cset.has(d.id)).map(brief).join("\n"):"";
+  return `당신은 바이오·헬스케어 기술거래와 기술특례상장에 밝은 IB 담당자입니다. 아래는 2021년 이후 발표된 총액 $200M 이상 글로벌 신약 기술거래(라이선스·옵션·공동개발·플랫폼) 데이터베이스입니다. 금액은 USD 백만, '총액'은 발표된 최대치(마일스톤 포함)입니다.
+
+사용자 질문:
+"""${q}"""
+
+할 일: 질문에 가장 잘 맞거나 가장 비슷한 거래를 관련도 순으로 3~10건 고르세요. 표적·적응증·모달리티·계약 시점 단계·원천과 도입사의 성격·계약 구조가 비슷한 거래를 우선합니다. 목록에 있는 거래만 고르고, 없는 거래나 사실을 만들지 마세요. 고른 거래의 금액으로 upfront와 총액의 범위를 요약하세요(비공개는 제외).
+
+반드시 아래 JSON 하나로만 답하세요.
+{"summary":"질문의 핵심을 한두 문장으로","benchmark":"고른 거래 기준 upfront·총액 범위와 특징 한두 문장","items":[{"id":"거래 ID(예: d202409-003)","why":"왜 비슷한지 한 문장","takeaway":"이 거래에서 참고할 점(조건 구조, 단계 대비 금액 수준 등) 한 문장"}]}
+문체는 '~함', '~필요'처럼 짧은 개조식으로 씁니다.
+
+[상세 후보 거래]
+${cand.map(detail).join("\n")||"(없음)"}
+${rest?`\n[그 밖의 거래 목록(요약)]\n${rest}`:""}`;
+}
+function miniCard(d){
+  return `<div class="mini" data-open="${esc(d.id)}" tabindex="0">
+    <div class="meta"><span class="num">${esc(d.date)}</span>${stTag(d)}<span style="margin-left:auto">${star(d)}</span></div>
+    <div class="who">${party(d,"lr",true)}${party(d,"le",true)}</div>
+    <div class="an">${esc(d.asset||"물질 비공개")}</div>${drugLine(d)}
+    <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span></div>
+    <div class="money"><span><span class="lab">총액</span><b>${d.total==null?"–":"$"+fmtM(d.total)+(d.total>=10000?"":"M")}</b></span><span class="${d.upfront==null?"":"up"}"><span class="lab">Upfront</span><b>${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront<10?1:0)+"M"}</b></span></div>
+  </div>`;
+}
+function openAsk(){$("askSheet").hidden=false;$("askShade").hidden=false;pushLayer("ask");setTimeout(()=>$("askQ").focus(),200)}
+function closeAsk(fromPop){if($("askSheet").hidden)return;$("askSheet").hidden=true;$("askShade").hidden=true;if(fromPop!==true)popLayer("ask")}
+async function runAsk(){
+  const q=$("askQ").value.trim();if(!q){$("askQ").focus();return}
+  if(!SAMPLE)return;
+  askCtl?.abort();askCtl=new AbortController();
+  $("askGo").disabled=true;$("askStop").hidden=false;$("askRes").innerHTML="";$("askStat").innerHTML='<span class="dots">비슷한 거래를 고르는 중입니다</span> <span class="hint">(보통 20~60초)</span>';
   try{
-    const spec=await SAMPLE.json(`너는 신약 기술거래 데이터베이스의 검색 조건 해석기다. 사용자의 질문을 아래 JSON 하나로만 바꿔라. 질문에 없는 조건은 넣지 말고 빈 배열이나 null로 둔다.
-- reg: 기술을 내준 회사(라이선서)의 지역 배열. 값: 한국, 미국, 중국, 유럽, 일본, 기타
-- exclude_reg: 제외할 라이선서 지역 배열
-- licensee_reg: 기술을 도입한 회사의 지역 배열(같은 값)
-- le_type: 도입사 유형 배열. 값: 글로벌 빅파마(Top20), 기타 대형·중견 제약, 바이오텍·기타, 중국 제약·바이오, NewCo·VC 설립사
-- stage: 계약 시점 개발 단계 배열. 값: Discovery, Preclinical, Phase 1, Phase 2, Phase 3, 허가신청·승인
-- modality: 배열. 값: ${MOD_LIST.join(", ")}
-- platform: "Y"(플랫폼·디스커버리 계약), "N"(개별 자산), null
-- returned: 권리반환·계약종료된 거래만 원하면 true, 아니면 false
-- date_from, date_to: "YYYY-MM-DD" 또는 null (오늘은 ${today})
-- min_total, max_total, min_upfront, max_upfront: USD 백만 단위 숫자 또는 null (원화는 1달러=1,400원으로 환산, 1억 달러=100)
-- keywords: 표적·적응증·물질명·회사명 검색어 배열. 데이터는 영어로 저장돼 있으므로 한국어 개념은 영어 동의어로 펼친다(예: 비만 → "obesity","GLP-1","amylin"; 알츠하이머 → "Alzheimer","amyloid","tau"). 회사명은 영문과 한글을 모두 넣는다. 최대 12개.
-- summary: 질문을 어떻게 해석했는지 한국어 한 줄
-JSON 외의 글은 쓰지 마라. 예: {"reg":["한국"],"exclude_reg":[],"licensee_reg":[],"le_type":[],"stage":["Preclinical"],"modality":["ADC"],"platform":null,"returned":false,"date_from":null,"date_to":null,"min_total":null,"max_total":null,"min_upfront":null,"max_upfront":null,"keywords":["HER2"],"summary":"한국 원천 전임상 HER2 ADC"}
-
-질문: ${question}`,{modelTier:"quick",signal});
-    const S=spec&&typeof spec==="object"?spec:{};
-    const kws=(Array.isArray(S.keywords)?S.keywords:[]).map(k=>String(k).toLowerCase().trim()).filter(k=>k.length>=2).slice(0,12);
-    const local=parseNL(question);
-    const groups=[...kws.map(k=>({label:k,alts:[k]})),...local.groups];
-    const rank=list=>list.map(d=>{const r=groups.length?scoreDeal(d,groups):{sc:0,hit:0};return{d,sc:r.sc}}).sort((a,b)=>b.sc-a.sc||b.d.date.localeCompare(a.d.date));
-    let pool=rank(ALL.filter(d=>specFilter(d,S,false)));
-    if(groups.length&&pool.some(x=>x.sc>0))pool=pool.filter(x=>x.sc>0).concat(pool.filter(x=>x.sc===0).slice(0,10));
-    if(pool.length<5)pool=pool.concat(rank(ALL.filter(d=>specFilter(d,S,true)&&!pool.some(p=>p.d===d))).filter(x=>x.sc>0));
-    if(pool.length<8){const S2={...S,reg:[],le_type:[],licensee_reg:[]};pool=pool.concat(rank(ALL.filter(d=>specFilter(d,S2,false)&&!pool.some(p=>p.d===d))).filter(x=>x.sc>0||!groups.length).slice(0,25))}
-    if(!pool.length&&groups.length)pool=rank(ALL).filter(x=>x.sc>0);
-    pool=pool.slice(0,45);
-    if(!pool.length){MODE={type:"ai",label:(S.summary?`Claude 해석: ${S.summary} · `:"")+"맞는 거래를 찾지 못했습니다",ids:[],why:{}};apply();return}
-    MODE={type:"ai",loading:true,label:`후보 ${pool.length}건 중에서 Claude가 고르는 중…`,ids:pool.map(x=>x.d.id),why:{}};apply();
-    const picked=await SAMPLE.json(`아래는 신약 기술거래 후보 목록이다. 질문에 가장 잘 맞거나 가장 비슷한 거래를 최대 15건 골라 관련도 순으로 정렬하라. 목록에 있는 id만 쓰고 질문과 맞지 않는 거래는 빼라. 각 거래에는 왜 맞는지 한국어 40자 이내 이유를 붙여라(예: "같은 HER2 표적, 전임상 단계, 빅파마 도입").
-JSON만 출력: {"summary":"질문 해석과 선정 기준 한국어 한 줄","items":[{"id":"...","why":"..."}]}
-
-질문: ${question}
-
-후보 (id | 발표일 | 기술수출 → 기술도입 | 물질 | 표적 | 적응증 | 모달리티 | 단계 | 총액 $M | upfront $M):
-${pool.map(x=>line(x.d)).join("\n")}`,{modelTier:"default",effort:"low",signal});
-    const items=(picked&&Array.isArray(picked.items)?picked.items:[]).filter(it=>it&&pool.some(x=>x.d.id===it.id));
-    const why={};items.forEach(it=>why[it.id]=String(it.why||"").slice(0,80));
-    MODE={type:"ai",label:`Claude 해석: ${String(picked?.summary||S.summary||question).slice(0,140)}`,ids:items.map(it=>it.id),why};
-    if(!items.length)MODE.label+=" · 맞는 거래를 찾지 못했습니다";
-    apply();
+    const out=await SAMPLE.json(askPrompt(q),{signal:askCtl.signal});
+    const byId=new Map(ALL.map(d=>[d.id,d]));
+    const items=(Array.isArray(out?.items)?out.items:[]).filter(it=>it&&byId.has(String(it.id))).slice(0,12);
+    if(!items.length){$("askStat").textContent="비슷한 거래를 찾지 못했습니다. 표적·적응증·단계를 넣어 조금 더 구체적으로 적어 보세요.";return}
+    ASK_LAST={q,summary:String(out.summary||""),ids:items.map(it=>String(it.id)),why:Object.fromEntries(items.map(it=>[String(it.id),String(it.why||"")]))};
+    $("askStat").textContent=`비슷한 거래 ${items.length}건`;
+    $("askRes").innerHTML=(out.summary?`<div class="asksum">${esc(out.summary)}</div>`:"")+(out.benchmark?`<div class="askbench"><span class="label">조건 범위</span>${esc(out.benchmark)}</div>`:"")+
+      `<div class="askacts"><button class="btn sm" id="askList" type="button">목록에서 보기</button><button class="btn sm" id="askStarAll" type="button" style="color:var(--gold);border-color:var(--gold)">☆ 모두 비교 거래에 담기</button></div>`+
+      items.map((it,i)=>{const d=byId.get(String(it.id));return `<div class="askitem"><div class="askwhy"><b>${i+1}</b><span>${esc(it.why||"")}${it.takeaway?`<span class="tk">${esc(it.takeaway)}</span>`:""}</span></div>${miniCard(d)}</div>`}).join("");
+    $("askList").onclick=()=>{MODE={type:"ai",label:`Claude가 고른 거래: ${ASK_LAST.summary||ASK_LAST.q}`.slice(0,160),ids:ASK_LAST.ids,why:ASK_LAST.why};closeAsk();apply();document.querySelector(".summary").scrollIntoView({behavior:"smooth",block:"start"})};
+    $("askStarAll").onclick=async()=>{ASK_LAST.ids.forEach(id=>COMPS.add(id));document.querySelectorAll("#askRes [data-star]").forEach(b=>b.setAttribute("aria-pressed","true"));$("askStarAll").textContent="★ 담았습니다";drawComps();try{await compsStore.save([...COMPS])}catch(e){}};
   }catch(e){
-    if(e&&e.code==="cancelled"){return}
-    if(e&&["not_granted","sampling_disabled","not_declared","capability_disabled","capability_removed"].includes(e.code)){SAMPLE=null;$("aiBtn").hidden=true;MODE=null;apply();return}
-    const msg=e&&e.code==="rate_limited"?"요청이 많아 잠시 후 다시 시도해 주세요.":e&&e.code==="session_expired"?"claude.ai에 다시 로그인해 주세요.":"Claude 응답을 받지 못했습니다. 다시 시도해 주세요.";
-    MODE={type:"ai",label:msg,ids:[],why:{},error:true};apply();
-  }
+    if(e?.code==="cancelled"){$("askStat").textContent="중지했습니다."}
+    else{$("askStat").textContent=ASK_ERR[e?.code]||"답을 받지 못했습니다. 잠시 뒤 다시 시도해 주세요.";
+      if(["not_granted","sampling_disabled","not_declared","capability_disabled","capability_removed"].includes(e?.code)){SAMPLE=null;$("askBtn").hidden=true}}
+  }finally{$("askGo").disabled=false;$("askStop").hidden=true}
 }
 
 /* ---------- render ---------- */
@@ -974,13 +995,13 @@ function closePanel(fromPop){if($("fpanel").hidden)return;const sheetMode=!$("fS
 let useHistory=false, skipPop=0;
 function pushLayer(name){if(!useHistory)return;try{history.pushState({layer:name},"")}catch(e){}}
 function popLayer(name){if(!useHistory)return;try{if(history.state&&history.state.layer===name){skipPop++;history.back()}}catch(e){}}
-addEventListener("popstate",()=>{if(skipPop){skipPop--;return}if(!$("sheet").hidden)closeSheet(true);else if(!$("fpanel").hidden)closePanel(true)});
+addEventListener("popstate",()=>{if(skipPop){skipPop--;return}if(!$("sheet").hidden)closeSheet(true);else if(!$("askSheet").hidden)closeAsk(true);else if(!$("fpanel").hidden)closePanel(true)});
 function updateApplyLabel(){$("fApply").textContent=`${fmt(VIEW.length)}건 보기`}
 
 /* ---------- events ---------- */
 $("sheetBg").onclick=()=>closeSheet();
 $("fShade").onclick=()=>closePanel();
-document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;if(!$("sheet").hidden)closeSheet();else if(!$("fpanel").hidden)closePanel()});
+document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;if(!$("sheet").hidden)closeSheet();else if(!$("askSheet").hidden)closeAsk();else if(!$("fpanel").hidden)closePanel()});
 function onListClick(e){
   const sb=e.target.closest("[data-star]");if(sb){e.stopPropagation();toggleStar(sb.dataset.star);return}
   if(e.target.closest("a"))return;
@@ -992,8 +1013,10 @@ document.querySelectorAll(".deals th[data-k]").forEach(th=>th.addEventListener("
   setSort(k,sortK===k?-sortDir:((k==="licensor"||k==="asset"||k==="modality"||k==="stageOrd")?1:-1))}));
 $("sort").addEventListener("change",e=>{const [k,dir]=e.target.value.split(":");sortAuto=k==="_score";setSort(k,+dir)});
 $("more").onclick=()=>{shown+=60;drawList()};
-let qt;$("q").addEventListener("input",e=>{clearTimeout(qt);qt=setTimeout(()=>{if(MODE&&MODE.type==="ai"&&e.target.value.trim()===aiQuery)return;F.q=e.target.value;sortAuto=true;if(MODE){aiCtl?.abort();MODE=null}apply()},220)});
-$("aiBtn").onclick=()=>{clearTimeout(qt);const v=$("q").value.trim();if(!v){$("q").focus();$("q").placeholder="질문을 문장으로 입력한 뒤 ✦ AI를 누르세요";return}$("q").blur();F.q=v;aiSearch(v);document.querySelector(".summary").scrollIntoView({behavior:"smooth",block:"center"})};
+let qt;$("q").addEventListener("input",e=>{clearTimeout(qt);qt=setTimeout(()=>{F.q=e.target.value;sortAuto=true;if(MODE){aiCtl?.abort();MODE=null}apply()},220)});
+$("askBtn").onclick=openAsk;$("askClose").onclick=()=>closeAsk();$("askShade").onclick=()=>closeAsk();$("askGo").onclick=runAsk;$("askStop").onclick=()=>askCtl?.abort();
+$("askQ").addEventListener("keydown",e=>{if(e.key==="Enter"&&(e.metaKey||e.ctrlKey)){e.preventDefault();runAsk()}});
+$("askRes").addEventListener("click",e=>{const sb=e.target.closest("[data-star]");if(sb){e.stopPropagation();toggleStar(sb.dataset.star);return}const m=e.target.closest("[data-open]");if(m){const d=ALL.find(x=>x.id===m.dataset.open);if(d)openSheet(d)}});
 $("q").addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.keyCode!==13)return;e.preventDefault();clearTimeout(qt);F.q=e.target.value;apply();e.target.blur();
   if(isPhone()){const top=document.querySelector(".summary").getBoundingClientRect().top+scrollY-$("q").closest(".bar").offsetHeight-8;if(scrollY>top)scrollTo({top,behavior:"smooth"})}});
 $("fBtn").onclick=()=>$("fpanel").hidden?openPanel():closePanel();
