@@ -177,11 +177,11 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       <button class="ib" id="b-theme" type="button" aria-label="화면 테마" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
       <button class="ib" id="b-info" type="button" aria-label="이 사례집에 대해"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></button>
     </div>
-    <div class="sbox">
+    <form class="sbox" id="qform" role="search" action="#" autocomplete="off">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" class="search" type="search" inputmode="search" autocomplete="off" placeholder="가지급금, 임상 실패, 최대주주 변경…" aria-label="사례 검색">
+      <input id="q" class="search" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="가지급금, 임상 실패, 최대주주 변경…" aria-label="사례 검색">
       <button class="sclear" id="qx" type="button" aria-label="검색어 지우기" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-    </div>
+    </form>
     <div class="ctl">
       <button class="btn" id="b-filter" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>필터<span class="badge" id="fcount" hidden>0</span></button>
       <button class="btn star" id="b-star" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>내 사례<span class="badge" id="scount" hidden>0</span></button>
@@ -399,7 +399,10 @@ $('list').addEventListener('keydown',ev=>{if((ev.key==='Enter'||ev.key===' ')&&e
 
 // search
 let qt;$('q').addEventListener('input',e=>{$('qx').hidden=!e.target.value;clearTimeout(qt);qt=setTimeout(()=>{st.q=e.target.value.trim().toLowerCase();render(true);},120);});
-$('q').addEventListener('keydown',e=>{if(e.key==='Enter')e.target.blur();});
+function runSearch(){clearTimeout(qt);const q=$('q');st.q=q.value.trim().toLowerCase();q.blur();render(true);window.scrollTo({top:0});
+  if(st.q){const n=st.mode==='all'?DATA.filter(g=>matchG(g)).length:ROWS.filter(r=>r.e.y===st.edYear&&matchG(r.g,r.e)).length;toast(n?`'${q.value.trim()}' ${n}건 찾음`:`'${q.value.trim()}' 결과 없음`);}}
+$('qform').addEventListener('submit',e=>{e.preventDefault();runSearch();});
+$('q').addEventListener('keydown',e=>{if((e.key==='Enter'||e.keyCode===13)&&!e.isComposing){e.preventDefault();runSearch();}});
 $('qx').onclick=()=>{$('q').value='';$('qx').hidden=true;st.q='';render(true);$('q').focus();};
 // mode + star
 $('m-all').onclick=()=>{st.mode='all';save();renderChips();renderSheet();render(true);};
