@@ -284,7 +284,7 @@ img{max-width:100%}
   <section class="bar" aria-label="검색과 필터">
     <div class="bar-row">
       <label class="search" for="q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-        <input type="search" id="q" placeholder="회사(한글·영문), 물질, 타깃, 적응증" autocomplete="off"></label>
+        <input type="search" id="q" placeholder="회사(한글·영문), 물질, 타깃, 적응증" autocomplete="off" enterkeyhint="search"></label>
       <button class="btn" id="fBtn" type="button" aria-expanded="false" aria-controls="fpanel">필터 <span class="cnt" id="fCnt"></span></button>
       <select class="sort" id="sort" aria-label="정렬">
         <option value="date:-1">최신순</option>
@@ -663,6 +663,8 @@ document.querySelectorAll(".deals th[data-k]").forEach(th=>th.addEventListener("
 $("sort").addEventListener("change",e=>{const [k,dir]=e.target.value.split(":");setSort(k,+dir)});
 $("more").onclick=()=>{shown+=60;drawList()};
 let qt;$("q").addEventListener("input",e=>{clearTimeout(qt);qt=setTimeout(()=>{F.q=e.target.value;apply()},180)});
+$("q").addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.keyCode!==13)return;e.preventDefault();clearTimeout(qt);F.q=e.target.value;apply();e.target.blur();
+  if(isPhone()){const top=document.querySelector(".summary").getBoundingClientRect().top+scrollY-$("q").closest(".bar").offsetHeight-8;if(scrollY>top)scrollTo({top,behavior:"smooth"})}});
 $("fBtn").onclick=()=>$("fpanel").hidden?openPanel():closePanel();
 $("fClose").onclick=()=>closePanel();$("fApply").onclick=()=>closePanel();
 $("fReset").onclick=()=>{const q=F.q;resetFilters();F.q=q;$("q").value=q;apply();updateApplyLabel()};
