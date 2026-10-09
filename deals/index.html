@@ -11,6 +11,7 @@
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
@@ -103,6 +104,7 @@ table.deals{width:100%;border-collapse:collapse;min-width:980px}
 .parties .lr{font-weight:600}
 .parties .le{color:var(--muted)}
 .parties .le::before{content:"→ ";color:var(--accent)}
+.parties .ko{font-size:12px;font-weight:400;color:var(--muted);margin-left:6px}
 .asset{max-width:260px;color:var(--ink)}
 .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:10px;background:var(--soft);color:var(--ink);white-space:nowrap}
 .tag.plat{background:var(--accent-soft);color:var(--accent)}
@@ -182,7 +184,7 @@ img{max-width:100%}
   </header>
 
   <section class="filters" aria-label="필터">
-    <div class="f"><label class="label" for="q">검색</label><input type="search" id="q" placeholder="회사, 물질, 타깃, 적응증"></div>
+    <div class="f"><label class="label" for="q">검색</label><input type="search" id="q" placeholder="회사(한글·영문), 물질, 타깃, 적응증"></div>
     <div class="f"><label class="label" for="yFrom">기간</label>
       <div style="display:flex;gap:6px"><select id="yFrom"></select><select id="yTo"></select></div></div>
     <div class="f"><label class="label" for="fMod">모달리티</label><select id="fMod"><option value="">전체</option></select></div>
@@ -271,7 +273,8 @@ function normalize(d){
   r.year=+String(d.date).slice(0,4);
   r.stageOrd=STAGES.indexOf(d.stage||"미상"); if(r.stageOrd<0)r.stageOrd=STAGES.length;
   r.ratio=(d.total>0&&d.upfront!=null)?d.upfront/d.total:null;
-  r.hay=[d.licensor,d.licensee,d.asset,d.target,d.indication,d.area,d.modality_detail].join(" ").toLowerCase();
+  r.hay=[d.licensor,d.lr_ko,d.licensee,d.le_ko,d.kw,d.asset,d.target,d.indication,d.area,d.modality_detail].join(" ").toLowerCase();
+  r.hayNS=r.hay.replace(/\s+/g,"");
   return r;
 }
 
@@ -289,11 +292,11 @@ function initFilters(){
 }
 
 function apply(){
-  const q=$("q").value.trim().toLowerCase(), yf=+$("yFrom").value, yt=+$("yTo").value;
+  const q=$("q").value.trim().toLowerCase(), qNS=q.replace(/\s+/g,""), yf=+$("yFrom").value, yt=+$("yTo").value;
   const mod=$("fMod").value, st=$("fStage").value, reg=$("fReg").value, le=$("fLe").value, kind=$("fKind").value, stat=$("fStatus").value, onlyNew=$("fNew").checked;
   VIEW=ALL.filter(d=>{
     if(d.year<Math.min(yf,yt)||d.year>Math.max(yf,yt))return false;
-    if(q&&!d.hay.includes(q))return false;
+    if(q&&!d.hay.includes(q)&&!d.hayNS.includes(qNS))return false;
     if(mod&&d.modality!==mod)return false;
     if(st&&(d.stage||"미상")!==st)return false;
     if(reg&&(d.lr_region||"미상")!==reg)return false;
@@ -364,7 +367,7 @@ function drawRows(){
   if(!VIEW.length){tb.innerHTML=`<tr><td colspan="8" class="empty">조건에 맞는 거래가 없습니다. 필터를 넓혀 보세요.</td></tr>`;$("moreWrap").hidden=true;return}
   tb.innerHTML=VIEW.slice(0,shown).map((d,i)=>`<tr data-i="${i}" tabindex="0">
     <td class="n" style="text-align:left;white-space:nowrap">${esc(d.date)}${d.added===latestTag&&latestTag?'<span class="new">NEW</span>':""}</td>
-    <td><div class="parties"><span class="lr">${esc(d.licensor)}</span><span class="le">${esc(d.licensee)}</span></div></td>
+    <td><div class="parties"><span class="lr">${esc(d.licensor)}${d.lr_ko?`<small class="ko">${esc(d.lr_ko)}</small>`:""}</span><span class="le">${esc(d.licensee)}${d.le_ko?`<small class="ko">${esc(d.le_ko)}</small>`:""}</span></div></td>
     <td><div class="asset">${esc(d.asset||"–")}</div>${d.status?`<span class="st ${statusClass(d.status)}">${esc(d.status)}</span>`:""}</td>
     <td><span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span></td>
     <td style="white-space:nowrap">${esc(d.stage||"미상")}</td>
@@ -379,7 +382,7 @@ function link(u){if(!u)return"";return u.split(" | ").filter(Boolean).map(x=>{le
 let lastFocus=null;
 function openSheet(d){
   lastFocus=document.activeElement;
-  const kv=[["라이선서",`${esc(d.licensor)} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["라이선시",`${esc(d.licensee)} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
+  const kv=[["라이선서",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["라이선시",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
     ["물질·플랫폼",esc(d.asset)],["모달리티",`${esc(d.modality)}${d.modality_detail&&d.modality_detail!==d.modality?` <span class="hint">· ${esc(d.modality_detail)}</span>`:""}`],["타깃·MoA",esc(d.target)],["적응증",esc(d.indication)],["치료영역",esc(d.area)],
     ["계약시점 단계",esc(d.stage)],["계약 형태",`${esc(d.deal_type)}${d.platform==="Y"?' <span class="tag plat">플랫폼</span>':""}`],["권리지역",esc(d.territory)],["로열티",esc(d.royalty)],["통화·환산",esc(d.currency_note)],
     ["사후 경과",d.status?`<span class="st ${statusClass(d.status)}">${esc(d.status)}</span>`:""],["데이터 상태",esc(d.qa)],["출처",link(d.src1)],["추가 출처",link(d.src2)],["수록",esc(d.added)]].filter(x=>x[1]);
@@ -406,7 +409,7 @@ $("reset").onclick=()=>{$("q").value="";["fMod","fStage","fReg","fLe","fKind","f
   const ys=[...$("yFrom").options].map(o=>o.value);$("yFrom").value=ys[0];$("yTo").value=ys[ys.length-1];apply()};
 
 function toCSV(){
-  const cols=[["date","발표일"],["licensor","라이선서"],["lr_country","라이선서 국가"],["licensee","라이선시"],["le_country","라이선시 국가"],["le_type","도입사 유형"],["asset","물질·플랫폼"],["modality","모달리티"],["modality_detail","모달리티 상세"],["platform","플랫폼 계약"],["target","타깃·MoA"],["indication","적응증"],["stage","단계"],["deal_type","계약 형태"],["territory","권리지역"],["total","총액($M)"],["upfront","Upfront($M)"],["near_term","Near-term($M)"],["equity","지분투자($M)"],["royalty","로열티"],["currency_note","통화 메모"],["status","사후 경과"],["qa","데이터 상태"],["src1","출처1"],["src2","출처2"],["notes","메모"],["added","수록"]];
+  const cols=[["date","발표일"],["licensor","라이선서"],["lr_ko","라이선서(한글)"],["lr_country","라이선서 국가"],["licensee","라이선시"],["le_ko","라이선시(한글)"],["le_country","라이선시 국가"],["le_type","도입사 유형"],["asset","물질·플랫폼"],["modality","모달리티"],["modality_detail","모달리티 상세"],["platform","플랫폼 계약"],["target","타깃·MoA"],["indication","적응증"],["stage","단계"],["deal_type","계약 형태"],["territory","권리지역"],["total","총액($M)"],["upfront","Upfront($M)"],["near_term","Near-term($M)"],["equity","지분투자($M)"],["royalty","로열티"],["currency_note","통화 메모"],["status","사후 경과"],["qa","데이터 상태"],["src1","출처1"],["src2","출처2"],["notes","메모"],["added","수록"]];
   const q=v=>{if(v==null)return"";const s=String(v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
   return "﻿"+[cols.map(c=>c[1]).join(","),...VIEW.map(d=>cols.map(c=>q(d[c[0]])).join(","))].join("\n");
 }
