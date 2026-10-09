@@ -1,5 +1,5 @@
 // 신약 기술거래 딜북 - 오프라인 캐시
-const VERSION = 'dealbook-2026-10-09-ko';
+const VERSION = 'dealbook-2026-10-09-ko2';
 const CORE = ['./', './index.html', './manifest.webmanifest', './data/deals.json', './data/runs.json', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
