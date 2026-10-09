@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" id="themeColor" content="#0A1017">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("dealbook-theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<meta name="theme-color" content="#0A1017" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F3F5F8" media="(prefers-color-scheme: light)">
 <title>신약 기술거래 딜북</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png">
@@ -155,10 +155,12 @@ table.deals{width:100%;border-collapse:collapse;min-width:1000px}
 .deals td.up{color:var(--gold)}
 .deals tbody tr{cursor:pointer}
 .deals tbody tr:hover{background:var(--raised)}
-.parties{display:flex;flex-direction:column;gap:2px;min-width:220px}
-.lr{font-weight:600}
-.le{color:var(--muted)}
-.le::before{content:"→ ";color:var(--accent)}
+.parties{display:flex;flex-direction:column;gap:4px;min-width:230px}
+.party{display:flex;align-items:baseline;gap:7px;min-width:0}
+.party .nm{font-weight:600;min-width:0}
+.role{flex:0 0 auto;font-size:10px;font-weight:600;letter-spacing:.04em;line-height:16px;padding:0 5px;border-radius:4px;border:1px solid var(--rule);color:var(--muted);transform:translateY(-1px)}
+.party.le .role{border-color:transparent;background:var(--accent);color:var(--accent-ink)}
+.party.le .nm{color:var(--accent)}
 .ko{font-size:12px;font-weight:400;color:var(--faint);margin-left:6px}
 .asset{max-width:260px}
 .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;background:var(--soft);color:var(--muted);white-space:nowrap}
@@ -178,8 +180,16 @@ table.deals{width:100%;border-collapse:collapse;min-width:1000px}
 .card:last-child{border-bottom:0}
 .card:active{background:var(--raised)}
 .card .meta{font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
-.card .who{grid-column:1 / -1;display:grid;gap:2px;font-size:15px}
+.card .who{grid-column:1 / -1;display:grid;gap:4px;font-size:15px}
 .card .who .ko{font-size:11.5px}
+.card .drug{grid-column:1 / -1;display:grid;gap:2px;padding:9px 11px;background:var(--raised);border:1px solid var(--rule);border-radius:8px;margin-top:3px}
+.card .drug .an{font-weight:600;font-size:13.5px;overflow-wrap:anywhere}
+.card .drug .ti{font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .drug .ti b{font-weight:500;color:var(--faint);font-size:11px;margin-right:4px}
+.card .tags{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.stage{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);white-space:nowrap}
+.stage.none{border-color:var(--rule);color:var(--faint);font-weight:500}
+.asset-sub{font-size:12px;color:var(--muted);margin-top:2px;max-width:280px}
 .card .what{grid-column:1 / -1;font-size:13px;color:var(--muted)}
 .card .money{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;font-size:13px;margin-top:2px}
 .card .money b{font-family:var(--f-mono);font-size:16px;font-weight:500}
@@ -201,7 +211,7 @@ table.deals{width:100%;border-collapse:collapse;min-width:1000px}
 .terms div{padding:11px 13px;background:var(--raised);display:grid;gap:2px}
 .terms .v{font-family:var(--f-mono);font-size:17px}
 .terms .v.gold{color:var(--gold)}
-dl.kv{display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px 14px;margin:0}
+dl.kv{display:grid;grid-template-columns:130px minmax(0,1fr);gap:8px 14px;margin:0}
 dl.kv dt{color:var(--muted);font-size:12px;padding-top:2px}
 dl.kv dd{margin:0;overflow-wrap:anywhere}
 .notes{font-size:12.5px;color:var(--muted);background:var(--raised);border:1px solid var(--rule);padding:11px 13px;border-radius:8px;overflow-wrap:anywhere}
@@ -346,8 +356,8 @@ img{max-width:100%}
         <thead><tr>
           <th class="nosort" aria-label="비교 거래"></th>
           <th data-k="date" aria-sort="descending"><span>발표일</span></th>
-          <th data-k="licensor" aria-sort="none"><span>라이선서 → 라이선시</span></th>
-          <th data-k="asset" aria-sort="none"><span>물질·플랫폼</span></th>
+          <th data-k="licensor" aria-sort="none"><span>기술수출 → 기술도입</span></th>
+          <th data-k="asset" aria-sort="none"><span>물질 · 표적 · 적응증</span></th>
           <th data-k="modality" aria-sort="none"><span>모달리티</span></th>
           <th data-k="stageOrd" aria-sort="none"><span>단계</span></th>
           <th class="n" data-k="total" aria-sort="none"><span>총액</span></th>
@@ -551,6 +561,13 @@ function drawBench(){
 const star=d=>`<button type="button" class="starbtn" data-star="${esc(d.id)}" aria-pressed="${COMPS.has(d.id)}" aria-label="${COMPS.has(d.id)?"비교 거래에서 빼기":"비교 거래에 담기"}">★</button>`;
 const isNew=d=>latestTag&&d.added===latestTag?'<span class="new">NEW</span>':"";
 const stTag=d=>d.status?`<span class="st ${statusClass(d.status)}">${esc(d.status)}</span>`:"";
+function party(d,side,koFirst){
+  const en=side==="lr"?d.licensor:d.licensee, ko=side==="lr"?d.lr_ko:d.le_ko;
+  const main=koFirst?(ko||en):en, sub=koFirst?(ko?en:""):(ko||"");
+  return `<span class="party ${side}"><span class="role">${side==="lr"?"수출":"도입"}</span><span class="nm">${esc(main)}${sub?`<small class="ko">${esc(sub)}</small>`:""}</span></span>`;
+}
+const drugLine=d=>{const t=[];if(d.target)t.push(`<b>표적</b>${esc(d.target)}`);if(d.indication)t.push(`<b>적응증</b>${esc(d.indication)}`);return t.length?`<span class="ti">${t.join(" &nbsp;")}</span>`:""};
+const stageTag=d=>d.stage&&d.stage!=="미상"?`<span class="stage">${esc(d.stage)}</span>`:`<span class="stage none">단계 미상</span>`;
 const qaTag=d=>d.qa&&d.qa!=="출처 확인"?'<span class="qa">확인 필요</span>':"";
 function drawList(){
   if(!ALL.length)return;
@@ -560,20 +577,21 @@ function drawList(){
     $("rows").innerHTML=`<tr><td colspan="9" class="empty">${msg}</td></tr>`;$("cards").innerHTML=`<div class="empty">${msg}</div>`;$("moreWrap").hidden=true;return}
   if(isPhone()){
     $("cards").innerHTML=list.map((d,i)=>`<article class="card" data-i="${i}" tabindex="0">
-      <div class="meta"><span class="num">${esc(d.date)}</span>${isNew(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span>${d.stage&&d.stage!=="미상"?`<span>${esc(d.stage)}</span>`:""}</div>
+      <div class="meta"><span class="num">${esc(d.date)}</span>${isNew(d)}${stTag(d)}</div>
       <div>${star(d)}</div>
-      <div class="who"><span class="lr">${esc(d.lr_ko||d.licensor)}${d.lr_ko?`<small class="ko">${esc(d.licensor)}</small>`:""}</span><span class="le">${esc(d.le_ko||d.licensee)}${d.le_ko?`<small class="ko">${esc(d.licensee)}</small>`:""}</span></div>
-      <div class="what">${esc(d.asset||"–")}</div>
-      <div class="money"><span><span class="lab">총액</span><b>${d.total==null?"–":"$"+fmtM(d.total)+(d.total>=10000?"":"M")}</b></span><span class="up"><span class="lab">Upfront</span><b>${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront<10?1:0)+"M"}</b>${d.ratio==null?"":` <span class="hint">(${fmt(d.ratio*100,1)}%)</span>`}</span>${stTag(d)}${qaTag(d)}</div>
+      <div class="who">${party(d,"lr",true)}${party(d,"le",true)}</div>
+      <div class="drug"><span class="an">${esc(d.asset||"물질 비공개")}</span>${drugLine(d)}</div>
+      <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span>${d.platform==="Y"?'<span class="tag plat">플랫폼</span>':""}</div>
+      <div class="money"><span><span class="lab">총액</span><b>${d.total==null?"–":"$"+fmtM(d.total)+(d.total>=10000?"":"M")}</b></span><span class="up"><span class="lab">Upfront</span><b>${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront<10?1:0)+"M"}</b>${d.ratio==null?"":` <span class="hint">(${fmt(d.ratio*100,1)}%)</span>`}</span>${qaTag(d)}</div>
     </article>`).join("");
   }else{
     $("rows").innerHTML=list.map((d,i)=>`<tr data-i="${i}" tabindex="0">
       <td style="width:34px">${star(d)}</td>
       <td class="num" style="white-space:nowrap">${esc(d.date)}${isNew(d)}</td>
-      <td><div class="parties"><span class="lr">${esc(d.licensor)}${d.lr_ko?`<small class="ko">${esc(d.lr_ko)}</small>`:""}</span><span class="le">${esc(d.licensee)}${d.le_ko?`<small class="ko">${esc(d.le_ko)}</small>`:""}</span></div></td>
-      <td><div class="asset">${esc(d.asset||"–")}</div>${d.status?`<div style="margin-top:3px">${stTag(d)}</div>`:""}</td>
+      <td><div class="parties">${party(d,"lr",false)}${party(d,"le",false)}</div></td>
+      <td><div class="asset">${esc(d.asset||"–")}</div><div class="asset-sub">${esc([d.target,d.indication].filter(Boolean).join(" · "))}</div>${d.status?`<div style="margin-top:4px">${stTag(d)}</div>`:""}</td>
       <td><span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span></td>
-      <td style="white-space:nowrap">${esc(d.stage||"미상")}</td>
+      <td>${stageTag(d)}</td>
       <td class="n">${fmtM(d.total)}</td>
       <td class="n${d.upfront==null?"":" up"}">${d.upfront==null?"–":fmt(d.upfront,d.upfront<10?1:0)}</td>
       <td class="n">${d.ratio==null?"–":fmt(d.ratio*100,1)+"%"}${qaTag(d)?`<div>${qaTag(d)}</div>`:""}</td></tr>`).join("");
@@ -607,7 +625,7 @@ function link(u){if(!u)return"";return u.split(" | ").filter(Boolean).map(x=>{le
 let lastFocus=null;
 function openSheet(d){
   lastFocus=document.activeElement;
-  const kv=[["라이선서",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["라이선시",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
+  const kv=[["기술수출(라이선서)",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["기술도입(라이선시)",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
     ["물질·플랫폼",esc(d.asset)],["모달리티",`${esc(d.modality)}${d.modality_detail&&d.modality_detail!==d.modality?` <span class="hint">· ${esc(d.modality_detail)}</span>`:""}`],["타깃·MoA",esc(d.target)],["적응증",esc(d.indication)],["치료영역",esc(d.area)],
     ["계약시점 단계",esc(d.stage)],["계약 형태",`${esc(d.deal_type)}${d.platform==="Y"?' <span class="tag plat">플랫폼</span>':""}`],["권리지역",esc(d.territory)],["로열티",esc(d.royalty)],["통화·환산",esc(d.currency_note)],
     ["사후 경과",stTag(d)],["데이터 상태",esc(d.qa)],["출처",link(d.src1)],["추가 출처",link(d.src2)],["수록",esc(d.added)]].filter(x=>x[1]);
@@ -617,18 +635,24 @@ function openSheet(d){
    <div class="terms"><div><span class="label">총액</span><span class="v">${d.total==null?"–":"$"+fmt(d.total,d.total%1?1:0)+"M"}</span></div><div><span class="label">Upfront</span><span class="v gold">${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront%1?1:0)+"M"}</span></div><div><span class="label">Near-term</span><span class="v">${d.near_term==null?"–":"$"+fmt(d.near_term)+"M"}</span></div><div><span class="label">지분투자</span><span class="v">${d.equity==null?"–":"$"+fmt(d.equity)+"M"}</span></div></div>
    <dl class="kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
    ${d.notes?`<div><div class="label" style="margin-bottom:4px">수집 메모</div><div class="notes">${esc(d.notes)}</div></div>`:""}`;
-  s.hidden=false;$("sheetBg").hidden=false;$("sClose").onclick=closeSheet;$("sStar").onclick=()=>toggleStar(d.id);$("sClose").focus();
+  const wasOpen=!s.hidden;s.scrollTop=0;
+  s.hidden=false;$("sheetBg").hidden=false;$("sClose").onclick=closeSheet;if(!wasOpen)pushLayer("sheet");$("sStar").onclick=()=>toggleStar(d.id);$("sClose").focus();
 }
-function closeSheet(){$("sheet").hidden=true;$("sheetBg").hidden=true;if(lastFocus&&lastFocus.focus)lastFocus.focus()}
+function closeSheet(fromPop){if($("sheet").hidden)return;$("sheet").hidden=true;$("sheetBg").hidden=true;if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true});if(fromPop!==true)popLayer("sheet")}
 
 /* ---------- filter panel ---------- */
-function openPanel(){$("fpanel").hidden=false;$("fBtn").setAttribute("aria-expanded","true");if(isPhone()){$("fShade").hidden=false;updateApplyLabel()}}
-function closePanel(){$("fpanel").hidden=true;$("fShade").hidden=true;$("fBtn").setAttribute("aria-expanded","false")}
+function openPanel(){$("fpanel").hidden=false;$("fBtn").setAttribute("aria-expanded","true");if(isPhone()){$("fShade").hidden=false;updateApplyLabel();pushLayer("filter")}}
+function closePanel(fromPop){if($("fpanel").hidden)return;const sheetMode=!$("fShade").hidden;$("fpanel").hidden=true;$("fShade").hidden=true;$("fBtn").setAttribute("aria-expanded","false");if(sheetMode&&fromPop!==true)popLayer("filter")}
+/* back button support: each overlay adds a history entry so the phone's back gesture closes it instead of leaving the app */
+let useHistory=false, skipPop=0;
+function pushLayer(name){if(!useHistory)return;try{history.pushState({layer:name},"")}catch(e){}}
+function popLayer(name){if(!useHistory)return;try{if(history.state&&history.state.layer===name){skipPop++;history.back()}}catch(e){}}
+addEventListener("popstate",()=>{if(skipPop){skipPop--;return}if(!$("sheet").hidden)closeSheet(true);else if(!$("fpanel").hidden)closePanel(true)});
 function updateApplyLabel(){$("fApply").textContent=`${fmt(VIEW.length)}건 보기`}
 
 /* ---------- events ---------- */
-$("sheetBg").onclick=closeSheet;
-$("fShade").onclick=closePanel;
+$("sheetBg").onclick=()=>closeSheet();
+$("fShade").onclick=()=>closePanel();
 document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;if(!$("sheet").hidden)closeSheet();else if(!$("fpanel").hidden)closePanel()});
 function onListClick(e){
   const sb=e.target.closest("[data-star]");if(sb){e.stopPropagation();toggleStar(sb.dataset.star);return}
@@ -643,7 +667,7 @@ $("sort").addEventListener("change",e=>{const [k,dir]=e.target.value.split(":");
 $("more").onclick=()=>{shown+=60;drawList()};
 let qt;$("q").addEventListener("input",e=>{clearTimeout(qt);qt=setTimeout(()=>{F.q=e.target.value;apply()},180)});
 $("fBtn").onclick=()=>$("fpanel").hidden?openPanel():closePanel();
-$("fClose").onclick=closePanel;$("fApply").onclick=closePanel;
+$("fClose").onclick=()=>closePanel();$("fApply").onclick=()=>closePanel();
 $("fReset").onclick=()=>{const q=F.q;resetFilters();F.q=q;$("q").value=q;apply();updateApplyLabel()};
 $("fpanel").addEventListener("click",e=>{const b=e.target.closest(".opt");if(!b)return;const g=b.closest("[data-g]").dataset.g,v=b.dataset.v;
   F[g].has(v)?F[g].delete(v):F[g].add(v);apply();updateApplyLabel()});
@@ -686,12 +710,7 @@ function setRuns(runs){
 function loadFailed(msg){$("stamp").textContent="불러오기 실패";$("rows").innerHTML=`<tr><td colspan="9" class="empty">${esc(msg)}</td></tr>`;$("cards").innerHTML=`<div class="empty">${esc(msg)}</div>`}
 drawChips();
 
-(function(){
-  const root=document.documentElement,btn=$("themeBtn"),meta=$("themeColor");
-  const paint=()=>{const dark=root.dataset.theme!=="light";if(meta)meta.content=dark?"#0A1017":"#F3F5F8";btn.setAttribute("aria-label",dark?"밝은 화면으로 전환":"어두운 화면으로 전환")};
-  btn.hidden=false;paint();
-  btn.onclick=()=>{root.dataset.theme=root.dataset.theme==="light"?"dark":"light";try{localStorage.setItem("dealbook-theme",root.dataset.theme)}catch(e){}paint()};
-})();
+useHistory=true;
 (async()=>{
   initComps();
   try{
