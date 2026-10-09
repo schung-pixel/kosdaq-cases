@@ -1,0 +1,3450 @@
+{
+"1ST Biotherapeutics": {
+"ko": "퍼스트바이오테라퓨틱스",
+"alias": "퍼스트바이오 1ST바이오"
+},
+"3D Medicines": {
+"ko": "3D메디슨",
+"alias": "쓰리디메디슨 3D메디신"
+},
+"3SBio": {
+"ko": "3S바이오",
+"alias": "쓰리에스바이오 삼생제약 싼성"
+},
+"4D Molecular Therapeutics": {
+"ko": "4D 몰레큘러 테라퓨틱스",
+"alias": "4DMT"
+},
+"A*STAR": {
+"ko": "싱가포르 과학기술연구청",
+"alias": "에이스타 A스타 ASTAR"
+},
+"AB2 Bio": {
+"ko": "AB2바이오",
+"alias": "에이비투바이오"
+},
+"ABL Bio": {
+"ko": "에이비엘바이오",
+"alias": "ABL바이오 에이비엘"
+},
+"AC Immune": {
+"ko": "AC이뮨",
+"alias": "에이씨이뮨"
+},
+"ADARx Pharmaceuticals": {
+"ko": "아다알엑스 파마슈티컬스",
+"alias": "아다알엑스 ADARx"
+},
+"ADC Therapeutics": {
+"ko": "ADC 테라퓨틱스",
+"alias": "에이디씨테라퓨틱스"
+},
+"ADEL": {
+"ko": "아델",
+"alias": "아델바이오"
+},
+"AI Proteins": {
+"ko": "AI프로틴스",
+"alias": "에이아이프로틴스"
+},
+"AM-Pharma": {
+"ko": "AM파마",
+"alias": "에이엠파마"
+},
+"AbCellera": {
+"ko": "앱셀레라",
+"alias": "압셀레라"
+},
+"AbbVie": {
+"ko": "애브비",
+"alias": "앱비"
+},
+"Abbisko Therapeutics": {
+"ko": "애비스코 테라퓨틱스",
+"alias": "애비스코 허위의약"
+},
+"Abceutics": {
+"ko": "앱슈틱스",
+"alias": ""
+},
+"Abion": {
+"ko": "에이비온",
+"alias": ""
+},
+"Abpro": {
+"ko": "앱프로",
+"alias": ""
+},
+"Absci": {
+"ko": "앱사이",
+"alias": "압사이"
+},
+"Acadia Pharmaceuticals": {
+"ko": "아카디아 파마슈티컬스",
+"alias": "아카디아"
+},
+"Accure Therapeutics": {
+"ko": "아큐어 테라퓨틱스",
+"alias": "아큐어"
+},
+"Acelyrin": {
+"ko": "아셀리린",
+"alias": ""
+},
+"Aclaris Therapeutics": {
+"ko": "아클라리스 테라퓨틱스",
+"alias": "아클라리스"
+},
+"Actinium Pharmaceuticals": {
+"ko": "악티늄 파마슈티컬스",
+"alias": "악티늄"
+},
+"AcuraStem": {
+"ko": "아큐라스템",
+"alias": ""
+},
+"Adagene": {
+"ko": "아다진",
+"alias": "아다젠 천연약업"
+},
+"Adagene (天演药业)": {
+"ko": "아다진",
+"alias": "아다젠 천연약업"
+},
+"Adaptimmune": {
+"ko": "어댑티뮨",
+"alias": "아답티뮨"
+},
+"Adaptimmune Therapeutics": {
+"ko": "어댑티뮨 테라퓨틱스",
+"alias": "어댑티뮨 아답티뮨"
+},
+"Adaptive Biotechnologies": {
+"ko": "어댑티브 바이오테크놀로지스",
+"alias": "어댑티브"
+},
+"Adcendo": {
+"ko": "애드센도",
+"alias": "아드센도"
+},
+"Affibody": {
+"ko": "어피바디",
+"alias": "아피바디"
+},
+"Agenus": {
+"ko": "아제너스",
+"alias": "아게누스"
+},
+"Agios Pharmaceuticals": {
+"ko": "아지오스 파마슈티컬스",
+"alias": "아지오스"
+},
+"Ailux (XtalPi subsidiary)": {
+"ko": "에이럭스 (크리스탈파이 자회사)",
+"alias": "에이럭스 크리스탈파이 징타이"
+},
+"AimedBio": {
+"ko": "에임드바이오",
+"alias": "에임드"
+},
+"AirNexis Therapeutics": {
+"ko": "에어넥시스 테라퓨틱스",
+"alias": "에어넥시스"
+},
+"Akebia Therapeutics": {
+"ko": "아케비아 테라퓨틱스",
+"alias": "아케비아"
+},
+"Akeso": {
+"ko": "아케소",
+"alias": "캉팡바이오 강방생물 캉팡"
+},
+"Aktis Oncology": {
+"ko": "액티스 온콜로지",
+"alias": "액티스 악티스"
+},
+"Alchemab Therapeutics": {
+"ko": "알케맙 테라퓨틱스",
+"alias": "알케맙"
+},
+"Alchemedicine": {
+"ko": "알케메디신",
+"alias": ""
+},
+"Alector": {
+"ko": "알렉터",
+"alias": "알렉토르"
+},
+"Alectos Therapeutics": {
+"ko": "알렉토스 테라퓨틱스",
+"alias": "알렉토스"
+},
+"Alexion (AstraZeneca)": {
+"ko": "알렉시온",
+"alias": "아스트라제네카 AZ"
+},
+"Alfasigma": {
+"ko": "알파시그마",
+"alias": ""
+},
+"Algen Biotechnologies": {
+"ko": "알젠 바이오테크놀로지스",
+"alias": "알젠"
+},
+"Aligos Therapeutics": {
+"ko": "알리고스 테라퓨틱스",
+"alias": "알리고스"
+},
+"Alivexis": {
+"ko": "알리벡시스",
+"alias": ""
+},
+"Allist Pharmaceuticals": {
+"ko": "알리스트제약",
+"alias": "앨리스트 알리스트"
+},
+"Allorion Therapeutics": {
+"ko": "알로리온 테라퓨틱스",
+"alias": "알로리온"
+},
+"Alloy Therapeutics": {
+"ko": "얼로이 테라퓨틱스",
+"alias": "알로이 얼로이"
+},
+"Almirall": {
+"ko": "알미랄",
+"alias": ""
+},
+"Alnylam": {
+"ko": "앨나일람",
+"alias": "알닐람"
+},
+"Alnylam Pharmaceuticals": {
+"ko": "앨나일람 파마슈티컬스",
+"alias": "앨나일람 알닐람"
+},
+"Alphamab Oncology": {
+"ko": "알파맙 온콜로지",
+"alias": "알파맙 강녕제약"
+},
+"Alphamab Oncology (Jiangsu Alphamab)": {
+"ko": "알파맙 온콜로지 (장쑤 알파맙)",
+"alias": "알파맙 알파맵 강소알파맙"
+},
+"Alpine Immune Sciences": {
+"ko": "알파인 이뮨 사이언스",
+"alias": "알파인 버텍스"
+},
+"Alteogen": {
+"ko": "알테오젠",
+"alias": ""
+},
+"AlzeCure Pharma": {
+"ko": "알제큐어 파마",
+"alias": "알제큐어"
+},
+"AmMax Bio": {
+"ko": "암맥스바이오",
+"alias": "앰맥스"
+},
+"Amathus Therapeutics": {
+"ko": "아마투스 테라퓨틱스",
+"alias": "아마투스"
+},
+"Amberstone Biosciences": {
+"ko": "앰버스톤 바이오사이언스",
+"alias": "앰버스톤"
+},
+"Amgen": {
+"ko": "암젠",
+"alias": ""
+},
+"Amicus Therapeutics": {
+"ko": "아미커스 테라퓨틱스",
+"alias": "아미쿠스 아미커스"
+},
+"Amphista Therapeutics": {
+"ko": "암피스타 테라퓨틱스",
+"alias": "암피스타"
+},
+"Angelini Pharma": {
+"ko": "안젤리니 파마",
+"alias": "안젤리니"
+},
+"Anima Biotech": {
+"ko": "아니마 바이오텍",
+"alias": "아니마"
+},
+"Antares Therapeutics": {
+"ko": "안타레스 테라퓨틱스",
+"alias": "안타레스"
+},
+"Antengene": {
+"ko": "안텐진",
+"alias": "덕기의약"
+},
+"Apollo Therapeutics": {
+"ko": "아폴로 테라퓨틱스",
+"alias": "아폴로"
+},
+"Appia Bio": {
+"ko": "아피아바이오",
+"alias": "아피아"
+},
+"AprilBio": {
+"ko": "에이프릴바이오",
+"alias": ""
+},
+"Aptose Biosciences": {
+"ko": "압토즈 바이오사이언스",
+"alias": "압토즈 앱토즈"
+},
+"Araris Biotech": {
+"ko": "아라리스 바이오텍",
+"alias": "아라리스 타이호"
+},
+"Arbor Biotechnologies": {
+"ko": "아버 바이오테크놀로지스",
+"alias": "아버바이오"
+},
+"Arbutus Biopharma": {
+"ko": "아뷰투스 바이오파마",
+"alias": "아뷰투스 알부투스"
+},
+"Arcellx": {
+"ko": "아셀엑스",
+"alias": "아셀렉스"
+},
+"Arcera (ADQ)": {
+"ko": "아르세라 (ADQ)",
+"alias": "아르세라 아세라 ADQ"
+},
+"Arcturus Therapeutics": {
+"ko": "아크투루스 테라퓨틱스",
+"alias": "아크투루스"
+},
+"Arcus Biosciences": {
+"ko": "아커스 바이오사이언스",
+"alias": "아커스 아르커스"
+},
+"Argo Biopharmaceutical": {
+"ko": "아르고 바이오파마슈티컬",
+"alias": "아르고바이오 아르고"
+},
+"AriBio": {
+"ko": "아리바이오",
+"alias": ""
+},
+"Arrakis Therapeutics": {
+"ko": "아라키스 테라퓨틱스",
+"alias": "아라키스"
+},
+"ArriVent BioPharma": {
+"ko": "아리벤트 바이오파마",
+"alias": "아리벤트"
+},
+"ArriVent Biopharma": {
+"ko": "어라이벤트 바이오파마",
+"alias": "어라이벤트 아리벤트"
+},
+"Arrowhead Pharmaceuticals": {
+"ko": "애로우헤드 파마슈티컬스",
+"alias": "애로우헤드 애로헤드"
+},
+"Artios Pharma": {
+"ko": "아르티오스 파마",
+"alias": "아르티오스"
+},
+"Arvinas": {
+"ko": "아비나스",
+"alias": ""
+},
+"Arvinas; Pfizer": {
+"ko": "아비나스 / 화이자",
+"alias": "아비나스 화이자"
+},
+"Asahi Kasei Pharma": {
+"ko": "아사히카세이파마",
+"alias": "아사히카세이"
+},
+"Ascendant Health Sciences": {
+"ko": "어센던트 헬스사이언스",
+"alias": "어센던트"
+},
+"Ascendis Pharma": {
+"ko": "아센디스 파마",
+"alias": "아센디스"
+},
+"Ascentage Pharma": {
+"ko": "어센테이지 파마",
+"alias": "어센테이지 야성의약"
+},
+"Ascidian Therapeutics": {
+"ko": "아시디안 테라퓨틱스",
+"alias": "아시디안"
+},
+"Aspect Biosystems": {
+"ko": "아스펙트 바이오시스템즈",
+"alias": "아스펙트"
+},
+"Astellas": {
+"ko": "아스텔라스",
+"alias": "아스텔라스제약"
+},
+"Astellas (Xyphos)": {
+"ko": "아스텔라스 (자이포스)",
+"alias": "아스텔라스제약 자이포스"
+},
+"Astellas Pharma": {
+"ko": "아스텔라스",
+"alias": "아스텔라스제약"
+},
+"Astellas Pharma (Xyphos Biosciences)": {
+"ko": "아스텔라스제약 (자이포스 바이오사이언스)",
+"alias": "아스텔라스 자이포스"
+},
+"Astex Pharmaceuticals (Otsuka)": {
+"ko": "아스텍스 파마슈티컬스",
+"alias": "아스텍스 오츠카"
+},
+"AstraZeneca": {
+"ko": "아스트라제네카",
+"alias": "AZ 아제"
+},
+"AstraZeneca (MedImmune UK & US)": {
+"ko": "아스트라제네카 (메드이뮨)",
+"alias": "AZ 아스트라제네카 메드이뮨 메디뮨"
+},
+"Astria Therapeutics": {
+"ko": "아스트리아 테라퓨틱스",
+"alias": "아스트리아"
+},
+"Atavistik Bio": {
+"ko": "아타비스틱 바이오",
+"alias": "아타비스틱"
+},
+"Autifony Therapeutics": {
+"ko": "오티포니 테라퓨틱스",
+"alias": "오티포니"
+},
+"Autolus Therapeutics": {
+"ko": "오토러스 테라퓨틱스",
+"alias": "오토러스 오톨루스"
+},
+"Avenzo Therapeutics": {
+"ko": "아벤조 테라퓨틱스",
+"alias": "아벤조"
+},
+"Avere Therapeutics": {
+"ko": "아베레 테라퓨틱스",
+"alias": "아베레"
+},
+"AviadoBio": {
+"ko": "아비아도바이오",
+"alias": ""
+},
+"Avidity Biosciences": {
+"ko": "어비디티 바이오사이언스",
+"alias": "어비디티 아비디티"
+},
+"Avista Therapeutics": {
+"ko": "아비스타 테라퓨틱스",
+"alias": "아비스타"
+},
+"Avixgen (Dx&Vx subsidiary)": {
+"ko": "아빅스젠",
+"alias": "디엑스앤브이엑스 DXVX"
+},
+"Azurity Pharmaceuticals": {
+"ko": "아주리티 파마슈티컬스",
+"alias": "아주리티"
+},
+"BCM Europe AG": {
+"ko": "BCM 유럽",
+"alias": "비씨엠유럽"
+},
+"Basilea Pharmaceutica": {
+"ko": "바실리아 파마슈티카",
+"alias": "바실리아 바질레아"
+},
+"Bavarian Nordic": {
+"ko": "바바리안 노르딕",
+"alias": "바바리안노딕"
+},
+"Bayer": {
+"ko": "바이엘",
+"alias": ""
+},
+"BeOne Medicines": {
+"ko": "비원메디슨",
+"alias": "베이진 BeiGene 백제신주 비원"
+},
+"Beam Therapeutics": {
+"ko": "빔 테라퓨틱스",
+"alias": "빔"
+},
+"BeiGene": {
+"ko": "베이진",
+"alias": "비원메디슨 BeOne 백제신주"
+},
+"Beijing Tide Pharmaceutical (Sino Biopharmaceutical)": {
+"ko": "베이징 타이드 제약 (시노바이오팜)",
+"alias": "베이징타이드 타이드 시노바이오팜 중국생물제약"
+},
+"Belharra Therapeutics": {
+"ko": "벨하라 테라퓨틱스",
+"alias": "벨하라"
+},
+"BenevolentAI": {
+"ko": "베네볼런트AI",
+"alias": "베네볼런트"
+},
+"Betta Pharmaceuticals": {
+"ko": "베타제약",
+"alias": "베타파마 패달제약"
+},
+"BiOrchestra": {
+"ko": "바이오오케스트라",
+"alias": ""
+},
+"Bicycle Therapeutics": {
+"ko": "바이시클 테라퓨틱스",
+"alias": "바이시클 바이사이클"
+},
+"Bio Usawa": {
+"ko": "바이오 우사와",
+"alias": "우사와"
+},
+"BioAge Labs": {
+"ko": "바이오에이지 랩스",
+"alias": "바이오에이지"
+},
+"BioArctic": {
+"ko": "바이오아틱",
+"alias": "바이오악틱"
+},
+"BioCryst Pharmaceuticals": {
+"ko": "바이오크리스트 파마슈티컬스",
+"alias": "바이오크리스트"
+},
+"BioLineRx": {
+"ko": "바이오라인알엑스",
+"alias": "바이오라인RX"
+},
+"BioMap": {
+"ko": "바이오맵",
+"alias": "바이투즈수"
+},
+"BioNTech": {
+"ko": "바이오엔텍",
+"alias": "바이온텍"
+},
+"BioVersys": {
+"ko": "바이오버시스",
+"alias": ""
+},
+"Biocytogen": {
+"ko": "바이오사이토젠",
+"alias": "백오시도"
+},
+"Biogen": {
+"ko": "바이오젠",
+"alias": ""
+},
+"Biohaven": {
+"ko": "바이오헤이븐",
+"alias": ""
+},
+"Biohaven Pharmaceutical": {
+"ko": "바이오헤이븐 파마슈티컬",
+"alias": "바이오헤이븐"
+},
+"Biomunex Pharmaceuticals": {
+"ko": "바이오뮤넥스 파마슈티컬스",
+"alias": "바이오뮤넥스"
+},
+"Biond Biologics": {
+"ko": "바이온드 바이올로직스",
+"alias": "바이온드"
+},
+"Bionyra Pharma": {
+"ko": "바이오니라 파마",
+"alias": "바이오니라"
+},
+"Biosion": {
+"ko": "바이오시온",
+"alias": "박오신바이오"
+},
+"Biosion (博奥信生物)": {
+"ko": "바이오시온",
+"alias": "박오신바이오"
+},
+"Biotheus": {
+"ko": "바이오테우스",
+"alias": "바이오엔텍"
+},
+"Black Diamond Therapeutics": {
+"ko": "블랙다이아몬드 테라퓨틱스",
+"alias": "블랙다이아몬드"
+},
+"Blacksmith Medicines": {
+"ko": "블랙스미스 메디슨",
+"alias": "블랙스미스"
+},
+"Bliss Biopharmaceutical (Hangzhou)": {
+"ko": "블리스 바이오파마슈티컬 (항저우)",
+"alias": "블리스바이오 블리스"
+},
+"Boehringer Ingelheim": {
+"ko": "베링거인겔하임",
+"alias": "베링거"
+},
+"BoomRay": {
+"ko": "붐레이",
+"alias": ""
+},
+"Boulevard Bio (Deerfield)": {
+"ko": "불러바드 바이오 (디어필드)",
+"alias": "불러바드 디어필드"
+},
+"Braintree Laboratories (Sebela Pharmaceuticals)": {
+"ko": "브레인트리 래보라토리스 (세벨라 파마슈티컬스)",
+"alias": "브레인트리 세벨라"
+},
+"Braveheart Bio": {
+"ko": "브레이브하트 바이오",
+"alias": "브레이브하트"
+},
+"Brickell Biotech": {
+"ko": "브리켈 바이오텍",
+"alias": "브리켈"
+},
+"BridGene Biosciences": {
+"ko": "브리진 바이오사이언스",
+"alias": "브리진"
+},
+"BridgeBio Pharma": {
+"ko": "브리지바이오 파마",
+"alias": "브릿지바이오 브리지바이오"
+},
+"BridgeBio Pharma (Navire)": {
+"ko": "브리지바이오 파마 (나비르)",
+"alias": "브릿지바이오 브리지바이오 나비르"
+},
+"Brii Biosciences": {
+"ko": "브리 바이오사이언스",
+"alias": "브리바이오 텅성화창"
+},
+"Bristol Myers Squibb": {
+"ko": "브리스톨마이어스스퀴브",
+"alias": "BMS 브리스톨마이어스"
+},
+"Bristol Myers Squibb (Juno)": {
+"ko": "브리스톨마이어스스퀴브 (주노)",
+"alias": "BMS 브리스톨마이어스 주노 주노테라퓨틱스"
+},
+"C4 Therapeutics": {
+"ko": "C4 테라퓨틱스",
+"alias": "씨포 C4"
+},
+"C4X Discovery": {
+"ko": "C4X 디스커버리",
+"alias": "씨포엑스"
+},
+"CANbridge Pharmaceuticals": {
+"ko": "캔브리지 파마슈티컬스",
+"alias": "캔브리지"
+},
+"CDR-Life": {
+"ko": "CDR라이프",
+"alias": "씨디알라이프"
+},
+"COUR Pharmaceuticals": {
+"ko": "코어 파마슈티컬스",
+"alias": "쿠르 코어"
+},
+"CRISPR Therapeutics": {
+"ko": "크리스퍼 테라퓨틱스",
+"alias": "크리스퍼"
+},
+"CS Pharmaceuticals": {
+"ko": "CS 파마슈티컬스",
+"alias": "씨에스파마"
+},
+"CSL": {
+"ko": "CSL",
+"alias": "씨에스엘 CSL베링"
+},
+"CSL Seqirus": {
+"ko": "CSL 세퀴러스",
+"alias": "시퀴러스 세퀴러스 CSL"
+},
+"CSPC Megalith Biopharmaceutical": {
+"ko": "CSPC 메가리스 바이오파마",
+"alias": "메가리스 석약그룹 CSPC"
+},
+"CSPC Megalith Biopharmaceutical (CSPC)": {
+"ko": "CSPC 메갈리스 바이오파마 (CSPC)",
+"alias": "석약그룹 석약집단 스야오 메갈리스 CSPC"
+},
+"CSPC Pharmaceutical": {
+"ko": "CSPC제약",
+"alias": "석약그룹 석약집단 스야오 CSPC"
+},
+"CSPC Pharmaceutical Group": {
+"ko": "CSPC 제약그룹",
+"alias": "석약그룹 CSPC 스야오"
+},
+"CSPC Pharmaceutical Group (CSPC Zhongqi)": {
+"ko": "CSPC제약그룹 (CSPC 중치)",
+"alias": "석약그룹 석약집단 스야오 중치 CSPC"
+},
+"Caldera Therapeutics (NewCo)": {
+"ko": "칼데라 테라퓨틱스 (뉴코)",
+"alias": "칼데라"
+},
+"Calico Life Sciences": {
+"ko": "칼리코 라이프사이언스",
+"alias": "칼리코 구글"
+},
+"Camurus": {
+"ko": "카무러스",
+"alias": "카무루스"
+},
+"Candid Therapeutics": {
+"ko": "캔디드 테라퓨틱스",
+"alias": "캔디드"
+},
+"Capsida Biotherapeutics": {
+"ko": "캡시다 바이오테라퓨틱스",
+"alias": "캡시다"
+},
+"Capsigen": {
+"ko": "캡시젠",
+"alias": ""
+},
+"Caris Life Sciences": {
+"ko": "캐리스 라이프사이언스",
+"alias": "캐리스 카리스"
+},
+"Caris Life Sciences (Caris Discovery)": {
+"ko": "캐리스 라이프사이언스 (캐리스 디스커버리)",
+"alias": "캐리스 카리스"
+},
+"Cellarity": {
+"ko": "셀래리티",
+"alias": "셀라리티"
+},
+"Cellectis": {
+"ko": "셀렉티스",
+"alias": ""
+},
+"Celltrion": {
+"ko": "셀트리온",
+"alias": ""
+},
+"Cellular Biomedicine Group (AbelZeta)": {
+"ko": "셀룰러 바이오메디슨 그룹 (아벨제타)",
+"alias": "CBMG 아벨제타"
+},
+"Century Therapeutics": {
+"ko": "센추리 테라퓨틱스",
+"alias": "센추리"
+},
+"Cerevance": {
+"ko": "세레반스",
+"alias": ""
+},
+"Chengdu Antejin": {
+"ko": "청두 안테진",
+"alias": "안테진"
+},
+"Chengdu Baiyu Pharmaceutical": {
+"ko": "청두 바이위 제약",
+"alias": "바이위제약 백유제약"
+},
+"Chia Tai Tianqing (Sino Biopharm)": {
+"ko": "치아타이톈칭",
+"alias": "CTTQ 정대천청 시노바이오팜 중국생물제약"
+},
+"Chiesi": {
+"ko": "키에시",
+"alias": "치에시"
+},
+"Chiesi Group": {
+"ko": "키에시 그룹",
+"alias": "키에시 치에시"
+},
+"Chimagen Biosciences": {
+"ko": "키마젠 바이오사이언스",
+"alias": "키마젠 치마젠"
+},
+"Chong Kun Dang": {
+"ko": "종근당",
+"alias": "CKD 종근당홀딩스"
+},
+"Chugai Pharmaceutical": {
+"ko": "주가이제약",
+"alias": "추가이 쥬가이 중외제약"
+},
+"Cidara Therapeutics": {
+"ko": "시다라 테라퓨틱스",
+"alias": "시다라"
+},
+"Cilcare": {
+"ko": "실케어",
+"alias": ""
+},
+"Circle Pharma": {
+"ko": "서클 파마",
+"alias": "서클파마"
+},
+"City Therapeutics": {
+"ko": "시티 테라퓨틱스",
+"alias": "시티"
+},
+"Coherus BioSciences": {
+"ko": "코히러스 바이오사이언스",
+"alias": "코히러스 코헤러스"
+},
+"Compugen": {
+"ko": "컴퓨젠",
+"alias": ""
+},
+"Conjugatebio": {
+"ko": "컨쥬게이트바이오",
+"alias": "컨주게이트바이오"
+},
+"Corbus Pharmaceuticals": {
+"ko": "코버스 파마슈티컬스",
+"alias": "코버스"
+},
+"Covant Therapeutics": {
+"ko": "코반트 테라퓨틱스",
+"alias": "코반트"
+},
+"Crescendo Biologics": {
+"ko": "크레센도 바이올로직스",
+"alias": "크레센도"
+},
+"Crescent Biopharma": {
+"ko": "크레센트 바이오파마",
+"alias": "크레센트"
+},
+"Creyon Bio": {
+"ko": "크레이온바이오",
+"alias": "크레이온"
+},
+"Cue Biopharma": {
+"ko": "큐바이오파마",
+"alias": "큐 바이오파마"
+},
+"Cullgen": {
+"ko": "컬젠",
+"alias": ""
+},
+"Cullinan Oncology": {
+"ko": "컬리넌 온콜로지",
+"alias": "컬리넌 컬리넌테라퓨틱스"
+},
+"Cullinan Therapeutics": {
+"ko": "컬리넌 테라퓨틱스",
+"alias": "컬리넌 컬리넌온콜로지"
+},
+"Curacle; Mabtics": {
+"ko": "큐라클 / 맵틱스",
+"alias": "큐라클 맵틱스"
+},
+"CureVac": {
+"ko": "큐어백",
+"alias": ""
+},
+"Curon Biopharmaceutical": {
+"ko": "큐론 바이오파마슈티컬",
+"alias": "큐론"
+},
+"Curve Therapeutics": {
+"ko": "커브 테라퓨틱스",
+"alias": "커브"
+},
+"Cybrexa Therapeutics": {
+"ko": "사이브렉사 테라퓨틱스",
+"alias": "사이브렉사"
+},
+"Cyprumed": {
+"ko": "사이프루메드",
+"alias": ""
+},
+"Cyrex Bio": {
+"ko": "사이렉스 바이오",
+"alias": "사이렉스"
+},
+"Cyron Therapeutics": {
+"ko": "사이런테라퓨틱스",
+"alias": "사이론테라퓨틱스 사이런"
+},
+"Cytokinetics": {
+"ko": "사이토키네틱스",
+"alias": ""
+},
+"CytomX Therapeutics": {
+"ko": "사이톰엑스 테라퓨틱스",
+"alias": "사이톰엑스 싸이톰엑스"
+},
+"Cytovia Therapeutics": {
+"ko": "사이토비아 테라퓨틱스",
+"alias": "사이토비아"
+},
+"D&D Pharmatech": {
+"ko": "디앤디파마텍",
+"alias": "D&D파마텍 디앤디"
+},
+"DISCO Pharmaceuticals": {
+"ko": "디스코 파마슈티컬스",
+"alias": "디스코"
+},
+"Daewoong Pharmaceutical": {
+"ko": "대웅제약",
+"alias": "대웅"
+},
+"Daiichi Sankyo": {
+"ko": "다이이찌산쿄",
+"alias": "다이이치산쿄 제일삼공"
+},
+"Day One Biopharmaceuticals": {
+"ko": "데이원 바이오파마슈티컬스",
+"alias": "데이원"
+},
+"Debiopharm": {
+"ko": "데비오팜",
+"alias": ""
+},
+"Deep Apple Therapeutics": {
+"ko": "딥애플 테라퓨틱스",
+"alias": "딥애플"
+},
+"Degron Therapeutics": {
+"ko": "데그론 테라퓨틱스",
+"alias": "데그론"
+},
+"Dewpoint Therapeutics": {
+"ko": "듀포인트 테라퓨틱스",
+"alias": "듀포인트"
+},
+"Dianthus Therapeutics": {
+"ko": "디안투스 테라퓨틱스",
+"alias": "디안투스 다이앤서스"
+},
+"Dimerix": {
+"ko": "다이머릭스",
+"alias": ""
+},
+"Disc Medicine": {
+"ko": "디스크 메디슨",
+"alias": "디스크메디신"
+},
+"Dizal Pharmaceutical": {
+"ko": "디잘제약",
+"alias": "디잘 적리제약"
+},
+"Dong-A ST": {
+"ko": "동아에스티",
+"alias": "동아ST 동아쏘시오 동아제약"
+},
+"DoveTree Medicines": {
+"ko": "도브트리 메디슨",
+"alias": "도브트리"
+},
+"Dr. Reddy's Laboratories": {
+"ko": "닥터레디스 래보러토리스",
+"alias": "닥터레디스 닥터 레디스"
+},
+"Dragonfly Therapeutics": {
+"ko": "드래곤플라이 테라퓨틱스",
+"alias": "드래곤플라이"
+},
+"Dren Bio": {
+"ko": "드렌바이오",
+"alias": ""
+},
+"Dualitas Therapeutics": {
+"ko": "듀얼리타스 테라퓨틱스",
+"alias": "듀얼리타스"
+},
+"Duality Biologics": {
+"ko": "듀얼리티바이오",
+"alias": "듀얼리티 듀얼리티바이오로직스 영은생물"
+},
+"DualityBio": {
+"ko": "듀얼리티바이오",
+"alias": "듀얼리티 듀얼리티바이오로직스 영은생물"
+},
+"Dunad Therapeutics": {
+"ko": "듀나드 테라퓨틱스",
+"alias": "듀나드"
+},
+"Dynavax Technologies": {
+"ko": "다이나백스 테크놀로지스",
+"alias": "다이나백스"
+},
+"Dyno Therapeutics": {
+"ko": "다이노 테라퓨틱스",
+"alias": "다이노"
+},
+"Earendil Labs": {
+"ko": "에어렌딜 랩스",
+"alias": "에렌딜 이렌딜"
+},
+"Eccogene": {
+"ko": "에코진",
+"alias": ""
+},
+"Editas Medicine": {
+"ko": "에디타스 메디슨",
+"alias": "에디타스"
+},
+"Eisai": {
+"ko": "에자이",
+"alias": ""
+},
+"Elevar Therapeutics (HLB)": {
+"ko": "엘레바 테라퓨틱스 (에이치엘비)",
+"alias": "엘레바 HLB 에이치엘비"
+},
+"Elevation Oncology": {
+"ko": "엘리베이션 온콜로지",
+"alias": "엘리베이션"
+},
+"Eli Lilly": {
+"ko": "일라이 릴리",
+"alias": "릴리 일라이릴리"
+},
+"Eli Lilly (Loxo Oncology)": {
+"ko": "일라이 릴리",
+"alias": "릴리 일라이릴리 록소온콜로지 록소"
+},
+"Elpiscience": {
+"ko": "엘피사이언스",
+"alias": ""
+},
+"Empirico": {
+"ko": "엠피리코",
+"alias": ""
+},
+"Enara Bio": {
+"ko": "에나라 바이오",
+"alias": "에나라"
+},
+"Endeavor BioMedicines": {
+"ko": "엔데버 바이오메디슨",
+"alias": "엔데버"
+},
+"Engitix Therapeutics": {
+"ko": "엔지틱스 테라퓨틱스",
+"alias": "엔지틱스"
+},
+"Enlaza Therapeutics": {
+"ko": "엔라자 테라퓨틱스",
+"alias": "엔라자"
+},
+"Ensem Therapeutics": {
+"ko": "엔셈 테라퓨틱스",
+"alias": "엔셈"
+},
+"Ensoma": {
+"ko": "엔소마",
+"alias": ""
+},
+"Entrada Therapeutics": {
+"ko": "엔트라다 테라퓨틱스",
+"alias": "엔트라다"
+},
+"Envisagenics": {
+"ko": "엔비사제닉스",
+"alias": ""
+},
+"EpimAb Biotherapeutics": {
+"ko": "에피맙 바이오테라퓨틱스",
+"alias": "에피맙"
+},
+"Epitopea": {
+"ko": "에피토피아",
+"alias": ""
+},
+"Epizyme": {
+"ko": "에피자임",
+"alias": "입센"
+},
+"EraCal Therapeutics": {
+"ko": "에라칼 테라퓨틱스",
+"alias": "에라칼"
+},
+"Everest Medicines": {
+"ko": "에버레스트 메디슨",
+"alias": "에버레스트 에베레스트"
+},
+"EvolveImmune Therapeutics": {
+"ko": "이볼브이뮨 테라퓨틱스",
+"alias": "이볼브이뮨 에볼브이뮨"
+},
+"Evommune": {
+"ko": "에보뮨",
+"alias": ""
+},
+"Evopoint Biosciences": {
+"ko": "에보포인트 바이오사이언스",
+"alias": "에보포인트"
+},
+"Evoq Therapeutics": {
+"ko": "에보크 테라퓨틱스",
+"alias": "에보크"
+},
+"Evotec": {
+"ko": "에보텍",
+"alias": ""
+},
+"Excalipoint Therapeutics (NewCo)": {
+"ko": "엑스칼리포인트 테라퓨틱스 (뉴코)",
+"alias": "엑스칼리포인트"
+},
+"Exelixis": {
+"ko": "엑셀리시스",
+"alias": ""
+},
+"Exicure": {
+"ko": "엑시큐어",
+"alias": ""
+},
+"Expedition Therapeutics (NewCo)": {
+"ko": "익스페디션 테라퓨틱스 (뉴코)",
+"alias": "익스페디션"
+},
+"Exscientia": {
+"ko": "엑사이언티아",
+"alias": "익스사이언티아 리커전"
+},
+"F-star Therapeutics": {
+"ko": "F스타 테라퓨틱스",
+"alias": "에프스타"
+},
+"F2G": {
+"ko": "F2G",
+"alias": "에프투지"
+},
+"Fauna Bio": {
+"ko": "파우나 바이오",
+"alias": ""
+},
+"Ferrer": {
+"ko": "페레르",
+"alias": "페러"
+},
+"FibroGen": {
+"ko": "파이브로젠",
+"alias": "피브로젠"
+},
+"Flagship Pioneering (Pioneering Medicines)": {
+"ko": "플래그십 파이어니어링 (파이어니어링 메디슨스)",
+"alias": "플래그십 플래그쉽"
+},
+"Flagship Pioneering (bioplatform companies)": {
+"ko": "플래그십 파이어니어링 (바이오플랫폼 기업)",
+"alias": "플래그십 플래그쉽"
+},
+"Flame Biosciences": {
+"ko": "플레임 바이오사이언스",
+"alias": ""
+},
+"Flare Therapeutics": {
+"ko": "플레어 테라퓨틱스",
+"alias": ""
+},
+"Foghorn Therapeutics": {
+"ko": "포그혼 테라퓨틱스",
+"alias": ""
+},
+"Foresee Pharmaceuticals": {
+"ko": "포어시 파마슈티컬스",
+"alias": "일달생기 逸達"
+},
+"Foreseen Biotechnology": {
+"ko": "포어신 바이오테크놀로지",
+"alias": ""
+},
+"Formation Bio (Bleecker Bio)": {
+"ko": "포메이션 바이오 (블리커 바이오)",
+"alias": "포메이션바이오 블리커바이오"
+},
+"Formation Bio (Kenmare Bio)": {
+"ko": "포메이션 바이오 (켄메어 바이오)",
+"alias": "포메이션바이오 켄메어바이오"
+},
+"Fosun Pharma": {
+"ko": "푸싱제약",
+"alias": "복성제약 상하이푸싱 푸싱 포순제약"
+},
+"Frontier Biotechnologies": {
+"ko": "프론티어 바이오테크놀로지스",
+"alias": "프런티어 전연생물"
+},
+"Fulcrum Therapeutics": {
+"ko": "풀크럼 테라퓨틱스",
+"alias": ""
+},
+"Full-Life Technologies": {
+"ko": "풀라이프 테크놀로지스",
+"alias": "풀라이프"
+},
+"FutureGen Biopharmaceutical": {
+"ko": "퓨처젠 바이오파마슈티컬",
+"alias": "퓨처젠"
+},
+"GC LabCell (GC Cell) / Artiva Biotherapeutics": {
+"ko": "지씨셀 / 아티바 바이오테라퓨틱스",
+"alias": "GC셀 녹십자랩셀 녹십자셀 GC랩셀 아티바"
+},
+"GENFIT": {
+"ko": "젠핏",
+"alias": ""
+},
+"GI Innovation": {
+"ko": "지아이이노베이션",
+"alias": "GI이노베이션"
+},
+"GO Therapeutics": {
+"ko": "GO 테라퓨틱스",
+"alias": "고테라퓨틱스"
+},
+"GRIN Therapeutics": {
+"ko": "그린 테라퓨틱스",
+"alias": ""
+},
+"GSK": {
+"ko": "GSK",
+"alias": "글락소스미스클라인 지에스케이"
+},
+"Galapagos": {
+"ko": "갈라파고스",
+"alias": ""
+},
+"Gan & Lee Pharmaceuticals": {
+"ko": "간앤리 제약",
+"alias": "간리제약 간리약업 감리약업"
+},
+"Gate Bioscience": {
+"ko": "게이트 바이오사이언스",
+"alias": ""
+},
+"GenEdit": {
+"ko": "젠에딧",
+"alias": ""
+},
+"GenFleet Therapeutics": {
+"ko": "젠플리트 테라퓨틱스",
+"alias": "젠플리트 경방의약"
+},
+"GenSci (Changchun GeneScience)": {
+"ko": "젠사이 (창춘 진사이언스)",
+"alias": "진사이언스 장춘진사이언스 금새약업 젠사이"
+},
+"GeneQuantum Healthcare": {
+"ko": "진퀀텀 헬스케어",
+"alias": "진퀀텀"
+},
+"Genentech (Roche)": {
+"ko": "제넨텍",
+"alias": "제넨테크 로슈"
+},
+"Generate Biomedicines": {
+"ko": "제너레이트 바이오메디슨스",
+"alias": "제너레이트"
+},
+"Generate:Biomedicines": {
+"ko": "제너레이트 바이오메디슨스",
+"alias": "제너레이트"
+},
+"Generation Bio": {
+"ko": "제너레이션 바이오",
+"alias": ""
+},
+"Genesis Therapeutics": {
+"ko": "제네시스 테라퓨틱스",
+"alias": ""
+},
+"Genetic Leap": {
+"ko": "제네틱 리프",
+"alias": ""
+},
+"Genevant Sciences": {
+"ko": "제네반트 사이언스",
+"alias": "제네반트"
+},
+"Genexine": {
+"ko": "제넥신",
+"alias": ""
+},
+"Genhouse Bio": {
+"ko": "젠하우스 바이오",
+"alias": ""
+},
+"Genmab": {
+"ko": "젠맙",
+"alias": ""
+},
+"Genome & Company": {
+"ko": "지놈앤컴퍼니",
+"alias": "지놈앤코"
+},
+"Genor Biopharma": {
+"ko": "제노 바이오파마",
+"alias": "가화생물"
+},
+"Genrix Bio": {
+"ko": "젠릭스바이오",
+"alias": "젠릭스"
+},
+"Gensaic": {
+"ko": "젠세익",
+"alias": ""
+},
+"GentiBio": {
+"ko": "젠티바이오",
+"alias": ""
+},
+"Gero": {
+"ko": "게로",
+"alias": ""
+},
+"Gilead": {
+"ko": "길리어드 사이언스",
+"alias": "길리어드"
+},
+"Gilead (Immunomedics)": {
+"ko": "길리어드 사이언스 (이뮤노메딕스)",
+"alias": "길리어드 이뮤노메딕스"
+},
+"Gilead Sciences": {
+"ko": "길리어드 사이언스",
+"alias": "길리어드"
+},
+"Gilgamesh Pharmaceuticals": {
+"ko": "길가메시 파마슈티컬스",
+"alias": ""
+},
+"Ginkgo Bioworks": {
+"ko": "징코 바이오웍스",
+"alias": "깅코 징코"
+},
+"GlaxoSmithKline": {
+"ko": "GSK",
+"alias": "글락소스미스클라인 지에스케이"
+},
+"Glenmark Pharmaceuticals": {
+"ko": "글렌마크 제약",
+"alias": "글렌마크"
+},
+"Global Blood Therapeutics": {
+"ko": "글로벌 블러드 테라퓨틱스",
+"alias": "GBT 화이자"
+},
+"Goldfinch Bio": {
+"ko": "골드핀치 바이오",
+"alias": ""
+},
+"Gossamer Bio": {
+"ko": "고사머 바이오",
+"alias": ""
+},
+"Grand Pharmaceutical": {
+"ko": "그랜드 파마슈티컬",
+"alias": "원다의약 원대의약 위안다"
+},
+"Graviton Bioscience": {
+"ko": "그래비톤 바이오사이언스",
+"alias": ""
+},
+"Gritstone bio": {
+"ko": "그릿스톤 바이오",
+"alias": ""
+},
+"Grünenthal": {
+"ko": "그뤼넨탈",
+"alias": "그루넨탈"
+},
+"Guangzhou Gloria Biosciences": {
+"ko": "광저우 글로리아 바이오사이언스",
+"alias": "글로리아 예형"
+},
+"Gubra": {
+"ko": "구브라",
+"alias": ""
+},
+"H. Lundbeck": {
+"ko": "룬드벡",
+"alias": "H룬드벡 룬드베크"
+},
+"HAYA Therapeutics": {
+"ko": "하야 테라퓨틱스",
+"alias": ""
+},
+"HK inno.N": {
+"ko": "HK이노엔",
+"alias": "에이치케이이노엔 이노엔 CJ헬스케어"
+},
+"HK inno.N / Y-Biologics / IMBiologics": {
+"ko": "HK이노엔 / 와이바이오로직스 / 아이엠바이오로직스",
+"alias": "에이치케이이노엔 이노엔 CJ헬스케어 와이바이오 아이엠바이오"
+},
+"HUTCHMED": {
+"ko": "허치메드",
+"alias": "허치슨메드 화황의약"
+},
+"HUYABIO": {
+"ko": "후야바이오",
+"alias": ""
+},
+"Haisco Pharmaceutical": {
+"ko": "하이스코 제약",
+"alias": "하이스코 해사과"
+},
+"Halda Therapeutics": {
+"ko": "할다 테라퓨틱스",
+"alias": ""
+},
+"Halozyme Therapeutics": {
+"ko": "할로자임 테라퓨틱스",
+"alias": "할로자임"
+},
+"HanAll Biopharma": {
+"ko": "한올바이오파마",
+"alias": "한올"
+},
+"HanchorBio": {
+"ko": "한커바이오",
+"alias": "한코어바이오"
+},
+"Hangzhou Sciwind Biosciences": {
+"ko": "항저우 싸이윈드 바이오사이언스",
+"alias": "싸이윈드 사이윈드 선위달"
+},
+"Hanmi Pharmaceutical": {
+"ko": "한미약품",
+"alias": "한미"
+},
+"Hansoh Pharma": {
+"ko": "한소제약",
+"alias": "한서제약 장쑤한소 한소"
+},
+"Hansoh Pharmaceutical": {
+"ko": "한소제약",
+"alias": "한서제약 장쑤한소 한소"
+},
+"Harbour BioMed": {
+"ko": "하버바이오메드",
+"alias": "하버바이오 HBM"
+},
+"Harbour BioMed (Nona Biosciences)": {
+"ko": "하버바이오메드 (노나 바이오사이언스)",
+"alias": "하버바이오메드 노나바이오"
+},
+"Hasten Biopharmaceutic": {
+"ko": "헤이스턴 바이오파마슈틱",
+"alias": ""
+},
+"Heidelberg Pharma": {
+"ko": "하이델베르크 파마",
+"alias": ""
+},
+"Helsinn": {
+"ko": "헬신",
+"alias": ""
+},
+"Hepalys Pharma": {
+"ko": "헤파리스 파마",
+"alias": ""
+},
+"Hercules CM NewCo (Kailera)": {
+"ko": "허큘리스 CM 뉴코 (카일레라)",
+"alias": "카일레라 테라퓨틱스 허큘리스"
+},
+"HiFiBiO Therapeutics": {
+"ko": "하이파이바이오 테라퓨틱스",
+"alias": "하이파이바이오"
+},
+"Highlightll Pharmaceutical": {
+"ko": "하이라이틀 제약",
+"alias": "고광제약"
+},
+"Hologen AI": {
+"ko": "홀로젠 AI",
+"alias": ""
+},
+"Hookipa Pharma": {
+"ko": "후키파 파마",
+"alias": ""
+},
+"Horizon Therapeutics": {
+"ko": "호라이즌 테라퓨틱스",
+"alias": "호라이즌 암젠"
+},
+"HotSpot Therapeutics": {
+"ko": "핫스팟 테라퓨틱스",
+"alias": ""
+},
+"Huadong Medicine": {
+"ko": "화동제약",
+"alias": "화둥의약 화동의약"
+},
+"Huahui Health": {
+"ko": "화후이 헬스",
+"alias": ""
+},
+"Huaota Biopharm": {
+"ko": "화오타 바이오팜",
+"alias": ""
+},
+"Hummingbird Bioscience": {
+"ko": "허밍버드 바이오사이언스",
+"alias": ""
+},
+"I-Mab": {
+"ko": "아이맙",
+"alias": "천경생물"
+},
+"IDEAYA Biosciences": {
+"ko": "이데아야 바이오사이언스",
+"alias": "이데아야 아이디아야"
+},
+"IGM Biosciences": {
+"ko": "IGM 바이오사이언스",
+"alias": ""
+},
+"IMPACT Therapeutics": {
+"ko": "임팩트 테라퓨틱스",
+"alias": "영파약업"
+},
+"IN Therapeutics (Daewoong subsidiary)": {
+"ko": "아이엔테라퓨틱스",
+"alias": "아이엔 대웅제약 대웅"
+},
+"IRLAB Therapeutics": {
+"ko": "IRLAB 테라퓨틱스",
+"alias": "아이알랩"
+},
+"ITM Isotope Technologies Munich": {
+"ko": "ITM 아이소토프 테크놀로지스 뮌헨",
+"alias": "ITM"
+},
+"Iambic Therapeutics": {
+"ko": "이앰빅 테라퓨틱스",
+"alias": ""
+},
+"Ichnos Glenmark Innovation (IGI)": {
+"ko": "이크노스 글렌마크 이노베이션",
+"alias": "IGI 이크노스 글렌마크"
+},
+"Ichnos Sciences": {
+"ko": "이크노스 사이언스",
+"alias": "이크노스"
+},
+"Idorsia": {
+"ko": "이도르시아",
+"alias": ""
+},
+"Iksuda Therapeutics": {
+"ko": "익수다 테라퓨틱스",
+"alias": "익수다"
+},
+"Immatics": {
+"ko": "이매틱스",
+"alias": ""
+},
+"Immedica Pharma": {
+"ko": "이메디카 파마",
+"alias": ""
+},
+"ImmuneOncia (Yuhan/Sorrento JV)": {
+"ko": "이뮨온시아",
+"alias": "유한양행 소렌토"
+},
+"ImmuneOnco Biopharmaceuticals": {
+"ko": "이뮨온코 바이오파마슈티컬스",
+"alias": "이뮨온코 의명앙과"
+},
+"Immunitas Therapeutics": {
+"ko": "이뮤니타스 테라퓨틱스",
+"alias": ""
+},
+"ImmunoGen": {
+"ko": "이뮤노젠",
+"alias": "애브비"
+},
+"Immunome": {
+"ko": "이뮤놈",
+"alias": ""
+},
+"Immusoft": {
+"ko": "이뮤소프트",
+"alias": ""
+},
+"Immutep": {
+"ko": "이뮤텝",
+"alias": ""
+},
+"Imugene": {
+"ko": "이뮤진",
+"alias": ""
+},
+"Inceptive Nucleics": {
+"ko": "인셉티브 뉴클릭스",
+"alias": ""
+},
+"Incyte": {
+"ko": "인사이트",
+"alias": ""
+},
+"InduPro": {
+"ko": "인듀프로",
+"alias": ""
+},
+"Infinimmune": {
+"ko": "인피니뮨",
+"alias": ""
+},
+"Innate Pharma": {
+"ko": "이네이트 파마",
+"alias": "이네이트"
+},
+"InnoCare Pharma": {
+"ko": "이노케어 파마",
+"alias": "이노케어 낙성건강"
+},
+"InnoCare Pharma; KeyMed Biosciences": {
+"ko": "이노케어 파마 / 키메드 바이오사이언스",
+"alias": "이노케어 낙성건화 키메드 강낙아"
+},
+"Innovative Cellular Therapeutics (ICT)": {
+"ko": "이노베이티브 셀룰러 테라퓨틱스",
+"alias": "ICT"
+},
+"Innovent Biologics": {
+"ko": "이노벤트 바이오로직스",
+"alias": "이노벤트 신달생물"
+},
+"Innovent Biologics; IASO Bio": {
+"ko": "이노벤트 바이오로직스 / 이아소 바이오",
+"alias": "이노벤트 신달생물 이아소"
+},
+"Innovo Therapeutics": {
+"ko": "이노보테라퓨틱스",
+"alias": "이노보"
+},
+"Insilico Medicine": {
+"ko": "인실리코 메디슨",
+"alias": "인실리코"
+},
+"Instil Bio": {
+"ko": "인스틸 바이오",
+"alias": ""
+},
+"Inventiva": {
+"ko": "인벤티바",
+"alias": ""
+},
+"Iolyx Therapeutics": {
+"ko": "아이올릭스 테라퓨틱스",
+"alias": ""
+},
+"Ionis Pharmaceuticals": {
+"ko": "아이오니스 파마슈티컬스",
+"alias": "아이오니스"
+},
+"Ipsen": {
+"ko": "입센",
+"alias": ""
+},
+"Isomorphic Labs": {
+"ko": "아이소모픽 랩스",
+"alias": "아이소모픽"
+},
+"JCR Pharmaceuticals": {
+"ko": "JCR파마",
+"alias": "JCR 제이씨알"
+},
+"JMT-Bio Technology (CSPC)": {
+"ko": "JMT바이오 (CSPC)",
+"alias": "CSPC 석약그룹 스야오"
+},
+"Jacobio Pharma": {
+"ko": "자코바이오 파마",
+"alias": "자코바이오 가과사"
+},
+"Janssen (J&J)": {
+"ko": "얀센",
+"alias": "존슨앤드존슨 존슨앤존슨 J&J 얀센바이오텍"
+},
+"Janssen (Johnson & Johnson)": {
+"ko": "얀센",
+"alias": "존슨앤드존슨 존슨앤존슨 J&J 얀센바이오텍"
+},
+"Janssen Biotech": {
+"ko": "얀센 바이오텍",
+"alias": "얀센 존슨앤드존슨 J&J"
+},
+"Janssen Pharmaceutica (J&J)": {
+"ko": "얀센 파마슈티카",
+"alias": "얀센 존슨앤드존슨 J&J"
+},
+"Janux Therapeutics": {
+"ko": "재넉스 테라퓨틱스",
+"alias": "재누스"
+},
+"Jazz Pharmaceuticals": {
+"ko": "재즈 파마슈티컬스",
+"alias": "재즈"
+},
+"Ji Xing Pharmaceuticals": {
+"ko": "지싱 제약",
+"alias": ""
+},
+"Jiangsu Chia Tai Fenghai (CTFH)": {
+"ko": "장쑤 치아타이펑하이",
+"alias": "정대풍해 CTFH 치아타이"
+},
+"Jiangsu Hengrui": {
+"ko": "항서제약",
+"alias": "헝루이 장쑤헝루이 항서 강소항서"
+},
+"Jiangsu Hengrui Pharmaceuticals": {
+"ko": "항서제약",
+"alias": "헝루이 장쑤헝루이 항서 강소항서"
+},
+"Jiangsu Nhwa Pharmaceutical": {
+"ko": "장쑤 엔화 제약",
+"alias": "은화약업 엔화"
+},
+"Jnana Therapeutics": {
+"ko": "즈나나 테라퓨틱스",
+"alias": "나나"
+},
+"Johnson & Johnson": {
+"ko": "존슨앤드존슨",
+"alias": "J&J 존슨앤존슨 얀센"
+},
+"Jumpcan Pharmaceutical": {
+"ko": "점프캔 제약",
+"alias": "제천약업"
+},
+"Juniper Biologics": {
+"ko": "주니퍼 바이오로직스",
+"alias": ""
+},
+"Junshi Biosciences": {
+"ko": "준시 바이오사이언스",
+"alias": "준시 준스 군실생물"
+},
+"Juri Biosciences": {
+"ko": "주리 바이오사이언스",
+"alias": ""
+},
+"Juvena Therapeutics": {
+"ko": "주베나 테라퓨틱스",
+"alias": ""
+},
+"K2 Therapeutics (MPM BioImpact)": {
+"ko": "K2 테라퓨틱스 (MPM 바이오임팩트)",
+"alias": "MPM"
+},
+"KBP Biosciences": {
+"ko": "KBP 바이오사이언스",
+"alias": ""
+},
+"KG Bio (Kalbe Farma affiliate)": {
+"ko": "KG바이오 (칼베파르마 계열)",
+"alias": "칼베파르마 칼베"
+},
+"KSQ Therapeutics": {
+"ko": "KSQ 테라퓨틱스",
+"alias": ""
+},
+"KYM Biosciences (CSPC/Keymed JV)": {
+"ko": "KYM 바이오사이언스",
+"alias": "CSPC 석약그룹 키메드"
+},
+"Kaerus Bioscience": {
+"ko": "케어러스 바이오사이언스",
+"alias": ""
+},
+"Kaigene": {
+"ko": "카이진",
+"alias": ""
+},
+"Kalexo Bio (NewCo with Aditum Bio)": {
+"ko": "칼렉소 바이오",
+"alias": "애디텀바이오"
+},
+"Kali Therapeutics": {
+"ko": "칼리 테라퓨틱스",
+"alias": ""
+},
+"Karuna Therapeutics": {
+"ko": "카루나 테라퓨틱스",
+"alias": "카루나 BMS"
+},
+"Kelonia Therapeutics": {
+"ko": "켈로니아 테라퓨틱스",
+"alias": ""
+},
+"Kelun-Biotech": {
+"ko": "켈룬바이오텍",
+"alias": "켈룬 쓰촨켈룬 과륜"
+},
+"Kelun-Biotech; Harbour BioMed": {
+"ko": "켈룬바이오텍 / 하버바이오메드",
+"alias": "커룬 과륜 쓰촨커룬 하버바이오메드"
+},
+"Keros Therapeutics": {
+"ko": "케로스 테라퓨틱스",
+"alias": ""
+},
+"Kestrel Therapeutics": {
+"ko": "케스트럴 테라퓨틱스",
+"alias": ""
+},
+"KeyMed Biosciences": {
+"ko": "키메드 바이오사이언스",
+"alias": "강낙아 키메드"
+},
+"Keymed Biosciences": {
+"ko": "키메드 바이오사이언스",
+"alias": "강낙아 키메드"
+},
+"Kiniksa Pharmaceuticals": {
+"ko": "키닉사 파마슈티컬스",
+"alias": "키닉사"
+},
+"Kiora Pharmaceuticals": {
+"ko": "키오라 파마슈티컬스",
+"alias": ""
+},
+"Kissei Pharmaceutical": {
+"ko": "킷세이약품",
+"alias": "깃세이 킷세이"
+},
+"Kite (Gilead)": {
+"ko": "카이트",
+"alias": "카이트파마 길리어드"
+},
+"Kite Pharma (Gilead)": {
+"ko": "카이트",
+"alias": "카이트파마 길리어드"
+},
+"Kolon Life Science": {
+"ko": "코오롱생명과학",
+"alias": "코오롱"
+},
+"Korro Bio": {
+"ko": "코로 바이오",
+"alias": ""
+},
+"Kronos Bio": {
+"ko": "크로노스 바이오",
+"alias": ""
+},
+"Kumquat Biosciences": {
+"ko": "쿰쿼트 바이오사이언스",
+"alias": "쿰쿼트"
+},
+"Kura Oncology": {
+"ko": "쿠라 온콜로지",
+"alias": ""
+},
+"Kymera Therapeutics": {
+"ko": "카이메라 테라퓨틱스",
+"alias": "카이메라 키메라"
+},
+"Kyorin Pharmaceutical": {
+"ko": "교린제약",
+"alias": "쿄린"
+},
+"Kyowa Kirin": {
+"ko": "쿄와기린",
+"alias": "교와기린 협화기린"
+},
+"LAVA Therapeutics": {
+"ko": "라바 테라퓨틱스",
+"alias": ""
+},
+"LEO Pharma": {
+"ko": "레오파마",
+"alias": "레오 파마"
+},
+"LG Chem": {
+"ko": "LG화학",
+"alias": "엘지화학 LG생명과학"
+},
+"LIB Therapeutics": {
+"ko": "LIB 테라퓨틱스",
+"alias": ""
+},
+"LaNova Medicines": {
+"ko": "라노바 메디슨",
+"alias": "라노바"
+},
+"Laboratoires Thea": {
+"ko": "떼아",
+"alias": "테아 라보라토아 떼아"
+},
+"Laboratoires Thea (Thea Open Innovation)": {
+"ko": "떼아 (떼아 오픈 이노베이션)",
+"alias": "테아"
+},
+"Laekna": {
+"ko": "레크나",
+"alias": "라에크나"
+},
+"Landos Biopharma": {
+"ko": "랜도스 바이오파마",
+"alias": ""
+},
+"Lantheus": {
+"ko": "랜티우스",
+"alias": ""
+},
+"Leads Biolabs": {
+"ko": "리즈 바이오랩스",
+"alias": "유립지박"
+},
+"Legend Biotech": {
+"ko": "레전드 바이오텍",
+"alias": "레전드"
+},
+"LegoChem Biosciences": {
+"ko": "리가켐바이오사이언스",
+"alias": "레고켐바이오 레고켐 리가켐 리가켐바이오"
+},
+"Lepu Biopharma": {
+"ko": "레푸바이오파마",
+"alias": "레푸 러푸 낙보생물"
+},
+"Lexicon Pharmaceuticals": {
+"ko": "렉시콘 파마슈티컬스",
+"alias": "렉시콘"
+},
+"LianBio": {
+"ko": "리안바이오",
+"alias": ""
+},
+"Libertas Bio (Formation Bio)": {
+"ko": "리베르타스 바이오 (포메이션 바이오)",
+"alias": "포메이션바이오"
+},
+"Life Edit Therapeutics (ElevateBio)": {
+"ko": "라이프 에딧 테라퓨틱스 (엘리베이트바이오)",
+"alias": "엘리베이트바이오"
+},
+"LigaChem Biosciences": {
+"ko": "리가켐바이오사이언스",
+"alias": "레고켐바이오 레고켐 리가켐 레고켐바이오사이언스"
+},
+"Lindy Biosciences": {
+"ko": "린디 바이오사이언스",
+"alias": ""
+},
+"Lineage Cell Therapeutics": {
+"ko": "리니지 셀 테라퓨틱스",
+"alias": ""
+},
+"LogicBio Therapeutics": {
+"ko": "로직바이오 테라퓨틱스",
+"alias": "알렉시온 아스트라제네카"
+},
+"Lycia Therapeutics": {
+"ko": "라이시아 테라퓨틱스",
+"alias": ""
+},
+"Lyell Immunopharma": {
+"ko": "라이엘 이뮤노파마",
+"alias": ""
+},
+"Lynk Pharmaceuticals": {
+"ko": "링크 파마슈티컬스",
+"alias": "능과약업"
+},
+"METiS TechBio": {
+"ko": "메티스 테크바이오",
+"alias": ""
+},
+"METiS Therapeutics": {
+"ko": "메티스 테라퓨틱스",
+"alias": ""
+},
+"MOMA Therapeutics": {
+"ko": "모마 테라퓨틱스",
+"alias": ""
+},
+"MabCare Therapeutics": {
+"ko": "맙케어 테라퓨틱스",
+"alias": ""
+},
+"Mabwell Bioscience": {
+"ko": "맵웰 바이오사이언스",
+"alias": "맵웰"
+},
+"MacroGenics": {
+"ko": "마크로제닉스",
+"alias": "매크로제닉스"
+},
+"Madrigal Pharmaceuticals": {
+"ko": "마드리갈 파마슈티컬스",
+"alias": "마드리갈"
+},
+"Magnet Biomedicine": {
+"ko": "마그넷 바이오메디슨",
+"alias": ""
+},
+"Mammoth Biosciences": {
+"ko": "매머드 바이오사이언스",
+"alias": "매머드 맘모스"
+},
+"Manifold Bio": {
+"ko": "매니폴드 바이오",
+"alias": ""
+},
+"Marengo Therapeutics": {
+"ko": "마렝고 테라퓨틱스",
+"alias": "마렝고"
+},
+"Maruho": {
+"ko": "마루호",
+"alias": ""
+},
+"Matchpoint Therapeutics": {
+"ko": "매치포인트 테라퓨틱스",
+"alias": ""
+},
+"Maze Therapeutics": {
+"ko": "메이즈 테라퓨틱스",
+"alias": ""
+},
+"MediLink Therapeutics": {
+"ko": "메디링크 테라퓨틱스",
+"alias": "메디링크"
+},
+"Mediar Therapeutics": {
+"ko": "메디아 테라퓨틱스",
+"alias": ""
+},
+"Medicus Pharma": {
+"ko": "메디쿠스 파마",
+"alias": ""
+},
+"Medincell": {
+"ko": "메드인셀",
+"alias": ""
+},
+"MeiraGTx": {
+"ko": "메이라GTx",
+"alias": "메이라지티엑스 메이라"
+},
+"Melodia Therapeutics": {
+"ko": "멜로디아 테라퓨틱스",
+"alias": ""
+},
+"Memento Medicines": {
+"ko": "메멘토 메디슨스",
+"alias": ""
+},
+"Memo Therapeutics": {
+"ko": "메모 테라퓨틱스",
+"alias": ""
+},
+"Menarini": {
+"ko": "메나리니",
+"alias": ""
+},
+"Menarini Group (Stemline Therapeutics)": {
+"ko": "메나리니 (스템라인 테라퓨틱스)",
+"alias": "스템라인"
+},
+"Merck & Co": {
+"ko": "머크",
+"alias": "MSD 미국머크 엠에스디"
+},
+"Merck & Co (MSD)": {
+"ko": "머크",
+"alias": "MSD 미국머크 엠에스디"
+},
+"Merck & Co.": {
+"ko": "머크",
+"alias": "MSD 미국머크 엠에스디"
+},
+"Merck & Co. (MSD)": {
+"ko": "머크",
+"alias": "MSD 미국머크 엠에스디"
+},
+"Merck KGaA": {
+"ko": "머크",
+"alias": "독일머크 머크KGaA 이엠디세로노"
+},
+"Mereo BioPharma": {
+"ko": "메레오 바이오파마",
+"alias": ""
+},
+"Mersana Therapeutics": {
+"ko": "머사나 테라퓨틱스",
+"alias": "머사나"
+},
+"Merus": {
+"ko": "메루스",
+"alias": "머러스"
+},
+"Mestag Therapeutics": {
+"ko": "메스택 테라퓨틱스",
+"alias": ""
+},
+"Metaphore Biotechnologies (Flagship Pioneering)": {
+"ko": "메타포어 바이오테크놀로지스 (플래그십 파이어니어링)",
+"alias": "플래그십"
+},
+"Metsera": {
+"ko": "멧세라",
+"alias": "메트세라 화이자"
+},
+"Mina Therapeutics": {
+"ko": "미나 테라퓨틱스",
+"alias": "미나"
+},
+"MindRank AI": {
+"ko": "마인드랭크 AI",
+"alias": ""
+},
+"Mission Therapeutics": {
+"ko": "미션 테라퓨틱스",
+"alias": ""
+},
+"Mitsubishi Tanabe Pharma": {
+"ko": "미쓰비시다나베파마",
+"alias": "다나베미쓰비시 미쓰비시다나베 다나베"
+},
+"ModeX Therapeutics (OPKO)": {
+"ko": "모덱스 테라퓨틱스",
+"alias": "모덱스 옵코"
+},
+"Moderna": {
+"ko": "모더나",
+"alias": ""
+},
+"Molecular Templates": {
+"ko": "몰레큘러 템플릿",
+"alias": ""
+},
+"Monte Rosa Therapeutics": {
+"ko": "몬테로사 테라퓨틱스",
+"alias": "몬테로사"
+},
+"Multitude Therapeutics": {
+"ko": "멀티튜드 테라퓨틱스",
+"alias": ""
+},
+"MustBio (머스트바이오)": {
+"ko": "머스트바이오",
+"alias": ""
+},
+"Nabla Bio": {
+"ko": "나블라 바이오",
+"alias": ""
+},
+"Nanchang Jemincare": {
+"ko": "난창 지민케어",
+"alias": "제민커신 제민가신"
+},
+"Nanexa": {
+"ko": "나넥사",
+"alias": ""
+},
+"Nanjing Leads Biolabs": {
+"ko": "난징 리즈 바이오랩스",
+"alias": "리즈바이오랩스 유립지박"
+},
+"NanoVation Therapeutics": {
+"ko": "나노베이션 테라퓨틱스",
+"alias": ""
+},
+"Nanobiotix": {
+"ko": "나노바이오틱스",
+"alias": ""
+},
+"Nanoly Bioscience": {
+"ko": "나놀리 바이오사이언스",
+"alias": ""
+},
+"Navigator Medicine": {
+"ko": "내비게이터 메디슨",
+"alias": ""
+},
+"NeoImmuneTech": {
+"ko": "네오이뮨텍",
+"alias": ""
+},
+"Neomorph": {
+"ko": "네오모프",
+"alias": ""
+},
+"Neopharmed Gentili": {
+"ko": "네오파메드 젠틸리",
+"alias": ""
+},
+"Nestle Health Science": {
+"ko": "네슬레 헬스사이언스",
+"alias": "네슬레"
+},
+"Neuraxpharm": {
+"ko": "뉴락스팜",
+"alias": ""
+},
+"Neuren Pharmaceuticals": {
+"ko": "뉴렌 파마슈티컬스",
+"alias": "뉴렌"
+},
+"Neurimmune": {
+"ko": "뉴리뮨",
+"alias": ""
+},
+"NeuroBiogen": {
+"ko": "뉴로바이오젠",
+"alias": ""
+},
+"NeuroBo Pharmaceuticals": {
+"ko": "뉴로보 파마슈티컬스",
+"alias": "뉴로보 동아에스티"
+},
+"Neurocrine Biosciences": {
+"ko": "뉴로크라인 바이오사이언스",
+"alias": "뉴로크라인 뉴로크린"
+},
+"Neurogastrx": {
+"ko": "뉴로가스트릭스",
+"alias": ""
+},
+"NextCure": {
+"ko": "넥스트큐어",
+"alias": ""
+},
+"NextRNA Therapeutics": {
+"ko": "넥스트RNA 테라퓨틱스",
+"alias": ""
+},
+"NiKang Therapeutics": {
+"ko": "니캉 테라퓨틱스",
+"alias": ""
+},
+"Nibec": {
+"ko": "나이벡",
+"alias": ""
+},
+"Nimbus Therapeutics": {
+"ko": "님버스 테라퓨틱스",
+"alias": ""
+},
+"Nippon Shinyaku": {
+"ko": "니폰신야쿠",
+"alias": "일본신약"
+},
+"Niroda Therapeutics": {
+"ko": "니로다 테라퓨틱스",
+"alias": ""
+},
+"Nona Biosciences": {
+"ko": "노나 바이오사이언스",
+"alias": "하버바이오메드"
+},
+"Nona Biosciences (Harbour BioMed)": {
+"ko": "노나 바이오사이언스",
+"alias": "노나 하버바이오메드"
+},
+"Norgine": {
+"ko": "노르진",
+"alias": ""
+},
+"NovaRock Biotherapeutics (CSPC)": {
+"ko": "노바록 바이오테라퓨틱스 (CSPC)",
+"alias": "CSPC 석약그룹"
+},
+"Novartis": {
+"ko": "노바티스",
+"alias": ""
+},
+"Novatim": {
+"ko": "노바팀",
+"alias": ""
+},
+"Novavax": {
+"ko": "노바백스",
+"alias": ""
+},
+"Novelty Nobility": {
+"ko": "노벨티노빌리티",
+"alias": "노벨티"
+},
+"Novo Nordisk": {
+"ko": "노보 노디스크",
+"alias": "노보노디스크 노보"
+},
+"Novome Biotechnologies": {
+"ko": "노봄 바이오테크놀로지스",
+"alias": "노봄"
+},
+"Nuance Pharma": {
+"ko": "뉘앙스파마",
+"alias": "뉘앙스 누앙스파마"
+},
+"Nurix Therapeutics": {
+"ko": "뉴릭스 테라퓨틱스",
+"alias": "뉴릭스 누릭스"
+},
+"Nuvation Bio": {
+"ko": "누베이션바이오",
+"alias": "누베이션"
+},
+"Nuvectis Pharma": {
+"ko": "누벡티스파마",
+"alias": "누벡티스"
+},
+"Nxera Pharma": {
+"ko": "넥세라파마",
+"alias": "넥세라 소세이 소세이헵타레스"
+},
+"Nykode Therapeutics (Vaccibody)": {
+"ko": "나이코드 테라퓨틱스 (백시바디)",
+"alias": "나이코드 백시바디"
+},
+"OBI Pharma": {
+"ko": "OBI파마",
+"alias": "오비아이파마 OBI"
+},
+"OMass Therapeutics": {
+"ko": "오매스 테라퓨틱스",
+"alias": "오매스 OMass"
+},
+"OSE Immunotherapeutics": {
+"ko": "OSE 이뮤노테라퓨틱스",
+"alias": "OSE 오에스이"
+},
+"OSR Holdings (Vaximm AG)": {
+"ko": "OSR홀딩스 (백심)",
+"alias": "오에스알홀딩스 백심 Vaximm"
+},
+"OTR Therapeutics": {
+"ko": "OTR 테라퓨틱스",
+"alias": "오티알테라퓨틱스"
+},
+"Oblenio Bio (Aditum Bio)": {
+"ko": "오블레니오바이오 (아디툼바이오)",
+"alias": "오블레니오 아디툼"
+},
+"Obsidian Therapeutics": {
+"ko": "옵시디언 테라퓨틱스",
+"alias": "옵시디언"
+},
+"Ochre Bio": {
+"ko": "오커바이오",
+"alias": "오커"
+},
+"Oculis": {
+"ko": "오큘리스",
+"alias": ""
+},
+"Odeon Therapeutics": {
+"ko": "오데온 테라퓨틱스",
+"alias": "오데온"
+},
+"Olix": {
+"ko": "올릭스",
+"alias": ""
+},
+"Ollin Biosciences": {
+"ko": "올린 바이오사이언스",
+"alias": "올린"
+},
+"Omega Therapeutics": {
+"ko": "오메가 테라퓨틱스",
+"alias": "오메가"
+},
+"Omeros": {
+"ko": "오메로스",
+"alias": ""
+},
+"OmniAb": {
+"ko": "옴니에이비",
+"alias": "옴니AB 옴니아브"
+},
+"OncoC4": {
+"ko": "온코C4",
+"alias": "온코씨포"
+},
+"One Bio": {
+"ko": "원바이오",
+"alias": ""
+},
+"Ono Pharmaceutical": {
+"ko": "오노약품공업",
+"alias": "오노약품 오노제약 오노"
+},
+"Orbis Medicines": {
+"ko": "오르비스 메디신",
+"alias": "오르비스"
+},
+"Orion Corporation": {
+"ko": "오리온",
+"alias": "오리온코퍼레이션 오리온파마"
+},
+"Orionis Biosciences": {
+"ko": "오리오니스 바이오사이언스",
+"alias": "오리오니스"
+},
+"Orna Therapeutics": {
+"ko": "오르나 테라퓨틱스",
+"alias": "오르나"
+},
+"Orum Therapeutics": {
+"ko": "오름테라퓨틱",
+"alias": "오름 오름테라퓨틱스"
+},
+"Oscotec": {
+"ko": "오스코텍",
+"alias": ""
+},
+"Otsuka": {
+"ko": "오츠카제약",
+"alias": "오츠카 대총제약"
+},
+"Otsuka Pharmaceutical": {
+"ko": "오츠카제약",
+"alias": "오츠카 대총제약"
+},
+"Ovid Therapeutics": {
+"ko": "오비드 테라퓨틱스",
+"alias": "오비드"
+},
+"Owkin": {
+"ko": "오킨",
+"alias": "아우킨"
+},
+"Oxford BioTherapeutics": {
+"ko": "옥스포드 바이오테라퓨틱스",
+"alias": "옥스퍼드바이오테라퓨틱스 OBT"
+},
+"POINT Biopharma": {
+"ko": "포인트 바이오파마",
+"alias": "포인트바이오파마 일라이릴리 릴리"
+},
+"PTC Therapeutics": {
+"ko": "PTC 테라퓨틱스",
+"alias": "피티씨테라퓨틱스"
+},
+"Palatin Technologies": {
+"ko": "팔라틴 테크놀로지스",
+"alias": "팔라틴"
+},
+"Parabilis Medicines": {
+"ko": "파라빌리스 메디슨",
+"alias": "파라빌리스 포그파마 FogPharma"
+},
+"Pathos AI": {
+"ko": "파토스AI",
+"alias": "파토스 페이토스"
+},
+"Pearl Bio": {
+"ko": "펄바이오",
+"alias": ""
+},
+"PeptiDream": {
+"ko": "펩티드림",
+"alias": ""
+},
+"Peptron": {
+"ko": "펩트론",
+"alias": ""
+},
+"Pfizer": {
+"ko": "화이자",
+"alias": ""
+},
+"Pfizer (China)": {
+"ko": "화이자 (중국)",
+"alias": "화이자 화이자차이나 중국화이자"
+},
+"Pharmanovia": {
+"ko": "파마노비아",
+"alias": ""
+},
+"Phenomic AI": {
+"ko": "페노믹AI",
+"alias": "페노믹"
+},
+"Philochem": {
+"ko": "필로켐",
+"alias": "필로젠 Philogen"
+},
+"Pieris Pharmaceuticals": {
+"ko": "피에리스 파마슈티컬스",
+"alias": "피에리스"
+},
+"Pierre Fabre": {
+"ko": "피에르파브르",
+"alias": "피에르 파브르"
+},
+"Pinetree Therapeutics": {
+"ko": "파인트리테라퓨틱스",
+"alias": "파인트리"
+},
+"Pinotbio": {
+"ko": "피노바이오",
+"alias": ""
+},
+"Pipeline Therapeutics": {
+"ko": "파이프라인 테라퓨틱스",
+"alias": ""
+},
+"Platina Medicines": {
+"ko": "플래티나 메디신",
+"alias": "플래티나"
+},
+"Plexium": {
+"ko": "플렉시움",
+"alias": ""
+},
+"PolyPid": {
+"ko": "폴리피드",
+"alias": ""
+},
+"Poseida Therapeutics": {
+"ko": "포세이다 테라퓨틱스",
+"alias": "포세이다 로슈"
+},
+"PostEra": {
+"ko": "포스테라",
+"alias": ""
+},
+"Precision BioSciences": {
+"ko": "프리시전 바이오사이언스",
+"alias": "프리시전"
+},
+"Pregene Biopharma": {
+"ko": "프리진 바이오파마",
+"alias": "프리진 푸루이진"
+},
+"Prelude Therapeutics": {
+"ko": "프렐류드 테라퓨틱스",
+"alias": "프렐루드"
+},
+"Prevail Therapeutics (Eli Lilly)": {
+"ko": "프리베일 테라퓨틱스",
+"alias": "프리베일 일라이릴리 릴리"
+},
+"Prilenia Therapeutics": {
+"ko": "프릴레니아 테라퓨틱스",
+"alias": "프릴레니아"
+},
+"Prime Medicine": {
+"ko": "프라임메디슨",
+"alias": "프라임 메디신"
+},
+"Primevera": {
+"ko": "프라임베라",
+"alias": ""
+},
+"Prism BioLab": {
+"ko": "프리즘바이오랩",
+"alias": "프리즘"
+},
+"ProFound Therapeutics": {
+"ko": "프로파운드 테라퓨틱스",
+"alias": "프로파운드"
+},
+"ProQR Therapeutics": {
+"ko": "프로QR 테라퓨틱스",
+"alias": "프로큐알"
+},
+"Profluent": {
+"ko": "프로플루언트",
+"alias": ""
+},
+"Prolium Bioscience": {
+"ko": "프롤리움 바이오사이언스",
+"alias": "프롤리움"
+},
+"Protagonist Therapeutics": {
+"ko": "프로타고니스트 테라퓨틱스",
+"alias": "프로타고니스트"
+},
+"Prothena": {
+"ko": "프로테나",
+"alias": "프로시나"
+},
+"Protillion Biosciences": {
+"ko": "프로틸리온 바이오사이언스",
+"alias": "프로틸리온"
+},
+"Providence Therapeutics": {
+"ko": "프로비던스 테라퓨틱스",
+"alias": "프로비던스"
+},
+"Proxygen": {
+"ko": "프록시젠",
+"alias": ""
+},
+"Pyramid Biosciences": {
+"ko": "피라미드 바이오사이언스",
+"alias": "피라미드"
+},
+"Pyxis Oncology": {
+"ko": "픽시스 온콜로지",
+"alias": "픽시스"
+},
+"Q32 Bio": {
+"ko": "Q32바이오",
+"alias": "큐32바이오"
+},
+"QED Therapeutics (BridgeBio)": {
+"ko": "QED 테라퓨틱스 (브릿지바이오)",
+"alias": "큐이디 브릿지바이오"
+},
+"Qilu Pharmaceutical": {
+"ko": "치루제약",
+"alias": "치루 제로제약"
+},
+"QuantumCell": {
+"ko": "퀀텀셀",
+"alias": ""
+},
+"Quell Therapeutics": {
+"ko": "퀠 테라퓨틱스",
+"alias": "퀠 쿠엘"
+},
+"Quotient Therapeutics": {
+"ko": "쿼션트 테라퓨틱스",
+"alias": "쿼션트"
+},
+"QurAlis": {
+"ko": "큐랄리스",
+"alias": "쿠랄리스"
+},
+"QurCan Therapeutics": {
+"ko": "큐어캔 테라퓨틱스",
+"alias": "큐어캔 쿠르캔"
+},
+"Qyuns Therapeutics": {
+"ko": "큐윈스 테라퓨틱스",
+"alias": "큐윈스 전신생물"
+},
+"RAPT Therapeutics": {
+"ko": "랩트 테라퓨틱스",
+"alias": "랩트 RAPT"
+},
+"REGENXBIO": {
+"ko": "리젠엑스바이오",
+"alias": ""
+},
+"Radiance Biopharma": {
+"ko": "래디언스 바이오파마",
+"alias": "래디언스"
+},
+"RadioMedix; Orano Med": {
+"ko": "라디오메딕스 / 오라노메드",
+"alias": "라디오메딕스 오라노메드 오라노"
+},
+"Rani Therapeutics": {
+"ko": "라니 테라퓨틱스",
+"alias": "라니"
+},
+"Rapport Therapeutics": {
+"ko": "래포트 테라퓨틱스",
+"alias": "래포트 라포르"
+},
+"Ratio Therapeutics": {
+"ko": "레이시오 테라퓨틱스",
+"alias": "레이시오"
+},
+"RayzeBio (Bristol Myers Squibb)": {
+"ko": "레이즈바이오 (브리스톨마이어스스퀴브)",
+"alias": "레이즈바이오 BMS 브리스톨마이어스"
+},
+"Re-Vana Therapeutics": {
+"ko": "리바나 테라퓨틱스",
+"alias": "리바나"
+},
+"Recludix Pharma": {
+"ko": "레클루딕스 파마",
+"alias": "레클루딕스"
+},
+"Rectify Pharma": {
+"ko": "렉티파이 파마",
+"alias": "렉티파이"
+},
+"Recursion": {
+"ko": "리커전",
+"alias": "리커전파마슈티컬스 리커젼"
+},
+"Recursion Pharmaceuticals": {
+"ko": "리커전 파마슈티컬스",
+"alias": "리커전 리커젼"
+},
+"Redx Pharma": {
+"ko": "레드엑스 파마",
+"alias": "레드엑스"
+},
+"Regeneron": {
+"ko": "리제네론",
+"alias": ""
+},
+"Regor Pharmaceuticals": {
+"ko": "레고르 제약",
+"alias": "레고르 치루레고르"
+},
+"Regor Therapeutics (Qilu Regor)": {
+"ko": "레고르 테라퓨틱스 (치루레고르)",
+"alias": "레고르 치루 치루레고르"
+},
+"Relation Therapeutics": {
+"ko": "릴레이션 테라퓨틱스",
+"alias": "릴레이션"
+},
+"RemeGen": {
+"ko": "레메젠",
+"alias": "레미젠 영창생물"
+},
+"Remix Therapeutics": {
+"ko": "리믹스 테라퓨틱스",
+"alias": "리믹스"
+},
+"Repare Therapeutics": {
+"ko": "리페어 테라퓨틱스",
+"alias": "리페어"
+},
+"Repertoire Immune Medicines": {
+"ko": "레퍼토리 이뮨 메디슨",
+"alias": "레퍼토리"
+},
+"Replicate Bioscience": {
+"ko": "레플리케이트 바이오사이언스",
+"alias": "레플리케이트"
+},
+"Rgenta Therapeutics": {
+"ko": "알젠타 테라퓨틱스",
+"alias": "알젠타"
+},
+"Rhythm Pharmaceuticals": {
+"ko": "리듬 파마슈티컬스",
+"alias": "리듬파마"
+},
+"Ribometrix": {
+"ko": "리보메트릭스",
+"alias": ""
+},
+"Rigel Pharmaceuticals": {
+"ko": "라이젤 파마슈티컬스",
+"alias": "라이젤 리겔"
+},
+"Roche": {
+"ko": "로슈",
+"alias": "로쉬 제넨텍"
+},
+"Roche (Genentech)": {
+"ko": "로슈",
+"alias": "로쉬 제넨텍"
+},
+"Roche/Genentech": {
+"ko": "로슈 / 제넨텍",
+"alias": "로쉬 제넨테크"
+},
+"Rznomics": {
+"ko": "알지노믹스",
+"alias": ""
+},
+"SCYNEXIS": {
+"ko": "사이넥시스",
+"alias": "싸이넥시스"
+},
+"SEED Therapeutics": {
+"ko": "시드 테라퓨틱스",
+"alias": "시드"
+},
+"SK Biopharmaceuticals": {
+"ko": "SK바이오팜",
+"alias": "에스케이바이오팜"
+},
+"SOTIO Biotech": {
+"ko": "소티오 바이오텍",
+"alias": "소티오"
+},
+"STALICLA": {
+"ko": "스탈리클라",
+"alias": ""
+},
+"Sail Biomedicines": {
+"ko": "세일 바이오메디슨",
+"alias": "세일"
+},
+"Sana Biotechnology": {
+"ko": "사나 바이오테크놀로지",
+"alias": "사나"
+},
+"SanegeneBio": {
+"ko": "세인진바이오",
+"alias": "세인젠바이오"
+},
+"Sangamo Therapeutics": {
+"ko": "상가모 테라퓨틱스",
+"alias": "상가모"
+},
+"Saniona": {
+"ko": "사니오나",
+"alias": ""
+},
+"Sanofi": {
+"ko": "사노피",
+"alias": ""
+},
+"Sanofi (Amunix Pharmaceuticals)": {
+"ko": "사노피 (아뮤닉스 파마슈티컬스)",
+"alias": "사노피 아뮤닉스"
+},
+"Santhera Pharmaceuticals": {
+"ko": "산테라 파마슈티컬스",
+"alias": "산테라"
+},
+"Sarepta Therapeutics": {
+"ko": "사렙타 테라퓨틱스",
+"alias": "사렙타"
+},
+"Scancell": {
+"ko": "스캔셀",
+"alias": ""
+},
+"Schrodinger": {
+"ko": "슈뢰딩거",
+"alias": "슈로딩거"
+},
+"SciBrunch Therapeutics": {
+"ko": "사이브런치 테라퓨틱스",
+"alias": "사이브런치"
+},
+"SciNeuro Pharmaceuticals": {
+"ko": "사이뉴로 파마슈티컬스",
+"alias": "사이뉴로"
+},
+"Sciwind Biosciences": {
+"ko": "사이윈드 바이오사이언스",
+"alias": "사이윈드"
+},
+"Scorpion Therapeutics": {
+"ko": "스콜피온 테라퓨틱스",
+"alias": "스콜피온"
+},
+"Scribe Therapeutics": {
+"ko": "스크라이브 테라퓨틱스",
+"alias": "스크라이브"
+},
+"Seagen": {
+"ko": "시젠",
+"alias": "씨젠 시애틀제네틱스"
+},
+"Seamless Therapeutics": {
+"ko": "심리스 테라퓨틱스",
+"alias": "심리스"
+},
+"Selecta Biosciences": {
+"ko": "셀렉타 바이오사이언스",
+"alias": "셀렉타 카르테시안"
+},
+"Senti Biosciences": {
+"ko": "센티 바이오사이언스",
+"alias": "센티바이오"
+},
+"Sentivera": {
+"ko": "센티베라",
+"alias": ""
+},
+"Sentynl Therapeutics (Zydus)": {
+"ko": "센티닐 테라퓨틱스 (자이더스)",
+"alias": "센티닐 자이더스 자이더스카딜라"
+},
+"Septerna": {
+"ko": "셉터나",
+"alias": ""
+},
+"Seres Therapeutics": {
+"ko": "세레스 테라퓨틱스",
+"alias": "세레스"
+},
+"Servier": {
+"ko": "세르비에",
+"alias": ""
+},
+"Shanghai Argo Biopharmaceutical": {
+"ko": "상하이 아르고 바이오파마슈티컬",
+"alias": "아르고바이오 아르고"
+},
+"Shanghai Fosun Pharmaceutical": {
+"ko": "푸싱제약",
+"alias": "복성제약 상하이푸싱 푸싱 포순제약"
+},
+"Shanghai Haini Pharmaceutical (Yangtze River Pharmaceutical Group)": {
+"ko": "상하이 하이니 제약 (양쯔강제약그룹)",
+"alias": "하이니 양쯔강 양자강약업 양쯔강의약"
+},
+"Shanghai Henlius Biotech": {
+"ko": "상하이 헨리우스 바이오텍",
+"alias": "헨리우스 복굉한림"
+},
+"Shanghai Jemincare Pharmaceutical (Jiangxi Jemincare Group)": {
+"ko": "상하이 제민케어 제약 (장시 제민케어그룹)",
+"alias": "제민케어 지민커"
+},
+"Shanghai Junshi Biosciences": {
+"ko": "상하이 준시 바이오사이언스",
+"alias": "준시 준시바이오 쥔스"
+},
+"Shanghai Pharmaceuticals": {
+"ko": "상하이제약",
+"alias": "상하이의약 상해의약 SPH"
+},
+"Shape Therapeutics": {
+"ko": "셰이프 테라퓨틱스",
+"alias": "쉐이프 셰이프테라퓨틱스"
+},
+"Shattuck Labs": {
+"ko": "섀턱랩스",
+"alias": "샤턱랩스"
+},
+"Shionogi": {
+"ko": "시오노기",
+"alias": "시오노기제약"
+},
+"Shoreline Biosciences": {
+"ko": "쇼어라인 바이오사이언스",
+"alias": "쇼어라인"
+},
+"SillaJen": {
+"ko": "신라젠",
+"alias": ""
+},
+"Simcere Pharmaceutical": {
+"ko": "심시어제약",
+"alias": "심시어 선성제약"
+},
+"Simcere Zaiming": {
+"ko": "심시어 자이밍",
+"alias": "심시어 선성제약"
+},
+"Sino Biopharm (Chia Tai Tianqing)": {
+"ko": "시노바이오팜 (정대천청)",
+"alias": "중국생물제약 CTTQ 치아타이톈칭 정대천청"
+},
+"Sinovent / SinoMab": {
+"ko": "시노벤트 / 시노맙",
+"alias": "시노벤트 시노맙"
+},
+"SiranBio": {
+"ko": "시란바이오",
+"alias": ""
+},
+"Sitala Bio": {
+"ko": "시탈라바이오",
+"alias": ""
+},
+"Sitryx Therapeutics": {
+"ko": "시트릭스 테라퓨틱스",
+"alias": "시트릭스"
+},
+"Skyhawk Therapeutics": {
+"ko": "스카이호크 테라퓨틱스",
+"alias": "스카이호크"
+},
+"Sobi": {
+"ko": "소비",
+"alias": "스웨디시오펀바이오비트럼"
+},
+"Solstice Oncology": {
+"ko": "솔스티스 온콜로지",
+"alias": "솔스티스"
+},
+"Somnivera": {
+"ko": "솜니베라",
+"alias": ""
+},
+"Sosei Heptares": {
+"ko": "소세이 헵타레스",
+"alias": "소세이 넥세라 Nxera"
+},
+"Sosei Heptares (Nxera)": {
+"ko": "소세이헵타레스 (넥세라)",
+"alias": "소세이 헵타레스 넥세라 넥세라파마"
+},
+"Sovargen": {
+"ko": "소바젠",
+"alias": ""
+},
+"Spark Therapeutics (Roche)": {
+"ko": "스파크 테라퓨틱스 (로슈)",
+"alias": "스파크 로슈"
+},
+"Spero Therapeutics": {
+"ko": "스페로 테라퓨틱스",
+"alias": "스페로"
+},
+"Starpharma": {
+"ko": "스타파마",
+"alias": ""
+},
+"Stoke Therapeutics": {
+"ko": "스토크 테라퓨틱스",
+"alias": "스토크"
+},
+"Sumitomo Pharma": {
+"ko": "스미토모파마",
+"alias": "스미토모제약 스미토모다이닛폰 대일본스미토모"
+},
+"Summit Therapeutics": {
+"ko": "서밋 테라퓨틱스",
+"alias": "서밋"
+},
+"Sunovion (Sumitomo Dainippon)": {
+"ko": "선오비온 (스미토모다이닛폰)",
+"alias": "선오비온 스미토모파마 대일본스미토모"
+},
+"Sunshine Lake Pharma (HEC)": {
+"ko": "선샤인레이크 제약 (HEC)",
+"alias": "HEC 동양광 둥양광"
+},
+"Superluminal Medicines": {
+"ko": "슈퍼루미널 메디슨",
+"alias": "슈퍼루미널"
+},
+"Surrozen": {
+"ko": "수로젠",
+"alias": "서로젠"
+},
+"Sutro Biopharma": {
+"ko": "수트로바이오파마",
+"alias": "수트로"
+},
+"Suzhou Ribo Life Science / Ribocure": {
+"ko": "쑤저우 리보 생명과학 / 리보큐어",
+"alias": "리보 리보바이오 리보큐어"
+},
+"Suzhou Ribo Life Science / Ribocure Pharmaceuticals": {
+"ko": "쑤저우 리보 생명과학 / 리보큐어 파마슈티컬스",
+"alias": "리보 리보바이오 리보큐어"
+},
+"Synaffix": {
+"ko": "시나픽스",
+"alias": "론자"
+},
+"Synaffix (Lonza)": {
+"ko": "시나픽스 (론자)",
+"alias": "시나픽스 론자"
+},
+"Syneron Bio": {
+"ko": "시네론바이오",
+"alias": ""
+},
+"SyntheX": {
+"ko": "신세엑스",
+"alias": "신서엑스"
+},
+"Synthekine": {
+"ko": "신테카인",
+"alias": ""
+},
+"SystImmune (Sichuan Biokin)": {
+"ko": "시스트이뮨 (쓰촨 바이오킨)",
+"alias": "시스트이뮨 바이오킨 바이리톈헝 백리천항"
+},
+"TG Therapeutics": {
+"ko": "TG 테라퓨틱스",
+"alias": "티지테라퓨틱스"
+},
+"TJ Biopharma": {
+"ko": "TJ바이오파마",
+"alias": "티제이바이오파마 아이맵 I-Mab"
+},
+"TMS Co.": {
+"ko": "TMS",
+"alias": "티엠에스"
+},
+"TRC 2004, Inc. (Two River / Third Rock Ventures NewCo)": {
+"ko": "TRC 2004 (투리버 / 서드록벤처스 뉴코)",
+"alias": "투리버 서드록 서드록벤처스"
+},
+"TRIANA Biomedicines": {
+"ko": "트리아나 바이오메디슨",
+"alias": "트리아나"
+},
+"TRexBio": {
+"ko": "티렉스바이오",
+"alias": ""
+},
+"TScan Therapeutics": {
+"ko": "티스캔 테라퓨틱스",
+"alias": "티스캔"
+},
+"TYK Medicines": {
+"ko": "TYK 메디슨",
+"alias": "티와이케이"
+},
+"Taisho Pharmaceutical": {
+"ko": "다이쇼제약",
+"alias": "타이쇼제약 다이쇼"
+},
+"Takeda": {
+"ko": "다케다",
+"alias": "다케다제약 타케다"
+},
+"Tanabe Pharma": {
+"ko": "다나베제약",
+"alias": "미쓰비시다나베 미쓰비시다나베제약 다나베 타나베"
+},
+"Tarsus Pharmaceuticals": {
+"ko": "타르서스 파마슈티컬스",
+"alias": "타르서스"
+},
+"Tavros Therapeutics": {
+"ko": "타브로스 테라퓨틱스",
+"alias": "타브로스"
+},
+"Telix Pharmaceuticals": {
+"ko": "텔릭스 파마슈티컬스",
+"alias": "텔릭스"
+},
+"Tenacia Biotechnology": {
+"ko": "테나시아 바이오테크놀로지",
+"alias": "테나시아"
+},
+"Tenaya Therapeutics": {
+"ko": "테나야 테라퓨틱스",
+"alias": "테나야"
+},
+"Tesaro (GSK)": {
+"ko": "테사로 (GSK)",
+"alias": "테사로 GSK 글락소스미스클라인"
+},
+"Tessellate Bio": {
+"ko": "테셀레이트바이오",
+"alias": ""
+},
+"Teva": {
+"ko": "테바",
+"alias": "테바제약 테바파마슈티컬"
+},
+"The United Laboratories (United Biotechnology)": {
+"ko": "유나이티드 래버러토리즈 (유나이티드 바이오테크놀로지)",
+"alias": "연방제약 TUL"
+},
+"Third Arc Bio": {
+"ko": "서드아크바이오",
+"alias": "써드아크"
+},
+"Timberlyne Therapeutics": {
+"ko": "팀버라인 테라퓨틱스",
+"alias": "팀버라인"
+},
+"Tolerance Bio": {
+"ko": "톨러런스바이오",
+"alias": "톨러런스"
+},
+"Transition Bio": {
+"ko": "트랜지션바이오",
+"alias": ""
+},
+"Transthera Sciences": {
+"ko": "트랜스테라 사이언스",
+"alias": "트랜스테라"
+},
+"Travere Therapeutics": {
+"ko": "트래비어 테라퓨틱스",
+"alias": "트래비어 레트로핀"
+},
+"TreeFrog Therapeutics": {
+"ko": "트리프로그 테라퓨틱스",
+"alias": "트리프로그"
+},
+"Treeline Biosciences": {
+"ko": "트리라인 바이오사이언스",
+"alias": "트리라인"
+},
+"TrueLab Biopharmaceutical": {
+"ko": "트루랩 바이오파마슈티컬",
+"alias": "트루랩"
+},
+"Tubulis": {
+"ko": "투불리스",
+"alias": "튜불리스"
+},
+"Turn Biotechnologies": {
+"ko": "턴 바이오테크놀로지스",
+"alias": "턴바이오"
+},
+"Turning Point Therapeutics": {
+"ko": "터닝포인트 테라퓨틱스",
+"alias": "터닝포인트 BMS"
+},
+"UCB": {
+"ko": "UCB",
+"alias": "유씨비 유시비"
+},
+"UNION therapeutics": {
+"ko": "유니온 테라퓨틱스",
+"alias": "유니온"
+},
+"UgeneX Therapeutics": {
+"ko": "유진엑스 테라퓨틱스",
+"alias": "유진엑스"
+},
+"Umoja Biopharma": {
+"ko": "우모자 바이오파마",
+"alias": "우모자"
+},
+"Undisclosed": {
+"ko": "비공개",
+"alias": "미공개"
+},
+"Undisclosed Chinese pharma": {
+"ko": "비공개 중국 제약사",
+"alias": ""
+},
+"Undisclosed US biotech": {
+"ko": "비공개 미국 바이오텍",
+"alias": "미공개 미국바이오텍"
+},
+"Undisclosed US company": {
+"ko": "비공개 미국 기업",
+"alias": ""
+},
+"Undisclosed global pharmaceutical company": {
+"ko": "비공개 글로벌 제약사",
+"alias": ""
+},
+"Unnatural Products": {
+"ko": "언내추럴 프로덕츠",
+"alias": ""
+},
+"VBI Vaccines": {
+"ko": "VBI 백신",
+"alias": "브이비아이백신"
+},
+"ValenzaBio": {
+"ko": "발렌자바이오",
+"alias": ""
+},
+"Valo Health": {
+"ko": "발로 헬스",
+"alias": "발로헬스"
+},
+"Vanqua Bio": {
+"ko": "반쿠아바이오",
+"alias": ""
+},
+"VantAI": {
+"ko": "반트AI",
+"alias": "밴트AI 반트에이아이"
+},
+"Variant Bio": {
+"ko": "배리언트바이오",
+"alias": ""
+},
+"Vasque Bio": {
+"ko": "바스크바이오",
+"alias": ""
+},
+"Vaxart": {
+"ko": "백사트",
+"alias": "백스아트"
+},
+"VectorY Therapeutics": {
+"ko": "벡터와이 테라퓨틱스",
+"alias": "벡터와이"
+},
+"VelaVigo Bio": {
+"ko": "벨라비고 바이오",
+"alias": "벨라비고"
+},
+"Ventus Therapeutics": {
+"ko": "벤투스 테라퓨틱스",
+"alias": "벤투스"
+},
+"Verastem Oncology": {
+"ko": "베라스템 온콜로지",
+"alias": "베라스템"
+},
+"Verdiva Bio": {
+"ko": "버디바바이오",
+"alias": ""
+},
+"Verge Genomics": {
+"ko": "버지 지노믹스",
+"alias": "버지제노믹스 버지"
+},
+"Vertex": {
+"ko": "버텍스",
+"alias": "버텍스파마슈티컬스"
+},
+"Vertex Pharmaceuticals": {
+"ko": "버텍스 파마슈티컬스",
+"alias": "버텍스"
+},
+"Verve Therapeutics": {
+"ko": "버브 테라퓨틱스",
+"alias": "버브 일라이릴리 릴리"
+},
+"Vesalius Therapeutics": {
+"ko": "베살리우스 테라퓨틱스",
+"alias": "베살리우스"
+},
+"Viatris": {
+"ko": "비아트리스",
+"alias": "마일란 업존"
+},
+"Vignette Bio": {
+"ko": "비네트바이오",
+"alias": ""
+},
+"ViiV Healthcare": {
+"ko": "비브 헬스케어",
+"alias": "비브헬스케어 GSK"
+},
+"Vir Biotechnology": {
+"ko": "비르 바이오테크놀로지",
+"alias": "비르 바이오텍"
+},
+"Viridian Therapeutics": {
+"ko": "비리디안 테라퓨틱스",
+"alias": "비리디안"
+},
+"Visirna Therapeutics (Arrowhead subsidiary)": {
+"ko": "비시르나 테라퓨틱스 (애로우헤드 자회사)",
+"alias": "비시르나 애로우헤드"
+},
+"Vitalli Bio": {
+"ko": "비탈리바이오",
+"alias": ""
+},
+"Vividion Therapeutics (Bayer)": {
+"ko": "비비디온 테라퓨틱스 (바이엘)",
+"alias": "비비디온 바이엘"
+},
+"Vivtex": {
+"ko": "비브텍스",
+"alias": ""
+},
+"Volastra Therapeutics": {
+"ko": "볼라스트라 테라퓨틱스",
+"alias": "볼라스트라"
+},
+"Vor Bio": {
+"ko": "보르바이오",
+"alias": "보어바이오"
+},
+"Voronoi": {
+"ko": "보로노이",
+"alias": ""
+},
+"Voyager Therapeutics": {
+"ko": "보이저 테라퓨틱스",
+"alias": "보이저"
+},
+"Wave Life Sciences": {
+"ko": "웨이브 라이프사이언스",
+"alias": "웨이브"
+},
+"Werewolf Therapeutics": {
+"ko": "웨어울프 테라퓨틱스",
+"alias": "웨어울프"
+},
+"Windward Bio": {
+"ko": "윈드워드바이오",
+"alias": ""
+},
+"Windward Bio (LE2025 Therapeutics)": {
+"ko": "윈드워드바이오 (LE2025 테라퓨틱스)",
+"alias": "윈드워드"
+},
+"WuXi Biologics": {
+"ko": "우시바이오로직스",
+"alias": "우시 우시바이오 우시앱텍"
+},
+"WuXi XDC": {
+"ko": "우시XDC",
+"alias": "우시 우시바이오로직스"
+},
+"X4 Pharmaceuticals": {
+"ko": "X4 파마슈티컬스",
+"alias": "엑스포"
+},
+"Xencor": {
+"ko": "젠코어",
+"alias": ""
+},
+"Xiamen Amoytop Biotech": {
+"ko": "샤먼 아모이탑 바이오텍",
+"alias": "아모이탑 특보생물"
+},
+"Xilio Therapeutics": {
+"ko": "질리오 테라퓨틱스",
+"alias": "질리오"
+},
+"XtalPi": {
+"ko": "크리스탈파이",
+"alias": "징타이 엑스탈파이"
+},
+"YaoPharma (Fosun Pharma)": {
+"ko": "야오파마 (푸싱제약)",
+"alias": "야오파마 푸싱 포순제약 복성제약 포선파마"
+},
+"Yarrow Bioscience (RTW)": {
+"ko": "야로우 바이오사이언스 (RTW)",
+"alias": "야로우 RTW"
+},
+"Zai Lab": {
+"ko": "자이랩",
+"alias": "재랩"
+},
+"Zealand Pharma": {
+"ko": "질랜드 파마",
+"alias": "질랜드"
+},
+"Zelgen Biopharmaceuticals": {
+"ko": "젤겐 바이오파마슈티컬스",
+"alias": "젤겐 쩌징"
+},
+"Zenas BioPharma": {
+"ko": "제나스 바이오파마",
+"alias": "제나스"
+},
+"Zion Pharma": {
+"ko": "자이언파마",
+"alias": "시온파마"
+},
+"Zymeworks": {
+"ko": "자임웍스",
+"alias": ""
+},
+"argenx": {
+"ko": "아젠엑스",
+"alias": "아르젠엑스"
+},
+"etherna": {
+"ko": "이써나",
+"alias": "에테르나"
+},
+"iTeos Therapeutics": {
+"ko": "아이테오스 테라퓨틱스",
+"alias": "아이테오스"
+},
+"miRecule": {
+"ko": "마이레큘",
+"alias": "미레큘"
+}
+}
