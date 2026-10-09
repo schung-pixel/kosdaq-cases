@@ -1,5 +1,5 @@
 // 코스닥 상장심사 사례집 - 오프라인 캐시
-const VERSION = 'ksc-2026-09-29-icon3';
+const VERSION = 'ksc-2026-10-09-deals';
 const CORE = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
@@ -18,6 +18,8 @@ self.addEventListener('fetch', e => {
     return;
   }
   if (url.origin !== location.origin) return;
+  // 하위 앱(딜북, /deals/)은 자체 서비스워커가 처리
+  if (url.pathname.includes('/deals/')) return;
   // 페이지: 네트워크 우선(최신판 반영), 오프라인이면 캐시
   if (req.mode === 'navigate') {
     e.respondWith(fetch(req).then(res => { const copy = res.clone(); caches.open(VERSION).then(c => c.put('./index.html', copy)); return res; })
