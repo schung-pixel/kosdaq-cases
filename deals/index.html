@@ -206,6 +206,14 @@ table.deals{width:100%;border-collapse:collapse;min-width:1000px}
 .st.bad{background:var(--bad-soft);color:var(--bad)}
 .st.good{background:var(--good-soft);color:var(--good)}
 .st.neutral{background:var(--soft);color:var(--muted)}
+.st.warn{background:color-mix(in srgb,var(--warn) 16%,transparent);color:var(--warn)}
+.evsec{background:var(--raised);border:1px solid var(--rule);border-radius:var(--r);padding:12px 14px}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.tl li{display:grid;grid-template-columns:auto 1fr;gap:4px 8px;align-items:center;font-size:13px;line-height:1.55}
+.tl li .num{color:var(--muted);font-size:12px;font-family:var(--f-mono)}
+.tl li .st{justify-self:start}
+.tl li .tx{grid-column:1/-1}
+.tl li a{color:var(--accent);white-space:nowrap}
 .qa{color:var(--warn);font-size:11px;white-space:nowrap}
 .new{font-size:10px;font-weight:700;color:var(--accent-ink);background:var(--gold);border-radius:4px;padding:0 4px;letter-spacing:.06em;margin-left:6px;vertical-align:1px}
 .starbtn{border:0;background:none;padding:4px;line-height:1;font-size:18px;color:var(--faint);opacity:.55;transition:color .15s,opacity .15s,transform .15s}
@@ -446,7 +454,7 @@ let ALL=[], VIEW=[], shown=60, sortK="date", sortDir=-1, latestTag=null;
 const F={q:"",yFrom:null,yTo:null,since:null,onlyNew:false,compsOnly:false,reg:new Set(),mod:new Set(),stage:new Set(),le:new Set(),kind:new Set(),status:new Set()};
 const GROUP_LABEL={reg:"원천",mod:"",stage:"",le:"",kind:"",status:""};
 const KIND_LABEL={N:"개별 자산",Y:"플랫폼·디스커버리"};
-const STATUS_LABEL={ret:"권리반환·종료",appr:"허가"};
+const STATUS_LABEL={ret:"권리반환·종료",stop:"개발 중단",down:"우선순위 하향",opt:"옵션 행사·계약 확장",appr:"허가",acq:"인수(원천사·도입사)"};
 let COMPS=new Set();
 let MODE=null, NLP=null, sortAuto=true;
 
@@ -455,7 +463,10 @@ const fmtM=v=>v==null?"–":(v>=10000?fmt(v/1000,1)+"B":fmt(v,v<10?1:0));
 function pct(arr,p){const a=arr.filter(x=>x!=null&&!isNaN(x)).sort((x,y)=>x-y);if(!a.length)return null;const i=(a.length-1)*p,lo=Math.floor(i),hi=Math.ceil(i);return a[lo]+(a[hi]-a[lo])*(i-lo)}
 const median=a=>pct(a,.5);
 function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function statusClass(s){if(!s)return"";if(s.startsWith("권리반환"))return"bad";if(s.startsWith("허가"))return"good";return"neutral"}
+function statusClass(s){if(!s)return"";if(/^(권리반환|개발 중단)/.test(s))return"bad";if(/^(일부 반환|우선순위 하향)/.test(s))return"warn";if(/^(허가|원천사 허가|옵션 행사|계약 확장)/.test(s))return"good";return"neutral"}
+const evType=e=>e.type==="권리반환·종료"&&e.partial?"일부 반환":e.type==="허가"&&/원천사/.test(e.text||"")?"원천사 허가":e.type;
+const EVT={ret:["권리반환·종료"],stop:["개발 중단"],down:["우선순위 하향"],appr:["허가"],opt:["옵션 행사","계약 확장"],acq:["인수"]};
+const hasEv=(d,k)=>(d.events||[]).some(e=>EVT[k].includes(e.type));
 const isPhone=()=>matchMedia("(max-width:720px)").matches;
 
 /* environment hooks: the hosting page may replace these */
@@ -480,7 +491,7 @@ const GROUPS={
   stage:{get:d=>d.stage||"미상",values:()=>STAGES.filter(v=>ALL.some(d=>(d.stage||"미상")===v))},
   le:{get:d=>d.le_type||"미상",values:()=>byCount(d=>d.le_type||"미상")},
   kind:{get:d=>d.platform,values:()=>["N","Y"],label:v=>KIND_LABEL[v]},
-  status:{test:(d,v)=>v==="ret"?(d.status||"").startsWith("권리반환"):(d.status||"").startsWith("허가"),values:()=>["ret","appr"],label:v=>STATUS_LABEL[v]}
+  status:{test:(d,v)=>hasEv(d,v),values:()=>Object.keys(STATUS_LABEL).filter(k=>ALL.some(d=>hasEv(d,k))),label:v=>STATUS_LABEL[v]}
 };
 function byCount(fn){const m={};ALL.forEach(d=>{const v=fn(d);m[v]=(m[v]||0)+1});return Object.keys(m).sort((a,b)=>m[b]-m[a])}
 const glabel=(g,v)=>GROUPS[g].label?GROUPS[g].label(v):v;
@@ -562,7 +573,7 @@ function apply(keepShown){
       for(const d of ALL){
         if(!base(d))continue;
         if(NLP.noReg.size&&NLP.noReg.has(d.lr_region||"미상"))continue;
-        if(NLP.status.size&&!(d.status||"").startsWith("권리반환"))continue;
+        if(NLP.status.size&&![...NLP.status].some(k=>hasEv(d,k)))continue;
         let sc=0,hit=0;if(NLP.groups.length){const r=scoreDeal(d,NLP.groups);sc=r.sc;hit=r.hit;if(!hit)continue}
         const fails=nlFails(d,NLP);
         if(!fails.length){d._score=1000+sc+hit*.01+(d.year-2000)*.01;strict.push(d)}
@@ -700,6 +711,10 @@ function parseNL(raw){
   if(/(작년|지난\s*해)/.test(s)){P.yFrom=P.yTo=now.getFullYear()-1;P.labels.push("작년");s=s.replace(/(작년|지난\s*해)/g," ")}
   // status
   if((m=s.match(/(권리\s*반환|반환|계약\s*해지|해지|종료된|terminat|returned)/))){P.status.add("ret");P.labels.push("권리반환·종료");cut(m[0])}
+  if((m=s.match(/(개발\s*중단|중단된|discontinu)/))){P.status.add("stop");P.labels.push("개발 중단");cut(m[0])}
+  if((m=s.match(/(우선\s*순위\s*(하향|낮아진|밀린)|후순위|deprioriti\w*)/))){P.status.add("down");P.labels.push("우선순위 하향");cut(m[0])}
+  if((m=s.match(/(옵션\s*(을\s*)?(행사|실행)|계약\s*확장|opt[\s-]?in)/))){P.status.add("opt");P.labels.push("옵션 행사·확장");cut(m[0])}
+  if((m=s.match(/(허가\s*(받은|획득|난|된)|승인\s*(받은|난|된)|approved)/))){P.status.add("appr");P.labels.push("허가");cut(m[0])}
   // big pharma
   if((m=s.match(/(빅\s*파마|big\s*pharma|글로벌\s*(제약사?|빅파마)|다국적\s*제약사?|대형\s*제약사?)/))){P.le.add(BIGPHARMA);P.labels.push("빅파마 도입");cut(m[0])}
   // regions: exclusion, licensee side, licensor side
@@ -744,7 +759,7 @@ function nlFilter(d,P){
   if(P.stage.size&&!P.stage.has(d.stage||"미상"))return false;
   if(P.mod.size&&!P.mod.has(d.modality||"기타·미상"))return false;
   if(P.kind&&d.platform!==P.kind)return false;
-  if(P.status.size&&!(d.status||"").startsWith("권리반환"))return false;
+  if(P.status.size&&![...P.status].some(k=>hasEv(d,k)))return false;
   if(P.since&&d.date<P.since)return false;
   if(P.yFrom&&d.year<P.yFrom)return false;
   if(P.yTo&&d.year>P.yTo)return false;
@@ -973,11 +988,12 @@ function openSheet(d){
   const kv=[["기술수출(라이선서)",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["기술도입(라이선시)",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
     ["물질·플랫폼",esc(d.asset)],["모달리티",`${esc(d.modality)}${d.modality_detail&&d.modality_detail!==d.modality?` <span class="hint">· ${esc(d.modality_detail)}</span>`:""}`],["타깃·MoA",esc(d.target)],["적응증",esc(d.indication)],["치료영역",esc(d.area)],
     ["계약시점 단계",esc(d.stage)],["계약 형태",`${esc(d.deal_type)}${d.platform==="Y"?' <span class="tag plat">플랫폼</span>':""}`],["권리지역",esc(d.territory)],["로열티",esc(d.royalty)],["통화·환산",esc(d.currency_note)],
-    ["사후 경과",stTag(d)],["데이터 상태",esc(d.qa)],["출처",link(d.src1)],["추가 출처",link(d.src2)],["수록",esc(d.added)]].filter(x=>x[1]);
+    ["데이터 상태",esc(d.qa)],["출처",link(d.src1)],["추가 출처",link(d.src2)],["수록",esc(d.added)]].filter(x=>x[1]);
   const s=$("sheet");
   s.innerHTML=`<div class="sheet-head"><div><div class="label">${esc(d.date)}</div><h2 id="sTitle">${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</h2><div class="sub">${esc(d.asset||"")}</div></div><div class="acts"><button class="btn sm" id="sClose" type="button">닫기</button></div></div>
    <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm sstar" id="sStar" data-id="${esc(d.id)}" type="button">${COMPS.has(d.id)?"★ 비교 거래에서 빼기":"☆ 비교 거래에 담기"}</button><button class="btn sm" id="sSim" type="button" style="color:var(--accent);border-color:var(--accent)">비슷한 거래 보기</button></div>
    <div class="terms"><div><span class="label">총액</span><span class="v">${d.total==null?"–":"$"+fmt(d.total,d.total%1?1:0)+"M"}</span></div><div><span class="label">Upfront</span><span class="v gold">${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront%1?1:0)+"M"}</span></div><div><span class="label">Near-term</span><span class="v">${d.near_term==null?"–":"$"+fmt(d.near_term)+"M"}</span></div><div><span class="label">지분투자</span><span class="v">${d.equity==null?"–":"$"+fmt(d.equity)+"M"}</span></div></div>
+   <div class="evsec"><div class="label" style="margin-bottom:6px">사후 경과${d.status_checked?` <span class="hint">· ${esc(d.status_checked)} 기준</span>`:""}</div>${(d.events&&d.events.length)?`<ol class="tl">${d.events.map(e=>{const t=evType(e);return `<li><span class="num">${esc(e.date||"")}</span><span class="st ${statusClass(t)}">${esc(t)}</span><span class="tx">${esc(e.text||"")}${e.src?` <a href="${esc(e.src)}" target="_blank" rel="noopener">출처</a>`:""}</span></li>`}).join("")}</ol>`:`<p class="hint" style="margin:0">${d.status_checked?"계약 이후 반환·중단·옵션 행사·허가 등 특이사항이 확인되지 않았습니다.":"사후 경과를 아직 확인하지 않은 거래입니다."}</p>`}</div>
    <dl class="kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
    ${d.notes?`<div><div class="label" style="margin-bottom:4px">수집 메모</div><div class="notes">${esc(d.notes)}</div></div>`:""}`;
   const wasOpen=!s.hidden;s.scrollTop=0;
@@ -1041,7 +1057,8 @@ let wasPhone=isPhone();addEventListener("resize",()=>{const p=isPhone();if(p!==w
 
 function toCSV(rows){
   const cols=[["date","발표일"],["licensor","라이선서"],["lr_ko","라이선서(한글)"],["lr_country","라이선서 국가"],["licensee","라이선시"],["le_ko","라이선시(한글)"],["le_country","라이선시 국가"],["le_type","도입사 유형"],["asset","물질·플랫폼"],["modality","모달리티"],["modality_detail","모달리티 상세"],["platform","플랫폼 계약"],["target","타깃·MoA"],["indication","적응증"],["stage","단계"],["deal_type","계약 형태"],["territory","권리지역"],["total","총액($M)"],["upfront","Upfront($M)"],["near_term","Near-term($M)"],["equity","지분투자($M)"],["royalty","로열티"],["currency_note","통화 메모"],["status","사후 경과"],["qa","데이터 상태"],["src1","출처1"],["src2","출처2"],["notes","메모"],["added","수록"]];
-  const q=v=>{if(v==null)return"";const s=String(v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
+  cols.splice(cols.findIndex(c=>c[0]==="status")+1,0,["events","사후 경과 이력"],["status_checked","사후 경과 확인"]);
+  const q=v=>{if(v==null)return"";if(Array.isArray(v))v=v.map(e=>`[${e.date||""}] ${evType(e)}: ${e.text||""}${e.src?` (${e.src})`:""}`).join(" / ");const s=String(v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
   return "﻿"+[cols.map(c=>c[1]).join(","),...rows.map(d=>cols.map(c=>q(d[c[0]])).join(","))].join("\n");
 }
 
