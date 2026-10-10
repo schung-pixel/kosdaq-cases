@@ -3498,5 +3498,69 @@
  "Percheron Therapeutics": {
   "ko": "퍼셰론 테라퓨틱스",
   "alias": "퍼셰론"
+ },
+ "Kazia Therapeutics": {
+  "ko": "카지아 테라퓨틱스",
+  "alias": "카지아"
+ },
+ "Verona Pharma": {
+  "ko": "베로나 파마",
+  "alias": "베로나"
+ },
+ "Syndax Pharmaceuticals": {
+  "ko": "신닥스 파마슈티컬스",
+  "alias": "신댁스"
+ },
+ "Atara Biotherapeutics": {
+  "ko": "아타라 바이오테라퓨틱스",
+  "alias": "아타라"
+ },
+ "NewAmsterdam Pharma": {
+  "ko": "뉴암스테르담 파마",
+  "alias": ""
+ },
+ "Atomwise": {
+  "ko": "아톰와이즈",
+  "alias": ""
+ },
+ "Carisma Therapeutics": {
+  "ko": "카리스마 테라퓨틱스",
+  "alias": ""
+ },
+ "Sairopa": {
+  "ko": "사이로파",
+  "alias": ""
+ },
+ "MorphoSys": {
+  "ko": "모포시스",
+  "alias": ""
+ },
+ "Human Immunology Biosciences (HI-Bio)": {
+  "ko": "HI-바이오",
+  "alias": "하이바이오"
+ },
+ "Metagenomi": {
+  "ko": "메타게노미",
+  "alias": ""
+ },
+ "Boston Pharmaceuticals": {
+  "ko": "보스턴 파마슈티컬스",
+  "alias": ""
+ },
+ "Teijin Pharma": {
+  "ko": "데이진 파마",
+  "alias": "테이진"
+ },
+ "Evaxion Biotech": {
+  "ko": "에박시온",
+  "alias": ""
+ },
+ "Clavis Bio": {
+  "ko": "클라비스 바이오",
+  "alias": ""
+ },
+ "Primevera Therapeutics": {
+  "ko": "프라임베라",
+  "alias": ""
  }
 }
