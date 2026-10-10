@@ -3466,5 +3466,37 @@
  "Serapha Bio": {
   "ko": "세라파 바이오",
   "alias": "세라파 바운드리스바이오"
+ },
+ "Kolon TissueGene": {
+  "ko": "코오롱티슈진",
+  "alias": "코오롱생명과학 티슈진"
+ },
+ "Praxis Precision Medicines": {
+  "ko": "프락시스 프리시전 메디슨",
+  "alias": "프락시스"
+ },
+ "Triastek": {
+  "ko": "트라이아스텍",
+  "alias": "삼디프린팅"
+ },
+ "Adlai Nortye": {
+  "ko": "아들라이 노타이",
+  "alias": "아들라이"
+ },
+ "ASK Pharm": {
+  "ko": "아오사이캉 제약",
+  "alias": "ASK파마 장쑤아오사이캉"
+ },
+ "Silence Therapeutics": {
+  "ko": "사일런스 테라퓨틱스",
+  "alias": "사일런스"
+ },
+ "Blueprint Medicines": {
+  "ko": "블루프린트 메디슨",
+  "alias": "블루프린트"
+ },
+ "Percheron Therapeutics": {
+  "ko": "퍼셰론 테라퓨틱스",
+  "alias": "퍼셰론"
  }
 }
