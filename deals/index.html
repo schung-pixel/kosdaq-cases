@@ -324,7 +324,7 @@ img{max-width:100%}
       </div>
     </div>
     <div class="upd">
-      <button class="askbtn" id="askBtn" type="button" hidden><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg>Claude에게 묻기</button>
+      <button class="askbtn" id="askBtn" type="button" hidden><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg>클로드에게 물어보기</button>
       <span class="stamp" id="stamp" title="최근 업데이트">불러오는 중</span>
       <button class="icon-btn" id="themeBtn" type="button" hidden aria-label="화면 밝기 전환"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
     </div>
@@ -434,10 +434,10 @@ img{max-width:100%}
 
 <div class="shade" id="askShade" hidden></div>
 <aside class="sheet ask" id="askSheet" hidden role="dialog" aria-modal="true" aria-labelledby="askTitle">
-  <div class="sheet-head"><h2 id="askTitle"><span style="color:var(--gold)">✦</span> Claude에게 묻기</h2><button class="btn sm" id="askClose" type="button">닫기</button></div>
+  <div class="sheet-head"><h2 id="askTitle"><span style="color:var(--gold)">✦</span> 클로드에게 물어보기</h2><button class="btn sm" id="askClose" type="button">닫기</button></div>
   <textarea id="askQ" placeholder="예) 한국 바이오텍이 전임상 단계 TROP2 ADC를 빅파마에 기술수출한다면 비교할 만한 거래와 upfront 수준은?"></textarea>
   <p class="hint">기술수출을 검토 중인 물질이나 상황을 문장으로 적으면, 수록된 거래 중 비슷한 것을 골라 이유와 참고할 점, 조건 범위를 알려 드립니다. 처음 물을 때 Claude 사용 허용을 묻습니다.</p>
-  <div class="askrow"><button class="btn primary" id="askGo" type="button">비슷한 거래 찾기</button><button class="btn" id="askStop" type="button" hidden>중지</button></div>
+  <div class="askrow"><button class="btn primary" id="askGo" type="button">찾기</button><button class="btn" id="askStop" type="button" hidden>중지</button></div>
   <div class="askstat" id="askStat" role="status" aria-live="polite"></div>
   <div class="askres" id="askRes"></div>
 </aside>
