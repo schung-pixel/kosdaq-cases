@@ -153,6 +153,48 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
 .why .tk{display:block;color:var(--muted);font-size:13px;margin-top:2px}
 .askres .list{gap:4px}
 
+
+/* study */
+.study{position:fixed;inset:0;z-index:35;background:var(--bg);display:none;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.study.show{display:flex}
+.study .top{border-bottom:1px solid var(--line)}
+.study .top .wrap{display:flex;align-items:center;gap:10px;padding-block:10px}
+.study .top h2{margin:0;font-size:16px;font-weight:700}
+.study .top .sp{flex:1}
+.study .tabs{display:flex;gap:6px}
+.study .scroll{flex:1;overflow:auto;-webkit-overflow-scrolling:touch}
+.study .scroll .wrap{padding-block:14px 28px;display:grid;gap:14px}
+.sstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sstats div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 11px}
+.sstats b{display:block;font-family:var(--mono);font-size:20px;font-weight:500}
+.sstats span{font-size:12px;color:var(--muted)}
+.prog{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+.prog .bar2{flex:1;height:4px;border-radius:2px;background:var(--surface3);overflow:hidden}
+.prog .bar2 i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.fc{background:var(--surface);border:1px solid var(--line2);border-radius:16px;padding:18px 16px;display:grid;gap:12px;box-shadow:var(--shadow)}
+.fc .lbl{font-size:11.5px;color:var(--faint);font-weight:600;letter-spacing:.06em}
+.fc .front{font-size:16px;line-height:1.75;color:var(--ink)}
+.fc .hint{font-size:12.5px;color:var(--muted)}
+.fc .back{display:grid;gap:10px;border-top:1px dashed var(--line2);padding-top:12px}
+.fc .back .ttl2{font-weight:600;font-size:15px}
+.fc .back p{margin:0;font-size:15px;line-height:1.75;color:var(--ink)}
+.fc .src{font-size:12px}
+.fbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fbtns .btn{height:48px;justify-content:center;font-size:15px}
+.fbtns .btn.full{grid-column:1/-1}
+.btn.ok{background:var(--pos-bg);border-color:transparent;color:var(--pos);font-weight:600}
+.btn.ng{background:var(--neg-bg);border-color:transparent;color:var(--neg);font-weight:600}
+.done{text-align:center;padding:26px 8px;display:grid;gap:10px;color:var(--ink2)}
+.done b{font-size:18px;color:var(--ink)}
+.qa{background:var(--surface);border:1px solid var(--line2);border-radius:16px;padding:16px;display:grid;gap:10px}
+.qa h4{margin:0;font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+.qa p{margin:0;font-size:15px;line-height:1.75}
+.qa textarea{width:100%;min-height:120px;resize:vertical;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;font-size:15px;line-height:1.6;padding:10px 12px}
+.score{display:flex;align-items:baseline;gap:10px}
+.score b{font-family:var(--mono);font-size:30px;font-weight:500}
+.qa ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:14px;line-height:1.65;color:var(--ink2)}
+.muted{color:var(--muted);font-size:13px}
+
 /* fab + toast */
 .fab{position:fixed;right:max(16px,calc(50% - 414px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:15;width:46px;height:46px;border-radius:14px;border:1px solid var(--line2);background:var(--surface3);color:var(--ink);display:grid;place-items:center;box-shadow:var(--shadow);opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .2s,transform .2s}
 .fab.show{opacity:1;pointer-events:auto;transform:none}
@@ -195,6 +237,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
       <span class="sub" id="sub"></span>
       <span class="sp"></span>
       <button class="askbtn" id="b-ask" type="button" hidden><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg>Claude에게 묻기</button>
+      <button class="ib" id="b-study" type="button" aria-label="스터디"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg></button>
       <button class="ib" id="b-toc" type="button" aria-label="주제 목차"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></button>
       <button class="ib" id="b-theme" type="button" aria-label="화면 테마" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
       <button class="ib" id="b-info" type="button" aria-label="이 사례집에 대해"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></button>
@@ -234,6 +277,15 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
   <h5 id="f-yr-h">수록 판</h5><div class="opts" id="f-yr"></div>
   <h5>분류 (여러 개 선택 가능)</h5><div class="opts" id="f-tp"></div>
   <div class="sheetfoot"><button class="btn" id="f-reset" type="button">초기화</button><button class="btn primary" data-close type="button" id="f-done">결과 보기</button></div>
+</section>
+<section class="study" id="study" aria-label="스터디" role="dialog">
+  <div class="top"><div class="wrap">
+    <h2>스터디</h2>
+    <div class="seg tabs" role="group" aria-label="스터디 방식"><button type="button" id="st-fc" aria-pressed="true">플래시카드</button><button type="button" id="st-qz" aria-pressed="false" hidden>응용문제</button></div>
+    <span class="sp"></span>
+    <button class="ib" id="st-close" type="button" aria-label="스터디 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div></div>
+  <div class="scroll"><div class="wrap" id="st-body"></div></div>
 </section>
 <section class="sheet ask" id="sh-ask" aria-label="Claude에게 묻기" role="dialog">
   <div class="grab"></div>
@@ -574,7 +626,7 @@ function show(id){openSheet=$(id);openSheet.classList.add('show');$('scrim').cla
 function hide(){if(openSheet)openSheet.classList.remove('show');$('scrim').classList.remove('show');openSheet=null;}
 $('b-filter').onclick=()=>show('sh-filter');$('b-toc').onclick=()=>show('sh-toc');$('b-info').onclick=()=>show('sh-info');
 $('scrim').onclick=hide;document.querySelectorAll('[data-close]').forEach(b=>b.onclick=hide);
-document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('study').classList.contains('show'))$('st-close').click();else hide();}});
 $('toc').addEventListener('click',e=>{const b=e.target.closest('[data-goto]');if(!b)return;hide();const el=$(b.dataset.goto)||$('list');if(el)setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),60);});
 // fab
 const fab=$('fab');window.addEventListener('scroll',()=>fab.classList.toggle('show',window.scrollY>700),{passive:true});
@@ -637,8 +689,121 @@ async function runAsk(){
 $('b-ask').onclick=()=>{show('sh-ask');setTimeout(()=>$('ask-q').focus(),250);};
 $('ask-go').onclick=runAsk;$('ask-stop').onclick=()=>askCtl?.abort();
 if(MODE==='artifact'&&window.claude&&typeof window.claude.use==='function'){
-  window.claude.use('sample').then(fn=>{if(fn){sampleFn=fn;$('b-ask').hidden=false;}}).catch(()=>{});
+  window.claude.use('sample').then(fn=>{if(fn){sampleFn=fn;$('b-ask').hidden=false;$('st-qz').hidden=false;}}).catch(()=>{});
 }
+// ---------- 스터디 ----------
+const SKEY='ksc2-study';
+const STUDY_POOL=DATA.filter(g=>g.k!=='참고사례'&&!/^원문에 판단/.test(g.latest.j));
+let SS=store.get(SKEY,{});           // key -> {b:box, d:due(ms), n:seen, ok:known count}
+const INTV=[0,1,3,7,16,35];           // days per box
+const DAY=864e5;
+let deck=[],di=0,flipped=false,sessOk=0,sessNg=0,stTab='fc';
+function sSave(){store.set(SKEY,SS);}
+function sStats(){const keys=STUDY_POOL.map(g=>g.key);const now=Date.now();
+  let seen=0,master=0,due=0;keys.forEach(k=>{const r=SS[k];if(!r)return;seen++;if(r.b>=3)master++;if(r.d<=now)due++;});
+  return {total:keys.length,seen,master,due};}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function newDeck(n=20){const now=Date.now();
+  const due=shuffle(STUDY_POOL.filter(g=>SS[g.key]&&SS[g.key].d<=now));
+  const fresh=shuffle(STUDY_POOL.filter(g=>!SS[g.key]));
+  const later=shuffle(STUDY_POOL.filter(g=>SS[g.key]&&SS[g.key].d>now));
+  deck=[...due,...fresh,...later].slice(0,n);di=0;flipped=false;sessOk=0;sessNg=0;}
+function fcView(){
+  const S=sStats();
+  const head=`<div class="sstats"><div><b>${S.seen}<small style="font-size:12px;color:var(--faint)">/${S.total}</small></b><span>학습</span></div><div><b>${S.master}</b><span>익힘</span></div><div><b>${S.due}</b><span>오늘 복습</span></div></div>`;
+  if(!deck.length||di>=deck.length){
+    $('st-body').innerHTML=head+(deck.length?`<div class="done"><b>이번 세트 끝</b><span>알았음 ${sessOk} · 헷갈림 ${sessNg}</span><span class="muted">헷갈린 사례는 다음 세트에 다시 나옵니다.</span></div>`:`<div class="done"><b>무작위 20장으로 복습합니다</b><span class="muted">사안을 읽고 거래소 판단을 떠올린 뒤 카드를 뒤집어 확인하세요. 복습할 사례가 있으면 그것부터 나옵니다.</span></div>`)+
+      `<div class="fbtns"><button class="btn primary full" type="button" data-st="start">${deck.length?'다음 20장':'시작하기'}</button>${S.seen?'<button class="btn full" type="button" data-st="reset">진도 초기화</button>':''}</div>`;
+    return;}
+  const g=deck[di],e=g.latest,sb=subOf(g,e.t);
+  $('st-body').innerHTML=head+`<div class="prog"><span>${di+1} / ${deck.length}</span><span class="bar2"><i style="width:${(di)/deck.length*100}%"></i></span></div>
+  <div class="fc"><span class="lbl">사안 · ${esc(g.tp)}</span><div class="front">${esc(e.f)}</div>
+  ${flipped?`<div class="back"><div class="ttl2">${esc(e.t)}${sb?` <span class="muted">– ${esc(sb)}</span>`:''} <span class="pill p-${oKey(e.o)}">${esc(e.o)}</span></div><span class="lbl">판단</span><p>${esc(e.j)}</p><span class="src">${e.y}년판 · ${esc(e.s)} · ${e.p}쪽${g.ed.length>1?` · 수록 ${g.ed.map(x=>x.y.slice(2)).join('·')}`:''}</span></div>`:`<span class="hint">거래소가 어떻게 판단했을지 떠올려 보세요.</span>`}
+  </div>
+  <div class="fbtns">${flipped?`<button class="btn ng" type="button" data-st="ng">헷갈림</button><button class="btn ok" type="button" data-st="ok">알았음</button>`:`<button class="btn primary full" type="button" data-st="flip">판단 보기</button>`}</div>`;
+}
+function grade(ok){const g=deck[di];const r=SS[g.key]||{b:0,d:0,n:0,ok:0};r.n++;
+  if(ok){r.ok++;r.b=Math.min(r.b+1,INTV.length-1);r.d=Date.now()+INTV[r.b]*DAY;sessOk++;}
+  else{r.b=0;r.d=Date.now();sessNg++;if(deck.length-di>3)deck.splice(di+3,0,g);else deck.push(g);}
+  SS[g.key]=r;sSave();di++;flipped=false;fcView();$('study').querySelector('.scroll').scrollTop=0;}
+
+// 응용문제 (Claude 페이지 전용)
+let qz=null,qzCtl=null;
+function qzErr(e){return e?.code==='cancelled'?'중지했습니다.':(ASK_ERR[e?.code]||'답을 받지 못했습니다. 잠시 뒤 다시 시도해 주세요.');}
+function qzView(){
+  if(!qz){$('st-body').innerHTML=`<div class="qa"><h4>응용문제</h4><p>실제 심사사례 하나를 바탕으로 Claude가 회사명·수치를 바꾼 가상의 실사 상황을 만듭니다. 쟁점과 예상되는 거래소 판단, 상장주선인으로서의 보완 방안을 적으면 채점하고 해설해 줍니다.</p><p class="muted">문제를 낼 때와 채점할 때 각각 Claude 사용량이 쓰입니다(각 20~60초).</p></div><div class="fbtns"><button class="btn primary full" type="button" data-st="qnew">문제 내기</button></div>`;return;}
+  if(qz.state==='loading'){$('st-body').innerHTML=`<div class="qa"><p class="muted">${esc(qz.msg)}</p></div><div class="fbtns"><button class="btn full" type="button" data-st="qstop">중지</button></div>`;return;}
+  if(qz.state==='error'){$('st-body').innerHTML=`<div class="qa"><p>${esc(qz.msg)}</p></div><div class="fbtns"><button class="btn primary full" type="button" data-st="qnew">새 문제</button></div>`;return;}
+  let h=`<div class="qa"><h4>상황</h4><p>${esc(qz.q.scenario)}</p><h4>문제</h4><p>${esc(qz.q.question)}</p></div>`;
+  if(!qz.r){h+=`<div class="qa"><h4>내 답안</h4><textarea id="qz-ans" placeholder="쟁점, 예상되는 거래소 판단, 보완 방안을 적어 주세요.">${esc(qz.ans||'')}</textarea></div>
+    <div class="fbtns"><button class="btn" type="button" data-st="qnew">다른 문제</button><button class="btn primary" type="button" data-st="qgrade">채점하기</button></div>`;}
+  else{const r=qz.r,g=qz.g;
+    h+=`<div class="qa"><h4>내 답안</h4><p>${esc(qz.ans)}</p></div>
+    <div class="qa"><div class="score"><b>${Number(r.score)||0}</b><span class="muted">/ 100 · ${esc(r.verdict||'')}</span></div>
+    ${r.good?.length?`<h4>잘 짚은 점</h4><ul>${r.good.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+    ${r.missing?.length?`<h4>놓친 점</h4><ul>${r.missing.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}
+    ${r.comment?`<h4>해설</h4><p>${esc(r.comment)}</p>`:''}</div>
+    <div class="qa"><h4>바탕이 된 실제 사례</h4></div><div class="list" id="qz-case">${card(g)}</div>
+    <div class="fbtns"><button class="btn primary full" type="button" data-st="qnew">다음 문제</button></div>`;}
+  $('st-body').innerHTML=h;
+}
+async function qzNew(){
+  if(!sampleFn)return;const g=STUDY_POOL[Math.floor(Math.random()*STUDY_POOL.length)],e=g.latest;
+  qzCtl?.abort();qzCtl=new AbortController();qz={state:'loading',msg:'문제를 만드는 중입니다… (보통 20~60초)'};qzView();
+  const prompt=`당신은 코스닥 상장심사(기술성장기업 포함) 실무를 가르치는 IB 선배입니다. 아래 실제 심사사례를 바탕으로 상장주선인 실사 담당자용 응용문제를 하나 만드세요.
+
+[실제 사례]
+제목: ${e.t}
+분류: ${g.tp} / ${e.s}
+사안: ${e.f}
+판단: ${e.j}
+결론: ${e.o}
+
+규칙:
+- 회사명은 가상(예: A사, ㈜가나바이오)으로, 수치·업종·시점은 그럴듯하게 바꿔 실제 사례가 바로 드러나지 않게 합니다.
+- 상황 설명에는 결론이나 거래소 판단을 쓰지 않습니다. 실사 중 발견한 사실처럼 4~6문장으로 씁니다.
+- 문제는 "이 상황의 상장심사 쟁점은 무엇이고, 거래소는 어떻게 판단할 가능성이 높으며, 상장주선인으로서 어떤 보완을 권하겠는가?"를 이 상황에 맞게 한두 문장으로 다듬습니다.
+- 모범답안 요점 3~5개를 따로 적습니다(쟁점, 예상 판단, 보완 방안 포함).
+반드시 JSON 하나로만 답하세요: {"scenario":"...","question":"...","points":["...","..."]}`;
+  try{const q=await sampleFn.json(prompt,{signal:qzCtl.signal,cache:false});
+    if(!q||!q.scenario||!q.question)throw {code:'invalid_json'};
+    qz={state:'q',q,g,ans:''};}catch(err){qz={state:'error',msg:qzErr(err)};}
+  qzView();
+}
+async function qzGrade(){
+  const ans=($('qz-ans')?.value||'').trim();if(!ans){$('qz-ans')?.focus();return;}
+  const {q,g}=qz;const e=g.latest;qz.ans=ans;const keep=qz;
+  qzCtl?.abort();qzCtl=new AbortController();qz={state:'loading',msg:'채점하는 중입니다… (보통 20~60초)'};qzView();
+  const prompt=`당신은 코스닥 상장심사 실무 교육 담당자입니다. 아래 응용문제에 대한 수강생 답안을 채점하세요. 기준은 실제 사례의 거래소 판단과 모범답안 요점입니다.
+
+[상황] ${q.scenario}
+[문제] ${q.question}
+[모범답안 요점] ${(q.points||[]).join(' / ')}
+[바탕이 된 실제 사례] ${e.t} — 사안: ${e.f} / 판단: ${e.j} / 결론: ${e.o} (${e.y}년판 ${e.p}쪽)
+
+[수강생 답안]
+${ans}
+
+0~100점으로 채점하고, 잘 짚은 점과 놓친 점을 각각 1~4개 짧게, 해설은 실제 사례의 판단을 근거로 2~4문장으로 씁니다. 문체는 '~함', '~필요' 개조식.
+반드시 JSON 하나로만 답하세요: {"score":0,"verdict":"한 줄 평","good":["..."],"missing":["..."],"comment":"..."}`;
+  try{const r=await sampleFn.json(prompt,{signal:qzCtl.signal});qz={...keep,state:'q',r};}
+  catch(err){qz={...keep,state:'q'};toast(qzErr(err));}
+  qzView();
+}
+function stTabSet(t){stTab=t;$('st-fc').setAttribute('aria-pressed',t==='fc');$('st-qz').setAttribute('aria-pressed',t==='qz');t==='fc'?fcView():qzView();}
+$('b-study').onclick=()=>{$('study').classList.add('show');document.body.style.overflow='hidden';stTabSet(stTab);};
+$('st-close').onclick=()=>{$('study').classList.remove('show');document.body.style.overflow='';};
+$('st-fc').onclick=()=>stTabSet('fc');$('st-qz').onclick=()=>stTabSet('qz');
+$('st-body').addEventListener('click',ev=>{
+  const b=ev.target.closest('[data-st]');
+  if(!b){if(ev.target.closest('[data-act]'))onCardClick(ev);return;}
+  const a=b.dataset.st;
+  if(a==='start'){newDeck();fcView();}
+  else if(a==='reset'){if(b.dataset.sure){SS={};sSave();deck=[];fcView();toast('진도를 초기화했습니다');}else{b.dataset.sure='1';b.textContent='한 번 더 누르면 초기화됩니다';}}
+  else if(a==='flip'){flipped=true;fcView();}
+  else if(a==='ok')grade(true);else if(a==='ng')grade(false);
+  else if(a==='qnew')qzNew();else if(a==='qgrade')qzGrade();else if(a==='qstop')qzCtl?.abort();
+});
 // deep link
 function openFromHash(){const m=location.hash.match(/^#c-(\d{4}-\d{3})$/);if(!m||!BYKEY[m[1]])return;
   if(st.mode!=='all'||activeFilters()){st.mode='all';st.q='';$('q').value='';st.oc.clear();st.tp.clear();st.yr='';st.preset='all';st.starOnly=false;renderChips();renderSheet();}
