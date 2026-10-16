@@ -134,6 +134,7 @@ main{min-width:0;padding-bottom:40px}
 .ddrow{display:flex;gap:8px;margin-top:10px}
 .ddrow .dd{margin-top:0;flex:1;min-width:0}
 .ddrow .ddy{flex:0 0 auto}
+.ddrow .fbtn-m{height:42px;border-radius:10px;padding:0 14px;font-size:14px}
 .ddrow .ddy .ddmenu{right:auto;min-width:150px}
 /* dropdown (mobile topic picker) */
 .dd{position:relative;margin-top:10px}
@@ -303,8 +304,10 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
   .brand h1{font-size:16px}
   .shell{display:block;padding-top:12px}
   .side{display:none}
-  .grp,.card{scroll-margin-top:16px}
-  .srow .fbtn{padding:0 13px}
+  .grp,.card{scroll-margin-top:76px}
+  .srow .fbtn{display:none}
+  .srow{position:sticky;top:0;z-index:25;margin:-12px calc(-1*var(--pad)) 0;padding:10px var(--padr) 8px var(--pad);background:linear-gradient(180deg,color-mix(in srgb,var(--bg) 94%,transparent) 72%,transparent)}
+  .ddrow{margin-top:2px}
   .tabbar{display:flex;position:fixed;z-index:30;left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));border-radius:30px;padding:6px;gap:2px;justify-content:space-around}
   .tabbar .tab{flex:1;flex-direction:column;height:52px;padding:0 4px;gap:2px;font-size:11px;border-radius:24px;justify-content:center}
   .tabbar .tab svg{width:21px;height:21px}
@@ -350,7 +353,7 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
       <input id="q" class="search" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="가지급금, 임상 실패…" aria-label="사례 검색">
       <button class="sclear" id="qx" type="button" aria-label="검색어 지우기" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </form>
-      <button class="fbtn" id="b-filter" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>필터<span class="badge" id="fcount" hidden>0</span></button>
+      <button class="fbtn" id="b-filter" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>필터<span class="badge fcount" hidden>0</span></button>
     </div>
     <div class="ddrow mob">
     <div class="dd ddy" id="ddY" hidden>
@@ -361,6 +364,7 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
       <button class="ddbtn" id="ddbtn" type="button" aria-haspopup="listbox" aria-expanded="false"><span class="lb" id="ddlb">주제</span><span class="v" id="ddv">전체</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
       <div class="ddmenu glassmenu" id="ddmenu" role="listbox"><div class="navl" id="ddlist"></div></div>
     </div>
+    <button class="fbtn fbtn-m" id="b-filter-m" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>필터<span class="badge fcount" hidden>0</span></button>
     </div>
     <div class="status"><span id="cnt"></span><button class="linkb" id="b-reset" type="button" hidden>필터 초기화</button></div>
     <div id="list"></div>
@@ -664,7 +668,7 @@ function renderSheet(){
   const tp=$('f-tp');tp.innerHTML='';
   TOPICS.forEach(t=>tp.appendChild(chipBtn(`${t} ${tc[t]||0}`,st.tp.has(t),()=>{st.tp.has(t)?st.tp.delete(t):st.tp.add(t);st.preset='all';renderSheet();render(true);},'opt')));
   const n=st.oc.size+st.tp.size+(st.yr&&st.mode==='all'?1:0);
-  $('fcount').hidden=!n;$('fcount').textContent=n;$('b-filter').setAttribute('aria-pressed',n>0);
+  document.querySelectorAll('.fcount').forEach(b=>{b.hidden=!n;b.textContent=n;});['b-filter','b-filter-m'].forEach(i=>$(i).setAttribute('aria-pressed',n>0));
 }
 function activeFilters(){return !!(st.q||st.oc.size||st.tp.size||(st.yr&&st.mode==='all')||st.preset!=='all'||st.starOnly);}
 function matchG(g,e,skip){
@@ -685,7 +689,7 @@ function baseItems(skip){ // items for current view: [{g,e}] (e only in ed mode)
   if(st.mode==='ed')return ROWS.filter(r=>r.e.y===st.edYear&&matchG(r.g,r.e,skip)).map(r=>({g:r.g,e:r.e,o:r.e.o}));
   return DATA.filter(g=>matchG(g,null,skip)).map(g=>({g,e:null,o:g.o}));
 }
-function stickyOffset(){return MQ.matches?16:$('topbar').offsetHeight+30;}
+function stickyOffset(){return MQ.matches?76:$('topbar').offsetHeight+30;}
 function setTopic(t){st.tp.clear();if(t)st.tp.add(t);st.preset='all';renderSheet();renderChips(true);render(true);}
 
 // ---------- side nav + dropdown ----------
@@ -835,7 +839,7 @@ function openPop(id,opener){closePop(true);openPopEl=$(id);popOpener=opener||doc
   setTimeout(()=>{const f=openPopEl.querySelector('.xbtn');f&&f.focus({preventScroll:true});},60);}
 function closePop(silent){if(!openPopEl)return;openPopEl.classList.remove('show');$('scrim').classList.remove('show');document.documentElement.style.overflow='';
   const o=popOpener;openPopEl=null;popOpener=null;if(!silent&&o&&o.focus)o.focus({preventScroll:true});}
-$('b-filter').onclick=e=>openPop('pop-filter',e.currentTarget);
+['b-filter','b-filter-m'].forEach(i=>{$(i).onclick=e=>openPop('pop-filter',e.currentTarget);});
 $('scrim').onclick=()=>closePop();document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closePop()));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('.dd.open'))ddCloseAll();else closePop();}});
 // fab
