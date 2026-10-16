@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<title>테트리스</title>
+<style>
+  :root { --bg:#10131a; --panel:#1b2030; --fg:#e8ecf5; --muted:#8a93a8; --accent:#4f8cff; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--fg);
+    font-family:-apple-system,"Malgun Gothic","Noto Sans KR",sans-serif; touch-action:manipulation; }
+  body { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:10px 16px; }
+  .game { display:flex; gap:12px; align-items:flex-start; }
+  canvas { background:#0a0d13; border:2px solid #2a3350; border-radius:6px; display:block; }
+  .side { display:flex; flex-direction:column; gap:10px; width:110px; }
+  .box { background:var(--panel); border-radius:8px; padding:8px 10px; }
+  .box small { color:var(--muted); display:block; font-size:11px; }
+  .box b { font-size:20px; font-variant-numeric:tabular-nums; }
+  #next { background:transparent; border:none; width:90px; height:90px; }
+  .btns { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; width:100%; max-width:380px; }
+  button { background:var(--panel); color:var(--fg); border:1px solid #2a3350; border-radius:10px;
+    font-size:22px; padding:14px 0; user-select:none; }
+  button:active { background:var(--accent); }
+  .wide { grid-column:span 2; font-size:15px; }
+  .hint { color:var(--muted); font-size:12px; text-align:center; }
+  @media (hover:hover) { .btns { display:none; } }
+</style>
+</head>
+<body>
+<div class="game">
+  <canvas id="board" width="240" height="480"></canvas>
+  <div class="side">
+    <div class="box"><small>점수</small><b id="score">0</b></div>
+    <div class="box"><small>라인</small><b id="lines">0</b></div>
+    <div class="box"><small>레벨</small><b id="level">1</b></div>
+    <div class="box"><small>다음</small><canvas id="next" width="90" height="90"></canvas></div>
+    <button id="pause" style="font-size:14px;padding:10px 0">일시정지 (P)</button>
+  </div>
+</div>
+<div class="btns">
+  <button data-k="left">◀</button>
+  <button data-k="rotate">⟳</button>
+  <button data-k="right">▶</button>
+  <button data-k="down">▼</button>
+  <button class="wide" data-k="drop">하드 드롭</button>
+  <button class="wide" data-k="hold">홀드</button>
+</div>
+<div class="hint">← → 이동 · ↑ 회전 · ↓ 소프트 드롭 · Space 하드 드롭 · C 홀드 · P 일시정지 · R 재시작</div>
+
+<script>
+const COLS = 10, ROWS = 20, S = 24;
+const cv = document.getElementById('board'), ctx = cv.getContext('2d');
+const nv = document.getElementById('next'), nctx = nv.getContext('2d');
+const COLORS = { I:'#35d6ee', O:'#f5d142', T:'#b36bf0', S:'#4fd66a', Z:'#f05a5a', J:'#4f7cff', L:'#f59a3d' };
+const SHAPES = {
+  I:[[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],
+  O:[[1,1],[1,1]],
+  T:[[0,1,0],[1,1,1],[0,0,0]],
+  S:[[0,1,1],[1,1,0],[0,0,0]],
+  Z:[[1,1,0],[0,1,1],[0,0,0]],
+  J:[[1,0,0],[1,1,1],[0,0,0]],
+  L:[[0,0,1],[1,1,1],[0,0,0]],
+};
+let grid, cur, nextType, bag = [], score, lines, level, over, paused, dropMs, acc, last, holdType, canHold;
+
+function rnd() {
+  if (!bag.length) { bag = Object.keys(SHAPES); for (let i = bag.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [bag[i], bag[j]] = [bag[j], bag[i]]; } }
+  return bag.pop();
+}
+function spawn(type) {
+  const m = SHAPES[type].map(r => r.slice());
+  cur = { type, m, x: ((COLS - m[0].length) / 2) | 0, y: 0 };
+  if (collide(cur.m, cur.x, cur.y)) over = true;
+}
+function reset() {
+  grid = Array.from({ length: ROWS }, () => Array(COLS).fill(null));
+  score = lines = 0; level = 1; over = paused = false; dropMs = 800; acc = 0; holdType = null; canHold = true; bag = [];
+  nextType = rnd(); spawn(rnd()); nextType = rnd(); updateHud();
+}
+function collide(m, x, y) {
+  for (let r = 0; r < m.length; r++) for (let c = 0; c < m[r].length; c++) {
+    if (!m[r][c]) continue;
+    const nx = x + c, ny = y + r;
+    if (nx < 0 || nx >= COLS || ny >= ROWS) return true;
+    if (ny >= 0 && grid[ny][nx]) return true;
+  }
+  return false;
+}
+function rotated(m) { return m[0].map((_, c) => m.map(r => r[c]).reverse()); }
+function rotate() {
+  if (cur.type === 'O') return;
+  const m = rotated(cur.m);
+  for (const k of [0, -1, 1, -2, 2]) if (!collide(m, cur.x + k, cur.y)) { cur.m = m; cur.x += k; return; }
+}
+function move(dx) { if (!collide(cur.m, cur.x + dx, cur.y)) cur.x += dx; }
+function lock() {
+  cur.m.forEach((row, r) => row.forEach((v, c) => { if (v && cur.y + r >= 0) grid[cur.y + r][cur.x + c] = cur.type; }));
+  let n = 0;
+  for (let r = ROWS - 1; r >= 0; r--) if (grid[r].every(Boolean)) { grid.splice(r, 1); grid.unshift(Array(COLS).fill(null)); n++; r++; }
+  if (n) {
+    score += [0, 100, 300, 500, 800][n] * level; lines += n;
+    level = 1 + (lines / 10 | 0); dropMs = Math.max(80, 800 - (level - 1) * 70);
+  }
+  canHold = true; spawn(nextType); nextType = rnd(); updateHud();
+}
+function step() { if (!collide(cur.m, cur.x, cur.y + 1)) { cur.y++; return true; } lock(); return false; }
+function soft() { if (step()) score += 1; updateHud(); acc = 0; }
+function hard() { let d = 0; while (!collide(cur.m, cur.x, cur.y + 1)) { cur.y++; d++; } score += d * 2; lock(); acc = 0; }
+function hold() {
+  if (!canHold) return;
+  const t = cur.type;
+  if (holdType) { spawn(holdType); } else { spawn(nextType); nextType = rnd(); }
+  holdType = t; canHold = false; updateHud();
+}
+function updateHud() {
+  document.getElementById('score').textContent = score;
+  document.getElementById('lines').textContent = lines;
+  document.getElementById('level').textContent = level;
+  nctx.clearRect(0, 0, 90, 90);
+  drawMini(nctx, nextType, 0);
+  if (holdType) drawMini(nctx, holdType, 1);
+}
+function drawMini(c, type, hold) {
+  if (hold) return; // 홀드 표시는 보드 위 오버레이로 처리
+  const m = SHAPES[type], s = 18, ox = (90 - m[0].length * s) / 2, oy = (90 - m.length * s) / 2;
+  m.forEach((row, r) => row.forEach((v, cc) => { if (v) cell(c, ox + cc * s, oy + r * s, s, COLORS[type]); }));
+}
+function cell(c, x, y, s, color) {
+  c.fillStyle = color; c.fillRect(x, y, s, s);
+  c.fillStyle = 'rgba(255,255,255,.28)'; c.fillRect(x, y, s, 3); c.fillRect(x, y, 3, s);
+  c.fillStyle = 'rgba(0,0,0,.28)'; c.fillRect(x, y + s - 3, s, 3); c.fillRect(x + s - 3, y, 3, s);
+}
+function draw() {
+  ctx.clearRect(0, 0, cv.width, cv.height);
+  ctx.strokeStyle = 'rgba(255,255,255,.04)';
+  for (let i = 1; i < COLS; i++) { ctx.beginPath(); ctx.moveTo(i * S, 0); ctx.lineTo(i * S, cv.height); ctx.stroke(); }
+  for (let i = 1; i < ROWS; i++) { ctx.beginPath(); ctx.moveTo(0, i * S); ctx.lineTo(cv.width, i * S); ctx.stroke(); }
+  grid.forEach((row, r) => row.forEach((t, c) => { if (t) cell(ctx, c * S, r * S, S, COLORS[t]); }));
+  if (!over) {
+    let gy = cur.y; while (!collide(cur.m, cur.x, gy + 1)) gy++;
+    cur.m.forEach((row, r) => row.forEach((v, c) => { if (v) { ctx.strokeStyle = COLORS[cur.type]; ctx.globalAlpha = .5; ctx.strokeRect((cur.x + c) * S + 1, (gy + r) * S + 1, S - 2, S - 2); ctx.globalAlpha = 1; } }));
+    cur.m.forEach((row, r) => row.forEach((v, c) => { if (v) cell(ctx, (cur.x + c) * S, (cur.y + r) * S, S, COLORS[cur.type]); }));
+  }
+  if (holdType) { ctx.fillStyle = 'rgba(255,255,255,.55)'; ctx.font = '11px sans-serif'; ctx.fillText('HOLD: ' + holdType, 6, 14); }
+  if (over || paused) {
+    ctx.fillStyle = 'rgba(0,0,0,.65)'; ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.font = 'bold 24px sans-serif';
+    ctx.fillText(over ? '게임 오버' : '일시정지', cv.width / 2, cv.height / 2 - 6);
+    ctx.font = '13px sans-serif'; ctx.fillText(over ? 'R 또는 화면 탭으로 재시작' : 'P로 계속', cv.width / 2, cv.height / 2 + 20);
+    ctx.textAlign = 'left';
+  }
+}
+function loop(t) {
+  const dt = t - last; last = t;
+  if (!over && !paused) { acc += dt; if (acc >= dropMs) { acc = 0; step(); } }
+  draw(); requestAnimationFrame(loop);
+}
+const actions = {
+  left: () => move(-1), right: () => move(1), rotate, down: soft, drop: hard, hold,
+};
+function act(k) { if (over || paused) return; actions[k](); }
+addEventListener('keydown', e => {
+  const map = { ArrowLeft:'left', ArrowRight:'right', ArrowUp:'rotate', ArrowDown:'down', ' ':'drop', c:'hold', C:'hold' };
+  if (map[e.key]) { e.preventDefault(); act(map[e.key]); }
+  else if (e.key === 'p' || e.key === 'P') { if (!over) paused = !paused; }
+  else if (e.key === 'r' || e.key === 'R') reset();
+});
+document.querySelectorAll('[data-k]').forEach(b => {
+  let timer;
+  const fire = () => act(b.dataset.k);
+  b.addEventListener('pointerdown', e => {
+    e.preventDefault(); fire();
+    if (['left', 'right', 'down'].includes(b.dataset.k)) timer = setInterval(fire, 90);
+  });
+  ['pointerup', 'pointerleave', 'pointercancel'].forEach(ev => b.addEventListener(ev, () => clearInterval(timer)));
+});
+document.getElementById('pause').onclick = () => { if (!over) paused = !paused; };
+cv.addEventListener('click', () => { if (over) reset(); });
+reset(); last = performance.now(); requestAnimationFrame(loop);
+</script>
+</body>
+</html>
