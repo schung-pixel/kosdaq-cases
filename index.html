@@ -115,7 +115,6 @@ main{min-width:0;padding-bottom:40px}
 .summ b{font-family:var(--mono);font-weight:500;color:var(--ink);font-size:14px}
 
 /* chip bar */
-.chipbar{position:sticky;top:calc(var(--hh) + 18px);z-index:12;margin-top:14px;border-radius:999px;display:flex;align-items:center;gap:6px;padding:5px}
 .chips{position:relative;flex:1;min-width:0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth;border-radius:999px}
 .chips::-webkit-scrollbar{display:none}
 .chip{position:relative;z-index:1;flex:0 0 auto;height:32px;padding:0 13px;border-radius:999px;border:0;background:transparent;color:var(--muted);font-size:13px;white-space:nowrap}
@@ -128,6 +127,14 @@ main{min-width:0;padding-bottom:40px}
 .fbtn[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);font-weight:600}
 .badge{min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-size:11px;font-weight:600;font-family:var(--mono);display:inline-grid;place-items:center}
 
+/* search row */
+.srow{display:flex;gap:8px;align-items:center}
+.srow .sbox{flex:1;min-width:0}
+.srow .fbtn{height:46px;padding:0 16px;font-size:14px}
+.ddrow{display:flex;gap:8px;margin-top:10px}
+.ddrow .dd{margin-top:0;flex:1;min-width:0}
+.ddrow .ddy{flex:0 0 auto}
+.ddrow .ddy .ddmenu{right:auto;min-width:150px}
 /* dropdown (mobile topic picker) */
 .dd{position:relative;margin-top:10px}
 .ddbtn{width:100%;height:42px;border-radius:10px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--sh1);display:flex;align-items:center;gap:8px;padding:0 12px;color:var(--ink);font-size:14px;text-align:left}
@@ -141,33 +148,6 @@ main{min-width:0;padding-bottom:40px}
 .ddmenu .navl button{padding:9px 10px}
 
 /* overview */
-.ov{margin-top:16px;background:var(--surface);border:1px solid var(--line2);border-radius:14px;box-shadow:var(--sh1)}
-.ov>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 16px;font-weight:600;font-size:14px}
-.ov>summary::-webkit-details-marker{display:none}
-.ov>summary .hint{font-weight:400;font-size:12.5px;color:var(--muted)}
-.ov>summary svg{width:16px;height:16px;margin-left:auto;color:var(--muted);transition:transform .3s}
-.ov[open]>summary{border-bottom:1px solid var(--line2)}
-.ov[open]>summary svg{transform:rotate(180deg)}
-.ovt{width:100%;border-collapse:collapse;font-size:13px}
-.ovt th,.ovt td{padding:0;border-bottom:1px solid var(--line2);text-align:center}
-.ovt thead th{font-size:12px;font-weight:600;color:var(--muted);padding:8px 6px;white-space:nowrap}
-.ovt tbody th{text-align:left;font-weight:500;padding:0 8px 0 16px;white-space:nowrap}
-.ovt tr:last-child>*{border-bottom:0}
-.ovt td button,.ovt tbody th button{width:100%;height:30px;border:0;background:transparent;font-family:var(--mono);font-size:12.5px;color:var(--ink)}
-.ovt tbody th button{font-family:var(--sans);text-align:left;font-size:13px;padding:0}
-.ovt td button:hover,.ovt tbody th button:hover{background:var(--surface2)}
-.ovt td button[disabled]{color:var(--line);cursor:default;background:transparent}
-.ovt td button.on{background:var(--accent-soft);color:var(--accent);font-weight:600;box-shadow:inset 0 0 0 1.5px var(--accent);border-radius:6px}
-.ovt .c-부정 button:not([disabled]){color:var(--bad)}.ovt .c-보완 button:not([disabled]){color:var(--warn)}.ovt .c-긍정 button:not([disabled]){color:var(--ok)}.ovt .c-기준 button:not([disabled]){color:var(--vio)}
-.ovt .tot{color:var(--muted)}
-.ovcards{display:none;padding:6px 10px 10px;gap:6px}
-.ovc{display:grid;gap:6px;padding:9px 6px;border-bottom:1px solid var(--line2)}
-.ovc:last-child{border-bottom:0}
-.ovc .t{display:flex;justify-content:space-between;font-size:13.5px;font-weight:500}
-.ovc .t .mono{color:var(--muted);font-size:12px}
-.ovc .cs{display:flex;flex-wrap:wrap;gap:5px}
-.ovc .cs button{height:26px;padding:0 9px;border-radius:999px;border:0;font-size:11.5px;font-weight:600}
-.ovc .cs button.on{box-shadow:inset 0 0 0 1.5px currentColor}
 
 /* status + list */
 .status{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;color:var(--muted);margin:18px 2px 0}
@@ -323,10 +303,8 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
   .brand h1{font-size:16px}
   .shell{display:block;padding-top:12px}
   .side{display:none}
-  .chipbar{top:calc(8px + env(safe-area-inset-top,0px))}
-  .grp,.card{scroll-margin-top:72px}
-  .ovt{display:none}
-  .ovcards{display:grid}
+  .grp,.card{scroll-margin-top:16px}
+  .srow .fbtn{padding:0 13px}
   .tabbar{display:flex;position:fixed;z-index:30;left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));border-radius:30px;padding:6px;gap:2px;justify-content:space-around}
   .tabbar .tab{flex:1;flex-direction:column;height:52px;padding:0 4px;gap:2px;font-size:11px;border-radius:24px;justify-content:center}
   .tabbar .tab svg{width:21px;height:21px}
@@ -366,24 +344,24 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
 <div class="shell">
   <aside class="side" id="side" aria-label="주제 목록"></aside>
   <main>
+    <div class="srow">
     <form class="sbox" id="qform" role="search" action="#" autocomplete="off">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" class="search" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="가지급금, 임상 실패 후 재분석, 최대주주 변경…" aria-label="사례 검색">
       <button class="sclear" id="qx" type="button" aria-label="검색어 지우기" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </form>
-    <div class="chipbar glass" id="chipbar">
-      <div class="chips" id="chips" role="group" aria-label="빠른 필터"><span class="ind" aria-hidden="true"></span></div>
       <button class="fbtn" id="b-filter" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>필터<span class="badge" id="fcount" hidden>0</span></button>
     </div>
-    <div class="dd mob" id="dd">
+    <div class="ddrow mob">
+    <div class="dd ddy" id="ddY" hidden>
+      <button class="ddbtn" id="ddYbtn" type="button" aria-haspopup="listbox" aria-expanded="false"><span class="v" id="ddYv">2026년판</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="ddmenu" id="ddYmenu" role="listbox"><div class="navl" id="ddYlist"></div></div>
+    </div>
+    <div class="dd" id="dd">
       <button class="ddbtn" id="ddbtn" type="button" aria-haspopup="listbox" aria-expanded="false"><span class="lb" id="ddlb">주제</span><span class="v" id="ddv">전체</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
       <div class="ddmenu glassmenu" id="ddmenu" role="listbox"><div class="navl" id="ddlist"></div></div>
     </div>
-    <details class="ov" id="ov">
-      <summary>개관표 <span class="hint" id="ovhint">주제 × 결론 · 칸을 누르면 해당 사례로 이동</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
-      <div style="overflow-x:auto"><table class="ovt" id="ovt"></table></div>
-      <div class="ovcards" id="ovcards"></div>
-    </details>
+    </div>
     <div class="status"><span id="cnt"></span><button class="linkb" id="b-reset" type="button" hidden>필터 초기화</button></div>
     <div id="list"></div>
 
@@ -667,20 +645,15 @@ applyGlass(store.get('ksc2-glass',60));
 $('glassRange').addEventListener('input',e=>{applyGlass(e.target.value);store.set('ksc2-glass',+e.target.value);});
 
 // ---------- header height ----------
-const ro=new ResizeObserver(()=>{document.documentElement.style.setProperty('--hh',$('topbar').offsetHeight+'px');syncTabs(false);moveChipInd(false);});ro.observe($('topbar'));
+const ro=new ResizeObserver(()=>{document.documentElement.style.setProperty('--hh',$('topbar').offsetHeight+'px');syncTabs(false);});ro.observe($('topbar'));
 
 // ---------- filters UI ----------
 function chipBtn(label,pressed,on,cls='chip'){const b=document.createElement('button');b.type='button';b.className=cls;b.textContent=label;b.setAttribute('aria-pressed',pressed);b.onclick=on;return b;}
-function moveChipInd(anim){const box=$('chips');const sel=box.querySelector('.chip[aria-pressed="true"]');moveInd(box,sel,{fromMemo:anim});
-  if(sel&&anim){const l=sel.offsetLeft,r=l+sel.offsetWidth;if(l<box.scrollLeft+8||r>box.scrollLeft+box.clientWidth-8)box.scrollTo({left:Math.max(0,l-box.clientWidth/2+sel.offsetWidth/2),behavior:RM.matches?'auto':'smooth'});}}
-function renderChips(anim){
-  const c=$('chips');c.querySelectorAll(':scope>:not(.ind)').forEach(n=>n.remove());
-  if(st.mode==='ed'){
-    YEARS.slice().reverse().forEach(y=>c.appendChild(chipBtn(`${y}년판 ${perYear[y]}`,st.edYear===y,()=>{st.edYear=y;save();renderChips(true);render(true);},'chip yr')));
-    const s=document.createElement('span');s.className='sep';c.appendChild(s);
-  }
-  PRESETS.forEach(([k,label])=>c.appendChild(chipBtn(label,st.mode!=='ed'&&st.preset===k&&!st.tp.size,()=>{st.preset=k;st.tp.clear();renderSheet();renderChips(true);render(true);})));
-  requestAnimationFrame(()=>moveChipInd(anim));
+function moveChipInd(){}
+function renderChips(){ // 판 선택(모바일 드롭다운)
+  $('ddY').hidden=st.mode!=='ed';
+  $('ddYv').textContent=st.edYear+'년판';
+  $('ddYlist').innerHTML=YEARS.slice().reverse().map(y=>`<button type="button" data-year="${y}" aria-current="${st.edYear===y}"><span class="nm">${y}년판</span><span class="n">${perYear[y]}</span></button>`).join('');
 }
 function renderSheet(){
   const oc=$('f-oc');oc.innerHTML='';
@@ -689,7 +662,7 @@ function renderSheet(){
   [['','모든 판'],...YEARS.map(y=>[y,y+'년판']),['new26','2026 신규'],['only22','2022에만'],['all5','5개 판 모두']].forEach(([v,l])=>yr.appendChild(chipBtn(l,st.yr===v,()=>{st.yr=v;renderSheet();render(true);},'opt')));
   const tc={};DATA.forEach(g=>tc[g.tp]=(tc[g.tp]||0)+1);
   const tp=$('f-tp');tp.innerHTML='';
-  TOPICS.forEach(t=>tp.appendChild(chipBtn(`${t} ${tc[t]||0}`,st.tp.has(t),()=>{st.tp.has(t)?st.tp.delete(t):st.tp.add(t);if(st.tp.size)st.preset='all';renderSheet();renderChips(true);render(true);},'opt')));
+  TOPICS.forEach(t=>tp.appendChild(chipBtn(`${t} ${tc[t]||0}`,st.tp.has(t),()=>{st.tp.has(t)?st.tp.delete(t):st.tp.add(t);st.preset='all';renderSheet();render(true);},'opt')));
   const n=st.oc.size+st.tp.size+(st.yr&&st.mode==='all'?1:0);
   $('fcount').hidden=!n;$('fcount').textContent=n;$('b-filter').setAttribute('aria-pressed',n>0);
 }
@@ -712,7 +685,7 @@ function baseItems(skip){ // items for current view: [{g,e}] (e only in ed mode)
   if(st.mode==='ed')return ROWS.filter(r=>r.e.y===st.edYear&&matchG(r.g,r.e,skip)).map(r=>({g:r.g,e:r.e,o:r.e.o}));
   return DATA.filter(g=>matchG(g,null,skip)).map(g=>({g,e:null,o:g.o}));
 }
-function stickyOffset(){return MQ.matches?$('chipbar').offsetHeight+24:$('topbar').offsetHeight+80;}
+function stickyOffset(){return MQ.matches?16:$('topbar').offsetHeight+30;}
 function setTopic(t){st.tp.clear();if(t)st.tp.add(t);st.preset='all';renderSheet();renderChips(true);render(true);}
 
 // ---------- side nav + dropdown ----------
@@ -733,39 +706,15 @@ function renderSide(){
 }
 $('side').addEventListener('click',e=>{const y=e.target.closest('[data-year]');if(y){st.edYear=y.dataset.year;save();renderChips(true);render(true);return;}
   const b=e.target.closest('[data-topic]');if(b)setTopic(b.dataset.topic);});
-// dropdown
-function ddFade(){const m=$('ddmenu');const top=m.scrollTop,bot=m.scrollHeight-m.clientHeight-top;m.style.setProperty('--ft',Math.min(32,top)+'px');m.style.setProperty('--fb',Math.min(32,Math.max(0,bot))+'px');}
-function ddOpen(on){$('dd').classList.toggle('open',on);$('ddbtn').setAttribute('aria-expanded',on);if(on){ddFade();}}
-$('ddbtn').onclick=e=>{e.stopPropagation();ddOpen(!$('dd').classList.contains('open'));};
-$('ddmenu').addEventListener('scroll',ddFade,{passive:true});
-$('ddlist').addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(!b)return;ddOpen(false);setTopic(b.dataset.topic);});
-document.addEventListener('click',e=>{if(!e.target.closest('#dd'))ddOpen(false);});
-
-// ---------- overview (topic × outcome) ----------
-const OVC=[['부정','부정'],['보완 후 해소','보완'],['긍정','긍정'],['기준·해석','기준']];
-function renderOverview(){
-  const items=baseItems({tp:true,oc:true});const M={};
-  items.forEach(x=>{const t=x.g.tp;M[t]=M[t]||{all:0};M[t].all++;M[t][x.o]=(M[t][x.o]||0)+1;});
-  const ct=st.tp.size===1?[...st.tp][0]:null,co=st.oc.size===1?[...st.oc][0]:null;
-  let th=`<thead><tr><th style="text-align:left;padding-left:16px">주제</th>${OVC.map(([o])=>`<th>${o}</th>`).join('')}<th>계</th></tr></thead><tbody>`;
-  let cards='';
-  TOPICS.forEach(t=>{const r=M[t];if(!r)return;
-    th+=`<tr><th scope="row"><button type="button" data-ovt="${esc(t)}" data-ovo="">${esc(t)}</button></th>${OVC.map(([o,k])=>{const n=r[o]||0;return `<td class="c-${k}"><button type="button" data-ovt="${esc(t)}" data-ovo="${o}" ${n?'':'disabled'} class="${ct===t&&co===o?'on':''}" aria-label="${esc(t)} ${o} ${n}건">${n||'·'}</button></td>`;}).join('')}<td class="tot"><button type="button" data-ovt="${esc(t)}" data-ovo="" class="${ct===t&&!co?'on':''}">${r.all}</button></td></tr>`;
-    cards+=`<div class="ovc"><div class="t"><span>${esc(t)}</span><span class="mono">${r.all}건</span></div><div class="cs">${OVC.filter(([o])=>r[o]).map(([o,k])=>`<button type="button" class="pill p-${k}${ct===t&&co===o?' on':''}" data-ovt="${esc(t)}" data-ovo="${o}">${o} ${r[o]}</button>`).join('')}</div></div>`;
-  });
-  $('ovt').innerHTML=th+'</tbody>';$('ovcards').innerHTML=cards;
-  $('ovhint').textContent=st.mode==='ed'?`${st.edYear}년판 · 주제 × 결론 · 칸을 누르면 해당 사례로 이동`:'주제 × 결론 · 칸을 누르면 해당 사례로 이동';
-}
-$('ov').addEventListener('click',e=>{const b=e.target.closest('[data-ovt]');if(!b||b.disabled)return;
-  st.tp.clear();st.tp.add(b.dataset.ovt);st.oc.clear();if(b.dataset.ovo)st.oc.add(b.dataset.ovo);st.preset='all';
-  renderSheet();renderChips(true);render(false);
-  const tgt=document.querySelector('#list .card')||$('list');
-  const y=$('list').getBoundingClientRect().top+scrollY-stickyOffset();
-  window.scrollTo({top:Math.max(0,y),behavior:RM.matches?'auto':'smooth'});
-  if(tgt.classList.contains('card')){tgt.classList.remove('flash');void tgt.offsetWidth;tgt.classList.add('flash');}
-});
-(function(){try{const o=store.get('ksc2-ov',null);$('ov').open=o===null?!MQ.matches:o;}catch(e){}})();
-$('ov').addEventListener('toggle',()=>store.set('ksc2-ov',$('ov').open));
+// dropdowns (mobile)
+function ddFade(m){const top=m.scrollTop,bot=m.scrollHeight-m.clientHeight-top;m.style.setProperty('--ft',Math.min(32,top)+'px');m.style.setProperty('--fb',Math.min(32,Math.max(0,bot))+'px');}
+function ddOpen(id,on){const d=$(id);if(!d)return;d.classList.toggle('open',on);d.querySelector('.ddbtn').setAttribute('aria-expanded',on);if(on)ddFade(d.querySelector('.ddmenu'));}
+function ddCloseAll(){['dd','ddY'].forEach(id=>ddOpen(id,false));}
+['dd','ddY'].forEach(id=>{const d=$(id);d.querySelector('.ddbtn').onclick=e=>{e.stopPropagation();const on=!d.classList.contains('open');ddCloseAll();ddOpen(id,on);};
+  const m=d.querySelector('.ddmenu');m.addEventListener('scroll',()=>ddFade(m),{passive:true});});
+$('ddlist').addEventListener('click',e=>{const b=e.target.closest('[data-topic]');if(!b)return;ddCloseAll();setTopic(b.dataset.topic);});
+$('ddYlist').addEventListener('click',e=>{const b=e.target.closest('[data-year]');if(!b)return;ddCloseAll();st.edYear=b.dataset.year;save();renderChips();render(true);});
+document.addEventListener('click',e=>{if(!e.target.closest('.dd'))ddCloseAll();});
 
 // ---------- cards ----------
 let hlRe=null;
@@ -840,7 +789,7 @@ function render(resetScroll){
   $('list').innerHTML=h||`<p class="empty">${st.starOnly&&!stars.size?'아직 담은 사례가 없습니다. 카드의 별표를 누르면 여기에 모입니다.':'조건에 맞는 사례가 없습니다. 검색어나 필터를 줄여 보세요.'}</p>`;
   $('b-reset').hidden=!activeFilters();
   // summary line (key facts first)
-  renderSide();renderOverview();syncTabs('keep');
+  renderSide();syncTabs('keep');
   if(resetScroll&&window.scrollY>200)window.scrollTo({top:0});
 }
 
@@ -888,7 +837,7 @@ function closePop(silent){if(!openPopEl)return;openPopEl.classList.remove('show'
   const o=popOpener;openPopEl=null;popOpener=null;if(!silent&&o&&o.focus)o.focus({preventScroll:true});}
 $('b-filter').onclick=e=>openPop('pop-filter',e.currentTarget);
 $('scrim').onclick=()=>closePop();document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>closePop()));
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){if($('dd').classList.contains('open'))ddOpen(false);else closePop();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.querySelector('.dd.open'))ddCloseAll();else closePop();}});
 // fab
 const fab=$('fab');window.addEventListener('scroll',()=>fab.classList.toggle('show',window.scrollY>700),{passive:true});
 fab.onclick=()=>window.scrollTo({top:0,behavior:RM.matches?'auto':'smooth'});
@@ -896,7 +845,7 @@ fab.onclick=()=>window.scrollTo({top:0,behavior:RM.matches?'auto':'smooth'});
 (function(){const only22=DATA.filter(g=>g.ed.length===1&&g.ed[0].y==='2022').length,new26=DATA.filter(g=>g.ed.length===1&&g.ed[0].y==='2026').length;
   $('stats').innerHTML=[[DATA.length,'고유 사례'],[ROWS.length,'판별 수록'],...YEARS.map(y=>[perYear[y],y+'년판']),[new26,'2026 신규'],[only22,'2022에만']].map(([b,s])=>`<div class="stat"><b>${b}</b><span>${s}</span></div>`).join('');})();
 if(MODE==='pwa')$('offline-note').hidden=false;
-MQ.addEventListener?.('change',()=>{syncTabs(false);moveChipInd(false);});
+MQ.addEventListener?.('change',()=>{syncTabs(false);});
 
 // Claude에게 묻기 (Claude 페이지에서만)
 const ASK_ERR={not_granted:'Claude 사용이 허용되지 않아 이 기능을 쓸 수 없습니다.',sampling_disabled:'이 계정에서는 Claude를 쓸 수 없습니다.',rate_limited:'요청이 많아 잠시 뒤에 다시 시도해 주세요.',session_expired:'Claude에 다시 로그인해 주세요.',refused:'이 질문에는 답할 수 없다고 합니다. 문장을 바꿔 보세요.',invalid_json:'답을 읽지 못했습니다. 다시 시도해 주세요.',prompt_too_large:'질문이 너무 깁니다. 줄여서 다시 시도해 주세요.'};
@@ -1063,7 +1012,7 @@ function openFromHash(){const m=location.hash.match(/^#c-(\d{4}-\d{3})$/);if(!m|
   openSet.add(m[1]);render();syncTabs(true);const el=$('c-'+m[1]);if(el){el.scrollIntoView({block:'start'});el.classList.add('flash');}}
 window.addEventListener('hashchange',openFromHash);
 renderChips(false);renderSheet();render();openFromHash();
-requestAnimationFrame(()=>{syncTabs(false);moveChipInd(false);});
+requestAnimationFrame(()=>{syncTabs(false);});
 if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{});});}
 </script>
 
