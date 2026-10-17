@@ -392,11 +392,12 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .shade{position:fixed;inset:0;background:var(--shade);z-index:40;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);animation:fadein .3s ease}
 @keyframes fadein{from{opacity:0}}
 .sheet{position:fixed;z-index:41;left:50%;top:50%;width:min(860px,calc(100vw - 48px));max-height:88vh;transform:translate(-50%,-50%);border-radius:22px;background:var(--surface);box-shadow:var(--sh2);
-  overflow-y:auto;overscroll-behavior:contain;padding:0 24px 26px;display:grid;gap:16px;align-content:start;animation:popin .38s cubic-bezier(.3,1.25,.5,1)}
+  overflow:hidden;padding:0;display:flex;flex-direction:column;animation:popin .38s cubic-bezier(.3,1.25,.5,1)}
+.sbody{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;display:grid;gap:16px;align-content:start;padding:16px 24px 26px}
 @keyframes popin{from{opacity:0;transform:translate(-50%,calc(-50% + 18px)) scale(.97)}}
 #askShade{z-index:42}#askSheet{z-index:43}
 #sheetBg{z-index:44}#sheet{z-index:45}
-.sheet-head{position:sticky;top:0;z-index:3;background:var(--surface);display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:20px 0 12px;margin-bottom:-4px;border-bottom:1px solid var(--line2)}
+.sheet-head{position:relative;flex:0 0 auto;z-index:3;background:var(--surface);display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:20px 24px 12px;border-bottom:1px solid var(--line2)}
 .sheet-head>div{min-width:0}
 .sheet h2{font-size:21px;line-height:1.3}
 .sheet .sub{color:var(--muted);font-size:13px;margin-top:2px}
@@ -463,17 +464,25 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
   .btn .lbl{display:none}
   .infogrid{grid-template-columns:minmax(0,1fr)}
   /* filter rail becomes a bottom sheet */
-  .fpanel{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:41;max-height:92vh;border-radius:24px 24px 0 0;border:0;box-shadow:var(--sh2);animation:sheetup .42s cubic-bezier(.25,1,.4,1)}
+  .fpanel{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:41;max-height:92vh;border-radius:24px 24px 0 0;border:0;box-shadow:var(--sh2);animation:sheetup .42s cubic-bezier(.25,1,.4,1);display:flex;flex-direction:column;overflow:hidden}
+  .fpanel-head{position:relative;flex:0 0 auto;touch-action:none}
+  .fgrid{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+  .fpanel-foot{flex:0 0 auto}
+  .sheet-head{touch-action:none}
+  .sheet.dragging,.fpanel.dragging{will-change:transform}
   #fpanel[hidden]{display:none!important}
   .fpanel-head{padding:22px 16px 12px}
-  .fpanel-head::before,.sheet-head::before{content:"";position:absolute;top:8px;left:50%;width:40px;height:5px;margin-left:-20px;border-radius:3px;background:var(--line)}
+  .fpanel-head::before,.sheet-head::before{content:"";position:absolute;top:8px;left:50%;width:44px;height:5px;margin-left:-22px;border-radius:3px;background:var(--line);transition:background .15s,width .15s,margin-left .15s}
+  .fpanel-head::after,.sheet-head::after{content:"";position:absolute;top:0;left:50%;width:120px;height:28px;margin-left:-60px;cursor:grab}
+  .dragging .fpanel-head::before,.dragging .sheet-head::before{background:var(--faint);width:52px;margin-left:-26px}
   #fClose{display:grid}
   .fgrid{padding:8px 10px}
   .opt{min-height:40px;font-size:14px}
   .fpanel-foot{display:flex;gap:8px;position:sticky;bottom:0;background:var(--surface);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line2)}
   .fpanel-foot .primary{flex:1}
-  .sheet{left:0;right:0;top:auto;bottom:0;width:auto;max-height:92vh;transform:none;border-radius:24px 24px 0 0;padding:0 16px calc(24px + env(safe-area-inset-bottom,0px));animation:sheetup .42s cubic-bezier(.25,1,.4,1)}
-  .sheet-head{padding-top:24px}
+  .sheet{left:0;right:0;top:auto;bottom:0;width:auto;max-height:92vh;transform:none;border-radius:24px 24px 0 0;padding:0;animation:sheetup .42s cubic-bezier(.25,1,.4,1)}
+  .sheet-head{padding:24px 16px 12px}
+  .sbody{padding:14px 16px calc(24px + env(safe-area-inset-bottom,0px))}
   .sheet h2{font-size:19px}
   .terms{grid-template-columns:repeat(2,minmax(0,1fr))}
   dl.kv{grid-template-columns:minmax(0,1fr);gap:2px}
@@ -678,11 +687,13 @@ img{max-width:100%}
 <div class="shade" id="askShade" hidden></div>
 <aside class="sheet ask" id="askSheet" hidden role="dialog" aria-modal="true" aria-labelledby="askTitle">
   <div class="sheet-head"><h2 id="askTitle"><span style="color:var(--accent)">✦</span> 클로드에게 물어보기</h2><button class="xbtn glass" id="askClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="sbody">
   <textarea id="askQ" placeholder="예) 한국 바이오텍이 전임상 단계 TROP2 ADC를 빅파마에 기술수출한다면 비교할 만한 거래와 upfront 수준은?"></textarea>
   <p class="hint">기술수출을 검토 중인 물질이나 상황을 문장으로 적으면, 수록된 거래 중 비슷한 것을 골라 이유와 참고할 점, 조건 범위를 알려 드립니다. 처음 물을 때 Claude 사용 허용을 묻습니다.</p>
   <div class="askrow"><button class="btn primary" id="askGo" type="button">찾기</button><button class="btn" id="askStop" type="button" hidden>중지</button></div>
   <div class="askstat" id="askStat" role="status" aria-live="polite"></div>
   <div class="askres" id="askRes"></div>
+  </div>
 </aside>
 <div class="shade" id="sheetBg" hidden></div>
 <aside class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sTitle"></aside>
@@ -1245,16 +1256,17 @@ function openSheet(d){
     ["데이터 상태",esc(d.qa)],["출처",link(d.src1)],["추가 출처",link(d.src2)],["수록",esc(d.added)]].filter(x=>x[1]);
   const s=$("sheet");
   s.innerHTML=`<div class="sheet-head"><div><div class="label">${esc(d.date)}</div><h2 id="sTitle">${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</h2><div class="sub">${esc(d.asset||"")}</div></div><button class="xbtn glass" id="sClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-   <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm sstar" id="sStar" data-id="${esc(d.id)}" type="button">${COMPS.has(d.id)?"★ 비교 거래에서 빼기":"☆ 비교 거래에 담기"}</button><button class="btn sm acc" id="sSim" type="button">비슷한 거래 보기</button></div>
+   <div class="sbody"><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm sstar" id="sStar" data-id="${esc(d.id)}" type="button">${COMPS.has(d.id)?"★ 비교 거래에서 빼기":"☆ 비교 거래에 담기"}</button><button class="btn sm acc" id="sSim" type="button">비슷한 거래 보기</button></div>
    <div class="terms"><div><span class="label">총액</span><span class="v">${d.total==null?"–":"$"+fmt(d.total,d.total%1?1:0)+"M"}</span></div><div><span class="label">Upfront</span><span class="v gold">${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront%1?1:0)+"M"}</span></div><div><span class="label">Near-term</span><span class="v">${d.near_term==null?"–":"$"+fmt(d.near_term)+"M"}</span></div><div><span class="label">지분투자</span><span class="v">${d.equity==null?"–":"$"+fmt(d.equity)+"M"}</span></div></div>
    <div class="evsec"><div class="label" style="margin-bottom:6px">사후 경과${d.status_checked?` <span class="hint">· ${esc(d.status_checked)} 기준</span>`:""}</div>${(d.events&&d.events.length)?`<ol class="tl">${d.events.map(e=>{const t=evType(e);return `<li><span class="num">${esc(e.date||"")}</span><span class="st ${statusClass(t)}">${esc(t)}</span><span class="tx">${esc(e.text||"")}${e.src?` <a href="${esc(e.src)}" target="_blank" rel="noopener">출처</a>`:""}</span></li>`}).join("")}</ol>`:`<p class="hint" style="margin:0">${d.status_checked?"계약 이후 반환·중단·옵션 행사·허가 등 특이사항이 확인되지 않았습니다.":"사후 경과를 아직 확인하지 않은 거래입니다."}</p>`}</div>
    <dl class="kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
-   ${d.notes?`<div><div class="label" style="margin-bottom:4px">수집 메모</div><div class="notes">${esc(d.notes)}</div></div>`:""}`;
-  const wasOpen=!s.hidden;s.scrollTop=0;
+   ${d.notes?`<div><div class="label" style="margin-bottom:4px">수집 메모</div><div class="notes">${esc(d.notes)}</div></div>`:""}</div>`;
+  const wasOpen=!s.hidden;
   s.hidden=false;$("sheetBg").hidden=false;lockSync();$("sClose").onclick=closeSheet;if(!wasOpen)pushLayer("sheet");$("sStar").onclick=()=>toggleStar(d.id);
   $("sSim").onclick=()=>{const r=similarTo(d);closeSheet();aiCtl?.abort();
     MODE={type:"similar",label:`${d.lr_ko||d.licensor} → ${d.le_ko||d.licensee} (${d.asset||d.date})와 비슷한 거래 ${r.length}건`,ids:r.map(x=>x.d.id),why:Object.fromEntries(r.map(x=>[x.d.id,x.why.join(" · ")]))};
     apply();document.querySelector(".summary").scrollIntoView({behavior:"smooth",block:"start"})};$("sClose").focus();
+  const sb=s.querySelector(".sbody");if(sb)sb.scrollTop=0;
 }
 function closeSheet(fromPop){if($("sheet").hidden)return;$("sheet").hidden=true;$("sheetBg").hidden=true;lockSync();if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true});if(fromPop!==true)popLayer("sheet")}
 
@@ -1448,7 +1460,55 @@ syncSwitch();
 
 if(!isPhone())$("fpanel").hidden=false;
 $("fResetTop").onclick=()=>$("fReset").click();
-const fsc=document.querySelector(".fpanel");fsc.addEventListener("scroll",()=>fadeMask(fsc),{passive:true});
+const fsc=document.querySelector(".fpanel"),fgd=document.querySelector(".fgrid");
+fsc.addEventListener("scroll",()=>{if(!isPhone())fadeMask(fsc)},{passive:true});
+fgd.addEventListener("scroll",()=>fadeMask(fgd),{passive:true});
+/* popups: the body fades in/out at its top and bottom edges while scrolling */
+function clearMask(el){el.style.webkitMaskImage="";el.style.maskImage=""}
+function fadeAll(){
+  if(isPhone()){clearMask(fsc);fadeMask(fgd)}else{clearMask(fgd);fadeMask(fsc)}
+  document.querySelectorAll(".sheet:not([hidden]) .sbody").forEach(fadeMask);
+}
+[["sheet"],["askSheet"]].forEach(([id])=>{
+  const el=$(id);
+  el.addEventListener("scroll",e=>{if(e.target.classList&&e.target.classList.contains("sbody"))fadeMask(e.target)},{capture:true,passive:true});
+  new MutationObserver(()=>requestAnimationFrame(fadeAll)).observe(el,{childList:true,subtree:true,attributes:true,attributeFilter:["hidden"]});
+});
+addEventListener("resize",fadeAll);
+requestAnimationFrame(fadeAll);
+/* popups on a phone: drag the grey handle (or the header) down to dismiss */
+function dragDismiss(sheet,shade,close){
+  let on=false,id=null,sy=0,dy=0,ly=0,lt=0,v=0;
+  const reset=()=>{["transform","transition","animation"].forEach(k=>sheet.style[k]="");shade.style.opacity="";shade.style.transition="";sheet.classList.remove("dragging")};
+  const calm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  sheet.addEventListener("pointerdown",e=>{
+    if(on||!isPhone()||(e.pointerType==="mouse"&&e.button!==0))return;
+    if(!e.target.closest(".sheet-head,.fpanel-head")||e.target.closest("button,a,input,select,textarea"))return;
+    on=true;id=e.pointerId;sy=ly=e.clientY;lt=e.timeStamp;dy=0;v=0;
+    try{sheet.setPointerCapture(id)}catch(_){}
+    sheet.style.animation="none";sheet.style.transition="none";shade.style.transition="none";sheet.classList.add("dragging");
+  });
+  sheet.addEventListener("pointermove",e=>{
+    if(!on||e.pointerId!==id)return;
+    const raw=e.clientY-sy;
+    dy=raw>0?raw:raw/6;                         /* a little rubber-band when pulled up */
+    const dt=e.timeStamp-lt;if(dt>0){v=0.7*v+0.3*((e.clientY-ly)/dt)}ly=e.clientY;lt=e.timeStamp;
+    sheet.style.transform=`translateY(${dy}px)`;
+    shade.style.opacity=String(Math.max(0,1-Math.max(0,dy)/Math.max(1,sheet.offsetHeight)));
+  });
+  const end=e=>{
+    if(!on||(e&&e.pointerId!==id))return;on=false;
+    try{sheet.releasePointerCapture(id)}catch(_){}
+    const h=sheet.offsetHeight,out=dy>h*0.28||(v>0.55&&dy>24),t=calm?0:(out?.22:.4);
+    sheet.style.transition=`transform ${t}s ${out?"cubic-bezier(.4,0,1,1)":"cubic-bezier(.25,1,.4,1)"}`;shade.style.transition=`opacity ${t}s ease`;
+    if(out){sheet.style.transform="translateY(100%)";shade.style.opacity="0";setTimeout(()=>{close();reset()},t*1000)}
+    else{sheet.style.transform="translateY(0)";shade.style.opacity="";setTimeout(reset,t*1000+30)}
+  };
+  sheet.addEventListener("pointerup",end);sheet.addEventListener("pointercancel",end);
+}
+dragDismiss($("sheet"),$("sheetBg"),()=>closeSheet());
+dragDismiss($("askSheet"),$("askShade"),()=>closeAsk());
+dragDismiss($("fpanel"),$("fShade"),()=>closePanel());
 setActiveSec("secKpi");
 /* search pill: clear button, no native submit */
 function syncQx(){$("qx").hidden=!$("q").value}
