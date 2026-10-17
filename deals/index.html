@@ -574,6 +574,14 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
 .fapp b{font-weight:650}
 @media (max-width:820px){.fda-grid{grid-template-columns:minmax(0,1fr);padding:10px}.fda-top,.fda-ctl,.fda-sum{padding-left:14px;padding-right:14px}}
 
+
+/* pages: 거래 / FDA 승인 / 참고 정보 */
+html[data-page="deals"] #secFda,html[data-page="deals"] #secInfo{display:none}
+html[data-page="fda"] .srow,html[data-page="fda"] .aihint,html[data-page="fda"] .bar,html[data-page="fda"] .modebar,html[data-page="fda"] .summary,html[data-page="fda"] .panels,html[data-page="fda"] .comps,html[data-page="fda"] .ledger,html[data-page="fda"] .fpanel,html[data-page="fda"] #secInfo,
+html[data-page="info"] .srow,html[data-page="info"] .aihint,html[data-page="info"] .bar,html[data-page="info"] .modebar,html[data-page="info"] .summary,html[data-page="info"] .panels,html[data-page="info"] .comps,html[data-page="info"] .ledger,html[data-page="info"] .fpanel,html[data-page="info"] #secFda{display:none!important}
+html[data-page="fda"] .main,html[data-page="info"] .main{grid-template-columns:minmax(0,1fr)}
+html[data-page="fda"] .topacts .vseg,html[data-page="info"] .topacts .vseg,html[data-page="fda"] .tb.vtb,html[data-page="info"] .tb.vtb,html[data-page="fda"] .tb[data-act="filter"],html[data-page="info"] .tb[data-act="filter"]{display:none}
+@media (max-width:820px){#secStats{display:none!important}}
 </style>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -591,8 +599,6 @@ img{max-width:100%}
     <div class="brand"><h1>신약 기술거래</h1></div>
     <nav class="tabs" id="tabs" aria-label="화면 구역">
       <span class="ind" aria-hidden="true"></span>
-      <button class="tab" type="button" data-sec="secKpi">개요</button>
-      <button class="tab" type="button" data-sec="secStats">통계</button>
       <button class="tab" type="button" data-sec="secList">거래</button>
       <button class="tab" type="button" data-sec="secFda">FDA 승인</button>
       <button class="tab" type="button" data-sec="secInfo">참고 정보</button>
@@ -754,7 +760,7 @@ img{max-width:100%}
 <nav class="tabbar glass" id="tabbar" aria-label="화면 이동">
   <span class="ind" aria-hidden="true"></span>
   <button class="tb" type="button" data-sec="secList" data-alias="secKpi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r=".8"/><circle cx="4" cy="12" r=".8"/><circle cx="4" cy="18" r=".8"/></svg>거래</button>
-  <button class="tb" type="button" data-sec="secStats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M12 20V5M19 20v-6"/></svg>통계</button>
+  
   <button class="tb" type="button" data-sec="secFda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 3v5.2c0 4.2-2.9 7.3-7 8.8-4.1-1.5-7-4.600-7-8.800V6.500z"/><path d="M9 12l2.200 2.200L15.500 10"/></svg>FDA</button>
   <button class="tb vtb" type="button" data-act="comps" aria-pressed="false" aria-label="비교 거래만 보기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>비교<span class="cnt compCnt"></span></button>
   <button class="tb" type="button" data-act="filter" aria-label="필터 열기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>필터<span class="cnt" id="tbFCnt"></span></button>
@@ -1518,18 +1524,16 @@ let askFocus=null,panelFocus=null;
 function lockSync(){const open=!$("sheet").hidden||(isPhone()&&!$("fpanel").hidden);document.documentElement.classList.toggle("lock",open)}
 
 /* sections: top tabs (desktop) + bottom tab bar (phone), scroll spy */
-const SECS=["secKpi","secStats","secList","secFda","secInfo"];let spyLock=0;
+const PAGE_OF={secKpi:"deals",secStats:"deals",secList:"deals",secFda:"fda",secInfo:"info"},PAGE_TAB={deals:"secList",fda:"secFda",info:"secInfo"};
 const reduceMotion=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
 function setActiveSec(id){document.querySelectorAll("[data-sec]").forEach(b=>b.setAttribute("aria-current",String(b.dataset.sec===id||b.dataset.alias===id)));layoutInd()}
-function goSec(id){const el=$(id);if(!el)return;spyLock=Date.now()+1000;setActiveSec(id);el.scrollIntoView({behavior:reduceMotion()?"auto":"smooth",block:"start"})}
-function spy(){if(Date.now()<spyLock)return;
-  const y=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--sm"))||120;
-  const order=SECS.map(id=>[id,$(id).getBoundingClientRect().top]).sort((a,b)=>a[1]-b[1]);
-  let cur=order[0][0];for(const [id,top] of order)if(top<=y+48)cur=id;
-  if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)cur=order[order.length-1][0];
-  const now=document.querySelector('.tab[aria-current="true"]')||document.querySelector('.tb[aria-current="true"]');if(!now||(now.dataset.sec!==cur&&now.dataset.alias!==cur))setActiveSec(cur)}
-let spyRaf=0;addEventListener("scroll",()=>{if(!spyRaf)spyRaf=requestAnimationFrame(()=>{spyRaf=0;spy()})},{passive:true});
-document.querySelectorAll("[data-sec]").forEach(b=>b.addEventListener("click",()=>goSec(b.dataset.sec)));
+let curPage="deals";
+function setPage(p,top){if(!PAGE_TAB[p])p="deals";curPage=p;document.documentElement.dataset.page=p;setActiveSec(PAGE_TAB[p]);
+  try{history.replaceState(history.state,"",p==="deals"?location.pathname+location.search:"#"+p)}catch(e){}
+  if(top!==false)scrollTo({top:0,behavior:"auto"});layoutInd();requestAnimationFrame(layoutInd)}
+function goSec(id){const p=PAGE_OF[id]||"deals";const same=p===curPage;setPage(p,false);const el=$(id);if(!el)return;
+  requestAnimationFrame(()=>el.scrollIntoView({behavior:same&&!reduceMotion()?"smooth":"auto",block:"start"}))}
+document.querySelectorAll("[data-sec]").forEach(b=>b.addEventListener("click",()=>setPage(PAGE_OF[b.dataset.sec])));
 document.querySelector('.tb[data-act="filter"]').addEventListener("click",()=>openPanel());
 
 /* sticky heights → --hh (top bar) and --sm (scroll margin) */
@@ -1610,7 +1614,7 @@ function dragDismiss(sheet,shade,close){
 }
 dragDismiss($("sheet"),$("sheetBg"),()=>closeSheet());
 dragDismiss($("fpanel"),$("fShade"),()=>closePanel());
-setActiveSec("secKpi");
+setPage((location.hash||"").replace("#","")||"deals",false);
 /* search pill: clear button, no native submit */
 function syncQx(){$("qx").hidden=!$("q").value}
 $("q").addEventListener("input",syncQx);
