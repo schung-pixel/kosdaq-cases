@@ -110,20 +110,19 @@ main{min-width:0;padding-bottom:40px}
 .sbox{position:relative}
 .sbox>svg{position:absolute;z-index:1;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted);pointer-events:none}
 .search{width:100%;height:46px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:15px;padding-inline:46px 44px;box-shadow:var(--sh1)}
+.search::-webkit-search-cancel-button,.search::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none}
 .search::placeholder{color:var(--muted);opacity:.8}
 .search{border-radius:999px;border:1px solid var(--edge);background-color:color-mix(in srgb,var(--glass) var(--gk),transparent);background-image:linear-gradient(180deg,var(--gloss),transparent 55%);-webkit-backdrop-filter:blur(var(--gb)) saturate(1.8);backdrop-filter:blur(var(--gb)) saturate(1.8);box-shadow:inset 0 1px 0 var(--spec),0 10px 30px -12px rgba(10,20,45,.35)}
 .search:focus{outline:none;border-color:var(--accent);box-shadow:inset 0 1px 0 var(--spec),0 0 0 3px var(--accent-soft),0 10px 30px -12px rgba(10,20,45,.35)}
 .sclear{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:32px;height:32px;border:0;border-radius:999px;background:transparent;color:var(--muted);display:grid;place-items:center}
 .sclear svg{width:16px;height:16px}
-.aitgl{position:absolute;z-index:1;right:6px;top:50%;transform:translateY(-50%);height:34px;padding:0 5px 0 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);color:var(--muted);display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:600;letter-spacing:.02em;transition:color .25s,background-color .25s,border-color .25s}
-.aitgl svg{width:13px;height:13px}
-.aitgl .sw{position:relative;width:30px;height:20px;margin-left:2px;border-radius:999px;background:color-mix(in srgb,var(--muted) 35%,transparent);transition:background-color .25s}
-.aitgl .sw::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.35);transition:transform .35s cubic-bezier(.34,1.4,.5,1)}
-.aitgl[aria-checked="true"]{color:var(--eosin);border-color:color-mix(in srgb,var(--eosin) 45%,transparent);background:color-mix(in srgb,var(--eosin) 13%,var(--surface))}
-.aitgl[aria-checked="true"] .sw{background:var(--eosin)}
-.aitgl[aria-checked="true"] .sw::after{transform:translateX(10px)}
-.sbox.hasai .search{padding-right:132px}
-.sbox.hasai .sclear{right:96px}
+.aitgl{position:absolute;z-index:1;right:6px;top:50%;transform:translateY(-50%);width:36px;height:36px;padding:0;border:0;border-radius:999px;background:transparent;color:var(--muted);display:grid;place-items:center;transition:color .25s,background-color .25s,box-shadow .25s}
+.aitgl svg{width:19px;height:19px;transition:transform .45s cubic-bezier(.34,1.4,.5,1)}
+.aitgl:hover{color:var(--eosin)}
+.aitgl[aria-checked="true"]{color:#fff;background:var(--eosin);box-shadow:0 4px 14px -4px color-mix(in srgb,var(--eosin) 70%,transparent)}
+.aitgl:active svg{transform:scale(.85)}
+.sbox.hasai .search{padding-right:84px}
+.sbox.hasai .sclear{right:44px}
 .sbox.ai .search{border-color:color-mix(in srgb,var(--eosin) 55%,var(--edge))}
 .sbox.ai .search:focus{border-color:var(--eosin);box-shadow:inset 0 1px 0 var(--spec),0 0 0 3px color-mix(in srgb,var(--eosin) 22%,transparent),0 10px 30px -12px rgba(10,20,45,.35)}
 .sbox.ai>svg{color:var(--eosin)}
@@ -379,7 +378,7 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
     <form class="sbox" id="qform" role="search" action="#" autocomplete="off">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" class="search" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="가지급금, 임상 실패…" aria-label="사례 검색">
-      <button class="aitgl" id="b-ai" type="button" role="switch" aria-checked="false" aria-label="AI 검색" hidden><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg>AI<span class="sw" aria-hidden="true"></span></button>
+      <button class="aitgl" id="b-ai" type="button" role="switch" aria-checked="false" aria-label="AI 검색" title="AI 검색" hidden><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg></button>
       <button class="sclear" id="qx" type="button" aria-label="검색어 지우기" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </form>
       <button class="fbtn" id="b-filter" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>필터<span class="badge fcount" hidden>0</span></button>
@@ -937,7 +936,7 @@ function setAI(on){
   else{if(aiCtl){aiCtl.abort();aiCtl=null;AI={};}st.q=$('q').value.trim().toLowerCase();}
   render(true);
 }
-$('b-ai').onclick=()=>{setAI(!st.ai);};
+$('b-ai').onclick=()=>{setAI(!st.ai);toast(st.ai?'AI 검색 켜짐 · 문장으로 입력 후 Enter':'일반 검색으로 전환');};
 $('list').addEventListener('click',e=>{const b=e.target.closest('#ai-stop,#ai-retry,#ai-go');if(!b)return;
   if(b.id==='ai-stop')aiCtl?.abort();else runAI(b.id==='ai-retry'?AI.q:$('q').value);});
 if(MODE==='artifact'&&window.claude&&typeof window.claude.use==='function'){
