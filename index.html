@@ -361,7 +361,6 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
   .toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
   .pop,.pop.narrow{left:0;right:0;top:auto;bottom:0;width:100%;max-height:92vh;border-radius:24px 24px 0 0;transform:translateY(100%);transition:opacity .3s,transform .42s cubic-bezier(.25,1,.4,1)}
   .pop.show{transform:none}
-  .grab{display:block;width:40px;height:5px;border-radius:999px;background:var(--line);margin:8px auto 0}
   .pophead{padding:8px 12px 10px 18px}
   .popbody{padding:14px 16px calc(20px + env(safe-area-inset-bottom,0px))}
   .popfoot{padding:10px 16px calc(14px + env(safe-area-inset-bottom,0px))}
@@ -444,7 +443,6 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
 <div class="scrim" id="scrim"></div>
 
 <section class="pop narrow" id="pop-filter" role="dialog" aria-modal="true" aria-labelledby="pf-t">
-  <div class="grab"></div>
   <div class="pophead"><h3 id="pf-t">필터</h3><span class="sp"></span><button class="xbtn glass" data-close type="button" aria-label="닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
   <div class="popbody">
     <h5>결론</h5><div class="opts" id="f-oc"></div>
@@ -455,7 +453,6 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
 </section>
 
 <section class="pop" id="pop-study" role="dialog" aria-modal="true" aria-labelledby="ps-t">
-  <div class="grab"></div>
   <div class="pophead"><h3 id="ps-t">스터디</h3>
     <div class="study-tabs" id="stTabs" role="tablist" aria-label="스터디 방식"><span class="ind" aria-hidden="true"></span><button class="tab" type="button" role="tab" id="st-fc" aria-selected="true">플래시카드</button><button class="tab" type="button" role="tab" id="st-qz" aria-selected="false" hidden>응용문제</button></div>
     <span class="sp"></span><button class="xbtn glass" data-close type="button" aria-label="스터디 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
