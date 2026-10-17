@@ -486,7 +486,7 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
   .summary>div:nth-child(3){border-left:0}
   .summary>div:nth-child(n+3){border-top:1px solid var(--line2)}
   .summary .v{font-size:22px}
-  .ledger{order:4}.comps{order:3}#secStats{order:5}#secInfo{order:6}
+  .ledger{order:4}.comps{order:3}#secStats{order:5}#secFda{order:6}#secInfo{order:7}
   .cards{display:block;padding:0}
   .cards .card{border:0;border-bottom:1px solid var(--line2);border-radius:0}
   .cards .card:last-child{border-bottom:0}
@@ -540,6 +540,40 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
   *,*::before,*::after{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}
 }
+/* FDA approvals section */
+.fda{background:var(--surface);border:1px solid var(--line2);border-radius:14px;box-shadow:var(--sh1);min-width:0;overflow:hidden}
+.fda-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px;padding:14px 18px 12px;border-bottom:1px solid var(--line2)}
+.fda-top h2{margin:0;font-size:16px}
+.fda-top .hint{display:block;margin-top:3px}
+.fda-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line2)}
+.fda-ctl .seg button{height:30px;padding:0 11px;font-size:12.5px}
+.fda-ctl .fq{flex:1 1 150px;min-width:130px;height:34px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);padding:0 14px;font-size:13px;color:var(--ink)}
+.fda-ctl .chip{height:30px}
+.fda-ctl .seg{max-width:100%;overflow-x:auto;scrollbar-width:none}.fda-ctl .seg::-webkit-scrollbar{display:none}
+.fda-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px}
+.fcard{display:grid;gap:7px;padding:13px 15px;border:1px solid var(--line2);border-radius:14px;background:var(--surface);min-width:0}
+.fcard .fh{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.fcard .fh .num{font-size:12px;color:var(--muted)}
+.fcard .fb{font-size:16px;font-weight:650;letter-spacing:-.01em}
+.fcard .fb small{font-size:12.5px;font-weight:400;color:var(--muted);margin-left:6px;word-break:break-word}
+.fcard .fs{font-size:12.5px;color:var(--muted)}
+.fcard .fi{font-size:13.5px;line-height:1.5}
+.fcard .ftags{display:flex;flex-wrap:wrap;gap:5px}
+.tag.fda{background:var(--good-soft);color:var(--good)}
+.fdeal{display:grid;gap:3px;text-align:left;width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface2);padding:8px 11px;font-size:12.5px;color:var(--ink)}
+.fdeal b{font-weight:600}
+.fdeal .hint{font-size:11.5px}
+.fdeal:hover{border-color:var(--accent)}
+.fda-more{display:flex;justify-content:center;padding:4px 0 16px}
+.fda-empty{padding:30px 18px;text-align:center;color:var(--muted);font-size:13.5px}
+.fda-sum{display:flex;flex-wrap:wrap;gap:8px 18px;padding:12px 18px;border-bottom:1px solid var(--line2);font-size:12.5px;color:var(--muted)}
+.fda-sum b{color:var(--ink);font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-weight:600}
+.fsec{display:grid;gap:7px}
+.fsec .label{display:flex;gap:8px;align-items:center}
+.fapp{border:1px solid var(--line);border-radius:12px;background:var(--surface2);padding:11px 13px;display:grid;gap:4px;font-size:13.5px}
+.fapp b{font-weight:650}
+@media (max-width:820px){.fda-grid{grid-template-columns:minmax(0,1fr);padding:10px}.fda-top,.fda-ctl,.fda-sum{padding-left:14px;padding-right:14px}}
+
 </style>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -560,6 +594,7 @@ img{max-width:100%}
       <button class="tab" type="button" data-sec="secKpi">개요</button>
       <button class="tab" type="button" data-sec="secStats">통계</button>
       <button class="tab" type="button" data-sec="secList">거래</button>
+      <button class="tab" type="button" data-sec="secFda">FDA 승인</button>
       <button class="tab" type="button" data-sec="secInfo">참고 정보</button>
     </nav>
     <div class="topacts">
@@ -677,6 +712,13 @@ img{max-width:100%}
         <div class="more" id="moreWrap" hidden><button class="btn sm" id="more" type="button">더 보기</button></div>
       </section>
 
+      <section class="fda" id="secFda" aria-label="FDA 승인 신약">
+        <div class="fda-top"><div><h2>FDA 승인 신약</h2><span class="hint" id="fdaSub">불러오는 중</span></div></div>
+        <div class="fda-ctl" id="fdaCtl"></div>
+        <div class="fda-sum" id="fdaSum"></div>
+        <div id="fdaBody"><div class="fda-empty">FDA 승인 데이터를 불러오는 중입니다.</div></div>
+      </section>
+
       <section class="info" id="secInfo" aria-label="참고 정보">
         <h2>참고 정보</h2>
         <div class="infogrid">
@@ -713,6 +755,7 @@ img{max-width:100%}
   <span class="ind" aria-hidden="true"></span>
   <button class="tb" type="button" data-sec="secList" data-alias="secKpi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r=".8"/><circle cx="4" cy="12" r=".8"/><circle cx="4" cy="18" r=".8"/></svg>거래</button>
   <button class="tb" type="button" data-sec="secStats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M12 20V5M19 20v-6"/></svg>통계</button>
+  <button class="tb" type="button" data-sec="secFda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 3v5.2c0 4.2-2.9 7.3-7 8.8-4.1-1.5-7-4.600-7-8.800V6.500z"/><path d="M9 12l2.200 2.200L15.500 10"/></svg>FDA</button>
   <button class="tb vtb" type="button" data-act="comps" aria-pressed="false" aria-label="비교 거래만 보기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>비교<span class="cnt compCnt"></span></button>
   <button class="tb" type="button" data-act="filter" aria-label="필터 열기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>필터<span class="cnt" id="tbFCnt"></span></button>
   <button class="tb" type="button" data-sec="secInfo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.2"/></svg>정보</button>
@@ -1207,7 +1250,7 @@ function drawList(){
       <div class="who">${party(d,"lr",true)}${party(d,"le",true)}</div>
       <div class="drug"><span class="an">${esc(d.asset||"물질 비공개")}</span>${drugLine(d)}</div>
       ${MODE&&MODE.why&&MODE.why[d.id]?`<div class="why">↳ ${esc(MODE.why[d.id])}</div>`:""}${!MODE&&d._near?`<div class="why near">≈ ${esc(d._near)}만 다름</div>`:""}
-      <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span>${d.platform==="Y"?'<span class="tag plat">플랫폼</span>':""}</div>
+      <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span>${d.platform==="Y"?'<span class="tag plat">플랫폼</span>':""}${fdaTag(d)}</div>
       <div class="money"><span><span class="lab">총액</span><b>${d.total==null?"–":"$"+fmtM(d.total)+(d.total>=10000?"":"M")}</b></span><span class="${d.upfront==null?"":"up"}"><span class="lab">Upfront</span><b>${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront<10?1:0)+"M"}</b>${d.ratio==null?"":` <span class="hint">(${fmt(d.ratio*100,1)}%)</span>`}</span>${qaTag(d)}</div>
     </article>`).join("");
   }else{
@@ -1216,7 +1259,7 @@ function drawList(){
       <td class="num" style="white-space:nowrap">${esc(d.date)}${isNew(d)}</td>
       <td><div class="parties">${party(d,"lr",false)}${party(d,"le",false)}</div></td>
       <td><div class="asset">${esc(d.asset||"–")}</div><div class="asset-sub">${esc([d.target,d.indication].filter(Boolean).join(" · "))}</div>${MODE&&MODE.why&&MODE.why[d.id]?`<div class="why">↳ ${esc(MODE.why[d.id])}</div>`:""}${!MODE&&d._near?`<div class="why near">≈ ${esc(d._near)}만 다름</div>`:""}${d.status?`<div style="margin-top:4px">${stTag(d)}</div>`:""}</td>
-      <td><span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span></td>
+      <td><span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span>${fdaTag(d)}</td>
       <td>${stageTag(d)}</td>
       <td class="n">${fmtM(d.total)}</td>
       <td class="n${d.upfront==null?"":" up"}">${d.upfront==null?"–":fmt(d.upfront,d.upfront<10?1:0)}</td>
@@ -1257,6 +1300,59 @@ function termsBlock(d){
    ${rows.length?`<dl class="tlist">${rows.map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl>`:""}
    ${d.t_sum?`<div class="label" style="margin-top:4px">계약 내용 요약</div><div class="tsum">${esc(d.t_sum)}${d.t_src?` <a href="${esc(d.t_src)}" target="_blank" rel="noopener">출처 원문</a>`:""}</div>`:""}
    ${d.t_conf?`<div class="tconf">⚠ ${esc(d.t_conf)}</div>`:""}</div>`}
+/* ---------- FDA approvals ---------- */
+let FDA=[],FDA_BY_DEAL={};const FQ={yr:"all",ct:"all",linked:false,q:"",shown:30};
+const fdaMonths=(a,d)=>{const x=(a.date||"").slice(0,7).split("-"),y=(d.date||"").slice(0,7).split("-");if(x.length<2||y.length<2)return null;return (+x[0]-+y[0])*12+(+x[1]-+y[1])};
+function setFda(arr){
+  FDA=(arr||[]).slice().sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+  FDA_BY_DEAL={};
+  FDA.forEach(a=>(a.deals||[]).forEach(l=>{(FDA_BY_DEAL[l.id]=FDA_BY_DEAL[l.id]||[]).push(a)}));
+  drawFda();if(ALL.length)drawList();
+}
+const fdaTag=d=>{const l=FDA_BY_DEAL[d.id];return l&&l.length?`<span class="tag fda" title="${esc(l[0].brand||l[0].generic||"")} · ${esc(l[0].date)}">FDA 승인</span>`:""};
+function fdaBlock(d){
+  const l=FDA_BY_DEAL[d.id];if(!l||!l.length)return"";
+  return `<div class="fsec"><div class="label">FDA 승인 <span class="tag fda">${l.length}건</span></div>${l.map(a=>{
+    const m=fdaMonths(a,d),link=(a.deals||[]).find(x=>x.id===d.id)||{};
+    return `<div class="fapp"><div><b>${esc(a.brand||a.generic)}</b>${a.brand&&a.generic?` <span class="hint">(${esc(a.generic)})</span>`:""} · <span class="num">${esc(a.date)}</span></div>
+      <div>${esc(a.indication||"")}</div>
+      <div class="hint">허가 보유: ${esc(a.sponsor||"–")}${m!=null?` · 계약 후 ${m>=0?fmt(m)+"개월":"–"}`:""}${link.confidence&&link.confidence!=="high"?` · 연결 신뢰도 ${esc(link.confidence)}`:""}</div>
+      ${link.note?`<div class="hint">${esc(link.note)}</div>`:""}</div>`}).join("")}</div>`;
+}
+function fdaView(){
+  const q=FQ.q.trim().toLowerCase();
+  return FDA.filter(a=>(FQ.yr==="all"||String(a.date).slice(0,4)===FQ.yr)&&(FQ.ct==="all"||a.center===FQ.ct)&&(!FQ.linked||(a.deals||[]).length)&&(!q||[a.brand,a.generic,a.sponsor,a.indication,a.modality].join(" ").toLowerCase().includes(q)));
+}
+function drawFda(){
+  const root=$("fdaBody");if(!root)return;
+  if(!FDA.length){root.innerHTML='<div class="fda-empty">FDA 승인 데이터를 불러오는 중입니다.</div>';return}
+  const yrs=[...new Set(FDA.map(a=>String(a.date).slice(0,4)))].sort();
+  const linked=FDA.filter(a=>(a.deals||[]).length);
+  const v=fdaView(),list=v.slice(0,FQ.shown);
+  $("fdaSub").textContent=`${yrs[0]}~ CDER 신약·CBER 신규 바이오 ${fmt(FDA.length)}건 중 수록 거래와 연결된 약 ${fmt(linked.length)}건`;
+  $("fdaCtl").innerHTML=`<div class="seg" role="group" aria-label="연도" style="--n:${yrs.length+1}">${["all",...yrs].map(y=>`<button type="button" data-yr="${y}" aria-pressed="${FQ.yr===y}">${y==="all"?"전체":y}</button>`).join("")}</div>
+    <div class="seg" role="group" aria-label="승인 부서" style="--n:3">${[["all","전체"],["CDER","CDER"],["CBER","CBER"]].map(([k,t])=>`<button type="button" data-ct="${k}" aria-pressed="${FQ.ct===k}">${t}</button>`).join("")}</div>
+    <button type="button" class="chip" id="fdaLinked" aria-pressed="${FQ.linked}" style="${FQ.linked?"color:var(--ink);border-color:var(--accent)":""}">기술거래 연결만</button>
+    <input class="fq" id="fdaQ" type="search" placeholder="상표명·성분·회사·적응증" value="${esc(FQ.q)}" aria-label="FDA 승인 검색">`;
+  const by=yrs.map(y=>[y,FDA.filter(a=>String(a.date).slice(0,4)===y)]);
+  $("fdaSum").innerHTML=by.map(([y,a])=>`<span>${y} <b>${a.length}</b>${a.some(x=>(x.deals||[]).length)?` <span class="hint">(연결 ${a.filter(x=>(x.deals||[]).length).length})</span>`:""}</span>`).join("");
+  root.innerHTML=v.length?`<div class="fda-grid">${list.map((a,i)=>`<article class="fcard"><div class="fh"><span class="num">${esc(a.date)}</span><span class="tag">${esc(a.center||"")}</span></div>
+      <div class="fb">${esc(a.brand||a.generic)}${a.brand&&a.generic?`<small>${esc(a.generic)}</small>`:""}</div>
+      <div class="fs">${esc(a.sponsor||"")}</div><div class="fi">${esc(a.indication||"")}</div>
+      <div class="ftags">${a.modality?`<span class="tag">${esc(a.modality)}</span>`:""}${(a.designations||[]).map(x=>`<span class="tag">${esc(x)}</span>`).join("")}${a.origin&&a.origin!=="불명"?`<span class="tag plat">${esc(a.origin)}</span>`:""}</div>
+      ${(a.deals||[]).map(l=>{const d=ALL.find(x=>x.id===l.id);if(!d)return"";const m=fdaMonths(a,d);
+        return `<button type="button" class="fdeal" data-deal="${esc(d.id)}"><span><b>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</b> <span class="hint">${esc(d.date)}${m!=null&&m>=0?` · 계약 후 ${fmt(m)}개월`:""}</span></span>${d.total!=null?`<span class="hint">총액 $${fmtM(d.total)}${d.total>=10000?"":"M"}${d.upfront!=null?` · Upfront $${fmt(d.upfront,d.upfront<10?1:0)}M`:""}</span>`:""}${l.confidence&&l.confidence!=="high"?`<span class="hint">연결 신뢰도 ${esc(l.confidence)}</span>`:""}</button>`}).join("")}</article>`).join("")}</div>${v.length>FQ.shown?'<div class="fda-more"><button class="btn sm" id="fdaMore" type="button">더 보기</button></div>':""}`:'<div class="fda-empty">조건에 맞는 승인 사례가 없습니다.</div>';
+}
+document.addEventListener("click",e=>{
+  const t=e.target;if(!t.closest||!$("secFda")||!$("secFda").contains(t))return;
+  const y=t.closest("[data-yr]"),c=t.closest("[data-ct]"),dl=t.closest("[data-deal]");
+  if(y){FQ.yr=y.dataset.yr;FQ.shown=30;drawFda();return}
+  if(c){FQ.ct=c.dataset.ct;FQ.shown=30;drawFda();return}
+  if(t.closest("#fdaLinked")){FQ.linked=!FQ.linked;FQ.shown=30;drawFda();return}
+  if(t.closest("#fdaMore")){FQ.shown+=30;drawFda();return}
+  if(dl){const d=ALL.find(x=>x.id===dl.dataset.deal);if(d)openSheet(d)}
+});
+document.addEventListener("input",e=>{if(e.target&&e.target.id==="fdaQ"){FQ.q=e.target.value;FQ.shown=30;const pos=e.target.selectionStart;drawFda();const n=$("fdaQ");if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(_){}}}});
 function openSheet(d){
   lastFocus=document.activeElement;
   const kv=[["기술수출(라이선서)",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["기술도입(라이선시)",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
@@ -1267,7 +1363,7 @@ function openSheet(d){
   s.innerHTML=`<div class="sheet-head"><div><div class="label">${esc(d.date)}</div><h2 id="sTitle">${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</h2><div class="sub">${esc(d.asset||"")}</div></div><button class="xbtn glass" id="sClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
    <div class="sbody"><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm sstar" id="sStar" data-id="${esc(d.id)}" type="button">${COMPS.has(d.id)?"★ 비교 거래에서 빼기":"☆ 비교 거래에 담기"}</button><button class="btn sm acc" id="sSim" type="button">비슷한 거래 보기</button></div>
    <div class="terms"><div><span class="label">총액</span><span class="v">${d.total==null?"–":"$"+fmt(d.total,d.total%1?1:0)+"M"}</span></div><div><span class="label">Upfront</span><span class="v gold">${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront%1?1:0)+"M"}</span></div><div><span class="label">Near-term</span><span class="v">${d.near_term==null?"–":"$"+fmt(d.near_term)+"M"}</span></div><div><span class="label">지분투자</span><span class="v">${d.equity==null?"–":"$"+fmt(d.equity)+"M"}</span></div></div>
-   ${termsBlock(d)}<div class="evsec"><div class="label" style="margin-bottom:6px">사후 경과${d.status_checked?` <span class="hint">· ${esc(d.status_checked)} 기준</span>`:""}</div>${(d.events&&d.events.length)?`<ol class="tl">${d.events.map(e=>{const t=evType(e);return `<li><span class="num">${esc(e.date||"")}</span><span class="st ${statusClass(t)}">${esc(t)}</span><span class="tx">${esc(e.text||"")}${e.src?` <a href="${esc(e.src)}" target="_blank" rel="noopener">출처</a>`:""}</span></li>`}).join("")}</ol>`:`<p class="hint" style="margin:0">${d.status_checked?"계약 이후 반환·중단·옵션 행사·허가 등 특이사항이 확인되지 않았습니다.":"사후 경과를 아직 확인하지 않은 거래입니다."}</p>`}</div>
+   ${termsBlock(d)}${fdaBlock(d)}<div class="evsec"><div class="label" style="margin-bottom:6px">사후 경과${d.status_checked?` <span class="hint">· ${esc(d.status_checked)} 기준</span>`:""}</div>${(d.events&&d.events.length)?`<ol class="tl">${d.events.map(e=>{const t=evType(e);return `<li><span class="num">${esc(e.date||"")}</span><span class="st ${statusClass(t)}">${esc(t)}</span><span class="tx">${esc(e.text||"")}${e.src?` <a href="${esc(e.src)}" target="_blank" rel="noopener">출처</a>`:""}</span></li>`}).join("")}</ol>`:`<p class="hint" style="margin:0">${d.status_checked?"계약 이후 반환·중단·옵션 행사·허가 등 특이사항이 확인되지 않았습니다.":"사후 경과를 아직 확인하지 않은 거래입니다."}</p>`}</div>
    <dl class="kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
    ${d.notes?`<div><div class="label" style="margin-bottom:4px">수집 메모</div><div class="notes">${esc(d.notes)}</div></div>`:""}</div>`;
   const wasOpen=!s.hidden;
@@ -1422,7 +1518,7 @@ let askFocus=null,panelFocus=null;
 function lockSync(){const open=!$("sheet").hidden||(isPhone()&&!$("fpanel").hidden);document.documentElement.classList.toggle("lock",open)}
 
 /* sections: top tabs (desktop) + bottom tab bar (phone), scroll spy */
-const SECS=["secKpi","secStats","secList","secInfo"];let spyLock=0;
+const SECS=["secKpi","secStats","secList","secFda","secInfo"];let spyLock=0;
 const reduceMotion=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
 function setActiveSec(id){document.querySelectorAll("[data-sec]").forEach(b=>b.setAttribute("aria-current",String(b.dataset.sec===id||b.dataset.alias===id)));layoutInd()}
 function goSec(id){const el=$(id);if(!el)return;spyLock=Date.now()+1000;setActiveSec(id);el.scrollIntoView({behavior:reduceMotion()?"auto":"smooth",block:"start"})}
@@ -1573,12 +1669,13 @@ useHistory=true;
 (async()=>{
   initComps();
   try{
-    const [dRes,rRes]=await Promise.all([fetch("data/deals.json"),fetch("data/runs.json").catch(()=>null)]);
+    const [dRes,rRes,fRes]=await Promise.all([fetch("data/deals.json"),fetch("data/runs.json").catch(()=>null),fetch("data/fda.json").catch(()=>null)]);
     if(!dRes||!dRes.ok)throw new Error("deals");
     const d=await dRes.json(); let runs=[];
     try{if(rRes&&rRes.ok)runs=(await rRes.json()).runs||[]}catch(e){}
     setRuns(runs);
     setData(d.deals||[]);
+    try{if(fRes&&fRes.ok)setFda((await fRes.json()).items||[])}catch(e){}
     if(!navigator.onLine)$("stamp").insertAdjacentHTML("beforeend",'<span class="offline">오프라인 · 저장된 데이터</span>');
   }catch(e){loadFailed("거래 데이터를 불러오지 못했습니다. 인터넷에 연결한 뒤 앱을 다시 열어 주세요.")}
 })();
