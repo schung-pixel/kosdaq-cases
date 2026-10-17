@@ -1455,7 +1455,12 @@ function fLead(a){let best=null;fDeals(a).forEach(({d})=>{const m=fdaMonths(a,d)
 function fnorm(a){
   a._yr=String(a.date||"").slice(0,4);a._links=(a.deals||[]).length;a._mod=a.modality||"미상";a._org=a.origin||"불명";a._des=Array.isArray(a.designations)?a.designations:[];
   a._hay=[a.brand,a.generic,a.sponsor,a.indication,a.modality,a.center,a._des.map(x=>DES_KO[x]||x).join(" ")].join(" ").toLowerCase();return a}
+function fdaFailed(msg){FDA_ERR=msg;if(FDA.length)return;$("frows").innerHTML=`<tr><td colspan="7" class="empty">${esc(msg)}</td></tr>`;$("fcards").innerHTML=`<div class="empty">${esc(msg)}</div>`;$("fTitle").textContent="FDA 승인 목록"}
+let FDA_ERR="";
 function setFda(arr){
+  try{setFdaInner(arr)}catch(e){fdaFailed("FDA 승인 화면을 그리지 못했습니다: "+(e&&e.message||e))}
+}
+function setFdaInner(arr){
   FDA=(arr||[]).map(fnorm);FDA_BY_DEAL={};
   FDA.forEach(a=>(a.deals||[]).forEach(l=>{(FDA_BY_DEAL[l.id]=FDA_BY_DEAL[l.id]||[]).push(a)}));
   const last=FDA.map(a=>a.date).sort().pop();if($("fstamp"))$("fstamp").innerHTML=last?`${fmt(FDA.length)}건 · 최근 승인 <b>${esc(last)}</b>`:"–";
@@ -2003,7 +2008,7 @@ useHistory=true;
     try{if(rRes&&rRes.ok)runs=(await rRes.json()).runs||[]}catch(e){}
     setRuns(runs);
     setData(d.deals||[]);
-    try{if(fRes&&fRes.ok)setFda((await fRes.json()).items||[])}catch(e){}
+    try{if(fRes&&fRes.ok)setFda((await fRes.json()).items||[]);else fdaFailed("FDA 승인 데이터를 불러오지 못했습니다 ("+(fRes?fRes.status:"네트워크")+").")}catch(e){fdaFailed("FDA 승인 데이터를 읽지 못했습니다: "+(e&&e.message||e))}
     if(!navigator.onLine)$("stamp").insertAdjacentHTML("beforeend",'<span class="offline">오프라인 · 저장된 데이터</span>');
   }catch(e){loadFailed("거래 데이터를 불러오지 못했습니다. 인터넷에 연결한 뒤 앱을 다시 열어 주세요.")}
 })();
