@@ -360,7 +360,6 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
   .tabbar .tab{flex:1;flex-direction:column;height:52px;padding:0 4px;gap:2px;font-size:11px;border-radius:24px;justify-content:center}
   .tabbar .tab svg{width:21px;height:21px}
   .tabbar .ind{top:6px;height:52px;border-radius:24px}
-  .tabbar .cnt-b{position:absolute;top:4px;right:calc(50% - 22px);min-width:16px;height:16px;font-size:10px}
   main{padding-bottom:110px}
   .fab{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
   .toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
@@ -645,7 +644,7 @@ const TABS=[['all','사례',IC.list],['star','내 사례',IC.star],['study','스
 const TABS_M={ask:'묻기',ed:'판별'};
 function buildTabs(box,mobile){
   TABS.forEach(([k,l,ic])=>{const b=document.createElement('button');b.type='button';b.className='tab'+(k==='study'||k==='ask'?' act':'')+(k==='ask'?' ask':'');b.dataset.tab=k;b.setAttribute('role',k==='study'||k==='ask'?'button':'tab');
-    b.innerHTML=ic+`<span>${mobile&&TABS_M[k]?TABS_M[k]:l}</span>`+(k==='star'?'<span class="cnt-b" data-scount hidden>0</span>':'');
+    b.innerHTML=ic+`<span>${mobile&&TABS_M[k]?TABS_M[k]:l}</span>`;
     if(k==='ask')b.hidden=true;box.appendChild(b);});
 }
 buildTabs($('tabs'),false);buildTabs($('tabbar'),true);
@@ -655,7 +654,6 @@ function syncTabs(anim){
   ['tabs','tabbar'].forEach(id=>{const box=$(id);let tgt=null;
     box.querySelectorAll('.tab').forEach(b=>{const on=b.dataset.tab===v;if(b.getAttribute('role')==='tab')b.setAttribute('aria-selected',on);if(on)tgt=b;});
     if(anim!=='keep')moveInd(box,tgt,{fromMemo:anim===true});});
-  document.querySelectorAll('[data-scount]').forEach(e=>{e.hidden=!stars.size;e.textContent=stars.size;});
 }
 function onTab(ev){const b=ev.target.closest('.tab');if(!b)return;const k=b.dataset.tab;
   if(k==='study'){openPop('pop-study',b);stTabSet(stTab);return;}
