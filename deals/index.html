@@ -638,6 +638,8 @@ html:not(.stuck) .edge-t{opacity:0}
 
 
 
+
+
 /* ===== FDA: AI search, MoA on cards, prescribing-information popup (tabs, charts, tables) ===== */
 .fmoa{display:flex;gap:6px;align-items:baseline;font-size:12.5px;line-height:1.5;color:var(--muted);overflow-wrap:anywhere}
 .fmoa b{flex:0 0 auto;font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--accent)}
@@ -659,10 +661,16 @@ body.faimode .bar[data-pg="fda"]{display:none}
   background-image:linear-gradient(180deg,var(--gloss),transparent 55%);
   -webkit-backdrop-filter:blur(var(--gb)) saturate(1.8);backdrop-filter:blur(var(--gb)) saturate(1.8);
   box-shadow:inset 0 1px 0 var(--spec),inset 0 -1px 0 color-mix(in srgb,var(--spec) 35%,transparent),0 8px 22px -10px var(--glass-sh)}
-.ptabs .chips{gap:2px;padding:0;border-radius:999px}
-.ptabs .chip{height:32px;padding:0 14px;font-size:12.5px;border-color:transparent;background:transparent}
-.ptabs .chip:not([aria-pressed="true"]):hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
-.ptabs .chip[aria-pressed="true"]{background:transparent;color:var(--accent-ink)}
+.pglass .chips{gap:2px;padding:0;border-radius:999px}
+.pglass .chip{height:32px;padding:0 14px;font-size:12.5px;border-color:transparent;background:transparent}
+.pglass .chip:not([aria-pressed="true"]):not(:disabled):hover{background:color-mix(in srgb,var(--ink) 6%,transparent)}
+.pglass .chip[aria-pressed="true"]{background:transparent;color:var(--accent-ink)}
+.pglass .chips .ind{background-color:color-mix(in srgb,var(--accent) 86%,transparent);
+  background-image:radial-gradient(120% 90% at 50% -20%,rgba(255,255,255,.26),rgba(255,255,255,0) 60%),linear-gradient(0deg,rgba(255,255,255,.1),rgba(255,255,255,0) 40%);
+  -webkit-backdrop-filter:blur(8px) saturate(1.7);backdrop-filter:blur(8px) saturate(1.7);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 1px rgba(255,255,255,.18),inset 0 0 0 .5px rgba(255,255,255,.22),0 4px 12px -4px color-mix(in srgb,var(--accent) 70%,transparent)}
+.crow .pglass{flex:0 1 auto;min-width:0}
+.crow .pglass .chips{flex:1 1 auto;margin-left:0;padding-left:0}
 .ppane{display:grid;gap:16px;align-content:start;animation:pgin .28s cubic-bezier(.2,.8,.2,1) both}
 .ppane[hidden]{display:none}
 .pi-note{font-size:12.5px;color:var(--muted);line-height:1.55}
@@ -850,7 +858,7 @@ img{max-width:100%}
       </select>
       <section class="bar" data-pg="deals" aria-label="바로가기">
         <div class="crow">
-          <div class="chips" id="chipsWrap" role="group" aria-label="바로가기"><span class="ind" aria-hidden="true"></span><span class="chips-in" id="chips"></span></div>
+          <div class="pglass"><div class="chips" id="chipsWrap" role="group" aria-label="바로가기"><span class="ind" aria-hidden="true"></span><span class="chips-in" id="chips"></span></div></div>
         </div>
         <div class="nlinfo" id="nlInfo" hidden></div>
         <div class="active" id="active"></div>
@@ -933,7 +941,7 @@ img{max-width:100%}
       <section class="modebar" id="fmodeBar" data-pg="fda" hidden aria-live="polite"></section>
       <section class="bar" data-pg="fda" aria-label="FDA 바로가기">
         <div class="crow">
-          <div class="chips" id="fchipsWrap" role="group" aria-label="FDA 바로가기"><span class="ind" aria-hidden="true"></span><span class="chips-in" id="fchips"></span></div>
+          <div class="pglass"><div class="chips" id="fchipsWrap" role="group" aria-label="FDA 바로가기"><span class="ind" aria-hidden="true"></span><span class="chips-in" id="fchips"></span></div></div>
         </div>
         <div class="active" id="factive"></div>
       </section>
