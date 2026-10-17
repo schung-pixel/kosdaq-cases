@@ -741,7 +741,7 @@ function measure(){
   const r=document.documentElement.style;const hh=MQ.matches?0:$('topbar').offsetHeight;r.setProperty('--hh',hh+'px');
   const top=MQ.matches?0:hh+20;const sh=$('srow').offsetHeight||0;r.setProperty('--sth',(top+sh+(MQ.matches?0:6))+'px');
 }
-const ro=new ResizeObserver(()=>{measure();syncTabs(false);});ro.observe($('topbar'));ro.observe($('srow'));
+const ro=new ResizeObserver(()=>{measure();syncTabs();});ro.observe($('topbar'));ro.observe($('srow'));
 MQ.addEventListener?.('change',()=>{measure();syncTabs(false);});
 
 // ---------- recent searches ----------
