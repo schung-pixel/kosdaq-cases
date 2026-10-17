@@ -172,6 +172,17 @@ main{min-width:0;padding-bottom:40px}
 .dd.open .ddbtn{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .dd.open .ddbtn svg{transform:rotate(180deg)}
 .ddmenu{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:25;border-radius:12px;padding:5px;border:1px solid var(--edge);background-image:linear-gradient(180deg,var(--gloss),transparent 46%);-webkit-backdrop-filter:blur(calc(var(--gb) + 6px)) saturate(1.8);backdrop-filter:blur(calc(var(--gb) + 6px)) saturate(1.8);max-height:min(60vh,420px);overflow:auto;box-shadow:var(--sh2),inset 0 1px 0 var(--spec);background-color:color-mix(in srgb,var(--glass) var(--gkm),transparent);opacity:0;transform:translateY(-6px) scale(.98);pointer-events:none;transition:opacity .2s,transform .3s cubic-bezier(.3,1.25,.5,1);-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 var(--ft,0px),#000 calc(100% - var(--fb,0px)),transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 var(--ft,0px),#000 calc(100% - var(--fb,0px)),transparent 100%)}
+/* unified control set: search (primary) + topic/filter (secondary), same glass pill */
+.ddbtn,.fbtn{border-radius:999px;border:1px solid var(--edge);background-color:color-mix(in srgb,var(--glass) var(--gk),transparent);background-image:linear-gradient(180deg,var(--gloss),transparent 55%);-webkit-backdrop-filter:blur(var(--gb)) saturate(1.8);backdrop-filter:blur(var(--gb)) saturate(1.8);box-shadow:inset 0 1px 0 var(--spec),0 4px 12px -8px rgba(10,20,45,.3)}
+.ddbtn{height:40px;padding:0 14px 0 16px;font-size:14px}
+.ddbtn .lb{font-size:12.5px}
+.ddrow .fbtn-m{height:40px;border-radius:999px;padding:0 16px;font-size:14px}
+.srow .fbtn{height:50px;padding:0 18px}
+.ddmenu{border-radius:18px}
+.search{height:50px;font-size:16px;border-color:color-mix(in srgb,var(--accent) 30%,var(--edge));box-shadow:inset 0 1px 0 var(--spec),0 0 0 4px color-mix(in srgb,var(--accent) 7%,transparent),0 14px 32px -12px rgba(10,20,45,.45)}
+.sbox>svg{width:20px;height:20px}
+.sbox.ai .search:not(:focus){box-shadow:inset 0 1px 0 var(--spec),0 0 0 4px color-mix(in srgb,var(--eosin) 9%,transparent),0 14px 32px -12px rgba(10,20,45,.45)}
+.ddrow{gap:8px}
 .dd.open .ddmenu{opacity:1;transform:none;pointer-events:auto}
 .ddmenu .navl button{padding:9px 10px}
 
@@ -331,10 +342,10 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
   .brand h1{font-size:16px}
   .shell{display:block;padding-top:12px}
   .side{display:none}
-  .grp,.card{scroll-margin-top:76px}
+  .grp,.card{scroll-margin-top:80px}
   .srow .fbtn{display:none}
   .srow{position:sticky;top:0;z-index:25;margin:-12px calc(-1*var(--pad)) 0;padding:10px var(--padr) 8px var(--pad)}
-  .ddrow{margin-top:2px}
+  .ddrow{margin-top:4px}
   .tabbar{display:flex;position:fixed;z-index:30;left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));border-radius:30px;padding:6px;gap:2px;justify-content:space-around}
   .tabbar .tab{flex:1;flex-direction:column;height:52px;padding:0 4px;gap:2px;font-size:11px;border-radius:24px;justify-content:center}
   .tabbar .tab svg{width:21px;height:21px}
@@ -705,7 +716,7 @@ function baseItems(skip){ // items for current view: [{g,e}] (e only in ed mode)
   if(st.mode==='ed')return ROWS.filter(r=>r.e.y===st.edYear&&matchG(r.g,r.e,skip)).map(r=>({g:r.g,e:r.e,o:r.e.o}));
   return DATA.filter(g=>matchG(g,null,skip)).map(g=>({g,e:null,o:g.o}));
 }
-function stickyOffset(){return MQ.matches?76:$('topbar').offsetHeight+30;}
+function stickyOffset(){return MQ.matches?80:$('topbar').offsetHeight+30;}
 function setTopic(t){st.tp.clear();if(t)st.tp.add(t);st.preset='all';renderSheet();renderChips(true);render(true);}
 
 // ---------- side nav + dropdown ----------
