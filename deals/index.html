@@ -1452,7 +1452,7 @@ const SHEET_STACK=[];
 const fdaMonths=(a,d)=>{const x=String(a.date||"").slice(0,7).split("-"),y=String(d.date||"").slice(0,7).split("-");if(x.length<2||y.length<2)return null;return (+x[0]-+y[0])*12+(+x[1]-+y[1])};
 const fDeals=a=>(a.deals||[]).map(l=>({l,d:ALL.find(x=>x.id===l.id)})).filter(x=>x.d).sort((p,q)=>String(p.d.date).localeCompare(String(q.d.date)));
 function fLead(a){let best=null;fDeals(a).forEach(({d})=>{const m=fdaMonths(a,d);if(m!=null&&m>=0&&(best==null||m>best))best=m});return best}
-function fnorm(a){
+function fnorm(src){const a={...src};  /* snapshots from the artifact db are frozen: never mutate them */
   a._yr=String(a.date||"").slice(0,4);a._links=(a.deals||[]).length;a._mod=a.modality||"미상";a._org=a.origin||"불명";a._des=Array.isArray(a.designations)?a.designations:[];
   a._hay=[a.brand,a.generic,a.sponsor,a.indication,a.modality,a.center,a._des.map(x=>DES_KO[x]||x).join(" ")].join(" ").toLowerCase();return a}
 function fdaFailed(msg){FDA_ERR=msg;if(FDA.length)return;$("frows").innerHTML=`<tr><td colspan="7" class="empty">${esc(msg)}</td></tr>`;$("fcards").innerHTML=`<div class="empty">${esc(msg)}</div>`;$("fTitle").textContent="FDA 승인 목록"}
