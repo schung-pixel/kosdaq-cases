@@ -486,7 +486,7 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
   .summary>div:nth-child(3){border-left:0}
   .summary>div:nth-child(n+3){border-top:1px solid var(--line2)}
   .summary .v{font-size:22px}
-  .ledger{order:4}.comps{order:3}#secStats{order:5}#secFda{order:6}#secInfo{order:7}
+  .ledger{order:4}.comps{order:3}#secInfo{order:7}
   .cards{display:block;padding:0}
   .cards .card{border:0;border-bottom:1px solid var(--line2);border-radius:0}
   .cards .card:last-child{border-bottom:0}
@@ -540,47 +540,101 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
   *,*::before,*::after{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}
 }
-/* FDA approvals section */
-.fda{background:var(--surface);border:1px solid var(--line2);border-radius:14px;box-shadow:var(--sh1);min-width:0;overflow:hidden}
-.fda-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px;padding:14px 18px 12px;border-bottom:1px solid var(--line2)}
-.fda-top h2{margin:0;font-size:16px}
-.fda-top .hint{display:block;margin-top:3px}
-.fda-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line2)}
-.fda-ctl .seg button{height:30px;padding:0 11px;font-size:12.5px}
-.fda-ctl .fq{flex:1 1 150px;min-width:130px;height:34px;border:1px solid var(--line);border-radius:999px;background:var(--surface2);padding:0 14px;font-size:13px;color:var(--ink)}
-.fda-ctl .chip{height:30px}
-.fda-ctl .seg{max-width:100%;overflow-x:auto;scrollbar-width:none}.fda-ctl .seg::-webkit-scrollbar{display:none}
-.fda-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px}
-.fcard{display:grid;gap:7px;padding:13px 15px;border:1px solid var(--line2);border-radius:14px;background:var(--surface);min-width:0}
-.fcard .fh{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
-.fcard .fh .num{font-size:12px;color:var(--muted)}
-.fcard .fb{font-size:16px;font-weight:650;letter-spacing:-.01em}
-.fcard .fb small{font-size:12.5px;font-weight:400;color:var(--muted);margin-left:6px;word-break:break-word}
-.fcard .fs{font-size:12.5px;color:var(--muted)}
-.fcard .fi{font-size:13.5px;line-height:1.5}
-.fcard .ftags{display:flex;flex-wrap:wrap;gap:5px}
+/* ===== pages: 기술거래 / FDA 승인 / 정보 — each page owns its search, quick chips, filter and compare ===== */
+html[data-page="deals"] [data-pg]:not([data-pg="deals"]),
+html[data-page="fda"] [data-pg]:not([data-pg="fda"]),
+html[data-page="info"] [data-pg]:not([data-pg="info"]),
+html:not([data-page]) [data-pg]:not([data-pg="deals"]){display:none!important}
+html:not([data-page="deals"]) #fpanel,html:not([data-page="fda"]) #ffpanel{display:none!important}
+html[data-page="info"] .main{grid-template-columns:minmax(0,1fr)}
+#ffpanel[hidden]{display:grid!important}
+.content.pgin>*{animation:pgin .34s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pgin{from{opacity:0;transform:translateY(8px)}}
+
+/* brand: app name on desktop, current page title on phone */
+.brand h1{display:flex;align-items:baseline;gap:8px}
+.brand .pt{display:none}
+
+/* compare toggle next to the filter button (both pages) */
+.cmpbtn svg{fill:none}
+.cmpbtn[aria-pressed="true"]{border-color:color-mix(in srgb,var(--star) 60%,var(--line));background:var(--warn-soft);color:var(--warn);font-weight:600}
+.cmpbtn[aria-pressed="true"] svg{fill:currentColor}
+.fbtn.cmpbtn .cnt{background:var(--warn-soft);color:var(--warn)}
+.fbtn.cmpbtn[aria-pressed="true"] .cnt{background:var(--star);color:#fff}
+#fBtn,#ffBtn{display:none}
+#fClose,#ffClose{display:none}
+
+/* stats panels open on demand from the deal list header */
+#secStats{display:none}
+#secStats.open{display:grid;animation:pgin .3s cubic-bezier(.2,.8,.2,1)}
+#statsBtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+#statsBtn[aria-expanded="true"]{border-color:var(--accent);color:var(--accent);font-weight:600}
+
+/* FDA list (table on wide screens, cards below 1180px) */
+.fbn{font-weight:650;font-size:14.5px;letter-spacing:-.01em}
+.card .fbn{font-size:16.5px}
+.fgn{font-size:12.5px;color:var(--muted);margin-left:7px;overflow-wrap:anywhere}
+.fsp{display:block;font-size:12.5px;color:var(--muted);margin-top:1px}
+.card.fcard .who{display:block}
+.card.fcard .drug .ti{-webkit-line-clamp:3;color:var(--ink);font-size:13px}
 .tag.fda{background:var(--good-soft);color:var(--good)}
-.fdeal{display:grid;gap:3px;text-align:left;width:100%;border:1px solid var(--line);border-radius:10px;background:var(--surface2);padding:8px 11px;font-size:12.5px;color:var(--ink)}
-.fdeal b{font-weight:600}
-.fdeal .hint{font-size:11.5px}
-.fdeal:hover{border-color:var(--accent)}
-.fda-more{display:flex;justify-content:center;padding:4px 0 16px}
-.fda-empty{padding:30px 18px;text-align:center;color:var(--muted);font-size:13.5px}
-.fda-sum{display:flex;flex-wrap:wrap;gap:8px 18px;padding:12px 18px;border-bottom:1px solid var(--line2);font-size:12.5px;color:var(--muted)}
-.fda-sum b{color:var(--ink);font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-weight:600}
-.fsec{display:grid;gap:7px}
-.fsec .label{display:flex;gap:8px;align-items:center}
-.fapp{border:1px solid var(--line);border-radius:12px;background:var(--surface2);padding:11px 13px;display:grid;gap:4px;font-size:13.5px}
-.fapp b{font-weight:650}
-@media (max-width:820px){.fda-grid{grid-template-columns:minmax(0,1fr);padding:10px}.fda-top,.fda-ctl,.fda-sum{padding-left:14px;padding-right:14px}}
+.tag.des{background:var(--accent-soft);color:var(--accent)}
+.ftags{display:flex;flex-wrap:wrap;gap:5px}
+.flinkrow{grid-column:1/-1;font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 6px;align-items:baseline}
+.flinkrow b,.flk b{font-weight:600;color:var(--good);font-size:11.5px}
+.flk{display:grid;gap:2px;font-size:12.5px;min-width:150px}
+.flk .num{color:var(--muted);font-size:11.5px}
+.ftab td .tag{white-space:normal}
+.ftab .ind-c{min-width:220px;max-width:340px;font-size:13px;line-height:1.5}
+
+/* FDA detail sheet + deal sheet's approval block */
+.terms .v.sm{font-family:var(--f-body);font-size:14.5px;font-weight:600;line-height:1.35}
+.fsec{display:grid;gap:8px}
+.fsec>.label{display:flex;gap:8px;align-items:center}
+.fdeal,.fapp{display:grid;gap:3px;text-align:left;width:100%;border:1px solid var(--line);border-radius:12px;background:var(--surface2);padding:11px 40px 11px 13px;font-size:13px;line-height:1.5;color:var(--ink);position:relative;transition:border-color .15s,background-color .15s}
+.fdeal:hover,.fapp:hover{border-color:var(--accent)}
+.fdeal:active,.fapp:active{background:var(--track)}
+.fdeal b,.fapp b{font-weight:650;font-size:14px}
+.fdeal::after,.fapp::after{content:"";position:absolute;right:16px;top:50%;width:8px;height:8px;margin-top:-4px;border-right:1.8px solid var(--faint);border-top:1.8px solid var(--faint);transform:rotate(45deg)}
+.sheet-head>div{flex:1 1 auto}
+.sback svg{width:16px;height:16px;stroke:currentColor;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.sheet-head .sback{margin:-2px 2px 0 -6px}
+
+/* edge fades: page content fades out under the floating bars instead of being cut off */
+.edge-t,.edge-b{position:fixed;left:0;right:0;z-index:20;pointer-events:none;background-color:var(--bg);
+  background-image:radial-gradient(52vw 46vh at 6% -4%,var(--g1),transparent 70%),radial-gradient(44vw 42vh at 100% 18%,var(--g2),transparent 70%),radial-gradient(56vw 50vh at 38% 104%,var(--g3),transparent 70%);
+  background-size:100vw 100vh;background-repeat:no-repeat;transition:opacity .25s}
+.edge-t{top:0;height:var(--et,0px);background-position:0 0;-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 30px),transparent);mask-image:linear-gradient(to bottom,#000 calc(100% - 30px),transparent)}
+.edge-b{bottom:0;height:var(--eb,0px);background-position:0 100%;-webkit-mask-image:linear-gradient(to top,#000 calc(100% - 30px),transparent);mask-image:linear-gradient(to top,#000 calc(100% - 30px),transparent)}
+html:not(.stuck) .edge-t{opacity:0}
+@media (min-width:821px){.fpanel{z-index:21}}
+
+@media (max-width:820px){
+  .brand h1{display:grid;gap:0}
+  .brand .bt{font-size:11.5px;line-height:1.3;color:var(--muted);font-weight:500;letter-spacing:.02em}
+  .brand .pt{display:block;font-size:22px;line-height:1.25;letter-spacing:-.02em}
+  #fBtn,#ffBtn{display:inline-flex}
+  #fClose,#ffClose{display:grid}
+  #ffpanel[hidden]{display:none!important}
+  #secStats{order:3}
+  .ledger-top{padding:12px 14px}
+}
+@media (max-width:380px){.fbtn .lbl{display:none}.fbtn{padding:0 10px}}
+@media (prefers-reduced-motion: reduce){.content.pgin>*{animation:none}}
 
 
-/* pages: 거래 / FDA 승인 / 참고 정보 */
-html[data-page="deals"] #secFda,html[data-page="deals"] #secInfo{display:none}
-html[data-page="fda"] .srow,html[data-page="fda"] .aihint,html[data-page="fda"] .bar,html[data-page="fda"] .modebar,html[data-page="fda"] .summary,html[data-page="fda"] .panels,html[data-page="fda"] .comps,html[data-page="fda"] .ledger,html[data-page="fda"] .fpanel,html[data-page="fda"] #secInfo,
-html[data-page="info"] .srow,html[data-page="info"] .aihint,html[data-page="info"] .bar,html[data-page="info"] .modebar,html[data-page="info"] .summary,html[data-page="info"] .panels,html[data-page="info"] .comps,html[data-page="info"] .ledger,html[data-page="info"] .fpanel,html[data-page="info"] #secFda{display:none!important}
-html[data-page="fda"] .main,html[data-page="info"] .main{grid-template-columns:minmax(0,1fr)}
-@media (max-width:820px){#secStats{display:none!important}}
+/* filter + compare buttons live in the (sticky) search row, so they stay reachable while scrolling */
+.srow .fbtn{position:relative;height:46px;padding:0 16px;font-size:13.5px;border:1px solid var(--edge);background-color:color-mix(in srgb,var(--glass) var(--gk),transparent);background-image:linear-gradient(180deg,var(--gloss),transparent 55%);
+  -webkit-backdrop-filter:blur(var(--gb)) saturate(1.8);backdrop-filter:blur(var(--gb)) saturate(1.8);box-shadow:inset 0 1px 0 var(--spec),0 10px 30px -12px rgba(10,20,45,.35)}
+.srow .fbtn svg{width:17px;height:17px}
+.srow .fbtn.cmpbtn[aria-pressed="true"]{background:var(--warn-soft);border-color:color-mix(in srgb,var(--star) 60%,var(--line))}
+.sbody{grid-auto-rows:max-content}
+.info>h2{display:none}
+@media (max-width:820px){
+  .srow .fbtn{width:46px;padding:0;justify-content:center;flex:none}
+  .srow .fbtn .lbl{display:none}
+  .srow .fbtn .cnt{position:absolute;top:-3px;right:-3px;min-width:18px;text-align:center}
+}
 </style>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -593,17 +647,17 @@ img{max-width:100%}
 <body>
 
 <div class="safeband" aria-hidden="true"></div>
+<div class="edge-t" aria-hidden="true"></div><div class="edge-b" aria-hidden="true"></div>
 <div class="wrap">
   <header class="top glass" id="top">
-    <div class="brand"><h1>신약 기술거래</h1></div>
-    <nav class="tabs" id="tabs" aria-label="화면 구역">
+    <div class="brand"><h1><span class="bt">신약 딜북</span><span class="pt" id="pgTitle">기술거래</span></h1></div>
+    <nav class="tabs" id="tabs" aria-label="페이지">
       <span class="ind" aria-hidden="true"></span>
-      <button class="tab" type="button" data-sec="secList">거래</button>
+      <button class="tab" type="button" data-sec="secList">기술거래</button>
       <button class="tab" type="button" data-sec="secFda">FDA 승인</button>
-      <button class="tab" type="button" data-sec="secInfo">참고 정보</button>
+      <button class="tab" type="button" data-sec="secInfo">정보</button>
     </nav>
     <div class="topacts">
-      <div class="seg vseg" role="group" aria-label="보기 범위" style="--n:2"><button type="button" data-v="all" aria-pressed="true">전체</button><button type="button" data-v="comps" aria-pressed="false" title="비교 거래만 보기"><span aria-hidden="true">★</span> 비교<span class="cnt compCnt"></span></button></div>
       <div class="tgl" id="themeSw" role="group" aria-label="화면 테마">
         <button type="button" data-th="light" aria-pressed="false" aria-label="라이트 모드"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="tl">라이트</span></button>
         <button type="button" data-th="dark" aria-pressed="false" aria-label="다크 모드"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span class="tl">다크</span></button>
@@ -627,16 +681,32 @@ img{max-width:100%}
       <div class="fpanel-foot"><button class="btn" id="fReset" type="button">초기화</button><button class="btn primary" id="fApply" type="button">결과 보기</button></div>
     </aside>
 
+    <div class="shade" id="ffShade" hidden></div>
+    <aside class="fpanel" id="ffpanel" hidden aria-label="FDA 필터" role="region">
+      <div class="fpanel-head"><h2>필터 <span class="cnt" id="ffCnt2"></span></h2><span style="display:flex;gap:6px;align-items:center"><button class="linkbtn" id="ffResetTop" type="button">초기화</button><button class="xbtn glass" id="ffClose" type="button" aria-label="필터 닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span></div>
+      <div class="fgrid">
+        <div class="fgroup"><span class="label">기술거래 연결</span><div class="opts" data-fg="link"></div></div>
+        <div class="fgroup"><span class="label">승인 연도</span><div class="opts" data-fg="yr"></div></div>
+        <div class="fgroup"><span class="label">승인 부서</span><div class="opts" data-fg="ct"></div></div>
+        <div class="fgroup"><span class="label">신속 심사·지정</span><div class="opts" data-fg="des"></div><p class="fnote">CBER 승인은 지정 정보가 대부분 비어 있습니다.</p></div>
+        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-fg="mod"></div></div>
+        <div class="fgroup"><span class="label">확보 경로</span><div class="opts" data-fg="org"></div><p class="fnote">허가 보유사가 약을 확보한 경로입니다. 공개 정보로 확인된 경우만 표시했습니다.</p></div>
+      </div>
+      <div class="fpanel-foot"><button class="btn" id="ffReset" type="button">초기화</button><button class="btn primary" id="ffApply" type="button">결과 보기</button></div>
+    </aside>
+
     <div class="content">
-      <div class="srow">
+      <div class="srow" data-pg="deals">
         <form class="sbox" id="qform" role="search" action="#" autocomplete="off">
           <svg class="sico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input id="q" class="search" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="회사·물질·표적, 문장으로도 검색…" aria-label="거래 검색">
+          <input id="q" class="search" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="회사·물질·표적·문장 검색" aria-label="거래 검색">
           <button class="sclear" id="qx" type="button" aria-label="검색어 지우기" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
           <button class="saibtn" id="sMode" type="button" aria-pressed="false" aria-label="AI 검색 켜기" title="AI 검색 (Claude)" hidden><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.9 5.6L19.5 9.5l-5.6 1.9L12 17l-1.9-5.6L4.5 9.5l5.6-1.9zM19 14l.9 2.6 2.6.9-2.6.9L19 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg></button>
         </form>
+        <button class="fbtn" id="fBtn" type="button" aria-expanded="false" aria-controls="fpanel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span class="lbl">필터</span><span class="cnt" id="fCnt"></span></button>
+        <button class="fbtn cmpbtn" id="cmpBtn" type="button" aria-pressed="false" aria-label="비교 거래만 보기" title="★ 담은 비교 거래만 보기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z" stroke-linejoin="round"/></svg><span class="lbl">비교</span><span class="cnt compCnt"></span></button>
       </div>
-      <div class="aihint" id="aiHint" hidden><span>문장으로 물어보면 Claude가 비슷한 거래를 골라 아래 목록에 보여 드립니다. 보통 20~60초 걸립니다.</span><span class="ex"><button type="button" class="chip" data-q="한국 바이오텍이 전임상 TROP2 ADC를 빅파마에 기술수출한다면 비교할 거래와 upfront 수준은?">전임상 TROP2 ADC 기술수출</button><button type="button" class="chip" data-q="중국 바이오텍의 GLP-1 계열 비만 신약 글로벌 라이선스 사례와 조건">중국 비만약 라이선스</button><button type="button" class="chip" data-q="피하주사 제형 전환 플랫폼 기술이전 사례와 조건">피하주사 플랫폼</button></span>
+      <div class="aihint" id="aiHint" data-pg="deals" hidden><span>문장으로 물어보면 Claude가 비슷한 거래를 골라 아래 목록에 보여 드립니다. 보통 20~60초 걸립니다.</span><span class="ex"><button type="button" class="chip" data-q="한국 바이오텍이 전임상 TROP2 ADC를 빅파마에 기술수출한다면 비교할 거래와 upfront 수준은?">전임상 TROP2 ADC 기술수출</button><button type="button" class="chip" data-q="중국 바이오텍의 GLP-1 계열 비만 신약 글로벌 라이선스 사례와 조건">중국 비만약 라이선스</button><button type="button" class="chip" data-q="피하주사 제형 전환 플랫폼 기술이전 사례와 조건">피하주사 플랫폼</button></span>
       </div>
       <select class="sort" id="sort" aria-label="정렬" hidden>
         <option value="_score:-1" id="relOpt" hidden>관련도순</option>
@@ -647,25 +717,24 @@ img{max-width:100%}
         <option value="ratio:-1">Upfront 비중 높은 순</option>
         <option value="licensor:1">라이선서 이름순</option>
       </select>
-      <section class="bar" aria-label="바로가기">
+      <section class="bar" data-pg="deals" aria-label="바로가기">
         <div class="crow">
           <div class="chips" id="chipsWrap" role="group" aria-label="바로가기"><span class="ind" aria-hidden="true"></span><span class="chips-in" id="chips"></span></div>
-          <button class="fbtn" id="fBtn" type="button" aria-expanded="false" aria-controls="fpanel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>필터<span class="cnt" id="fCnt"></span></button>
         </div>
         <div class="nlinfo" id="nlInfo" hidden></div>
         <div class="active" id="active"></div>
       </section>
 
-      <section class="modebar" id="modeBar" hidden aria-live="polite"></section>
+      <section class="modebar" id="modeBar" data-pg="deals" hidden aria-live="polite"></section>
 
-      <section class="summary" id="secKpi" aria-label="선택 조건 요약">
+      <section class="summary" id="secKpi" data-pg="deals" aria-label="선택 조건 요약">
         <div><span class="label">거래 수</span><span class="v num" id="kN">–</span><span class="s" id="kNs">&nbsp;</span></div>
         <div><span class="label">총액 중앙값</span><span class="v num" id="kMedT">–</span><span class="s" id="kSum">&nbsp;</span></div>
         <div><span class="label">Upfront 중앙값</span><span class="v num gold" id="kMedU">–</span><span class="s" id="kMedUs">&nbsp;</span></div>
         <div><span class="label">Upfront 비중</span><span class="v num" id="kRatio">–</span><span class="s">중앙값 · upfront ÷ 총액</span></div>
       </section>
 
-      <section class="comps" id="comps" hidden aria-label="비교 거래">
+      <section class="comps" id="comps" data-pg="deals" hidden aria-label="비교 거래">
         <span><span aria-hidden="true" style="color:var(--star)">★</span> 비교 거래 <b id="cN">0</b>건</span>
         <span class="hint" id="cStats"></span>
         <span class="acts">
@@ -675,7 +744,7 @@ img{max-width:100%}
         </span>
       </section>
 
-      <section class="panels" id="secStats" aria-label="통계">
+      <section class="panels" id="secStats" data-pg="deals" aria-label="통계">
         <div class="panel">
           <header><h2>연도별 거래</h2><span class="legend"><span><i style="background:var(--c1)"></i>건수</span><span><i class="dot" style="background:var(--eosin)"></i>upfront 중앙값($M)</span></span></header>
           <div class="pbody">
@@ -689,10 +758,11 @@ img{max-width:100%}
         </div>
       </section>
 
-      <section class="ledger" id="secList" aria-label="거래 목록">
+      <section class="ledger" id="secList" data-pg="deals" aria-label="거래 목록">
         <div class="ledger-top">
           <h2 id="ledgerTitle">거래 목록</h2>
           <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <button class="btn sm" id="statsBtn" type="button" aria-expanded="false" aria-controls="secStats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M12 20V5M19 20v-6"/></svg>통계</button>
             <div class="dd" id="sortDD"></div>
             <button class="btn sm" id="csv" type="button">CSV 내려받기</button>
           </span>
@@ -717,15 +787,74 @@ img{max-width:100%}
         <div class="more" id="moreWrap" hidden><button class="btn sm" id="more" type="button">더 보기</button></div>
       </section>
 
-      <section class="fda" id="secFda" aria-label="FDA 승인 신약">
-        <div class="fda-top"><div><h2>FDA 승인 신약</h2><span class="hint" id="fdaSub">불러오는 중</span></div></div>
-        <div class="fda-ctl" id="fdaCtl"></div>
-        <div class="fda-sum" id="fdaSum"></div>
-        <div id="fdaBody"><div class="fda-empty">FDA 승인 데이터를 불러오는 중입니다.</div></div>
+      <div class="srow" data-pg="fda">
+        <form class="sbox" id="fqform" role="search" action="#" autocomplete="off">
+          <svg class="sico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="fq" class="search" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="제품·성분·회사·적응증 검색" aria-label="FDA 승인 검색">
+          <button class="sclear" id="fqx" type="button" aria-label="검색어 지우기" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </form>
+        <button class="fbtn" id="ffBtn" type="button" aria-expanded="false" aria-controls="ffpanel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span class="lbl">필터</span><span class="cnt" id="ffCnt"></span></button>
+        <button class="fbtn cmpbtn" id="fcmpBtn" type="button" aria-pressed="false" aria-label="비교 승인만 보기" title="★ 담은 승인만 보기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z" stroke-linejoin="round"/></svg><span class="lbl">비교</span><span class="cnt" id="fcmpCnt"></span></button>
+      </div>
+      <section class="bar" data-pg="fda" aria-label="FDA 바로가기">
+        <div class="crow">
+          <div class="chips" id="fchipsWrap" role="group" aria-label="FDA 바로가기"><span class="ind" aria-hidden="true"></span><span class="chips-in" id="fchips"></span></div>
+        </div>
+        <div class="active" id="factive"></div>
       </section>
 
-      <section class="info" id="secInfo" aria-label="참고 정보">
-        <h2>참고 정보</h2>
+      <section class="summary" id="fKpi" data-pg="fda" aria-label="FDA 승인 요약">
+        <div><span class="label">승인 수</span><span class="v num" id="fkN">–</span><span class="s" id="fkNs">&nbsp;</span></div>
+        <div><span class="label">기술거래 연결</span><span class="v num" id="fkL">–</span><span class="s" id="fkLs">&nbsp;</span></div>
+        <div><span class="label">희귀의약품 지정</span><span class="v num" id="fkO">–</span><span class="s" id="fkOs">&nbsp;</span></div>
+        <div><span class="label">계약 → 승인</span><span class="v num gold" id="fkM">–</span><span class="s" id="fkMs">&nbsp;</span></div>
+      </section>
+
+      <section class="comps" id="fcomps" data-pg="fda" hidden aria-label="비교 승인">
+        <span><span aria-hidden="true" style="color:var(--star)">★</span> 비교 승인 <b id="fcN">0</b>건</span>
+        <span class="hint" id="fcStats"></span>
+        <span class="acts">
+          <button class="btn sm" id="fcView" type="button">모아 보기</button>
+          <button class="btn sm" id="fcCsv" type="button">CSV</button>
+          <button class="btn sm" id="fcClear" type="button">비우기</button>
+        </span>
+      </section>
+
+      <section class="ledger" id="secFda" data-pg="fda" aria-label="FDA 승인 목록">
+        <div class="ledger-top">
+          <h2 id="fTitle">FDA 승인 목록</h2>
+          <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <div class="dd" id="fsortDD"></div>
+            <button class="btn sm" id="fcsv" type="button">CSV 내려받기</button>
+          </span>
+        </div>
+        <select id="fsort" aria-label="정렬" hidden>
+          <option value="date:-1">최신순</option>
+          <option value="date:1">오래된순</option>
+          <option value="brand:1">상표명순</option>
+          <option value="sponsor:1">허가 보유사순</option>
+          <option value="links:-1">기술거래 연결 많은 순</option>
+        </select>
+        <div class="scroll">
+          <table class="deals ftab">
+            <thead><tr>
+              <th class="nosort" aria-label="비교 승인"></th>
+              <th data-fk="date" aria-sort="descending"><span>승인일</span></th>
+              <th data-fk="brand" aria-sort="none"><span>제품</span></th>
+              <th data-fk="sponsor" aria-sort="none"><span>허가 보유사</span></th>
+              <th class="nosort"><span>적응증</span></th>
+              <th class="nosort"><span>모달리티 · 지정</span></th>
+              <th data-fk="links" aria-sort="none"><span>기술거래</span></th>
+            </tr></thead>
+            <tbody id="frows"><tr><td colspan="7" class="empty">FDA 승인 데이터를 불러오는 중입니다.</td></tr></tbody>
+          </table>
+        </div>
+        <div class="cards" id="fcards"><div class="empty">FDA 승인 데이터를 불러오는 중입니다.</div></div>
+        <div class="more" id="fmoreWrap" hidden><button class="btn sm" id="fmore" type="button">더 보기</button></div>
+      </section>
+
+      <section class="info" id="secInfo" data-pg="info" aria-label="정보">
+        <h2>수록 기준과 설정</h2>
         <div class="infogrid">
           <div class="panel">
             <header><h2>수록 기준과 업데이트</h2><span class="stamp" id="stamp" title="최근 업데이트">불러오는 중</span></header>
@@ -739,6 +868,14 @@ img{max-width:100%}
                 <p>상태 배지: <span class="st bad">권리반환·중단</span> <span class="st warn">일부 반환·우선순위 하향</span> <span class="st good">허가·옵션 행사·확장</span> <span class="st info">임상 진전</span> <span class="st purple">인수</span></p>
               </div></details>
             </div>
+          </div>
+          <div class="panel">
+            <header><h2>FDA 승인 데이터</h2><span class="stamp" id="fstamp">불러오는 중</span></header>
+            <div class="pbody"><div class="basis">
+              <p>2021년 1월 이후 FDA가 처음 승인한 신약을 모았습니다. CDER 신약(신규 성분, Novel Drug Approvals)과 CBER 신규 바이오(세포·유전자치료, 백신 등)가 대상이고, 적응증 추가·바이오시밀러·혈장 유래 제품·진단키트는 제외했습니다.</p>
+              <p>승인일·제품명·적응증은 FDA 목록 기준입니다. 허가 보유사와 신속 심사·지정은 FDA 연례 보고서와 2차 자료로 보완했고, CBER 2021~2022년은 FDA 공식 목록을 열지 못해 일부 빠졌을 수 있습니다.</p>
+              <p>기술거래 연결은 약물명·코드명이 같은 수록 거래를 이은 것입니다. 수록 범위(2021년 이후, 총액 또는 upfront $200M 이상) 밖의 계약은 나타나지 않습니다.</p>
+            </div></div>
           </div>
           <div class="panel">
             <header><h2>화면 설정</h2></header>
@@ -756,13 +893,10 @@ img{max-width:100%}
   </div>
 </div>
 
-<nav class="tabbar glass" id="tabbar" aria-label="화면 이동">
+<nav class="tabbar glass" id="tabbar" aria-label="페이지 이동">
   <span class="ind" aria-hidden="true"></span>
-  <button class="tb" type="button" data-sec="secList" data-alias="secKpi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r=".8"/><circle cx="4" cy="12" r=".8"/><circle cx="4" cy="18" r=".8"/></svg>거래</button>
-  
-  <button class="tb" type="button" data-sec="secFda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 3v5.2c0 4.2-2.9 7.3-7 8.8-4.1-1.5-7-4.600-7-8.800V6.500z"/><path d="M9 12l2.200 2.200L15.500 10"/></svg>FDA</button>
-  <button class="tb vtb" type="button" data-act="comps" aria-pressed="false" aria-label="비교 거래만 보기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.25 4.1 1 5.8L12 16.9l-5.25 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>비교<span class="cnt compCnt"></span></button>
-  <button class="tb" type="button" data-act="filter" aria-label="필터 열기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg>필터<span class="cnt" id="tbFCnt"></span></button>
+  <button class="tb" type="button" data-sec="secList"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><circle cx="4" cy="6" r=".8"/><circle cx="4" cy="12" r=".8"/><circle cx="4" cy="18" r=".8"/></svg>기술거래</button>
+  <button class="tb" type="button" data-sec="secFda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 3v5.2c0 4.2-2.9 7.3-7 8.8-4.1-1.5-7-4.6-7-8.8V6.5z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>FDA 승인</button>
   <button class="tb" type="button" data-sec="secInfo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.2"/></svg>정보</button>
 </nav>
 
@@ -873,7 +1007,7 @@ function drawActive(){
   if(F.onlyNew)t.push(["new","","최근 추가분"]);
   const n=t.length;
   if(F.compsOnly){t.length=0;t.push(["comps","","★ 비교 거래만 보는 중 (다른 조건은 잠시 해제)"])}
-  [$("fCnt"),$("fCnt2"),$("tbFCnt")].forEach(el=>el.textContent=n?String(n):"");
+  [$("fCnt"),$("fCnt2")].forEach(el=>el.textContent=n?String(n):"");
   $("active").innerHTML=t.length?t.map(([g,v,l])=>`<button type="button" class="tagx" data-g="${g}" data-v="${esc(v)}" aria-label="${esc(l)} 해제">${esc(l)}<span aria-hidden="true">×</span></button>`).join("")+`<button type="button" class="linkbtn" id="clearAll">모두 해제</button>`:"";
 }
 function resetFilters(){
@@ -1305,59 +1439,232 @@ function termsBlock(d){
    ${rows.length?`<dl class="tlist">${rows.map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl>`:""}
    ${d.t_sum?`<div class="label" style="margin-top:4px">계약 내용 요약</div><div class="tsum">${esc(d.t_sum)}${d.t_src?` <a href="${esc(d.t_src)}" target="_blank" rel="noopener">출처 원문</a>`:""}</div>`:""}
    ${d.t_conf?`<div class="tconf">⚠ ${esc(d.t_conf)}</div>`:""}</div>`}
-/* ---------- FDA approvals ---------- */
-let FDA=[],FDA_BY_DEAL={};const FQ={yr:"all",ct:"all",linked:false,q:"",shown:30};
-const fdaMonths=(a,d)=>{const x=(a.date||"").slice(0,7).split("-"),y=(d.date||"").slice(0,7).split("-");if(x.length<2||y.length<2)return null;return (+x[0]-+y[0])*12+(+x[1]-+y[1])};
+/* ---------- FDA approvals page: search, quick chips, filter rail/sheet, compare, list, detail sheet ---------- */
+let FDA=[],FVIEW=[],FDA_BY_DEAL={},fshown=60,fsortK="date",fsortDir=-1;
+const FF={q:"",since:null,link:new Set(),yr:new Set(),ct:new Set(),des:new Set(),mod:new Set(),org:new Set(),compsOnly:false};
+const FGS=["link","yr","ct","des","mod","org"];
+let FCOMPS=new Set();
+let fdaCompsStore={load:async()=>{try{return JSON.parse(localStorage.getItem("dealbook-fda-comps")||"[]")}catch(e){return[]}},save:async ids=>{try{localStorage.setItem("dealbook-fda-comps",JSON.stringify(ids))}catch(e){}}};
+async function initFdaComps(){try{FCOMPS=new Set(await fdaCompsStore.load())}catch(e){FCOMPS=new Set()}if(FDA.length)fApply(true)}
+const DES_KO={Breakthrough:"혁신치료제",Priority:"우선심사",Orphan:"희귀의약품","Fast Track":"패스트트랙",Accelerated:"가속승인"};
+const DES_ORDER=["Breakthrough","Priority","Orphan","Fast Track","Accelerated"];
+const SHEET_STACK=[];
+const fdaMonths=(a,d)=>{const x=String(a.date||"").slice(0,7).split("-"),y=String(d.date||"").slice(0,7).split("-");if(x.length<2||y.length<2)return null;return (+x[0]-+y[0])*12+(+x[1]-+y[1])};
+const fDeals=a=>(a.deals||[]).map(l=>({l,d:ALL.find(x=>x.id===l.id)})).filter(x=>x.d).sort((p,q)=>String(p.d.date).localeCompare(String(q.d.date)));
+function fLead(a){let best=null;fDeals(a).forEach(({d})=>{const m=fdaMonths(a,d);if(m!=null&&m>=0&&(best==null||m>best))best=m});return best}
+function fnorm(a){
+  a._yr=String(a.date||"").slice(0,4);a._links=(a.deals||[]).length;a._mod=a.modality||"미상";a._org=a.origin||"불명";a._des=Array.isArray(a.designations)?a.designations:[];
+  a._hay=[a.brand,a.generic,a.sponsor,a.indication,a.modality,a.center,a._des.map(x=>DES_KO[x]||x).join(" ")].join(" ").toLowerCase();return a}
 function setFda(arr){
-  FDA=(arr||[]).slice().sort((a,b)=>String(b.date).localeCompare(String(a.date)));
-  FDA_BY_DEAL={};
+  FDA=(arr||[]).map(fnorm);FDA_BY_DEAL={};
   FDA.forEach(a=>(a.deals||[]).forEach(l=>{(FDA_BY_DEAL[l.id]=FDA_BY_DEAL[l.id]||[]).push(a)}));
-  drawFda();if(ALL.length)drawList();
+  const last=FDA.map(a=>a.date).sort().pop();if($("fstamp"))$("fstamp").innerHTML=last?`${fmt(FDA.length)}건 · 최근 승인 <b>${esc(last)}</b>`:"–";
+  fBuildPanel();fApply();if(ALL.length)drawList();
 }
-const fdaTag=d=>{const l=FDA_BY_DEAL[d.id];return l&&l.length?`<span class="tag fda" title="${esc(l[0].brand||l[0].generic||"")} · ${esc(l[0].date)}">FDA 승인</span>`:""};
+
+/* deal list badge + deal sheet block */
+const fdaTag=d=>{const l=FDA_BY_DEAL[d.id];return l&&l.length?`<span class="tag fda" title="${esc(l[0].brand||l[0].generic||"")} · ${esc(l[0].date)} FDA 승인">FDA 승인</span>`:""};
 function fdaBlock(d){
   const l=FDA_BY_DEAL[d.id];if(!l||!l.length)return"";
-  return `<div class="fsec"><div class="label">FDA 승인 <span class="tag fda">${l.length}건</span></div>${l.map(a=>{
-    const m=fdaMonths(a,d),link=(a.deals||[]).find(x=>x.id===d.id)||{};
-    return `<div class="fapp"><div><b>${esc(a.brand||a.generic)}</b>${a.brand&&a.generic?` <span class="hint">(${esc(a.generic)})</span>`:""} · <span class="num">${esc(a.date)}</span></div>
-      <div>${esc(a.indication||"")}</div>
-      <div class="hint">허가 보유: ${esc(a.sponsor||"–")}${m!=null?` · 계약 후 ${m>=0?fmt(m)+"개월":"–"}`:""}${link.confidence&&link.confidence!=="high"?` · 연결 신뢰도 ${esc(link.confidence)}`:""}</div>
-      ${link.note?`<div class="hint">${esc(link.note)}</div>`:""}</div>`}).join("")}</div>`;
+  return `<div class="fsec"><div class="label">FDA 승인 <span class="tag fda">${l.length}건</span></div>${l.map(a=>{const m=fdaMonths(a,d);
+    return `<button type="button" class="fapp" data-fda="${esc(a.id)}"><span><b>${esc(a.brand||a.generic)}</b>${a.brand&&a.generic?` <span class="hint">${esc(a.generic)}</span>`:""}</span>
+      <span class="hint"><span class="num">${esc(a.date)}</span> ${esc(a.center||"")} 승인${m!=null?(m>=0?` · 계약 후 ${fmt(m)}개월`:" · 승인 후 맺은 계약"):""}</span>
+      <span>${esc(a.indication||"")}</span></button>`}).join("")}</div>`;
 }
-function fdaView(){
-  const q=FQ.q.trim().toLowerCase();
-  return FDA.filter(a=>(FQ.yr==="all"||String(a.date).slice(0,4)===FQ.yr)&&(FQ.ct==="all"||a.center===FQ.ct)&&(!FQ.linked||(a.deals||[]).length)&&(!q||[a.brand,a.generic,a.sponsor,a.indication,a.modality].join(" ").toLowerCase().includes(q)));
+
+/* filter groups */
+const fCount=(fn)=>{const m={};FDA.forEach(a=>{const v=fn(a);m[v]=(m[v]||0)+1});return Object.keys(m).sort((x,y)=>m[y]-m[x])};
+const FGROUPS={
+  link:{vals:()=>["Y","N"],label:v=>v==="Y"?"연결된 거래 있음":"연결 없음",get:a=>a._links?"Y":"N"},
+  yr:{vals:()=>[...new Set(FDA.map(a=>a._yr))].sort().reverse(),label:v=>v+"년",get:a=>a._yr},
+  ct:{vals:()=>["CDER","CBER"],label:v=>v==="CDER"?"CDER · 신약":"CBER · 세포·유전자·백신",get:a=>a.center},
+  des:{vals:()=>DES_ORDER,label:v=>DES_KO[v],get:a=>a._des,multi:true},
+  mod:{vals:()=>fCount(a=>a._mod).filter(v=>v!=="미상").concat(FDA.some(a=>a._mod==="미상")?["미상"]:[]),label:v=>v,get:a=>a._mod},
+  org:{vals:()=>["기술도입","인수","공동개발","자체개발","불명"],label:v=>v==="불명"?"확인 안 됨":v,get:a=>a._org}};
+function fMatch(a,g){const s=FF[g];if(!s.size)return true;const v=FGROUPS[g].get(a);return FGROUPS[g].multi?v.some(x=>s.has(x)):s.has(v)}
+function fBuildPanel(){document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg,G=FGROUPS[g];
+  box.innerHTML=G.vals().map(v=>{const n=FDA.filter(a=>G.multi?G.get(a).includes(v):G.get(a)===v).length;
+    return n?`<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="${FF[g].has(v)}"><span>${esc(G.label(v))}</span><small>${n}</small></button>`:""}).join("")})}
+function fSyncPanel(){document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(FF[g].has(b.dataset.v))))})}
+const fFilterN=()=>FGS.reduce((n,g)=>n+FF[g].size,0)+(FF.since?1:0);
+function fReset(keepQ){const q=FF.q;FGS.forEach(g=>FF[g].clear());FF.since=null;FF.compsOnly=false;FF.q=keepQ?q:""}
+
+/* quick chips (one at a time, like the deal page) */
+const fOnly=(s,v)=>s.size===1&&s.has(v);
+const since12=()=>{const d=new Date();d.setFullYear(d.getFullYear()-1);return d.toISOString().slice(0,10)};
+const fset=(g,v)=>b=>{FF[g].clear();if(b)FF[g].add(v)};
+const FCHIPS=[
+  {id:"link",label:"기술거래 연결",on:()=>fOnly(FF.link,"Y"),set:fset("link","Y")},
+  {id:"recent",label:"최근 12개월",on:()=>!!FF.since,set:b=>{FF.since=b?since12():null}},
+  {id:"bt",label:"혁신치료제",on:()=>fOnly(FF.des,"Breakthrough"),set:fset("des","Breakthrough")},
+  {id:"orph",label:"희귀의약품",on:()=>fOnly(FF.des,"Orphan"),set:fset("des","Orphan")},
+  {id:"aa",label:"가속승인",on:()=>fOnly(FF.des,"Accelerated"),set:fset("des","Accelerated")},
+  {id:"cber",label:"세포·유전자·백신",on:()=>fOnly(FF.ct,"CBER"),set:fset("ct","CBER")},
+  {id:"lic",label:"기술도입 약",on:()=>fOnly(FF.org,"기술도입"),set:fset("org","기술도입")}];
+function fDrawChips(){
+  const box=$("fchips");
+  if(!box.dataset.built){box.innerHTML=[{id:"all",label:"전체"},...FCHIPS].map(c=>`<button type="button" class="chip" data-c="${c.id}" aria-pressed="false">${c.label}</button>`).join("");box.dataset.built="1"}
+  const any=FCHIPS.some(c=>c.on());
+  box.querySelectorAll(".chip").forEach(b=>{const id=b.dataset.c;b.setAttribute("aria-pressed",String(id==="all"?!any:FCHIPS.find(x=>x.id===id).on()))});
+  fChipInd(true);
 }
-function drawFda(){
-  const root=$("fdaBody");if(!root)return;
-  if(!FDA.length){root.innerHTML='<div class="fda-empty">FDA 승인 데이터를 불러오는 중입니다.</div>';return}
-  const yrs=[...new Set(FDA.map(a=>String(a.date).slice(0,4)))].sort();
-  const linked=FDA.filter(a=>(a.deals||[]).length);
-  const v=fdaView(),list=v.slice(0,FQ.shown);
-  $("fdaSub").textContent=`${yrs[0]}~ CDER 신약·CBER 신규 바이오 ${fmt(FDA.length)}건 중 수록 거래와 연결된 약 ${fmt(linked.length)}건`;
-  $("fdaCtl").innerHTML=`<div class="seg" role="group" aria-label="연도" style="--n:${yrs.length+1}">${["all",...yrs].map(y=>`<button type="button" data-yr="${y}" aria-pressed="${FQ.yr===y}">${y==="all"?"전체":y}</button>`).join("")}</div>
-    <div class="seg" role="group" aria-label="승인 부서" style="--n:3">${[["all","전체"],["CDER","CDER"],["CBER","CBER"]].map(([k,t])=>`<button type="button" data-ct="${k}" aria-pressed="${FQ.ct===k}">${t}</button>`).join("")}</div>
-    <button type="button" class="chip" id="fdaLinked" aria-pressed="${FQ.linked}" style="${FQ.linked?"color:var(--ink);border-color:var(--accent)":""}">기술거래 연결만</button>
-    <input class="fq" id="fdaQ" type="search" placeholder="상표명·성분·회사·적응증" value="${esc(FQ.q)}" aria-label="FDA 승인 검색">`;
-  const by=yrs.map(y=>[y,FDA.filter(a=>String(a.date).slice(0,4)===y)]);
-  $("fdaSum").innerHTML=by.map(([y,a])=>`<span>${y} <b>${a.length}</b>${a.some(x=>(x.deals||[]).length)?` <span class="hint">(연결 ${a.filter(x=>(x.deals||[]).length).length})</span>`:""}</span>`).join("");
-  root.innerHTML=v.length?`<div class="fda-grid">${list.map((a,i)=>`<article class="fcard"><div class="fh"><span class="num">${esc(a.date)}</span><span class="tag">${esc(a.center||"")}</span></div>
-      <div class="fb">${esc(a.brand||a.generic)}${a.brand&&a.generic?`<small>${esc(a.generic)}</small>`:""}</div>
-      <div class="fs">${esc(a.sponsor||"")}</div><div class="fi">${esc(a.indication||"")}</div>
-      <div class="ftags">${a.modality?`<span class="tag">${esc(a.modality)}</span>`:""}${(a.designations||[]).map(x=>`<span class="tag">${esc(x)}</span>`).join("")}${a.origin&&a.origin!=="불명"?`<span class="tag plat">${esc(a.origin)}</span>`:""}</div>
-      ${(a.deals||[]).map(l=>{const d=ALL.find(x=>x.id===l.id);if(!d)return"";const m=fdaMonths(a,d);
-        return `<button type="button" class="fdeal" data-deal="${esc(d.id)}"><span><b>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</b> <span class="hint">${esc(d.date)}${m!=null&&m>=0?` · 계약 후 ${fmt(m)}개월`:""}</span></span>${d.total!=null?`<span class="hint">총액 $${fmtM(d.total)}${d.total>=10000?"":"M"}${d.upfront!=null?` · Upfront $${fmt(d.upfront,d.upfront<10?1:0)}M`:""}</span>`:""}${l.confidence&&l.confidence!=="high"?`<span class="hint">연결 신뢰도 ${esc(l.confidence)}</span>`:""}</button>`}).join("")}</article>`).join("")}</div>${v.length>FQ.shown?'<div class="fda-more"><button class="btn sm" id="fdaMore" type="button">더 보기</button></div>':""}`:'<div class="fda-empty">조건에 맞는 승인 사례가 없습니다.</div>';
+function fChipInd(reveal){const w=$("fchipsWrap");if(!w)return;moveInd(w,$("fchips").querySelector('.chip[aria-pressed="true"]'),reveal)}
+function fDrawActive(){
+  const out=[];if(FF.since)out.push(["since","","최근 12개월"]);
+  FGS.forEach(g=>FF[g].forEach(v=>out.push([g,v,FGROUPS[g].label(v)])));
+  if(FF.compsOnly)out.push(["comps","","★ 비교 승인만"]);
+  $("factive").innerHTML=out.map(([g,v,t])=>`<button type="button" class="tagx" data-g="${g}" data-v="${esc(v)}" aria-label="${esc(t)} 조건 빼기">${esc(t)}<span aria-hidden="true">×</span></button>`).join("")+(out.length>1?'<button type="button" class="linkbtn" id="fclearAll">모두 지우기</button>':"");
 }
-document.addEventListener("click",e=>{
-  const t=e.target;if(!t.closest||!$("secFda")||!$("secFda").contains(t))return;
-  const y=t.closest("[data-yr]"),c=t.closest("[data-ct]"),dl=t.closest("[data-deal]");
-  if(y){FQ.yr=y.dataset.yr;FQ.shown=30;drawFda();return}
-  if(c){FQ.ct=c.dataset.ct;FQ.shown=30;drawFda();return}
-  if(t.closest("#fdaLinked")){FQ.linked=!FQ.linked;FQ.shown=30;drawFda();return}
-  if(t.closest("#fdaMore")){FQ.shown+=30;drawFda();return}
-  if(dl){const d=ALL.find(x=>x.id===dl.dataset.deal);if(d)openSheet(d)}
-});
-document.addEventListener("input",e=>{if(e.target&&e.target.id==="fdaQ"){FQ.q=e.target.value;FQ.shown=30;const pos=e.target.selectionStart;drawFda();const n=$("fdaQ");if(n){n.focus();try{n.setSelectionRange(pos,pos)}catch(_){}}}});
+
+/* apply + render */
+function fSort(){const k=fsortK,dir=fsortDir;
+  FVIEW.sort((a,b)=>{let x=k==="links"?a._links:a[k],y=k==="links"?b._links:b[k];
+    if(x==null||x==="")return 1;if(y==null||y==="")return -1;
+    const c=typeof x==="number"?x-y:String(x).localeCompare(String(y),"ko");return c*dir||String(b.date).localeCompare(String(a.date))});
+  document.querySelectorAll(".ftab th[data-fk]").forEach(th=>th.setAttribute("aria-sort",th.dataset.fk===k?(dir>0?"ascending":"descending"):"none"));
+}
+function fApply(keep){
+  const terms=FF.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  FVIEW=FDA.filter(a=>(!FF.compsOnly||FCOMPS.has(a.id))&&(!FF.since||String(a.date)>=FF.since)&&FGS.every(g=>fMatch(a,g))&&terms.every(t=>a._hay.includes(t)));
+  fSort();if(!keep)fshown=60;
+  fDrawChips();fDrawActive();fSyncPanel();fDrawKpi();fDrawComps();fDrawList();
+  const n=fFilterN();[$("ffCnt"),$("ffCnt2")].forEach(el=>el.textContent=n?String(n):"");
+  $("ffApply").textContent=`${fmt(FVIEW.length)}건 보기`;
+  $("fcmpBtn").setAttribute("aria-pressed",String(FF.compsOnly));
+}
+function fDrawKpi(){
+  const v=FVIEW,n=v.length,cd=v.filter(a=>a.center==="CDER").length,L=v.filter(a=>a._links),O=v.filter(a=>a._des.includes("Orphan"));
+  $("fkN").textContent=fmt(n);$("fkNs").textContent=n?`CDER ${fmt(cd)} · CBER ${fmt(n-cd)}`:" ";
+  $("fkL").innerHTML=`${fmt(L.length)}<small>건</small>`;$("fkLs").textContent=n?`전체의 ${fmt(L.length/n*100,1)}%`:" ";
+  $("fkO").innerHTML=n?`${fmt(O.length/n*100,0)}<small>%</small>`:"–";$("fkOs").textContent=n?`${fmt(O.length)}건 · 지정 정보 기준`:" ";
+  const ms=L.map(fLead).filter(m=>m!=null);const med=median(ms);
+  $("fkM").innerHTML=med==null?"–":`${fmt(med,0)}<small>개월</small>`;$("fkMs").textContent=ms.length?`승인 전 계약 ${fmt(ms.length)}건 중앙값`:"승인 전에 맺은 연결 거래 없음";
+}
+function fDrawComps(){
+  $("fcmpCnt").textContent=FCOMPS.size?String(FCOMPS.size):"";
+  $("fcomps").hidden=!FCOMPS.size;if(!FCOMPS.size)return;
+  const sel=FDA.filter(a=>FCOMPS.has(a.id)),ms=sel.map(fLead).filter(m=>m!=null),mods=[...new Set(sel.map(a=>a.modality).filter(Boolean))];
+  $("fcN").textContent=FCOMPS.size;
+  $("fcStats").textContent=[`기술거래 연결 ${sel.filter(a=>a._links).length}건`,ms.length?`계약→승인 중앙값 ${fmt(median(ms))}개월`:"",mods.length?mods.slice(0,3).join("·")+(mods.length>3?" 외":""):""].filter(Boolean).join(" · ");
+  $("fcView").textContent=FF.compsOnly?"전체 보기":"모아 보기";
+}
+const fstar=a=>`<button type="button" class="starbtn" data-fstar="${esc(a.id)}" aria-pressed="${FCOMPS.has(a.id)}" aria-label="${FCOMPS.has(a.id)?"비교 승인에서 빼기":"비교 승인에 담기"}">★</button>`;
+const ctTag=a=>`<span class="tag ${a.center==="CBER"?"plat":""}">${esc(a.center||"–")}</span>`;
+const desTags=a=>DES_ORDER.filter(x=>a._des.includes(x)).map(x=>`<span class="tag des">${DES_KO[x]}</span>`).join("");
+const fNew=a=>(Date.now()-Date.parse(a.date))/864e5<=14?'<span class="new">NEW</span>':"";
+function fLinkLine(a){const ls=fDeals(a);if(!ls.length)return"";const d=ls[0].d;
+  return `<b>기술거래</b><span>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</span><span class="num">${esc(String(d.date).slice(0,7))}</span>${ls.length>1?`<span>외 ${ls.length-1}건</span>`:""}`}
+function fDrawList(){
+  $("fTitle").textContent=`FDA 승인 목록 · ${fmt(FVIEW.length)}건`;
+  if(!FDA.length)return;
+  if(!FVIEW.length){const msg=FF.compsOnly&&!FCOMPS.size?"아직 담은 비교 승인이 없습니다. 승인 옆 ★를 눌러 담아 보세요.":"조건에 맞는 승인 사례가 없습니다. 필터를 줄여 보세요.";
+    $("frows").innerHTML=`<tr><td colspan="7" class="empty">${msg}</td></tr>`;$("fcards").innerHTML=`<div class="empty">${msg}</div>`;$("fmoreWrap").hidden=true;return}
+  const list=FVIEW.slice(0,fshown);
+  if(useCards()){
+    $("fcards").innerHTML=list.map((a,i)=>`<article class="card fcard" data-fi="${i}" tabindex="0">
+      <div class="meta"><span class="num">${esc(a.date)}</span>${ctTag(a)}${fNew(a)}</div>
+      <div>${fstar(a)}</div>
+      <div class="who"><span class="fbn">${esc(a.brand||a.generic)}</span>${a.brand&&a.generic?`<span class="fgn">${esc(a.generic)}</span>`:""}<span class="fsp">${esc(a.sponsor||"허가 보유사 미상")}</span></div>
+      <div class="drug"><span class="ti">${esc(a.indication||"–")}</span></div>
+      <div class="tags">${a.modality?`<span class="tag">${esc(a.modality)}</span>`:""}${desTags(a)}</div>
+      ${a._links?`<div class="flinkrow">${fLinkLine(a)}</div>`:""}
+    </article>`).join("");
+  }else{
+    $("frows").innerHTML=list.map((a,i)=>{const ls=fDeals(a),d=ls[0]&&ls[0].d;return `<tr data-fi="${i}" tabindex="0">
+      <td style="width:34px">${fstar(a)}</td>
+      <td class="num" style="white-space:nowrap">${esc(a.date)}${fNew(a)?`<div style="margin-top:5px">${fNew(a).replace('class="new"','class="new" style="margin:0"')}</div>`:""}</td>
+      <td><div class="fbn">${esc(a.brand||a.generic)}</div>${a.brand&&a.generic?`<div class="asset-sub">${esc(a.generic)}</div>`:""}</td>
+      <td style="max-width:180px">${esc(a.sponsor||"–")}</td>
+      <td><div class="ind-c">${esc(a.indication||"–")}</div></td>
+      <td><div class="ftags">${ctTag(a)}${a.modality?`<span class="tag">${esc(a.modality)}</span>`:""}${desTags(a)}</div></td>
+      <td>${d?`<div class="flk"><b>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</b><span class="num">${esc(String(d.date).slice(0,7))}${ls.length>1?` 외 ${ls.length-1}건`:""}</span></div>`:'<span class="hint">–</span>'}</td>
+    </tr>`}).join("");
+  }
+  $("fmoreWrap").hidden=FVIEW.length<=fshown;
+}
+async function toggleFStar(id){
+  FCOMPS.has(id)?FCOMPS.delete(id):FCOMPS.add(id);
+  document.querySelectorAll(`[data-fstar="${CSS.escape(id)}"]`).forEach(b=>{b.setAttribute("aria-pressed",FCOMPS.has(id));b.setAttribute("aria-label",FCOMPS.has(id)?"비교 승인에서 빼기":"비교 승인에 담기")});
+  const sb=$("fsStar");if(sb&&sb.dataset.id===id)sb.textContent=FCOMPS.has(id)?"★ 비교 승인에서 빼기":"☆ 비교 승인에 담기";
+  if(FF.compsOnly)fApply(true);else fDrawComps();
+  try{await fdaCompsStore.save([...FCOMPS])}catch(e){}
+}
+function fToCSV(rows){
+  const q=v=>{if(v==null)return"";const s=String(v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
+  const head=["승인일","상표명","성분명","허가 보유사","승인 부서","구분","모달리티","신속 심사·지정","확보 경로","적응증","연결 기술거래","계약→승인(개월)","출처"];
+  return "﻿"+[head.join(","),...rows.map(a=>[a.date,a.brand,a.generic,a.sponsor,a.center,a.type,a.modality,a._des.map(x=>DES_KO[x]||x).join(" / "),a.origin,a.indication,
+    fDeals(a).map(({d})=>`${d.licensor}→${d.licensee} (${d.date})`).join(" / "),fLead(a),a.src].map(q).join(","))].join("\n");
+}
+
+/* detail sheet (shares #sheet with the deal sheet; a back arrow returns to the sheet it was opened from) */
+function addBack(){if(!SHEET_STACK.length)return;const h=$("sheet").querySelector(".sheet-head");if(!h||h.querySelector(".sback"))return;
+  const b=document.createElement("button");b.type="button";b.className="xbtn glass sback";b.setAttribute("aria-label","이전 화면으로");
+  b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>';b.onclick=()=>{const f=SHEET_STACK.pop();if(f){f();addBack()}};h.prepend(b)}
+function openFda(a){
+  const s=$("sheet"),wasOpen=!s.hidden;if(!wasOpen){lastFocus=document.activeElement;SHEET_STACK.length=0}
+  const ls=fDeals(a),org=a.origin&&a.origin!=="불명"?a.origin:"확인 안 됨";
+  s.innerHTML=`<div class="sheet-head"><div><div class="label">${esc(a.date)} · FDA ${esc(a.center||"")} 승인</div><h2 id="sTitle">${esc(a.brand||a.generic)}</h2>${a.brand&&a.generic?`<div class="sub">${esc(a.generic)}</div>`:""}</div><button class="xbtn glass" id="sClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+   <div class="sbody"><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm sstar" id="fsStar" data-id="${esc(a.id)}" type="button">${FCOMPS.has(a.id)?"★ 비교 승인에서 빼기":"☆ 비교 승인에 담기"}</button></div>
+   <div class="terms"><div><span class="label">승인일</span><span class="v">${esc(a.date)}</span></div><div><span class="label">승인 구분</span><span class="v sm">${esc(a.center||"–")}${a.type?` · ${esc(a.type)}`:""}</span></div><div><span class="label">모달리티</span><span class="v sm">${esc(a.modality||"–")}</span></div><div><span class="label">확보 경로</span><span class="v sm">${esc(org)}</span></div></div>
+   <div class="tsec"><div class="label">적응증</div><div class="tsum">${esc(a.indication||"–")}</div></div>
+   <div class="tsec"><div class="label">신속 심사·지정</div><div class="ftags">${desTags(a)||'<span class="hint">확인된 지정 없음</span>'}</div></div>
+   <div class="fsec"><div class="label">연결된 기술거래 <span class="tag fda">${ls.length}건</span></div>${ls.length?ls.map(({l,d})=>{const m=fdaMonths(a,d);
+     return `<button type="button" class="fdeal" data-deal="${esc(d.id)}"><span><b>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</b></span>
+       <span class="hint"><span class="num">${esc(d.date)}</span> 계약${m!=null?(m>=0?` · 승인까지 ${fmt(m)}개월`:" · 승인 후 계약"):""}</span>
+       <span class="hint">${d.total!=null?`총액 $${fmtM(d.total)}${d.total>=10000?"":"M"}`:"총액 비공개"}${d.upfront!=null?` · Upfront $${fmt(d.upfront,d.upfront<10?1:0)}M`:""}${l.confidence&&l.confidence!=="high"?` · 연결 신뢰도 ${esc(l.confidence)}`:""}</span>
+       ${l.note?`<span class="hint">${esc(l.note)}</span>`:""}</button>`}).join(""):'<p class="hint" style="margin:0">수록된 기술거래(2021년 이후, 총액 또는 upfront $200M 이상)와 연결된 계약이 없습니다.</p>'}</div>
+   <dl class="kv"><dt>허가 보유사</dt><dd>${esc(a.sponsor||"–")}</dd><dt>성분명</dt><dd>${esc(a.generic||"–")}</dd><dt>출처</dt><dd>${link(a.src)||"–"}</dd></dl>
+   <p class="hint" style="margin:0">허가 보유사·지정·확보 경로는 FDA 목록 외 공개 자료로 보완한 값입니다.</p></div>`;
+  $("sheetBg").hidden=false;s.hidden=false;lockSync();if(!wasOpen)pushLayer("sheet");
+  $("sClose").onclick=closeSheet;$("fsStar").onclick=()=>toggleFStar(a.id);
+  s.querySelectorAll(".fdeal").forEach(b=>b.onclick=()=>{const d=ALL.find(x=>x.id===b.dataset.deal);if(!d)return;SHEET_STACK.push(()=>openFda(a));openSheet(d);addBack()});
+  addBack();$("sClose").focus();const sb=s.querySelector(".sbody");if(sb)sb.scrollTop=0;
+}
+/* deal sheet → approval */
+$("sheet").addEventListener("click",e=>{const b=e.target.closest("[data-fda]");if(!b)return;const a=FDA.find(x=>x.id===b.dataset.fda);if(!a)return;
+  const sid=$("sStar")&&$("sStar").dataset.id,d=sid&&ALL.find(x=>x.id===sid);if(d)SHEET_STACK.push(()=>openSheet(d));openFda(a)});
+
+/* filter sheet on a phone (rail on wider screens) */
+let fPanelFocus=null;
+function openFPanel(){if(!isPhone()){const f=document.querySelector("#ffpanel .opt");if(f)f.focus();return}if(!$("ffpanel").hidden)return;fPanelFocus=document.activeElement;
+  $("ffpanel").hidden=false;$("ffBtn").setAttribute("aria-expanded","true");$("ffShade").hidden=false;pushLayer("ffilter");lockSync();setTimeout(()=>$("ffClose").focus({preventScroll:true}),60)}
+function closeFPanel(fromPop){if(!isPhone()||$("ffpanel").hidden)return;$("ffpanel").hidden=true;$("ffShade").hidden=true;$("ffBtn").setAttribute("aria-expanded","false");lockSync();
+  if(fromPop!==true)popLayer("ffilter");if(fPanelFocus&&fPanelFocus.focus)fPanelFocus.focus({preventScroll:true})}
+
+/* events */
+let fqt;
+function syncFqx(){$("fqx").hidden=!$("fq").value}
+$("fq").addEventListener("input",e=>{syncFqx();clearTimeout(fqt);fqt=setTimeout(()=>{FF.q=e.target.value;fApply()},200)});
+$("fq").addEventListener("keydown",e=>{if(e.key!=="Enter"&&e.keyCode!==13)return;e.preventDefault();clearTimeout(fqt);FF.q=e.target.value;fApply();if(isPhone())e.target.blur()});
+$("fqx").addEventListener("click",()=>{$("fq").value="";syncFqx();clearTimeout(fqt);FF.q="";fApply();$("fq").focus()});
+$("fqform").addEventListener("submit",e=>e.preventDefault());
+$("fchips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;
+  if(b.dataset.c==="all"){FCHIPS.forEach(c=>{if(c.on())c.set(false)});fApply();return}
+  const c=FCHIPS.find(x=>x.id===b.dataset.c),was=c.on();FCHIPS.forEach(x=>{if(x!==c&&x.on())x.set(false)});c.set(!was);fApply()});
+$("factive").addEventListener("click",e=>{if(e.target.closest("#fclearAll")){fReset(true);fApply();return}
+  const b=e.target.closest(".tagx");if(!b)return;const g=b.dataset.g;
+  if(g==="since")FF.since=null;else if(g==="comps")FF.compsOnly=false;else FF[g].delete(b.dataset.v);fApply()});
+$("ffpanel").addEventListener("click",e=>{const b=e.target.closest(".opt");if(!b)return;const g=b.closest("[data-fg]").dataset.fg,v=b.dataset.v;FF[g].has(v)?FF[g].delete(v):FF[g].add(v);fApply()});
+$("ffBtn").onclick=()=>$("ffpanel").hidden?openFPanel():closeFPanel();
+$("ffClose").onclick=()=>closeFPanel();$("ffApply").onclick=()=>closeFPanel();$("ffShade").onclick=()=>closeFPanel();
+$("ffReset").onclick=$("ffResetTop").onclick=()=>{fReset(true);fApply()};
+$("fcmpBtn").onclick=$("fcView").onclick=()=>{FF.compsOnly=!FF.compsOnly;fApply();if(FF.compsOnly&&isPhone())$("secFda").scrollIntoView({behavior:"smooth",block:"start"})};
+$("fcClear").onclick=async()=>{const b=$("fcClear");if(b.dataset.confirm!=="1"){b.dataset.confirm="1";b.textContent="정말 비울까요?";setTimeout(()=>{b.dataset.confirm="";b.textContent="비우기"},3000);return}
+  FCOMPS=new Set();b.dataset.confirm="";b.textContent="비우기";FF.compsOnly=false;fApply(true);try{await fdaCompsStore.save([])}catch(e){}};
+$("fcsv").onclick=()=>saveCSV(fToCSV(FVIEW),`FDA승인_${new Date().toISOString().slice(0,10)}.csv`);
+$("fcCsv").onclick=()=>saveCSV(fToCSV(FDA.filter(a=>FCOMPS.has(a.id))),`FDA비교승인_${new Date().toISOString().slice(0,10)}.csv`);
+$("fsort").addEventListener("change",e=>{const [k,d]=e.target.value.split(":");fsortK=k;fsortDir=+d;fApply(true)});
+document.querySelectorAll(".ftab th[data-fk]").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.fk;fsortDir=fsortK===k?-fsortDir:(k==="brand"||k==="sponsor"?1:-1);fsortK=k;
+  const v=`${k}:${fsortDir}`;if([...$("fsort").options].some(o=>o.value===v))$("fsort").value=v;ddSyncAll();fApply(true)}));
+$("fmore").onclick=()=>{fshown+=60;fDrawList()};
+function onFListClick(e){const sb=e.target.closest("[data-fstar]");if(sb){e.stopPropagation();toggleFStar(sb.dataset.fstar);return}
+  if(e.target.closest("a"))return;const it=e.target.closest("[data-fi]");if(it)openFda(FVIEW[+it.dataset.fi])}
+for(const el of [$("frows"),$("fcards")]){el.addEventListener("click",onFListClick);
+  el.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.target.closest("button")){const it=e.target.closest("[data-fi]");if(it)openFda(FVIEW[+it.dataset.fi])}})}
+let fWasPhone=isPhone(),fWasCards=useCards();
+addEventListener("resize",()=>{const p=isPhone(),c=useCards();
+  if(p!==fWasPhone){fWasPhone=p;$("ffShade").hidden=true;$("ffpanel").hidden=p;$("ffBtn").setAttribute("aria-expanded","false");lockSync()}
+  if(c!==fWasCards){fWasCards=c;fDrawList()}});
 function openSheet(d){
   lastFocus=document.activeElement;
   const kv=[["기술수출(라이선서)",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["기술도입(라이선시)",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
@@ -1375,10 +1682,10 @@ function openSheet(d){
   s.hidden=false;$("sheetBg").hidden=false;lockSync();$("sClose").onclick=closeSheet;if(!wasOpen)pushLayer("sheet");$("sStar").onclick=()=>toggleStar(d.id);
   $("sSim").onclick=()=>{const r=similarTo(d);closeSheet();aiCtl?.abort();
     MODE={type:"similar",label:`${d.lr_ko||d.licensor} → ${d.le_ko||d.licensee} (${d.asset||d.date})와 비슷한 거래 ${r.length}건`,ids:r.map(x=>x.d.id),why:Object.fromEntries(r.map(x=>[x.d.id,x.why.join(" · ")]))};
-    apply();document.querySelector(".summary").scrollIntoView({behavior:"smooth",block:"start"})};$("sClose").focus();
+    apply();setPage("deals",false);document.querySelector(".summary").scrollIntoView({behavior:"smooth",block:"start"})};$("sClose").focus();
   const sb=s.querySelector(".sbody");if(sb)sb.scrollTop=0;
 }
-function closeSheet(fromPop){if($("sheet").hidden)return;$("sheet").hidden=true;$("sheetBg").hidden=true;lockSync();if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true});if(fromPop!==true)popLayer("sheet")}
+function closeSheet(fromPop){if($("sheet").hidden)return;SHEET_STACK.length=0;$("sheet").hidden=true;$("sheetBg").hidden=true;lockSync();if(lastFocus&&lastFocus.focus)lastFocus.focus({preventScroll:true});if(fromPop!==true)popLayer("sheet")}
 
 /* ---------- filter panel ---------- */
 function openPanel(){if(!isPhone()){const f=document.querySelector(".fpanel .opt");if(f)f.focus();return}if(!$("fpanel").hidden)return;panelFocus=document.activeElement;$("fpanel").hidden=false;$("fBtn").setAttribute("aria-expanded","true");$("fShade").hidden=false;updateApplyLabel();pushLayer("filter");lockSync();setTimeout(()=>$("fClose").focus({preventScroll:true}),60)}
@@ -1387,13 +1694,13 @@ function closePanel(fromPop){if(!isPhone()||$("fpanel").hidden)return;$("fpanel"
 let useHistory=false, skipPop=0;
 function pushLayer(name){if(!useHistory)return;try{history.pushState({layer:name},"")}catch(e){}}
 function popLayer(name){if(!useHistory)return;try{if(history.state&&history.state.layer===name){skipPop++;history.back()}}catch(e){}}
-addEventListener("popstate",()=>{if(skipPop){skipPop--;return}if(!$("sheet").hidden)closeSheet(true);else if(!$("fpanel").hidden)closePanel(true)});
+addEventListener("popstate",()=>{if(skipPop){skipPop--;return}if(!$("sheet").hidden)closeSheet(true);else if(isPhone()&&!$("ffpanel").hidden)closeFPanel(true);else if(!$("fpanel").hidden)closePanel(true)});
 function updateApplyLabel(){$("fApply").textContent=`${fmt(VIEW.length)}건 보기`}
 
 /* ---------- events ---------- */
 $("sheetBg").onclick=()=>closeSheet();
 $("fShade").onclick=()=>closePanel();
-document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;if(!$("sheet").hidden)closeSheet();else if(!$("fpanel").hidden)closePanel()});
+document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;if(!$("sheet").hidden)closeSheet();else if(isPhone()&&!$("ffpanel").hidden)closeFPanel();else if(!$("fpanel").hidden)closePanel()});
 function onListClick(e){
   const sb=e.target.closest("[data-star]");if(sb){e.stopPropagation();toggleStar(sb.dataset.star);return}
   if(e.target.closest("a"))return;
@@ -1444,7 +1751,7 @@ function setData(arr){
   ALL=arr.map(normalize);
   if(!latestTag){const tags=[...new Set(ALL.map(x=>x.added).filter(Boolean))].sort();latestTag=tags.filter(t=>t!=="2026-10 초기 구축").pop()||null}
   if(!ALL.length){$("rows").innerHTML=`<tr><td colspan="9" class="empty">아직 수록된 거래가 없습니다.</td></tr>`;$("cards").innerHTML=`<div class="empty">아직 수록된 거래가 없습니다.</div>`;return}
-  buildPanel();apply(!first);
+  buildPanel();apply(!first);if(FDA.length)fApply(true);
 }
 function setRuns(runs){
   if(!runs||!runs.length){$("stamp").innerHTML=`초기 구축 <b>2026-10-09</b>`;return}
@@ -1468,13 +1775,11 @@ function moveInd(wrap,target,reveal){
     else if(r>wrap.scrollLeft+wrap.clientWidth-pad)wrap.scrollTo({left:r-wrap.clientWidth+pad,behavior:"smooth"})}
 }
 function chipInd(reveal){const on=$("chips").querySelector('.chip[aria-pressed="true"]');moveInd($("chipsWrap"),on,reveal)}
-function layoutInd(){moveInd($("tabs"),$("tabs").querySelector('[aria-current="true"]'));moveInd($("tabbar"),$("tabbar").querySelector('.tb[aria-current="true"]'));chipInd(false)}
+function layoutInd(){moveInd($("tabs"),$("tabs").querySelector('[aria-current="true"]'));moveInd($("tabbar"),$("tabbar").querySelector('.tb[aria-current="true"]'));chipInd(false);fChipInd(false)}
 
-/* view toggle: 전체 / ★ 비교 */
-function syncVSeg(){document.querySelectorAll(".vseg").forEach(s=>{s.style.setProperty("--i",F.compsOnly?1:0);s.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String((b.dataset.v==="comps")===F.compsOnly)))});document.querySelectorAll(".vtb").forEach(b=>b.setAttribute("aria-pressed",String(F.compsOnly)))}
-document.querySelectorAll(".vtb").forEach(b=>b.addEventListener("click",()=>{if(curPage!=="deals"){F.compsOnly=true;apply();goSec("secList");return}F.compsOnly=!F.compsOnly;apply();if(F.compsOnly)goSec("secList")}));
-document.querySelectorAll(".vseg").forEach(s=>s.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const want=b.dataset.v==="comps";if(curPage!=="deals"){F.compsOnly=want;apply();goSec("secList");return}if(want===F.compsOnly)return;
-  F.compsOnly=want;apply();if(want)goSec("secList")}));
+/* compare toggle (★ 비교) sits next to the filter button on each page */
+function syncVSeg(){$("cmpBtn").setAttribute("aria-pressed",String(F.compsOnly))}
+$("cmpBtn").addEventListener("click",()=>{F.compsOnly=!F.compsOnly;apply();if(F.compsOnly&&isPhone())$("secList").scrollIntoView({behavior:"smooth",block:"start"})});
 
 /* custom dropdowns wrapping the native selects (the selects keep the state) */
 const DDS=[];let ddOpenNow=null;
@@ -1516,30 +1821,47 @@ function ddClose(dd,refocus){if(!dd||!dd.menu)return;dd.menu.remove();dd.menu=nu
 document.addEventListener("pointerdown",e=>{if(ddOpenNow&&!ddOpenNow.menu.contains(e.target)&&!ddOpenNow.btn.contains(e.target))ddClose(ddOpenNow)},true);
 addEventListener("scroll",e=>{if(ddOpenNow&&!(e.target instanceof Element&&ddOpenNow.menu.contains(e.target)))ddClose(ddOpenNow)},{capture:true,passive:true});
 addEventListener("resize",()=>{if(ddOpenNow)ddClose(ddOpenNow)});
-makeDD($("sort"),$("sortDD"));makeDD($("yFrom"),null,"sm");makeDD($("yTo"),null,"sm");
+makeDD($("sort"),$("sortDD"));makeDD($("fsort"),$("fsortDD"));makeDD($("yFrom"),null,"sm");makeDD($("yTo"),null,"sm");
 
 /* overlays: scroll lock */
 let askFocus=null,panelFocus=null;
-function lockSync(){const open=!$("sheet").hidden||(isPhone()&&!$("fpanel").hidden);document.documentElement.classList.toggle("lock",open)}
+function lockSync(){const open=!$("sheet").hidden||(isPhone()&&(!$("fpanel").hidden||!$("ffpanel").hidden));document.documentElement.classList.toggle("lock",open)}
 
-/* sections: top tabs (desktop) + bottom tab bar (phone), scroll spy */
-const PAGE_OF={secKpi:"deals",secStats:"deals",secList:"deals",secFda:"fda",secInfo:"info"},PAGE_TAB={deals:"secList",fda:"secFda",info:"secInfo"};
+/* pages: top tabs (desktop) + bottom tab bar (phone); each page keeps its own scroll position */
+const PAGE_OF={secKpi:"deals",secStats:"deals",secList:"deals",secFda:"fda",secInfo:"info"},PAGE_TAB={deals:"secList",fda:"secFda",info:"secInfo"},PAGE_NAME={deals:"기술거래",fda:"FDA 승인",info:"정보"};
 const reduceMotion=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
-function setActiveSec(id){document.querySelectorAll("[data-sec]").forEach(b=>b.setAttribute("aria-current",String(b.dataset.sec===id||b.dataset.alias===id)));layoutInd()}
-let curPage="deals";
-function setPage(p,top){if(!PAGE_TAB[p])p="deals";curPage=p;document.documentElement.dataset.page=p;setActiveSec(PAGE_TAB[p]);
+function setActiveSec(id){document.querySelectorAll("[data-sec]").forEach(b=>b.setAttribute("aria-current",String(b.dataset.sec===id)));layoutInd()}
+let curPage=null;const PAGE_Y={};
+function setPage(p,top){if(!PAGE_TAB[p])p="deals";const prev=curPage;if(prev)PAGE_Y[prev]=scrollY;
+  if(prev&&prev!==p){if(isPhone()){closePanel();closeFPanel()}if(ddOpenNow)ddClose(ddOpenNow)}
+  curPage=p;document.documentElement.dataset.page=p;$("pgTitle").textContent=PAGE_NAME[p];document.title=(p==="deals"?"":PAGE_NAME[p]+" · ")+"신약 기술거래 딜북";
+  setActiveSec(PAGE_TAB[p]);
   try{history.replaceState(history.state,"",p==="deals"?location.pathname+location.search:"#"+p)}catch(e){}
-  if(top!==false)scrollTo({top:0,behavior:"auto"});layoutInd();requestAnimationFrame(layoutInd)}
+  if(prev&&prev!==p&&!reduceMotion()){const c=document.querySelector(".content");c.classList.remove("pgin");void c.offsetWidth;c.classList.add("pgin");setTimeout(()=>c.classList.remove("pgin"),400)}
+  if(top!==false)scrollTo({top:prev===p?0:(PAGE_Y[p]||0),behavior:"auto"});
+  measure();layoutInd();requestAnimationFrame(()=>{layoutInd();fadeAll();edges()})}
 function goSec(id){const p=PAGE_OF[id]||"deals";const same=p===curPage;setPage(p,false);const el=$(id);if(!el)return;
   requestAnimationFrame(()=>el.scrollIntoView({behavior:same&&!reduceMotion()?"smooth":"auto",block:"start"}))}
 document.querySelectorAll("[data-sec]").forEach(b=>b.addEventListener("click",()=>setPage(PAGE_OF[b.dataset.sec])));
-document.querySelector('.tb[data-act="filter"]').addEventListener("click",()=>{if(curPage!=="deals")setPage("deals");openPanel()});
+
+/* stats panels open on demand (remembered per viewer) */
+function setStats(open,save){$("secStats").classList.toggle("open",open);$("statsBtn").setAttribute("aria-expanded",String(open));if(save)try{localStorage.setItem("dealbook-stats",open?"1":"0")}catch(e){}}
+$("statsBtn").addEventListener("click",()=>{const o=!$("secStats").classList.contains("open");setStats(o,true);if(o)requestAnimationFrame(()=>$("secStats").scrollIntoView({behavior:reduceMotion()?"auto":"smooth",block:"start"}))});
+try{setStats(localStorage.getItem("dealbook-stats")==="1")}catch(e){}
 
 /* sticky heights → --hh (top bar) and --sm (scroll margin) */
-function measure(){const r=document.documentElement.style,top=$("top"),sr=document.querySelector(".srow");
+const visSrow=()=>[...document.querySelectorAll(".srow")].find(e=>e.offsetParent)||document.querySelector(".srow");
+function measure(){const r=document.documentElement.style,top=$("top"),sr=visSrow();
   const hh=top.offsetHeight;r.setProperty("--hh",hh+"px");
   r.setProperty("--sm",(isPhone()?sr.offsetHeight+12:10+hh+16)+"px")}
-try{const ro=new ResizeObserver(()=>{measure();layoutInd()});ro.observe($("top"));ro.observe(document.querySelector(".srow"))}catch(e){}
+/* edge fades under the floating bars: --et (top) and --eb (bottom) */
+function edges(){const html=document.documentElement,r=html.style;
+  if(isPhone()){const sr=visSrow(),rc=sr.getBoundingClientRect(),st=parseFloat(getComputedStyle(sr).top)||0,stuck=rc.top<=st+1&&scrollY>4;
+    html.classList.toggle("stuck",stuck);if(stuck)r.setProperty("--et",Math.round(rc.bottom+12)+"px");
+    const tb=$("tabbar").getBoundingClientRect();r.setProperty("--eb",tb.height?Math.round(innerHeight-tb.top+12)+"px":"0px")}
+  else{html.classList.add("stuck");r.setProperty("--et",Math.round($("top").getBoundingClientRect().bottom+12)+"px");r.setProperty("--eb","34px")}}
+let edgeRaf=0;addEventListener("scroll",()=>{if(!edgeRaf)edgeRaf=requestAnimationFrame(()=>{edgeRaf=0;edges()})},{passive:true});
+try{const ro=new ResizeObserver(()=>{measure();layoutInd();edges()});ro.observe($("top"));document.querySelectorAll(".srow").forEach(e=>ro.observe(e));ro.observe($("tabbar"))}catch(e){}
 measure();
 
 /* settings: theme + glass transparency (per-viewer, browser storage) */
@@ -1563,23 +1885,25 @@ try{const t=localStorage.getItem("dealbook-theme");if(t&&t!=="auto")setTheme(t)}
 try{const g=localStorage.getItem("dealbook-glass");if(g!=null)setGlass(g)}catch(e){}
 syncSwitch();
 
-if(!isPhone())$("fpanel").hidden=false;
+if(!isPhone()){$("fpanel").hidden=false;$("ffpanel").hidden=false}
 $("fResetTop").onclick=()=>$("fReset").click();
-const fsc=document.querySelector(".fpanel"),fgd=document.querySelector(".fgrid");
-fsc.addEventListener("scroll",()=>{if(!isPhone())fadeMask(fsc)},{passive:true});
-fgd.addEventListener("scroll",()=>fadeMask(fgd),{passive:true});
-/* popups: the body fades in/out at its top and bottom edges while scrolling */
+/* scroll edges fade: popups, filter rail/sheet, dropdowns (vertical) and chip rows, wide tables (horizontal) */
+const PANELS=[$("fpanel"),$("ffpanel")];
 function clearMask(el){el.style.webkitMaskImage="";el.style.maskImage=""}
+function fadeX(el){const max=el.scrollWidth-el.clientWidth;if(max<=1){clearMask(el);return}const l=el.scrollLeft,a=Math.max(0,Math.min(28,l)),z=Math.max(0,Math.min(28,max-l));
+  const g=`linear-gradient(to right,transparent 0,#000 ${a}px,#000 calc(100% - ${z}px),transparent 100%)`;el.style.webkitMaskImage=g;el.style.maskImage=g}
+const HX=".chips,.aihint .ex,.scroll";
 function fadeAll(){
-  if(isPhone()){clearMask(fsc);fadeMask(fgd)}else{clearMask(fgd);fadeMask(fsc)}
+  PANELS.forEach(p=>{const g=p.querySelector(".fgrid");if(isPhone()){clearMask(p);fadeMask(g)}else{clearMask(g);fadeMask(p)}});
   document.querySelectorAll(".sheet:not([hidden]) .sbody").forEach(fadeMask);
+  document.querySelectorAll(HX).forEach(el=>{if(el.offsetParent)fadeX(el)});
 }
-[["sheet"]].forEach(([id])=>{
-  const el=$(id);
-  el.addEventListener("scroll",e=>{if(e.target.classList&&e.target.classList.contains("sbody"))fadeMask(e.target)},{capture:true,passive:true});
-  new MutationObserver(()=>requestAnimationFrame(fadeAll)).observe(el,{childList:true,subtree:true,attributes:true,attributeFilter:["hidden"]});
-});
-addEventListener("resize",fadeAll);
+document.addEventListener("scroll",e=>{const t=e.target;if(!(t instanceof Element))return;
+  if(t.matches(".sbody,.fgrid")||(t.matches(".fpanel")&&!isPhone()))fadeMask(t);else if(t.matches(HX))fadeX(t)},{capture:true,passive:true});
+let fadeRaf=0;const fadeSoon=()=>{if(!fadeRaf)fadeRaf=requestAnimationFrame(()=>{fadeRaf=0;fadeAll()})};
+new MutationObserver(fadeSoon).observe($("sheet"),{childList:true,subtree:true,attributes:true,attributeFilter:["hidden"]});
+new MutationObserver(fadeSoon).observe(document.querySelector(".main"),{childList:true,subtree:true});
+addEventListener("resize",fadeSoon);
 requestAnimationFrame(fadeAll);
 /* popups on a phone: drag the grey handle (or the header) down to dismiss */
 function dragDismiss(sheet,shade,close){
@@ -1613,7 +1937,8 @@ function dragDismiss(sheet,shade,close){
 }
 dragDismiss($("sheet"),$("sheetBg"),()=>closeSheet());
 dragDismiss($("fpanel"),$("fShade"),()=>closePanel());
-setPage((location.hash||"").replace("#","")||"deals",false);
+dragDismiss($("ffpanel"),$("ffShade"),()=>closeFPanel());
+setPage((location.hash||"").replace("#","")||"deals",false);edges();
 /* search pill: clear button, no native submit */
 function syncQx(){$("qx").hidden=!$("q").value}
 $("q").addEventListener("input",syncQx);
@@ -1629,7 +1954,7 @@ function setSMode(m,focus){
   SMODE=m;const q=$("q"),ai=m==="ai";
   $("sMode").setAttribute("aria-pressed",String(ai));$("sMode").setAttribute("aria-label",ai?"AI 검색 끄기":"AI 검색 켜기");
   $("qform").classList.toggle("ai",ai);document.body.classList.toggle("aimode",ai);$("aiHint").hidden=!ai;
-  q.placeholder=ai?"물질·상황을 문장으로 물어보세요":"회사·물질·표적, 문장으로도 검색…";
+  q.placeholder=ai?"물질·상황을 문장으로 물어보세요":"회사·물질·표적·문장 검색";
   q.setAttribute("enterkeyhint",ai?"send":"search");q.setAttribute("aria-label",ai?"Claude에게 비슷한 거래 묻기":"거래 검색");
   clearTimeout(qt);
   if(ai){if(F.q){F.q="";sortAuto=true}if(MODE&&MODE.type!=="ai")MODE=null}
@@ -1670,7 +1995,7 @@ drawChips();
 
 useHistory=true;
 (async()=>{
-  initComps();
+  initComps();initFdaComps();
   try{
     const [dRes,rRes,fRes]=await Promise.all([fetch("data/deals.json"),fetch("data/runs.json").catch(()=>null),fetch("data/fda.json").catch(()=>null)]);
     if(!dRes||!dRes.ok)throw new Error("deals");
