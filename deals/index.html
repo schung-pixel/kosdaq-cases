@@ -353,6 +353,16 @@ table.deals{width:100%;border-collapse:collapse;min-width:900px}
 .stage{background:var(--info-soft);color:var(--info)}
 .stage.none{background:var(--neutral-soft);color:var(--faint);font-weight:500}
 .evsec{background:var(--surface2);border-radius:14px;padding:12px 14px}
+.tsec{display:grid;gap:10px}
+.tsec .label{display:flex;align-items:center;gap:8px}
+.tsec .basis{font-size:11px;font-weight:500;letter-spacing:0;padding:1px 8px;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
+.tsec .basis.weak{background:var(--warn-soft);color:var(--warn)}
+.tlist{margin:0;display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px 14px;font-size:14px;line-height:1.55}
+.tlist dt{color:var(--muted);font-size:12.5px;padding-top:1px}
+.tlist dd{margin:0;overflow-wrap:anywhere}
+.tsum{background:var(--surface2);border-radius:12px;padding:12px 14px;box-shadow:inset 3px 0 0 var(--accent);font-size:14px;line-height:1.7;overflow-wrap:anywhere}
+.tsum a{font-size:12.5px;white-space:nowrap}
+.tconf{font-size:12.5px;color:var(--warn);background:var(--warn-soft);border-radius:10px;padding:8px 12px;line-height:1.5}
 .tl{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .tl li{display:grid;grid-template-columns:auto 1fr;gap:4px 8px;align-items:center;font-size:13px;line-height:1.55}
 .tl li .num{color:var(--muted);font-size:12px}
@@ -505,6 +515,9 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
   .sheet h2{font-size:19px}
   .terms{grid-template-columns:repeat(2,minmax(0,1fr))}
   dl.kv{grid-template-columns:minmax(0,1fr);gap:2px}
+  .tlist{grid-template-columns:minmax(0,1fr);gap:2px}
+  .tlist dt{padding-top:8px}
+  .tlist dt:first-child{padding-top:0}
   dl.kv dt{font-size:12px;padding-top:9px}
   dl.kv dt:first-child{padding-top:0}
   .tabbar{display:flex;position:fixed;z-index:35;left:max(14px,env(safe-area-inset-left,0px));right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));
@@ -1236,6 +1249,14 @@ async function initComps(){try{COMPS=new Set(await compsStore.load())}catch(e){C
 /* ---------- detail sheet ---------- */
 function link(u){if(!u)return"";return u.split(" | ").filter(Boolean).map(x=>{let h=x;try{h=new URL(x).hostname.replace(/^www\./,"")}catch(e){}return /^https?:/.test(x)?`<a href="${esc(x)}" target="_blank" rel="noopener">${esc(h)}</a>`:esc(x)}).join(" · ")}
 let lastFocus=null;
+function termsBlock(d){
+  const rows=[["선급금",d.t_upfront],["마일스톤",d.t_miles],["총 계약규모",d.t_total],["지분투자",d.t_equity],["로열티",d.t_royalty],["계약 범위",d.t_scope]].filter(r=>r[1]);
+  if(!rows.length&&!d.t_sum)return"";
+  const weak=d.t_basis&&d.t_basis!=="원문 확인";
+  return `<div class="tsec"><div class="label">계약 조건${d.t_basis?`<span class="basis${weak?" weak":""}">${esc(d.t_basis)}</span>`:""}</div>
+   ${rows.length?`<dl class="tlist">${rows.map(([k,v])=>`<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl>`:""}
+   ${d.t_sum?`<div class="label" style="margin-top:4px">계약 내용 요약</div><div class="tsum">${esc(d.t_sum)}${d.t_src?` <a href="${esc(d.t_src)}" target="_blank" rel="noopener">출처 원문</a>`:""}</div>`:""}
+   ${d.t_conf?`<div class="tconf">⚠ ${esc(d.t_conf)}</div>`:""}</div>`}
 function openSheet(d){
   lastFocus=document.activeElement;
   const kv=[["기술수출(라이선서)",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["기술도입(라이선시)",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
@@ -1246,7 +1267,7 @@ function openSheet(d){
   s.innerHTML=`<div class="sheet-head"><div><div class="label">${esc(d.date)}</div><h2 id="sTitle">${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</h2><div class="sub">${esc(d.asset||"")}</div></div><button class="xbtn glass" id="sClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
    <div class="sbody"><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm sstar" id="sStar" data-id="${esc(d.id)}" type="button">${COMPS.has(d.id)?"★ 비교 거래에서 빼기":"☆ 비교 거래에 담기"}</button><button class="btn sm acc" id="sSim" type="button">비슷한 거래 보기</button></div>
    <div class="terms"><div><span class="label">총액</span><span class="v">${d.total==null?"–":"$"+fmt(d.total,d.total%1?1:0)+"M"}</span></div><div><span class="label">Upfront</span><span class="v gold">${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront%1?1:0)+"M"}</span></div><div><span class="label">Near-term</span><span class="v">${d.near_term==null?"–":"$"+fmt(d.near_term)+"M"}</span></div><div><span class="label">지분투자</span><span class="v">${d.equity==null?"–":"$"+fmt(d.equity)+"M"}</span></div></div>
-   <div class="evsec"><div class="label" style="margin-bottom:6px">사후 경과${d.status_checked?` <span class="hint">· ${esc(d.status_checked)} 기준</span>`:""}</div>${(d.events&&d.events.length)?`<ol class="tl">${d.events.map(e=>{const t=evType(e);return `<li><span class="num">${esc(e.date||"")}</span><span class="st ${statusClass(t)}">${esc(t)}</span><span class="tx">${esc(e.text||"")}${e.src?` <a href="${esc(e.src)}" target="_blank" rel="noopener">출처</a>`:""}</span></li>`}).join("")}</ol>`:`<p class="hint" style="margin:0">${d.status_checked?"계약 이후 반환·중단·옵션 행사·허가 등 특이사항이 확인되지 않았습니다.":"사후 경과를 아직 확인하지 않은 거래입니다."}</p>`}</div>
+   ${termsBlock(d)}<div class="evsec"><div class="label" style="margin-bottom:6px">사후 경과${d.status_checked?` <span class="hint">· ${esc(d.status_checked)} 기준</span>`:""}</div>${(d.events&&d.events.length)?`<ol class="tl">${d.events.map(e=>{const t=evType(e);return `<li><span class="num">${esc(e.date||"")}</span><span class="st ${statusClass(t)}">${esc(t)}</span><span class="tx">${esc(e.text||"")}${e.src?` <a href="${esc(e.src)}" target="_blank" rel="noopener">출처</a>`:""}</span></li>`}).join("")}</ol>`:`<p class="hint" style="margin:0">${d.status_checked?"계약 이후 반환·중단·옵션 행사·허가 등 특이사항이 확인되지 않았습니다.":"사후 경과를 아직 확인하지 않은 거래입니다."}</p>`}</div>
    <dl class="kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
    ${d.notes?`<div><div class="label" style="margin-bottom:4px">수집 메모</div><div class="notes">${esc(d.notes)}</div></div>`:""}</div>`;
   const wasOpen=!s.hidden;
