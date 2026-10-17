@@ -580,7 +580,6 @@ html[data-page="deals"] #secFda,html[data-page="deals"] #secInfo{display:none}
 html[data-page="fda"] .srow,html[data-page="fda"] .aihint,html[data-page="fda"] .bar,html[data-page="fda"] .modebar,html[data-page="fda"] .summary,html[data-page="fda"] .panels,html[data-page="fda"] .comps,html[data-page="fda"] .ledger,html[data-page="fda"] .fpanel,html[data-page="fda"] #secInfo,
 html[data-page="info"] .srow,html[data-page="info"] .aihint,html[data-page="info"] .bar,html[data-page="info"] .modebar,html[data-page="info"] .summary,html[data-page="info"] .panels,html[data-page="info"] .comps,html[data-page="info"] .ledger,html[data-page="info"] .fpanel,html[data-page="info"] #secFda{display:none!important}
 html[data-page="fda"] .main,html[data-page="info"] .main{grid-template-columns:minmax(0,1fr)}
-html[data-page="fda"] .topacts .vseg,html[data-page="info"] .topacts .vseg,html[data-page="fda"] .tb.vtb,html[data-page="info"] .tb.vtb,html[data-page="fda"] .tb[data-act="filter"],html[data-page="info"] .tb[data-act="filter"]{display:none}
 @media (max-width:820px){#secStats{display:none!important}}
 </style>
 <style>
@@ -1473,8 +1472,8 @@ function layoutInd(){moveInd($("tabs"),$("tabs").querySelector('[aria-current="t
 
 /* view toggle: 전체 / ★ 비교 */
 function syncVSeg(){document.querySelectorAll(".vseg").forEach(s=>{s.style.setProperty("--i",F.compsOnly?1:0);s.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String((b.dataset.v==="comps")===F.compsOnly)))});document.querySelectorAll(".vtb").forEach(b=>b.setAttribute("aria-pressed",String(F.compsOnly)))}
-document.querySelectorAll(".vtb").forEach(b=>b.addEventListener("click",()=>{F.compsOnly=!F.compsOnly;apply();if(F.compsOnly)goSec("secList")}));
-document.querySelectorAll(".vseg").forEach(s=>s.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const want=b.dataset.v==="comps";if(want===F.compsOnly)return;
+document.querySelectorAll(".vtb").forEach(b=>b.addEventListener("click",()=>{if(curPage!=="deals"){F.compsOnly=true;apply();goSec("secList");return}F.compsOnly=!F.compsOnly;apply();if(F.compsOnly)goSec("secList")}));
+document.querySelectorAll(".vseg").forEach(s=>s.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;const want=b.dataset.v==="comps";if(curPage!=="deals"){F.compsOnly=want;apply();goSec("secList");return}if(want===F.compsOnly)return;
   F.compsOnly=want;apply();if(want)goSec("secList")}));
 
 /* custom dropdowns wrapping the native selects (the selects keep the state) */
@@ -1534,7 +1533,7 @@ function setPage(p,top){if(!PAGE_TAB[p])p="deals";curPage=p;document.documentEle
 function goSec(id){const p=PAGE_OF[id]||"deals";const same=p===curPage;setPage(p,false);const el=$(id);if(!el)return;
   requestAnimationFrame(()=>el.scrollIntoView({behavior:same&&!reduceMotion()?"smooth":"auto",block:"start"}))}
 document.querySelectorAll("[data-sec]").forEach(b=>b.addEventListener("click",()=>setPage(PAGE_OF[b.dataset.sec])));
-document.querySelector('.tb[data-act="filter"]').addEventListener("click",()=>openPanel());
+document.querySelector('.tb[data-act="filter"]').addEventListener("click",()=>{if(curPage!=="deals")setPage("deals");openPanel()});
 
 /* sticky heights → --hh (top bar) and --sm (scroll margin) */
 function measure(){const r=document.documentElement.style,top=$("top"),sr=document.querySelector(".srow");
