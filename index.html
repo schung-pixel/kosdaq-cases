@@ -111,7 +111,7 @@ html.themefx *,html.themefx *::before,html.themefx *::after{transition:backgroun
 .hm-sub b{font-family:var(--mono);font-weight:500;color:var(--ink)}
 .hm form{width:100%}
 .recent{margin-top:26px;width:100%;display:grid;gap:22px;justify-items:center}
-.recent.fx{animation:rfx .35s ease}
+.recent .fx{animation:rfx .35s ease}
 @keyframes rfx{from{opacity:0;transform:translateY(4px)}}
 .rblk{display:grid;gap:10px;justify-items:center;width:100%}
 .aex{display:grid;gap:8px;width:100%}
@@ -124,6 +124,9 @@ html.themefx *,html.themefx *::before,html.themefx *::after{transition:backgroun
 .rchip{height:36px;padding:0 15px 0 12px;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 72%,transparent);color:var(--ink);font-size:13.5px;display:inline-flex;align-items:center;gap:7px;max-width:100%;transition:border-color .2s,background-color .2s}
 .rchip span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rchip svg{width:14px;height:14px;color:var(--faint);flex:none}
+.rchip.ai{border-color:color-mix(in srgb,var(--eosin) 25%,var(--line))}
+.rchip.ai svg{color:var(--eosin)}
+.rchip.ai:hover{border-color:var(--eosin)}
 .rchip:hover{border-color:var(--accent)}
 
 /* ---------- search field ---------- */
@@ -752,17 +755,18 @@ MQ.addEventListener?.('change',()=>{measure();syncTabs(false);});
 // ---------- recent searches ----------
 const RKEY='ksc2-recent';
 const EX_POOL=['가지급금','최대주주 변경','임상 실패','매출처 편중','기술이전','특수관계인 거래','스톡옵션','전환사채','경영안정성','의무보유','매출채권 회수','재고자산','소송','횡령','내부통제','사외이사','우리사주','자본잠식','개발비','감리','물적분할','법인카드','급여 과다','채무보증','매출 감소','합병'];
-const AI_POOL=['대표이사 개인회사에 매년 용역비를 지급해 왔음','최대주주 지분율이 20% 미만이고 2대주주와 차이가 작음','핵심 파이프라인 임상 2상에서 1차 평가변수를 충족하지 못함','매출의 70% 이상이 대기업 한 곳에 집중됨','상장 직전 최대주주가 가족에게 주식을 싸게 넘김','기술이전 계약금은 받았지만 마일스톤 수령이 불확실함','대표이사 가족이 임원으로 근무하며 높은 급여를 받음','예비심사 청구 뒤 감사인이 전기 재무제표 수정을 요구함','임원에게 회사 자금을 빌려줬다가 청구 직전에 회수함','주요 매출처가 설비투자를 줄여 매출이 급감함','최대주주가 전환사채 콜옵션을 낮은 가격에 행사함','관계회사와의 거래 조건이 시장가와 다름'];
+const AI_POOL=['대표이사 개인회사에 용역비 지급','최대주주 지분율 20% 미만','임상 2상 1차 평가변수 미충족','매출 70%가 대기업 한 곳','상장 직전 가족에게 주식 저가 양도','기술이전 마일스톤 수령 불확실','대표 가족 임원의 과도한 급여','청구 후 전기 재무제표 수정 요구','임원 대여금을 청구 직전 회수','매출처 설비투자 축소로 매출 급감','최대주주의 CB 콜옵션 저가 행사','관계회사 거래 조건이 시장가와 다름'];
 const EX_N=shuffle(EX_POOL.slice()).slice(0,5),EX_A=shuffle(AI_POOL.slice()).slice(0,3);
 function addRecent(q){q=q.trim();if(!q)return;let r=store.get(RKEY,[]).filter(x=>x.toLowerCase()!==q.toLowerCase());r.unshift(q);store.set(RKEY,r.slice(0,8));}
 function renderHome(fx){
-  const el=$('recent');let h='';
-  if(st.ai){h=`<div class="rblk"><div class="rh"><span>이렇게 찾아보세요</span></div><div class="aex">${EX_A.map(q=>`<button class="aexb" type="button" data-q="${esc(q)}">${IC_SPARK}<span>${esc(q)}</span></button>`).join('')}</div></div>`;}
-  else{const r=store.get(RKEY,[]).slice(0,4);
-    if(r.length)h+=`<div class="rblk"><div class="rh"><span>최근 검색</span><button type="button" id="rclear">지우기</button></div><div class="rchips">${r.map(q=>`<button class="rchip" type="button" data-q="${esc(q)}">${IC.clock}<span>${esc(q)}</span></button>`).join('')}</div></div>`;
-    h+=`<div class="rblk"><div class="rh"><span>이렇게 찾아보세요</span></div><div class="rchips">${EX_N.map(q=>`<button class="rchip" type="button" data-q="${esc(q)}">${IC.search}<span>${esc(q)}</span></button>`).join('')}</div></div>`;}
-  el.innerHTML=h;
-  if(fx){el.classList.remove('fx');void el.offsetWidth;el.classList.add('fx');}
+  const el=$('recent');
+  if(!el.firstChild)el.innerHTML='<div class="rblk"><div class="rh"><span>이렇게 찾아보세요</span></div><div class="rchips" id="exchips"></div></div><div class="rblk" id="rcblk"></div>';
+  const ex=$('exchips');
+  ex.innerHTML=st.ai?EX_A.map(q=>`<button class="rchip ai" type="button" data-q="${esc(q)}">${IC_SPARK}<span>${esc(q)}</span></button>`).join(''):EX_N.map(q=>`<button class="rchip" type="button" data-q="${esc(q)}">${IC.search}<span>${esc(q)}</span></button>`).join('');
+  const r=st.ai?[]:store.get(RKEY,[]).slice(0,4);const rc=$('rcblk');
+  rc.innerHTML=r.length?`<div class="rh"><span>최근 검색</span><button type="button" id="rclear">지우기</button></div><div class="rchips">${r.map(q=>`<button class="rchip" type="button" data-q="${esc(q)}">${IC.clock}<span>${esc(q)}</span></button>`).join('')}</div>`:'';
+  rc.hidden=!r.length;
+  if(fx)[ex,rc].forEach(x=>{x.classList.remove('fx');void x.offsetWidth;x.classList.add('fx');});
 }
 $('recent').addEventListener('click',e=>{if(e.target.closest('#rclear')){store.set(RKEY,[]);renderHome();return;}
   const b=e.target.closest('[data-q]');if(!b)return;$('hq').value=b.dataset.q;goSearch(b.dataset.q);});
