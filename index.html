@@ -964,6 +964,14 @@ function hmShift(H,inst){const hq=$('hq'),hm=document.querySelector('#v-home .hm
 document.addEventListener('focusin',e=>{if(!MQ.matches||!e.target.matches('input[type=search],input[type=text],textarea'))return;clearTimeout(kbT);document.documentElement.classList.add('kb');
   if(e.target.id==='hq')hmShift(innerHeight*0.5);});
 addEventListener('resize',()=>{if(document.activeElement===$('hq'))hmShift(0,true);});
+// 키보드만 내려가고 입력칸 포커스가 남는 경우(안드로이드 뒤로/내림 버튼): 화면 높이가 돌아오면 포커스를 풀어 원래대로
+let kbBase=0,kbOpen=false;
+const vvH=()=>window.visualViewport?visualViewport.height:innerHeight;
+document.addEventListener('focusin',e=>{if(e.target.matches('input[type=search],input[type=text],textarea')){if(!kbOpen)kbBase=Math.max(kbBase,vvH());}});
+function kbWatch(){const a=document.activeElement;if(!MQ.matches||!a||!a.matches('input[type=search],input[type=text],textarea')){kbOpen=false;kbBase=vvH();return;}
+  const h=vvH();if(h<kbBase*0.8)kbOpen=true;else if(kbOpen&&h>=kbBase*0.9){kbOpen=false;a.blur();}}
+(window.visualViewport||window).addEventListener('resize',kbWatch);
+kbBase=vvH();
 document.addEventListener('focusout',e=>{if(!e.target.matches('input,textarea'))return;kbT=setTimeout(()=>{if(!document.activeElement||!document.activeElement.matches('input,textarea')){document.documentElement.classList.remove('kb');hmShift(null);}},120);});
 // ---------- popups ----------
 let openPopEl=null,popOpener=null;
