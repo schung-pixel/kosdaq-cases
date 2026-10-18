@@ -920,9 +920,9 @@ img{max-width:100%}
         <div><span class="label">Upfront 비중</span><span class="v num" id="kRatio">–</span><span class="s">중앙값 · upfront ÷ 총액</span></div>
       </section></div>
           <div class="kslide" role="group" aria-roledescription="slide" aria-label="2 / 3 · 연도별 거래"><div class="panel">
-          <header><h2>연도별 거래</h2><span class="legend"><span><i style="background:var(--c1)"></i>건수</span><span><i class="dot" style="background:var(--eosin)"></i>upfront 중앙값($M)</span></span></header>
+          <header><h2>연도별 거래</h2><span class="legend"><span><i style="background:var(--c1)"></i>총계약규모($B)</span><span><i class="dot" style="background:var(--eosin)"></i>거래 건수</span></span></header>
           <div class="pbody">
-            <div class="scroll"><svg id="yearChart" viewBox="0 0 460 220" width="100%" role="img" aria-label="연도별 거래 건수와 upfront 중앙값"></svg></div>
+            <div class="scroll"><svg id="yearChart" viewBox="0 0 460 220" width="100%" role="img" aria-label="연도별 총계약규모와 거래 건수"></svg></div>
             <details class="more-t"><summary>결과 표</summary><div class="scroll"><table class="ytab" id="yTable"></table></div></details>
           </div>
         </div></div>
@@ -1523,24 +1523,23 @@ function render(){
 
 function drawYears(){
   const svg=$("yearChart"), years=[...new Set(ALL.map(d=>d.year))].sort();
-  const W=460,H=220,L=36,R=40,T=18,B=28, iw=W-L-R, ih=H-T-B;
-  const by=years.map(y=>{const g=VIEW.filter(d=>d.year===y);return{y,n:g.length,u:median(g.map(d=>d.upfront))}});
-  const maxN=Math.max(1,...by.map(b=>b.n)), maxU=Math.max(1,...by.map(b=>b.u||0));
-  const stepN=maxN>100?50:maxN>40?20:maxN>10?5:1, niceN=Math.ceil(maxN/stepN/4)*stepN*4||4, niceU=Math.ceil(maxU/20)*20||20;
-  const bw=iw/years.length, out=[];
-  for(let i=0;i<=4;i++){const v=niceN*i/4,y=T+ih-ih*v/niceN;out.push(`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-dasharray="2 4"/><text x="${L-6}" y="${y+4}" text-anchor="end">${fmt(v)}</text>`);
-    const u=niceU*i/4;out.push(`<text x="${W-R+6}" y="${y+4}">${fmt(u)}</text>`)}
-  const pts=[];
-  by.forEach((b,i)=>{const x=L+bw*i+bw*.18,w=bw*.64,h=ih*b.n/niceN,y=T+ih-h;
-    out.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="var(--c1)" rx="4"/>`);
-    if(b.n)out.push(`<text class="val" x="${x+w/2}" y="${h>22?T+ih-7:y-4}" text-anchor="middle">${b.n}</text>`);
+  const W=460,H=220,L=40,R=36,T=18,B=28, iw=W-L-R, ih=H-T-B;
+  const by=years.map(y=>{const g=VIEW.filter(d=>d.year===y);return{y,n:g.length,t:g.reduce((a,d)=>a+(d.total||0),0)/1000}});
+  const maxN=Math.max(1,...by.map(b=>b.n)), maxT=Math.max(1,...by.map(b=>b.t));
+  const stepN=maxN>100?50:maxN>40?20:maxN>10?5:1, niceN=Math.ceil(maxN/stepN/4)*stepN*4||4;
+  const stepT=maxT>400?100:maxT>200?50:maxT>80?20:maxT>40?10:maxT>16?5:2, niceT=Math.ceil(maxT/stepT/4)*stepT*4||4;
+  const bw=iw/years.length, out=[], pts=[];
+  for(let i=0;i<=4;i++){const y=T+ih-ih*i/4;out.push(`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-dasharray="2 4"/><text x="${L-6}" y="${y+4}" text-anchor="end">${fmt(niceT*i/4)}</text><text x="${W-R+6}" y="${y+4}">${fmt(niceN*i/4)}</text>`)}
+  by.forEach((b,i)=>{const x=L+bw*i+bw*.18,w=bw*.64,h=ih*b.t/niceT,y=T+ih-h;
+    out.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="var(--c1)" rx="4"><title>${b.y}년 총계약규모 $${fmt(b.t,1)}B</title></rect>`);
+    if(b.t)out.push(`<text class="val" x="${x+w/2}" y="${h>22?T+ih-7:y-4}" text-anchor="middle">${fmt(b.t,b.t>=100?0:1)}</text>`);
     out.push(`<text x="${x+w/2}" y="${H-8}" text-anchor="middle">${String(b.y).slice(2)}${b.y===2026?"*":""}</text>`);
-    if(b.u!=null)pts.push([x+w/2,T+ih-ih*b.u/niceU,b.u])});
+    pts.push([x+w/2,T+ih-ih*b.n/niceN,b.n])});
   if(pts.length>1)out.push(`<polyline points="${pts.map(p=>p[0]+","+p[1]).join(" ")}" fill="none" stroke="var(--eosin)" stroke-width="1.75"/>`);
-  pts.forEach(p=>out.push(`<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="var(--eosin)" stroke="var(--surface)" stroke-width="1.5"><title>upfront 중앙값 $${fmt(p[2],1)}M</title></circle>`));
-  out.push(`<text x="${L}" y="11">건수</text><text x="${W-2}" y="11" text-anchor="end" style="fill:var(--eosin)">upfront</text>`);
+  pts.forEach(p=>out.push(`<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="var(--eosin)" stroke="var(--surface)" stroke-width="1.5"><title>거래 ${fmt(p[2])}건</title></circle>`));
+  out.push(`<text x="${L}" y="11">총계약규모($B)</text><text x="${W-2}" y="11" text-anchor="end" style="fill:var(--eosin)">건수</text>`);
   svg.innerHTML=out.join("");
-  $("yTable").innerHTML=`<thead><tr><th>연도</th><th>건수</th><th>upfront 중앙값($M)</th></tr></thead><tbody>${by.map(b=>`<tr><td class="num">${b.y}${b.y===2026?"*":""}</td><td class="num">${fmt(b.n)}</td><td class="num">${b.u==null?"–":fmt(b.u,1)}</td></tr>`).join("")}<tr><td colspan="3" class="hint" style="text-align:left;border-bottom:0">* 올해는 연중 집계입니다.</td></tr></tbody>`;
+  $("yTable").innerHTML=`<thead><tr><th>연도</th><th>거래 건수</th><th>총계약규모($B)</th></tr></thead><tbody>${by.map(b=>`<tr><td class="num">${b.y}${b.y===2026?"*":""}</td><td class="num">${fmt(b.n)}</td><td class="num">${fmt(b.t,1)}</td></tr>`).join("")}<tr><td colspan="3" class="hint" style="text-align:left;border-bottom:0">* 올해는 연중 집계입니다. 총계약규모는 거래별 총액(공개분)의 합입니다.</td></tr></tbody>`;
 }
 
 function drawBench(){
