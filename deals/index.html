@@ -652,6 +652,9 @@ html:not(.stuck) .edge-t{opacity:0}
 
 
 
+
+
+
 /* ===== FDA: AI search, MoA on cards, prescribing-information popup (tabs, charts, tables) ===== */
 .fmoa{display:flex;gap:6px;align-items:baseline;font-size:12.5px;line-height:1.5;color:var(--muted);overflow-wrap:anywhere}
 .fmoa b{flex:0 0 auto;font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--accent)}
@@ -816,12 +819,12 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .ktrack{display:flex;gap:12px;align-items:stretch;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;margin:-4px 0;padding:4px 0;scroll-padding:0}
 .ktrack::-webkit-scrollbar{display:none}
 .kslide{flex:0 0 100%;min-width:0;position:relative;scroll-snap-align:start;scroll-snap-stop:always;display:flex}
-.kslide:last-child{scroll-snap-align:end}
+.ktrack::after{content:"";flex:0 0 2px}
 .kslide>*{flex:1 1 auto;min-width:0;margin:0!important}
 .kslide+.kslide>.panel{position:absolute;inset:0}
 .kslide>.panel{display:grid;grid-template-rows:auto minmax(0,1fr);overflow:hidden}
 .kslide>.panel>header{padding:12px 16px 9px}
-.kslide>.panel>.pbody{overflow-y:auto;overscroll-behavior:contain;align-content:start;padding:8px 14px 10px;scrollbar-width:thin}
+.kslide>.panel>.pbody{overflow-y:auto;align-content:start;padding:8px 14px 10px;scrollbar-width:thin}
 .kslide .pbody:has(#yearChart){display:flex;flex-direction:column;overflow:hidden;gap:4px}
 .kslide .pbody>.scroll:has(#yearChart){flex:1 1 auto;min-height:0;overflow:hidden}
 .kslide #yearChart{display:block;width:100%;height:100%;max-height:none}
