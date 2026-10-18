@@ -298,6 +298,8 @@ mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 1px}
 .prog .bar2{flex:1;height:4px;border-radius:999px;background:var(--surface2);overflow:hidden}
 .prog .bar2 i{display:block;height:100%;background:var(--accent);transition:width .3s}
 .fc{background:var(--surface);border:1px solid var(--line2);border-radius:18px;padding:20px;display:grid;gap:12px;box-shadow:var(--sh1)}
+.fch{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:-6px -8px -4px 0}
+.fch .starb{margin-top:0}
 .fc .lbl{font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.04em}
 .fc .front{font-size:16px;line-height:1.78}
 .fc .back{display:grid;gap:10px;border-top:1px solid var(--line2);padding-top:14px;animation:bodyin .3s ease}
@@ -1057,7 +1059,7 @@ function fcView(){
     return;}
   const g=deck[di],e=g.latest,sb=subOf(g,e.t);
   $('st-body').innerHTML=head+`<div class="prog"><span>${di+1} / ${deck.length}</span><span class="bar2"><i style="width:${di/deck.length*100}%"></i></span></div>
-  <div class="fc"><span class="lbl">사안 · ${esc(g.tp)}</span><div class="front">${esc(e.f)}</div>
+  <div class="fc"><div class="fch"><span class="lbl">사안 · ${esc(g.tp)}</span><button class="starb" type="button" data-st="star" data-key="${g.key}" aria-pressed="${stars.has(g.key)}" aria-label="내 사례에 ${stars.has(g.key)?'빼기':'담기'}">${stars.has(g.key)?ICON.star:ICON.starO}</button></div><div class="front">${esc(e.f)}</div>
   ${flipped?`<div class="back"><div class="ttl2">${esc(e.t)}${sb?` <span class="muted">– ${esc(sb)}</span>`:''} <span class="pill p-${oKey(e.o)}">${esc(e.o)}</span></div><div class="blk jd j-${oKey(e.o)}"><h4>판단</h4><p>${esc(e.j)}</p></div><span class="src">${e.y}년판 · ${esc(e.s)} · ${e.p}쪽${g.ed.length>1?` · 수록 ${g.ed.map(x=>x.y.slice(2)).join('·')}`:''}</span></div>`:`<span class="hint">거래소가 어떻게 판단했을지 떠올려 보세요.</span>`}
   </div>
   <div class="fbtns">${flipped?`<button class="btn ng" type="button" data-st="ng">헷갈림</button><button class="btn ok" type="button" data-st="ok">알았음</button>`:`<button class="btn primary full" type="button" data-st="flip">판단 보기</button>`}</div>`;
@@ -1137,6 +1139,7 @@ $('st-body').addEventListener('click',ev=>{
   if(a==='start'){newDeck();fcView();window.scrollTo({top:0});}
   else if(a==='reset'){if(b.dataset.sure){SS={};sSave();deck=[];fcView();toast('진도를 초기화했습니다');}else{b.dataset.sure='1';b.textContent='한 번 더 누르면 초기화됩니다';}}
   else if(a==='flip'){flipped=true;fcView();}
+  else if(a==='star'){const k=b.dataset.key,on=!stars.has(k);setStar(k,on);b.setAttribute('aria-pressed',on);b.innerHTML=on?ICON.star:ICON.starO;b.setAttribute('aria-label','내 사례에 '+(on?'빼기':'담기'));toast(on?'내 사례에 담았습니다':'내 사례에서 뺐습니다');}
   else if(a==='ok')grade(true);else if(a==='ng')grade(false);
   else if(a==='qnew')qzNew();else if(a==='qgrade')qzGrade();else if(a==='qstop')qzCtl?.abort();
 });
