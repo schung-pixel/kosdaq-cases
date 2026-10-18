@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0F151C">
+<meta name="theme-color" content="#080C1C">
 <meta name="description" content="「코스닥 상장심사 이해와 실무」 2022~2026년판 심사사례 588건 검색">
 <meta name="robots" content="noindex, nofollow">
 <link rel="manifest" href="manifest.webmanifest">
@@ -14,12 +14,12 @@
 <title>코스닥 상장 심사 사례</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 :root{
   color-scheme:light;
-  --bg:#F4F6F9;--surface:#FFFFFF;--surface2:#EDF1F6;--ink:#15202B;--muted:#5A6776;--faint:#8592A1;--line:#D9E0E8;--line2:#E5EAF0;
-  --accent:#33408F;--accent-ink:#FFFFFF;--accent-soft:#E6E9F7;--eosin:#B83A6B;
+  --bg:#EEF1FA;--surface:#FFFFFF;--surface2:#E9EDF8;--ink:#0E1630;--muted:#535C78;--faint:#8189A6;--line:#D6DCEE;--line2:#E3E7F4;
+  --accent:#2F4BD8;--accent-ink:#FFFFFF;--accent-soft:#E4E9FD;--eosin:#B83A6B;
   --ok:#1D7448;--ok-bg:#E1F2E8;--info:#385C86;--info-bg:#E4ECF6;--bad:#B0301D;--bad-bg:#FBE6E1;--warn:#855400;--warn-bg:#FFF0CF;--vio:#654699;--vio-bg:#EDE7F8;--neu:#667180;--neu-bg:#E9EDF2;
   --glass:#FFFFFF;--edge:rgba(24,34,70,.13);--spec:rgba(255,255,255,.9);--gloss:rgba(255,255,255,.5);--thumb:#FFFFFF;--track:rgba(30,40,80,.06);
   --sh1:0 1px 2px rgba(20,30,50,.04),0 1px 3px rgba(20,30,50,.05);--sh2:0 12px 32px rgba(20,30,50,.14),0 2px 6px rgba(20,30,50,.06);
@@ -27,24 +27,24 @@
   --mark:#FFE3A3;--scrim:rgba(10,16,30,.32);
   --gk:61.4%;--gb:17.6px;--gkm:90.2%;
   --hh:64px;--sth:66px;--pad:max(16px,env(safe-area-inset-left,0px));--padr:max(16px,env(safe-area-inset-right,0px));
-  --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+  --sans:"Gothic A1","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
   --ease:cubic-bezier(.3,1.25,.5,1);
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   color-scheme:dark;
-  --bg:#0F151C;--surface:#161E27;--surface2:#1D2733;--ink:#E6ECF2;--muted:#9AA8B8;--faint:#6F7D8D;--line:#2A3644;--line2:#24303D;
-  --accent:#9AA7F0;--accent-ink:#0F151C;--accent-soft:#242C52;--eosin:#EE86AC;
+  --bg:#080C1C;--surface:#111831;--surface2:#18203D;--ink:#EAF0FF;--muted:#9AA6CC;--faint:#6F7AA0;--line:#243052;--line2:#1C2645;
+  --accent:#8FB2FF;--accent-ink:#0B1020;--accent-soft:#1D2A55;--eosin:#EE86AC;
   --ok:#6FD3A0;--ok-bg:#173528;--info:#94B6E0;--info-bg:#1C2B40;--bad:#FF8F7E;--bad-bg:#3A1C18;--warn:#F2C46A;--warn-bg:#3A2C10;--vio:#C3AEF2;--vio-bg:#2C2340;--neu:#A9B3C0;--neu-bg:#232C38;
-  --glass:#1B2331;--edge:rgba(0,0,0,.55);--spec:rgba(255,255,255,.16);--gloss:rgba(255,255,255,.06);--thumb:#2E3A4E;--track:rgba(255,255,255,.06);
+  --glass:#141B36;--edge:rgba(0,0,0,.55);--spec:rgba(255,255,255,.16);--gloss:rgba(255,255,255,.06);--thumb:#26315A;--track:rgba(255,255,255,.06);
   --sh1:0 1px 2px rgba(0,0,0,.25),0 1px 3px rgba(0,0,0,.3);--sh2:0 12px 32px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);--gsh:0 10px 30px -12px rgba(0,0,0,.6);
   --mark:#5A4410;--scrim:rgba(0,0,0,.5);}}
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --bg:#0F151C;--surface:#161E27;--surface2:#1D2733;--ink:#E6ECF2;--muted:#9AA8B8;--faint:#6F7D8D;--line:#2A3644;--line2:#24303D;
-  --accent:#9AA7F0;--accent-ink:#0F151C;--accent-soft:#242C52;--eosin:#EE86AC;
+  --bg:#080C1C;--surface:#111831;--surface2:#18203D;--ink:#EAF0FF;--muted:#9AA6CC;--faint:#6F7AA0;--line:#243052;--line2:#1C2645;
+  --accent:#8FB2FF;--accent-ink:#0B1020;--accent-soft:#1D2A55;--eosin:#EE86AC;
   --ok:#6FD3A0;--ok-bg:#173528;--info:#94B6E0;--info-bg:#1C2B40;--bad:#FF8F7E;--bad-bg:#3A1C18;--warn:#F2C46A;--warn-bg:#3A2C10;--vio:#C3AEF2;--vio-bg:#2C2340;--neu:#A9B3C0;--neu-bg:#232C38;
-  --glass:#1B2331;--edge:rgba(0,0,0,.55);--spec:rgba(255,255,255,.16);--gloss:rgba(255,255,255,.06);--thumb:#2E3A4E;--track:rgba(255,255,255,.06);
+  --glass:#141B36;--edge:rgba(0,0,0,.55);--spec:rgba(255,255,255,.16);--gloss:rgba(255,255,255,.06);--thumb:#26315A;--track:rgba(255,255,255,.06);
   --sh1:0 1px 2px rgba(0,0,0,.25),0 1px 3px rgba(0,0,0,.3);--sh2:0 12px 32px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);--gsh:0 10px 30px -12px rgba(0,0,0,.6);
   --mark:#5A4410;--scrim:rgba(0,0,0,.5);}
 @media (prefers-contrast: more){:root{--edge:rgba(24,34,70,.45)}:root[data-theme="dark"]{--edge:rgba(255,255,255,.35)}}
@@ -56,9 +56,9 @@
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.58;word-break:keep-all;overflow-wrap:anywhere;min-height:100vh}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
-  radial-gradient(60vmax 45vmax at 8% -6%,rgba(51,64,143,.20),transparent 62%),
-  radial-gradient(48vmax 40vmax at 100% 18%,rgba(184,58,107,.13),transparent 60%),
-  radial-gradient(55vmax 45vmax at 30% 108%,rgba(34,160,150,.13),transparent 62%)}
+  radial-gradient(70vmax 55vmax at 0% 4%,rgba(79,108,255,.30),transparent 62%),
+  radial-gradient(55vmax 45vmax at 105% 22%,rgba(236,72,153,.18),transparent 60%),
+  radial-gradient(65vmax 50vmax at 55% 95%,rgba(20,184,166,.20),transparent 62%)}
 button{font:inherit;color:inherit;cursor:pointer;user-select:none;-webkit-user-select:none}
 :focus:not(:focus-visible){outline:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -80,8 +80,8 @@ html.themefx *,html.themefx *::before,html.themefx *::after{transition:backgroun
 .topbar{position:sticky;top:10px;z-index:30;margin:10px auto 0;width:calc(100% - var(--pad) - var(--padr));max-width:1240px;border-radius:22px;display:flex;align-items:center;gap:16px;padding:8px 8px 8px 12px}
 .brand{display:flex;align-items:center;gap:10px;border:0;background:transparent;padding:4px 8px 4px 4px;border-radius:14px;color:var(--ink)}
 .brand h1{margin:0;font-size:16.5px;white-space:nowrap}
-.mark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;background:linear-gradient(140deg,#4352B0,#2A3478 60%,#B83A6B 140%);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 4px 10px -4px rgba(51,64,143,.6);flex:none}
-.mark svg{width:58%;height:58%}
+.mark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;background:linear-gradient(150deg,#4F6CFF,#20A0C8);border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 4px 10px -4px rgba(50,80,220,.6);flex:none}
+.mark svg{width:70%;height:70%}
 .topbar .sp{flex:1}
 .acts2{display:flex;gap:2px}
 .tabs{position:relative;display:flex;gap:2px;padding:3px;border-radius:999px;background:var(--track)}
@@ -96,18 +96,22 @@ html.themefx *,html.themefx *::before,html.themefx *::after{transition:backgroun
 .page{max-width:880px;margin:0 auto;padding:6px var(--padr) 48px var(--pad)}
 .page.narrow{max-width:720px}
 .phead{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:22px 2px 4px}
-.phead h2{margin:0;font-size:24px;font-weight:700;letter-spacing:-.03em}
+.phead h2{margin:0;font-size:25px;font-weight:800;letter-spacing:-.045em}
 .phead .cnt{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:6px}
 .phead .sp{flex:1}
 .psub{margin:2px 2px 16px;color:var(--muted);font-size:13.5px}
 
 /* ---------- home ---------- */
-.vhome{min-height:calc(100vh - var(--hh) - 20px);display:flex;flex-direction:column}
+.vhome{position:relative;min-height:calc(100vh - var(--hh) - 20px);display:flex;flex-direction:column}
+.hdeco{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(color-mix(in srgb,var(--accent) 11%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--accent) 11%,transparent) 1px,transparent 1px);background-size:28px 28px;-webkit-mask-image:radial-gradient(120% 70% at 50% 30%,#000 30%,transparent 80%);mask-image:radial-gradient(120% 70% at 50% 30%,#000 30%,transparent 80%)}
+.hchart{position:absolute;left:0;right:0;bottom:90px;width:100%;height:230px;color:var(--accent);opacity:.8;-webkit-mask-image:linear-gradient(90deg,transparent,#000 25%,#000 75%,transparent);mask-image:linear-gradient(90deg,transparent,#000 25%,#000 75%,transparent)}
+.vhome>.hm,.vhome>.hm-top{position:relative;z-index:1}
 .hm-top{display:none}
 .hm{flex:1;width:100%;max-width:620px;margin:0 auto;padding:clamp(48px,15vh,150px) var(--padr) 40px var(--pad);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center}
-.hm .mark{width:56px;height:56px;border-radius:17px;margin-bottom:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 14px 30px -10px rgba(51,64,143,.65)}
-.hm h1{margin:0;font-size:28px;font-weight:700;letter-spacing:-.04em}
-.hm-sub{margin:8px 0 28px;color:var(--muted);font-size:13.5px;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.hm .mark{width:60px;height:60px;border-radius:18px;margin-bottom:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 16px 34px -12px rgba(50,80,220,.65)}
+.hm h1{margin:0;font-size:29px;font-weight:800;letter-spacing:-.05em}
+.hm-sub{margin:9px 0 28px;color:var(--muted);font-family:var(--mono);letter-spacing:-.02em;font-size:12.5px;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .hm-sub b{font-family:var(--mono);font-weight:500;color:var(--ink)}
 .hm form{width:100%}
 .recent{margin-top:26px;width:100%;display:grid;gap:22px;justify-items:center}
@@ -372,8 +376,8 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
   .vhome{min-height:100svh;min-height:100vh}
   .hm-top{display:flex;justify-content:flex-end;gap:8px;padding:calc(12px + env(safe-area-inset-top,0px)) var(--padr) 0 var(--pad)}
   .hm{padding-top:clamp(28px,8vh,90px);padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
-  .hm-sub{font-size:13px}
-  .hm h1{font-size:25px}
+  .hm-sub{font-size:12px}
+  .hm h1{font-size:28px}
   .shell{display:block;padding-top:0}
   .side{display:none}
   .srow{top:0;padding:10px 0 8px}
@@ -403,7 +407,7 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
 </head>
 <body>
 <header class="topbar glass desk" id="topbar">
-  <button class="brand" id="brand" type="button" aria-label="홈으로"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.2"/><path d="m15.2 15.2 4.8 4.8"/><path d="M8 9.2h5M8 12h3.2"/></svg></span><h1>코스닥 상장 심사 사례</h1></button>
+  <button class="brand" id="brand" type="button" aria-label="홈으로"><span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 33l8-9 6 5 8-11" stroke="#fff" stroke-width="3"/><circle cx="31" cy="18" r="2.6" fill="#fff"/><g stroke="rgba(255,255,255,.55)" stroke-width="2"><path d="M12 38v-5M20 38v-9M28 38v-6M36 38v-12"/></g></svg></span><h1>코스닥 상장 심사 사례</h1></button>
   <span class="sp"></span>
   <nav class="tabs" id="tabs" role="tablist" aria-label="보기"><span class="ind" aria-hidden="true"></span></nav>
   <div class="acts2">
@@ -414,12 +418,13 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
 
 <!-- 홈 -->
 <section class="view vhome" id="v-home" aria-label="홈">
+  <div class="hdeco" aria-hidden="true"><div class="hgrid"></div><svg class="hchart" viewBox="0 0 400 170" preserveAspectRatio="none"><defs><linearGradient id="hcg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".22"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient></defs><path d="M0 120 L40 110 L70 128 L105 92 L140 104 L175 70 L210 86 L245 52 L280 66 L315 34 L350 48 L400 18 L400 170 L0 170Z" fill="url(#hcg)"/><path d="M0 120 L40 110 L70 128 L105 92 L140 104 L175 70 L210 86 L245 52 L280 66 L315 34 L350 48 L400 18" fill="none" stroke="currentColor" stroke-opacity=".55" stroke-width="2" vector-effect="non-scaling-stroke"/></svg></div>
   <div class="hm-top">
     <button class="ibtn glass" type="button" data-info aria-label="정보와 설정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg></button>
     <button class="ibtn glass thm" type="button" data-theme-btn aria-label="화면 테마 바꾸기"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
   </div>
   <div class="hm">
-    <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.2"/><path d="m15.2 15.2 4.8 4.8"/><path d="M8 9.2h5M8 12h3.2"/></svg></span>
+    <span class="mark" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 33l8-9 6 5 8-11" stroke="#fff" stroke-width="3"/><circle cx="31" cy="18" r="2.6" fill="#fff"/><g stroke="rgba(255,255,255,.55)" stroke-width="2"><path d="M12 38v-5M20 38v-9M28 38v-6M36 38v-12"/></g></svg></span>
     <h1>코스닥 상장 심사 사례</h1>
     <p class="hm-sub">「코스닥 상장심사 이해와 실무」 2022~2026년판</p>
     <form class="sbox big" id="hform" role="search" action="#" autocomplete="off">
@@ -733,7 +738,7 @@ $('brand').onclick=()=>setView('home');
 function effTheme(){const a=document.documentElement.getAttribute('data-theme');return a||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}
 function applyTheme(t,persist){document.documentElement.setAttribute('data-theme',t);
   $$('[data-theme-btn]').forEach(b=>b.setAttribute('aria-label',t==='dark'?'라이트 모드로 바꾸기':'다크 모드로 바꾸기'));
-  $$('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',t==='dark'?'#0F151C':'#F4F6F9'));
+  $$('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',t==='dark'?'#080C1C':'#EEF1FA'));
   if(persist)store.set('ksc2-theme',t);}
 $$('[data-theme-btn]').forEach(b=>b.addEventListener('click',()=>{const r=document.documentElement;r.classList.add('themefx');clearTimeout(window._tfx);applyTheme(effTheme()==='dark'?'light':'dark',true);window._tfx=setTimeout(()=>r.classList.remove('themefx'),650);}));
 applyTheme(store.get('ksc2-theme',null)||effTheme(),false);
@@ -1023,7 +1028,7 @@ async function runAI(q){
 }
 function setAI(on,quiet){
   st.ai=on;['hai','b-ai'].forEach(i=>$(i).setAttribute('aria-checked',on));['hform','qform'].forEach(i=>$(i).classList.toggle('ai',on));
-  $('hq').placeholder=on?'실사 중인 상황을 문장으로 입력':'가지급금, 임상 실패…';
+  $('hq').placeholder=on?'상황을 문장으로 입력':'가지급금, 임상 실패…';
   $('q').placeholder=on?'상황을 문장으로 입력':'가지급금, 임상 실패…';
   renderHome(true);
   if(on){if(AI.q&&!AI.busy&&AI.q!==$('q').value.trim())AI={};}
