@@ -2350,7 +2350,7 @@ const reduceMotion=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
 function setActiveSec(id){document.querySelectorAll("[data-sec]").forEach(b=>b.setAttribute("aria-current",String(b.dataset.sec===id)));layoutInd()}
 let curPage=null;const PAGE_Y={};
 function setPage(p,top){if(!PAGE_TAB[p])p="deals";
-  if(curPage&&curPage!==p&&document.startViewTransition&&!reduceMotion()&&!document.hidden){try{document.startViewTransition(()=>setPageNow(p,top,true));return}catch(e){}}
+  if(curPage&&curPage!==p&&window.top===window&&document.startViewTransition&&!reduceMotion()&&!document.hidden){try{document.startViewTransition(()=>setPageNow(p,top,true));return}catch(e){}}
   setPageNow(p,top,false)}
 function setPageNow(p,top,vt){const prev=curPage;if(prev)PAGE_Y[prev]=scrollY;
   if(prev&&prev!==p){if(isPhone()){closePanel();closeFPanel()}if(ddOpenNow)ddClose(ddOpenNow)}
