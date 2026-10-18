@@ -972,9 +972,9 @@ img{max-width:100%}
         <div class="ktrack" id="ktrack">
           <div class="kslide" role="group" aria-roledescription="slide" aria-label="1 / 3 · 요약"><section class="summary" id="secKpi" data-pg="deals" aria-label="선택 조건 요약">
         <div><span class="label">거래 수</span><span class="v num" id="kN">–</span><span class="s" id="kNs">&nbsp;</span></div>
-        <div><span class="label">총액 중앙값</span><span class="v num" id="kMedT">–</span><span class="s" id="kSum">&nbsp;</span></div>
-        <div><span class="label">Upfront 중앙값</span><span class="v num gold" id="kMedU">–</span><span class="s" id="kMedUs">&nbsp;</span></div>
-        <div><span class="label">Upfront 비중</span><span class="v num" id="kRatio">–</span><span class="s">중앙값 · upfront ÷ 총액</span></div>
+        <div><span class="label" title="플랫폼 계약 제외">총액 중앙값 · 개별 자산</span><span class="v num" id="kMedT">–</span><span class="s" id="kSum">&nbsp;</span></div>
+        <div><span class="label">Upfront 중앙값 · 개별 자산</span><span class="v num gold" id="kMedU">–</span><span class="s" id="kMedUs">&nbsp;</span></div>
+        <div><span class="label">한국 기술수출</span><span class="v num" id="kRatio">–</span><span class="s" id="kKrs">&nbsp;</span></div>
       </section></div>
           <div class="kslide" role="group" aria-roledescription="slide" aria-label="2 / 3 · 연도별 거래"><div class="panel">
           <header><h2>연도별 거래</h2><span class="legend"><span><i style="background:var(--c1)"></i>총계약규모($B)</span><span><i class="dot" style="background:var(--eosin)"></i>거래 건수</span></span></header>
@@ -1052,10 +1052,10 @@ img{max-width:100%}
       <section class="kcar" id="fkcar" data-pg="fda" aria-roledescription="carousel" aria-label="FDA 요약과 통계">
         <div class="ktrack" id="fktrack">
           <div class="kslide" role="group" aria-roledescription="slide" aria-label="1 / 2 · 요약"><section class="summary" id="fKpi" data-pg="fda" aria-label="FDA 승인 요약">
-        <div><span class="label">승인 수</span><span class="v num" id="fkN">–</span><span class="s" id="fkNs">&nbsp;</span></div>
-        <div><span class="label">기술거래 연결</span><span class="v num" id="fkL">–</span><span class="s" id="fkLs">&nbsp;</span></div>
-        <div><span class="label">희귀의약품 지정</span><span class="v num" id="fkO">–</span><span class="s" id="fkOs">&nbsp;</span></div>
-        <div><span class="label">계약 → 승인</span><span class="v num gold" id="fkM">–</span><span class="s" id="fkMs">&nbsp;</span></div>
+        <div><span class="label" id="fkNl">최근 연도 승인</span><span class="v num" id="fkN">–</span><span class="s" id="fkNs">&nbsp;</span></div>
+        <div><span class="label" title="기술도입·인수·공동개발로 확보한 약의 비중">외부 도입 비중</span><span class="v num" id="fkL">–</span><span class="s" id="fkLs">&nbsp;</span></div>
+        <div><span class="label" title="혁신치료제(BTD) 지정 또는 가속승인">가속·혁신 지정</span><span class="v num" id="fkO">–</span><span class="s" id="fkOs">&nbsp;</span></div>
+        <div><span class="label">희귀의약품 지정</span><span class="v num" id="fkM">–</span><span class="s" id="fkMs">&nbsp;</span></div>
       </section></div>
           <div class="kslide" role="group" aria-roledescription="slide" aria-label="2 / 2 · 연도별 승인"><div class="panel">
           <header><h2>연도별 승인</h2><span class="legend"><span><i style="background:var(--c1)"></i>CDER</span><span><i style="background:var(--c3)"></i>CBER</span></span></header>
@@ -1574,15 +1574,19 @@ function miniCard(d){
 
 /* ---------- render ---------- */
 function render(){
-  const n=VIEW.length, tot=VIEW.map(d=>d.total), up=VIEW.map(d=>d.upfront);
+  const n=VIEW.length, AS=VIEW.filter(d=>d.platform==="N"), PF=VIEW.filter(d=>d.platform!=="N");
+  const iso=t=>new Date(t).toISOString().slice(0,10),now=Date.now(),d1=iso(now-365*864e5),d2=iso(now-730*864e5);
+  const r12=VIEW.filter(d=>d.date>d1).length,p12=VIEW.filter(d=>d.date>d2&&d.date<=d1).length;
   $("kN").textContent=fmt(n);
-  $("kNs").textContent=`개별 자산 ${fmt(VIEW.filter(d=>d.platform==="N").length)} · 플랫폼 ${fmt(VIEW.filter(d=>d.platform==="Y").length)}`;
-  const s=tot.reduce((a,b)=>a+(b||0),0);
-  $("kMedT").innerHTML=`${fmt(median(tot))}<small>$M</small>`;
-  $("kSum").textContent=`합계 ${s>=1000?"$"+fmt(s/1000,1)+"B":"$"+fmt(s)+"M"}`;
-  $("kMedU").innerHTML=`${fmt(median(up),1).replace(/\.0$/,"")}<small>$M</small>`;
-  $("kMedUs").textContent=`공개 ${fmt(up.filter(v=>v!=null).length)}건`;
-  const r=median(VIEW.map(d=>d.ratio)); $("kRatio").textContent=r==null?"–":fmt(r*100,1)+"%";
+  $("kNs").textContent=n?`최근 1년 ${fmt(r12)}건`+(p12?` ${r12>=p12?"▲":"▼"}${fmt(Math.abs(r12/p12-1)*100,0)}%`:""):" ";
+  const mT=median(AS.map(d=>d.total)),mP=median(PF.map(d=>d.total));
+  $("kMedT").innerHTML=mT==null?"–":`${fmt(mT)}<small>$M</small>`;
+  $("kSum").textContent=mP==null?" ":`플랫폼 $${fmt(mP)}M`;
+  const aU=AS.map(d=>d.upfront),mU=median(aU),rU=median(AS.map(d=>d.ratio));
+  $("kMedU").innerHTML=mU==null?"–":`${fmt(mU,1).replace(/\.0$/,"")}<small>$M</small>`;
+  $("kMedUs").textContent=rU==null?" ":`총액 대비 ${fmt(rU*100,1)}%`;
+  const KR=VIEW.filter(d=>d.lr_region==="한국"),mK=median(KR.map(d=>d.total));
+  $("kRatio").innerHTML=`${fmt(KR.length)}<small>건</small>`;$("kKrs").textContent=KR.length?`최근 1년 ${fmt(KR.filter(d=>d.date>d1).length)}건`:" ";
   $("ledgerTitle").textContent=F.compsOnly?`비교 목록 (${fmt(n)}건)`:`목록 (${fmt(n)}건)`;
   drawYears(); drawBench(); drawList(); drawComps();
 }
@@ -1812,13 +1816,18 @@ function fApply(keep){
   $("fcmpBtn").setAttribute("aria-pressed",String(FF.compsOnly));
 }
 function fDrawKpi(){
-  const v=FVIEW,n=v.length,cd=v.filter(a=>a.center==="CDER").length,L=v.filter(a=>a._links),O=v.filter(a=>a._des.includes("Orphan"));
   try{drawFYears()}catch(e){}
-  $("fkN").textContent=fmt(n);$("fkNs").textContent=n?`CDER ${fmt(cd)} · CBER ${fmt(n-cd)}`:" ";
-  $("fkL").innerHTML=`${fmt(L.length)}<small>건</small>`;$("fkLs").textContent=n?`전체의 ${fmt(L.length/n*100,1)}%`:" ";
-  $("fkO").innerHTML=n?`${fmt(O.length/n*100,0)}<small>%</small>`:"–";$("fkOs").textContent=n?`${fmt(O.length)}건 · 지정 정보 기준`:" ";
-  const ms=L.map(fLead).filter(m=>m!=null);const med=median(ms);
-  $("fkM").innerHTML=med==null?"–":`${fmt(med,0)}<small>개월</small>`;$("fkMs").textContent=ms.length?`승인 전 계약 ${fmt(ms.length)}건 중앙값`:"승인 전에 맺은 연결 거래 없음";
+  const ys=[...new Set(FDA.map(a=>a._yr).filter(Boolean))].sort(),Y=ys[ys.length-1],P=String(+Y-1);
+  const cur=FVIEW.filter(a=>a._yr===Y),prv=FVIEW.filter(a=>a._yr===P);
+  const EXT=new Set(["기술도입","인수","공동개발"]),pct=(g,f)=>g.length?g.filter(f).length/g.length*100:null;
+  const ext=a=>EXT.has(a._org),fast=a=>a._des.includes("Breakthrough")||a._des.includes("Accelerated"),orph=a=>a._des.includes("Orphan");
+  const P0=v=>v==null?"–":`${fmt(v,0)}<small>%</small>`,P1=v=>v==null?"–":fmt(v,0)+"%";
+  const ytd=String(new Date().getFullYear())===Y?" (연중)":"";
+  $("fkNl").textContent=`${Y}년 승인${ytd}`;
+  $("fkN").innerHTML=`${fmt(cur.length)}<small>건</small>`;$("fkNs").textContent=`${P}년 ${fmt(prv.length)}건`;
+  $("fkL").innerHTML=P0(pct(cur,ext));$("fkLs").textContent=`${P}년 ${P1(pct(prv,ext))}`;
+  $("fkO").innerHTML=P0(pct(cur,fast));$("fkOs").textContent=`${P}년 ${P1(pct(prv,fast))}`;
+  $("fkM").innerHTML=P0(pct(cur,orph));$("fkMs").textContent=`${P}년 ${P1(pct(prv,orph))}`;
 }
 function fDrawComps(){
   $("fcmpCnt").textContent=FCOMPS.size?String(FCOMPS.size):"";
