@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#0F151C" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#F4F6F9" media="(prefers-color-scheme: light)">
-<title>신약 기술거래 딜북</title>
+<title>신약 딜북</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -2400,7 +2400,7 @@ function setPage(p,top){if(!PAGE_TAB[p])p="deals";
   setPageNow(p,top,false)}
 function setPageNow(p,top,vt){const prev=curPage;if(prev)PAGE_Y[prev]=scrollY;
   if(prev&&prev!==p){if(isPhone()){closePanel();closeFPanel()}if(ddOpenNow)ddClose(ddOpenNow)}
-  curPage=p;document.documentElement.dataset.page=p;$("pgTitle").textContent=PAGE_NAME[p];document.title=(p==="deals"?"":PAGE_NAME[p]+" · ")+"신약 기술거래 딜북";
+  curPage=p;document.documentElement.dataset.page=p;$("pgTitle").textContent=PAGE_NAME[p];document.title=(p==="deals"?"":PAGE_NAME[p]+" · ")+"신약 딜북";
   setActiveSec(PAGE_TAB[p]);
   if(window.top===window)try{history.replaceState(history.state,"",p==="deals"?location.pathname+location.search:"#"+p)}catch(e){}
   if(false&&!vt&&prev&&prev!==p&&!reduceMotion()){const c=document.querySelector(".content");c.classList.remove("pgin");void c.offsetWidth;c.classList.add("pgin");setTimeout(()=>c.classList.remove("pgin"),400)}
