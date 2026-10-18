@@ -662,6 +662,7 @@ html:not(.stuck) .edge-t{opacity:0}
 
 
 
+
 /* ===== FDA: AI search, MoA on cards, prescribing-information popup (tabs, charts, tables) ===== */
 .fmoa{display:flex;gap:6px;align-items:baseline;font-size:12.5px;line-height:1.5;color:var(--muted);overflow-wrap:anywhere}
 .fmoa b{flex:0 0 auto;font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--accent)}
@@ -874,6 +875,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 ::view-transition-new(tabbar),::view-transition-new(topbar){animation:none}
 .content.pgin>*{animation:pgin2 .26s cubic-bezier(.2,.8,.2,1) both}
 @keyframes pgin2{from{opacity:.35;transform:translateY(4px)}}
+#fyearChart .tv{fill:color-mix(in srgb,var(--ink) 72%,var(--muted));font-weight:600;font-size:11px}
 </style>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1789,12 +1791,12 @@ function drawFYears(){
   svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
   const src=FDA.length?FDA:[],years=[...new Set(src.map(a=>a._yr).filter(Boolean))].sort();if(!years.length){svg.innerHTML="";return}
   const by=years.map(y=>{const g=FVIEW.filter(a=>a._yr===y),cb=g.filter(a=>a.center==="CBER").length;return{y,n:g.length,cb,cd:g.length-cb}});
-  const mx=Math.max(1,...by.map(b=>b.n)),st=mx>100?50:mx>40?20:mx>10?5:1,nice=Math.ceil(mx/st/NT)*st*NT||NT;
+  const mx=Math.max(1,...by.map(b=>b.n)),st=mx>100?50:mx>40?20:mx>10?5:1,nice=Math.ceil(mx*1.1/st/NT)*st*NT||NT;
   const bw=iw/years.length,out=[];
   for(let i=0;i<=NT;i++){const y=T+ih-ih*i/NT;out.push(`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-dasharray="2 4"/><text x="${L-6}" y="${y+4}" text-anchor="end">${fmt(nice*i/NT)}</text>`)}
   by.forEach((b,i)=>{const x=L+bw*i+bw*.18,w=bw*.64,h=ih*b.n/nice,y=T+ih-h,hc=ih*b.cd/nice;
     out.push(`<g><title>${b.y}년 승인 ${fmt(b.n)}건 · CDER ${fmt(b.cd)} · CBER ${fmt(b.cb)}</title><clipPath id="fyc${i}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4"/></clipPath><g clip-path="url(#fyc${i})"><rect x="${x}" y="${T+ih-hc}" width="${w}" height="${hc}" fill="var(--c1)"/><rect x="${x}" y="${y}" width="${w}" height="${h-hc}" fill="var(--c3)"/></g></g>`);
-    if(b.n)out.push(`<text class="val" x="${x+w/2}" y="${h>18?y+13:y-4}" text-anchor="middle"${h>18?"":' style="fill:var(--ink);stroke:none"'}>${fmt(b.n)}</text>`);
+    if(b.n)out.push(`<text class="tv" x="${x+w/2}" y="${y-5}" text-anchor="middle">${fmt(b.n)}</text>`);
     out.push(`<text x="${x+w/2}" y="${H-6}" text-anchor="middle">${b.y.slice(2)}${b.y==="2026"?"*":""}</text>`)});
   out.push(`<text x="${L}" y="11">건수</text>`);
   svg.innerHTML=out.join("");
@@ -2354,8 +2356,8 @@ function setPageNow(p,top,vt){const prev=curPage;if(prev)PAGE_Y[prev]=scrollY;
   if(prev&&prev!==p){if(isPhone()){closePanel();closeFPanel()}if(ddOpenNow)ddClose(ddOpenNow)}
   curPage=p;document.documentElement.dataset.page=p;$("pgTitle").textContent=PAGE_NAME[p];document.title=(p==="deals"?"":PAGE_NAME[p]+" · ")+"신약 기술거래 딜북";
   setActiveSec(PAGE_TAB[p]);
-  try{history.replaceState(history.state,"",p==="deals"?location.pathname+location.search:"#"+p)}catch(e){}
-  if(!vt&&prev&&prev!==p&&!reduceMotion()){const c=document.querySelector(".content");c.classList.remove("pgin");void c.offsetWidth;c.classList.add("pgin");setTimeout(()=>c.classList.remove("pgin"),400)}
+  if(window.top===window)try{history.replaceState(history.state,"",p==="deals"?location.pathname+location.search:"#"+p)}catch(e){}
+  if(false&&!vt&&prev&&prev!==p&&!reduceMotion()){const c=document.querySelector(".content");c.classList.remove("pgin");void c.offsetWidth;c.classList.add("pgin");setTimeout(()=>c.classList.remove("pgin"),400)}
   if(top!==false)scrollTo({top:prev===p?0:(PAGE_Y[p]||0),behavior:"auto"});
   measure();layoutInd();requestAnimationFrame(()=>{layoutInd();fadeAll();edges()})}
 function goSec(id){const p=PAGE_OF[id]||"deals";const same=p===curPage;setPage(p,false);const el=$(id);if(!el)return;
