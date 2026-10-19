@@ -1,7 +1,53 @@
 {
 "generated": "2026-10-19",
-"count": 379,
+"count": 448,
 "items": [
+{
+"company": "히츠",
+"country": "한국",
+"date": "2026-10-15",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 12.8,
+"amount_krw": 183,
+"currency_orig": "KRW",
+"amount_orig": 183,
+"amount_orig_unit": "억",
+"lead": [
+"프리미어파트너스"
+],
+"investors": [
+"프리미어파트너스",
+"유안타인베스트먼트",
+"삼성증권",
+"BSK인베스트먼트",
+"TBT파트너스",
+"IBK벤처투자",
+"한국투자파트너스",
+"캡스톤파트너스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "누적 투자유치 286억원",
+"exchange": null,
+"ticker": null,
+"modality": "디스커버리·AI 플랫폼",
+"area": "Other",
+"stage": "Discovery",
+"lead_asset": "신약개발용 AI 연구 플랫폼(제약사·연구기관 공급)",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.hitnews.co.kr/news/articleView.html?idxno=79915",
+"https://www.newsis.com/view/NISX20261015_0003826898",
+"https://www.mt.co.kr/future/2026/10/15/2026101509284260991"
+],
+"note": "자체 신약 파이프라인이 아닌 AI 연구 플랫폼 공급 모델 — 신약개발 바이오텍 해당 여부 확신 낮음",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0001"
+},
 {
 "company": "OMass Therapeutics",
 "country": "영국",
@@ -47,7 +93,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0001"
+"id": "i0002"
 },
 {
 "company": "Soufflé Therapeutics",
@@ -86,7 +132,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0002"
+"id": "i0003"
 },
 {
 "company": "Matchpoint Therapeutics",
@@ -131,7 +177,43 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0003"
+"id": "i0004"
+},
+{
+"company": "넥스세라",
+"country": "한국",
+"date": "2026-09-28",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 15.4,
+"amount_krw": 220,
+"currency_orig": "KRW",
+"amount_orig": 220,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"미래에셋증권"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Ophthalmology",
+"stage": "Phase 1",
+"lead_asset": "점안형 습성 황반변성 치료제 (미국 1/2a상)",
+"platform": "N",
+"use_of_proceeds": "미국 임상 1/2a상 파트2 마무리 및 IPO 등 다음 단계 준비",
+"outcome": null,
+"sources": [
+"https://www.mk.co.kr/article/12162480",
+"https://www.hankyung.com/article/202609288541i"
+],
+"note": "기존 투자사 후속 + 신규 투자사 다수 참여; 미래에셋증권 신규 합류",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0005"
 },
 {
 "company": "Enveda Biosciences",
@@ -176,7 +258,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0004"
+"id": "i0006"
 },
 {
 "company": "Basecamp Research",
@@ -221,7 +303,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0005"
+"id": "i0007"
 },
 {
 "company": "Sling Therapeutics",
@@ -260,7 +342,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0006"
+"id": "i0008"
 },
 {
 "company": "Anew Labs",
@@ -300,7 +382,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0007"
+"id": "i0009"
 },
 {
 "company": "Encoded Therapeutics",
@@ -343,7 +425,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0008"
+"id": "i0010"
 },
 {
 "company": "Solstice Oncology",
@@ -381,7 +463,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0009"
+"id": "i0011"
 },
 {
 "company": "BrainChild Bio",
@@ -420,7 +502,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0010"
+"id": "i0012"
 },
 {
 "company": "AusperBio",
@@ -461,7 +543,44 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0011"
+"id": "i0013"
+},
+{
+"company": "인제니아테라퓨틱스",
+"country": "한국",
+"date": "2026-08-18",
+"type": "IPO",
+"round": "코스닥 상장(DR, 기술특례)",
+"amount_usd": 42.0,
+"amount_krw": 600,
+"currency_orig": "KRW",
+"amount_orig": 600,
+"amount_orig_unit": "억",
+"lead": [
+"삼성증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "출처상 공모가 기준 시총 미확인(상장 첫날 시총 약 8,895억원, 마감 기준 보도)",
+"exchange": "KOSDAQ",
+"ticker": "950260",
+"modality": "항체",
+"area": "Multiple",
+"stage": "미상",
+"lead_asset": "IGT-303 (만성신장질환·당뇨병성 신장질환), Tie2 기반 미세혈관 보호 신약",
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": "상장 첫날 장중 공모가 하회 후 상승 마감",
+"sources": [
+"https://www.inews24.com/view/1995641",
+"https://www.tokenpost.kr/news/market/392349",
+"https://www.medipana.com/news/articleView.html?idxno=417919"
+],
+"note": "미국 보스턴 소재 신약개발사의 코스닥 DR(증권예탁증권) 500만주 공모; 한국 법인 여부 확신 낮음; 희망밴드 하단 확정(수요예측 50.4:1)",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0014"
 },
 {
 "company": "Vaderis Therapeutics",
@@ -505,7 +624,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0012"
+"id": "i0015"
 },
 {
 "company": "Xunming Biotech",
@@ -546,7 +665,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0013"
+"id": "i0016"
 },
 {
 "company": "LifeMine Therapeutics",
@@ -585,7 +704,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0014"
+"id": "i0017"
 },
 {
 "company": "Expedition Therapeutics",
@@ -630,7 +749,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0015"
+"id": "i0018"
 },
 {
 "company": "Crystalys Therapeutics",
@@ -675,7 +794,53 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0016"
+"id": "i0019"
+},
+{
+"company": "프레이저테라퓨틱스",
+"country": "한국",
+"date": "2026-07-16",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 35.0,
+"amount_krw": 500,
+"currency_orig": "KRW",
+"amount_orig": 500,
+"amount_orig_unit": "억",
+"lead": [
+"플레이그라운드 글로벌(Playground Ventures IV, L.P.)"
+],
+"investors": [
+"플레이그라운드 글로벌",
+"JJDC",
+"우리벤처파트너스",
+"컴퍼니케이파트너스",
+"스마일게이트인베스트먼트",
+"프리미어파트너스",
+"K2인베스트먼트",
+"신한자산운용"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "TPD(분해제)",
+"area": "Multiple",
+"stage": "미상",
+"lead_asset": "SPiDEM 플랫폼, BBB 투과 저분자 후보",
+"platform": "Y",
+"use_of_proceeds": "SPiDEM 고도화, 퇴행성 뇌질환·항암·면역질환 파이프라인 임상 진입, DAC 페이로드 개발",
+"outcome": null,
+"sources": [
+"https://www.biotimes.co.kr/news/articleView.html?idxno=33215",
+"https://www.getnews.co.kr/news/articleView.html?idxno=875345",
+"https://www.edaily.co.kr/news/newspath.asp?newsid=03863846645515176"
+],
+"note": "상장 주관사 미래에셋증권·하나증권도 보통주 투자자로 참여",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0020"
 },
 {
 "company": "AdvanCell",
@@ -721,7 +886,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0017"
+"id": "i0021"
 },
 {
 "company": "Avere Therapeutics",
@@ -767,7 +932,50 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0018"
+"id": "i0022"
+},
+{
+"company": "아크젠바이오사이언스",
+"country": "한국",
+"date": "2026-07-13",
+"type": "시리즈/비공개",
+"round": "Series A",
+"amount_usd": 7.0,
+"amount_krw": 100,
+"currency_orig": "KRW",
+"amount_orig": 100,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"미래과학기술지주",
+"IBK기업은행",
+"IBK벤처투자",
+"더이로운파트너스",
+"스케일업파트너스",
+"신용보증기금",
+"아이엠엠인베스트먼트",
+"우리벤처파트너스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "프리A 40억원 포함 누적 140억원",
+"exchange": null,
+"ticker": null,
+"modality": "이중·다중항체",
+"area": "Other",
+"stage": "미상",
+"lead_asset": "ARK102, ARK103 (AMB 다중항체·TCE 플랫폼)",
+"platform": "Y",
+"use_of_proceeds": "AMB 플랫폼 고도화, 파이프라인 연구개발, 사업개발",
+"outcome": null,
+"sources": [
+"http://www.docdocdoc.co.kr/news/articleView.html?idxno=3040936",
+"https://www.edaily.co.kr/news/newspath.asp?newsid=01817126645515832"
+],
+"note": "참여: 휴온스, 한국혁신의약품컨소시엄(KIMCo)-유안타인베스트먼트 포함",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0023"
 },
 {
 "company": "Chai Discovery",
@@ -812,7 +1020,45 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0019"
+"id": "i0024"
+},
+{
+"company": "아리바이오",
+"country": "한국",
+"date": "2026-07-03",
+"type": "시리즈/비공개",
+"round": "전략적 지분투자(푸싱제약)",
+"amount_usd": 27.5,
+"amount_krw": 425,
+"currency_orig": "USD",
+"amount_orig": 27.5,
+"amount_orig_unit": "M",
+"lead": [
+"푸싱제약(Fosun Pharma)"
+],
+"investors": [
+"푸싱제약"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Neurology",
+"stage": "Phase 3",
+"lead_asset": "AR1001 (알츠하이머병)",
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.newsis.com/view/NISX20260703_0003694406",
+"https://www.hitnews.co.kr/news/articleView.html?idxno=77607"
+],
+"note": "총 2,750만달러(약 425억원) 계약: 1차 750만달러(115억원) 집행 + 2차 2,000만달러(310억원) 지분투자 옵션 — 확약 금액 기준이면 115억원; 확신 낮음",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0025"
 },
 {
 "company": "Celea Therapeutics",
@@ -852,7 +1098,86 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0020"
+"id": "i0026"
+},
+{
+"company": "이뮨앱스",
+"country": "한국",
+"date": "2026-07-01",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 26.6,
+"amount_krw": 380,
+"currency_orig": "KRW",
+"amount_orig": 380,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"대교인베스트먼트",
+"CKD창업투자"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "항체",
+"area": "Other",
+"stage": "Phase 2",
+"lead_asset": null,
+"platform": "N",
+"use_of_proceeds": "미국·유럽 진행 글로벌 임상2상 추진",
+"outcome": null,
+"sources": [
+"https://www.thebell.co.kr/free/content/ArticleView.asp?key=202607011440263280103892",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/07/260629_weekly_startuprecipe_v001.pdf"
+],
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0027"
+},
+{
+"company": "캅스바이오",
+"country": "한국",
+"date": "2026-07-01",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 20.4,
+"amount_krw": 292,
+"currency_orig": "KRW",
+"amount_orig": 292,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"에이티넘인베스트먼트",
+"K2인베스트먼트",
+"키움인베스트먼트",
+"한국투자파트너스",
+"KB인베스트먼트",
+"컴퍼니케이파트너스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "누적 투자금 368억원(메디게이트)",
+"exchange": null,
+"ticker": null,
+"modality": "TPD(분해제)",
+"area": "Oncology",
+"stage": "미상",
+"lead_asset": "Menin 저해제, GSPT1 분해제 (라피돔 플랫폼)",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.edaily.co.kr/news/newspath.asp?newsid=03309526645510256",
+"https://www.etoday.co.kr/news/view/2599054",
+"https://www.medigatenews.com/news/631220949",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/07/260629_weekly_startuprecipe_v001.pdf"
+],
+"note": "스타트업레시피는 290억원, 이데일리·이투데이는 292억원으로 보도(292억원 채택)",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0028"
 },
 {
 "company": "RQ Biotechnology (RQ Bio)",
@@ -896,7 +1221,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0021"
+"id": "i0029"
 },
 {
 "company": "Osanni Bio",
@@ -936,7 +1261,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0022"
+"id": "i0030"
 },
 {
 "company": "Serapha Bio",
@@ -982,7 +1307,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0023"
+"id": "i0031"
 },
 {
 "company": "Ollin Biosciences",
@@ -1025,7 +1350,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0024"
+"id": "i0032"
 },
 {
 "company": "cAMPfield Therapeutics",
@@ -1068,7 +1393,89 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0025"
+"id": "i0033"
+},
+{
+"company": "FNCT바이오텍(에프엔씨티바이오텍)",
+"country": "한국",
+"date": "2026-06-16",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 14.8,
+"amount_krw": 211,
+"currency_orig": "KRW",
+"amount_orig": 211,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"프리미어파트너스",
+"BSK인베스트먼트",
+"IBK캐피탈",
+"아주IB투자",
+"농협은행"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "항체",
+"area": "Respiratory",
+"stage": "Preclinical",
+"lead_asset": "FB-101 (특발성 폐섬유증, CSF3 항체)",
+"platform": "Y",
+"use_of_proceeds": "FB-101 전임상 마무리, 글로벌 기술이전 및 후속 파이프라인 고도화",
+"outcome": null,
+"sources": [
+"https://www.edaily.co.kr/news/newspath.asp?newsid=03102886645482376",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/06/260615_weekly_startuprecipe_v001.pdf"
+],
+"note": "목표액 초과 달성; 후속 2개사+신규 10개 기관",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0034"
+},
+{
+"company": "피알지에스앤텍",
+"country": "한국",
+"date": "2026-06-15",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 14.0,
+"amount_krw": 200,
+"currency_orig": "KRW",
+"amount_orig": 200,
+"amount_orig_unit": "억",
+"lead": [
+"에스벤처스"
+],
+"investors": [
+"에스벤처스",
+"SL인베스트먼트",
+"BNK벤처투자",
+"유니온투자파트너스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Rare disease",
+"stage": "미상",
+"lead_asset": "PPI 억제 기반 희귀유전질환 신약",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.the-stock.kr/news/articleView.html?idxno=32727",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/06/260615_weekly_startuprecipe_v001.pdf"
+],
+"date_approx": true,
+"note": "스타트업레시피 200억원(에스벤처스 100억 포함) vs 더스탁 약 180억원(5월) — 금액 불일치로 확신 낮음; 날짜는 PDF 주간(2026-06-15) 기준",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0035"
 },
 {
 "company": "SonoThera",
@@ -1113,7 +1520,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0026"
+"id": "i0036"
 },
 {
 "company": "Ethyreal Bio",
@@ -1155,7 +1562,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0027"
+"id": "i0037"
 },
 {
 "company": "Beren Therapeutics",
@@ -1195,7 +1602,7 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0028"
+"id": "i0038"
 },
 {
 "company": "NewLimit",
@@ -1238,7 +1645,46 @@
 ],
 "_batch": "ovp10b",
 "year": 2026,
-"id": "i0029"
+"id": "i0039"
+},
+{
+"company": "비욘드바이오",
+"country": "한국",
+"date": "2026-05-19",
+"type": "시리즈/비공개",
+"round": "Series E (Pre-IPO 1차)",
+"amount_usd": 9.4,
+"amount_krw": 135,
+"currency_orig": "KRW",
+"amount_orig": 135,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"코오롱인베스트먼트",
+"지앤텍벤처투자",
+"한국투자증권"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "더벨·스타트업레시피: 기업가치 약 1,100억원, 2021년 대비 주당 단가 약 40% 하락(다운라운드)",
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Multiple",
+"stage": "미상",
+"lead_asset": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.thebell.co.kr/free/content/ArticleView.asp?key=202605191026291880101736",
+"https://dealsite.co.kr/articles/162839",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/05/260518_weekly_startuprecipe_v001.pdf"
+],
+"note": "딜사이트: 총 250억원 프리IPO 펀딩 중 5월 말 135억원 1차 납입 완료, 6월 중 115억원 추가 예정(추가분은 미반영)",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0040"
 },
 {
 "company": "Full-Life Technologies",
@@ -1284,7 +1730,46 @@
 "note": "총 $150M 중 지분 약 $110M·부채 약 $40M(pulse2) - 지분분만 보면 기준 근접, 확신 낮음; 날짜 PR 5/18(patsnap 데이트라인), 매체 5/19; 국가는 PR 데이트라인(Suzhou, China / Gembloux, Belgium) 근거; 리드 자산명 미특정(225Ac-FL-020, FL-261)",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0030"
+"id": "i0041"
+},
+{
+"company": "넥스아이",
+"country": "한국",
+"date": "2026-05-15",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 35.0,
+"amount_krw": 500,
+"currency_orig": "KRW",
+"amount_orig": 500,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"DSC인베스트먼트",
+"에이티넘인베스트먼트",
+"한국산업은행",
+"DS자산운용"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Oncology",
+"stage": "Phase 1",
+"lead_asset": "NXI-101 (오노약품 기술이전), NXI-201",
+"platform": "Y",
+"use_of_proceeds": "NXI-201 글로벌 임상, 차세대 ADC 연구; 코스닥 상장예비심사 추진",
+"outcome": null,
+"sources": [
+"https://www.hitnews.co.kr/news/articleView.html?idxno=76171",
+"http://www.edaily.co.kr/news/newspath.asp?newsid=06386166645449248",
+"https://www.yakup.com/news/index.html?mode=view&cat=12&nid=327286"
+],
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0042"
 },
 {
 "company": "CREATE Medicines",
@@ -1325,7 +1810,43 @@
 "note": "mRNA-LNP 기반 in vivo CAR-T; 매사추세츠",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0031"
+"id": "i0043"
+},
+{
+"company": "스파크바이오파마",
+"country": "한국",
+"date": "2026-05-13",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 22.0,
+"amount_krw": 315,
+"currency_orig": "KRW",
+"amount_orig": 315,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"한국산업은행"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Respiratory",
+"stage": "Phase 2",
+"lead_asset": "SBP-401 (특발성 폐섬유증)",
+"platform": "Y",
+"use_of_proceeds": "임상 데이터 확보 및 후속 파이프라인 연구개발",
+"outcome": null,
+"sources": [
+"https://www.news2day.co.kr/article/20260513500209",
+"https://mdtoday.co.kr/news/view/1065586530434221",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/05/260511_weekly_startuprecipe_v001.pdf"
+],
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0044"
 },
 {
 "company": "Isomorphic Labs",
@@ -1369,7 +1890,7 @@
 "note": "런던 본사; Novartis·Lilly·J&J와 제휴",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0032"
+"id": "i0045"
 },
 {
 "company": "CellCentric",
@@ -1415,7 +1936,7 @@
 "note": "케임브리지(영국) 본사, 보스턴 거점; 잠재적 IPO 언급(Fierce)",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0033"
+"id": "i0046"
 },
 {
 "company": "Coultreon Biopharma (구 Onco3R Therapeutics)",
@@ -1462,7 +1983,7 @@
 "note": "Galapagos 파이프라인 후보물질 분사 성격",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0034"
+"id": "i0047"
 },
 {
 "company": "Ray Therapeutics",
@@ -1508,7 +2029,7 @@
 "note": "RTx-015 FDA RMAT 지정; upsized",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0035"
+"id": "i0048"
 },
 {
 "company": "Tortugas Neuroscience",
@@ -1547,7 +2068,78 @@
 "note": "Eisai·Hansoh에서 도입한 4개 임상단계 자산; Seed(Cure 주도)+Series A 합산",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0036"
+"id": "i0049"
+},
+{
+"company": "노보렉스",
+"country": "한국",
+"date": "2026-04-16",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 14.6,
+"amount_krw": 210,
+"currency_orig": "KRW",
+"amount_orig": 210,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"한국산업은행",
+"케이앤투자파트너스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "기업가치 약 610억원(스타트업레시피 단일 출처, pre/post 불명)",
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Neurology",
+"stage": "Preclinical",
+"lead_asset": "NRX-NGT002 (파킨슨병), NRX-NGT009 (건선)",
+"platform": "Y",
+"use_of_proceeds": "NRX-NGT002 글로벌 임상1상, NRX-NGT009 전임상 진입, 추가 물질 연구",
+"outcome": null,
+"sources": [
+"http://www.edaily.co.kr/news/newspath.asp?newsid=02922486645416776",
+"https://www.news2day.co.kr/article/20260417500300",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/04/260413_weekly_startuprecipe_v001.pdf"
+],
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0050"
+},
+{
+"company": "빌릭스",
+"country": "한국",
+"date": "2026-04-16",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 7.8,
+"amount_krw": 112.5,
+"currency_orig": "KRW",
+"amount_orig": 112.5,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Other",
+"stage": "미상",
+"lead_asset": "빌리루빈 신약(급성신장손상 등)",
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.thebell.co.kr/free/content/ArticleView.asp?key=202604160837527000105231",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/04/260413_weekly_startuprecipe_v001.pdf"
+],
+"note": "3회에 걸친 단계 납입 총 112.5억원(더벨 제목은 113억원); 하반기 브릿지 추진 예정",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0051"
 },
 {
 "company": "Beeline Medicines",
@@ -1584,7 +2176,7 @@
 "note": "BMS로부터 5개 프로그램 도입; 본사 국가 출처 명시 없음",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0037"
+"id": "i0052"
 },
 {
 "company": "Terremoto Biosciences",
@@ -1630,7 +2222,7 @@
 "note": "리드는 genemod 보도 기준(Fierce는 투자자 나열만); 종양 및 희귀질환(HHT) 병행",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0038"
+"id": "i0053"
 },
 {
 "company": "Neomorph",
@@ -1672,7 +2264,7 @@
 "note": "샌디에이고 소재",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0039"
+"id": "i0054"
 },
 {
 "company": "Oricell Therapeutics",
@@ -1719,7 +2311,45 @@
 "note": "'$110M 초과' 표기; Ori-C101 pivotal 준비, OriCAR-017 중·미 IND",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0040"
+"id": "i0055"
+},
+{
+"company": "아델",
+"country": "한국",
+"date": "2026-04-09",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 34.1,
+"amount_krw": 490,
+"currency_orig": "KRW",
+"amount_orig": 490,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"삼성벤처투자",
+"한국투자파트너스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "항체",
+"area": "Neurology",
+"stage": "미상",
+"lead_asset": "ADEL-Y01 (사노피 라이선스 아웃), ADEL-Y04, ADEL-Y03",
+"platform": "Y",
+"use_of_proceeds": "후속 CNS 항체 프로그램 비임상 개발, ADTAC 표적분해 플랫폼·BBB 투과 항체 연구",
+"outcome": null,
+"sources": [
+"https://www.etnews.com/20260409000323",
+"https://www.mt.co.kr/thebio/2026/04/10/2026040908314962691",
+"http://www.edaily.co.kr/news/newspath.asp?newsid=02781446645414480"
+],
+"note": "목표액 초과 달성; 연내 코스닥 기술특례상장 추진",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0056"
 },
 {
 "company": "Sidewinder Therapeutics",
@@ -1759,7 +2389,7 @@
 "note": "샌디에이고 소재(bioxconomy)",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0041"
+"id": "i0057"
 },
 {
 "company": "Stipple Bio",
@@ -1803,7 +2433,7 @@
 "note": "날짜는 vcaonline URL 기준 4/6(타 매체 4/8); 모달리티 출처 불명확(투자자 코멘트에 ADC 언급)",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0042"
+"id": "i0058"
 },
 {
 "company": "Syneron Bio",
@@ -1852,7 +2482,7 @@
 "note": "마크로사이클릭 펩타이드 플랫폼; 직전 Series A $100M으로부터 4개월; 국가는 labiotech/genemod 보도(Chinese biotech) 근거",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0043"
+"id": "i0059"
 },
 {
 "company": "New Radiomedicine Technology (NRT)",
@@ -1891,7 +2521,49 @@
 "note": "CNY 10억(약 $145.3M) 출처 환산치; 리드는 yicai 기준; 날짜 yicai 4/3(pharmaletter 4/8)",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0044"
+"id": "i0060"
+},
+{
+"company": "세닉스바이오테크",
+"country": "한국",
+"date": "2026-03-31",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 8.7,
+"amount_krw": 125,
+"currency_orig": "KRW",
+"amount_orig": 125,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"SBI인베스트먼트",
+"파트너스인베스트먼트",
+"아주IB투자",
+"CKD창업투자",
+"SL인베스트먼트",
+"인터밸류인베스트먼트",
+"스케일업파트너스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Other",
+"stage": "미상",
+"lead_asset": "CX213 (산화세륨 기반 나노자임)",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.yakup.com/news/index.html?mode=view&cat=12&nid=325389",
+"https://www.biotimes.co.kr/news/articleView.html?idxno=30751",
+"https://www.etnews.com/20260331000337"
+],
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0061"
 },
 {
 "company": "Ambrosia Biosciences",
@@ -1935,7 +2607,120 @@
 "note": "리드 후보물질명 미공개",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0045"
+"id": "i0062"
+},
+{
+"company": "듀셀바이오테라퓨틱스",
+"country": "한국",
+"date": "2026-03-27",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 16.3,
+"amount_krw": 235,
+"currency_orig": "KRW",
+"amount_orig": 235,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"한화투자증권",
+"원익투자파트너스",
+"현대투자파트너스",
+"산은캐피탈",
+"중소벤처기업진흥공단"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "세포치료",
+"area": "Hematology",
+"stage": "미상",
+"lead_asset": "인공 혈소판",
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.etnews.com/20260327000179",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/04/260330_weekly_startuprecipe_v002.pdf"
+],
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0063"
+},
+{
+"company": "제이인츠바이오",
+"country": "한국",
+"date": "2026-03-26",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 12.5,
+"amount_krw": 180,
+"currency_orig": "KRW",
+"amount_orig": 180,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"유한양행"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "딜사이트: 기업가치 1,100억원 인정(pre/post 구분 불명, 단일 출처)",
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Oncology",
+"stage": "미상",
+"lead_asset": "4세대 EGFR 경구 비소세포폐암 치료제",
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://dealsite.co.kr/articles/158922",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/03/260323_weekly_startuprecipe_v001.pdf"
+],
+"note": "기존 투자자 대상 라운드로 9부 능선; 유한양행과 4,300억원 규모 기술이전 계약 보유",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0064"
+},
+{
+"company": "아이엠바이오로직스",
+"country": "한국",
+"date": "2026-03-20",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 36.1,
+"amount_krw": 520,
+"currency_orig": "KRW",
+"amount_orig": 520,
+"amount_orig_unit": "억",
+"lead": [
+"한국투자증권",
+"신한투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": 266.8,
+"valuation_note": "공모가(2만6,000원) 기준 시가총액 약 3,842억원",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "항체",
+"area": "Immunology",
+"stage": "미상",
+"lead_asset": "IMB-101 (글로벌 라이선스 아웃, 최대 9.2억달러)",
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": "상장 첫날 공모가 대비 300%(따따블) 상승",
+"sources": [
+"https://www.gukjenews.com/news/articleView.html?idxno=3534293",
+"https://www.mk.co.kr/article/11986465",
+"https://www.medipana.com/news/articleView.html?idxno=414235"
+],
+"note": "일반청약 경쟁률 1,806:1, 증거금 약 11.7조원",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0065"
 },
 {
 "company": "Earendil Labs",
@@ -1974,7 +2759,159 @@
 "note": "델라웨어 법인, 베이징 사무소('U.S.- and China-based'); 'financing rounds'로 복수 라운드 합산 가능성; 리드 미공개; Sanofi와 협업 및 투자 참여; 홍콩 IPO 검토 보도",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0046"
+"id": "i0066"
+},
+{
+"company": "카나프테라퓨틱스",
+"country": "한국",
+"date": "2026-03-16",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 27.8,
+"amount_krw": 400,
+"currency_orig": "KRW",
+"amount_orig": 400,
+"amount_orig_unit": "억",
+"lead": [
+"한국투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": 179.9,
+"valuation_note": "공모가(2만원) 기준 상장 후 시가총액 약 2,591억원",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "디스커버리·AI 플랫폼",
+"area": "Oncology",
+"stage": "Preclinical",
+"lead_asset": "인간 유전체 기반 타깃 발굴 플랫폼 (이중항체·저분자·ADC 파이프라인)",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": "상장 첫날 공모가 대비 약 190~197% 상승",
+"sources": [
+"https://biz.chosun.com/stock/stock_general/2026/03/04/DQMIIFVUJBHIZDIFNQDKJNCW4E",
+"https://www.newspim.com/news/view/20260304000983",
+"https://www.yna.co.kr/view/AKR20260316036751008",
+"https://www.medipana.com/news/articleView.html?idxno=414235"
+],
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0067"
+},
+{
+"company": "코넥스트",
+"country": "한국",
+"date": "2026-03-16",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 10.4,
+"amount_krw": 150,
+"currency_orig": "KRW",
+"amount_orig": 150,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"파마리서치(전략적)",
+"ES인베스터",
+"프리미어파트너스",
+"뮤렉스파트너스",
+"수인베스트먼트캐피탈",
+"더넥스트랩"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타 단백질·융합단백",
+"area": "Other",
+"stage": "Phase 2",
+"lead_asset": "듀피트렌구축 치료제(재조합 단백질)",
+"platform": "N",
+"use_of_proceeds": "호주 임상2상 완료, 글로벌 임상3상용 의약품 제조 착수, 셀룰라이트 적응증 초기 임상",
+"outcome": null,
+"sources": [
+"https://www.hitnews.co.kr/news/articleView.html?idxno=74620",
+"https://www.biotimes.co.kr/news/articleView.html?idxno=30402",
+"https://www.mt.co.kr/future/2026/03/16/2026031610104595755"
+],
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0068"
+},
+{
+"company": "머스트바이오",
+"country": "한국",
+"date": "2026-03-13",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 24.3,
+"amount_krw": 350,
+"currency_orig": "KRW",
+"amount_orig": 350,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"한국투자파트너스",
+"프리미어파트너스",
+"파트너스인베스트먼트"
+],
+"valuation_pre": 41.0,
+"valuation_post": 65.3,
+"valuation_note": "프리밸류 590억원/기업가치 940억원(이데일리·스타트업레시피)",
+"exchange": null,
+"ticker": null,
+"modality": "이중·다중항체",
+"area": "Oncology",
+"stage": "미상",
+"lead_asset": "MB5 (αPD-1/IL-2v), MB7 (αPD-1/αVEGF/IL-21v)",
+"platform": "Y",
+"use_of_proceeds": "MB5 임상 개발, MB7 연구개발, 파이프라인 확장 및 글로벌 BD",
+"outcome": null,
+"sources": [
+"https://www.hitnews.co.kr/news/articleView.html?idxno=74570",
+"https://www.mt.co.kr/future/2026/03/13/2026031313185241372",
+"http://www.edaily.co.kr/news/newspath.asp?newsid=03876966645382992"
+],
+"note": "9개 기관 참여; 더벨 2월 보도 300억원 오버부킹 후 350억원으로 마감",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0069"
+},
+{
+"company": "브리즈바이오(구 진에딧)",
+"country": "한국",
+"date": "2026-02-25",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 25.0,
+"amount_krw": 360,
+"currency_orig": "USD",
+"amount_orig": 25.0,
+"amount_orig_unit": "M",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "누적 투자유치 약 1억2,000만달러(약 1,700억원)",
+"exchange": null,
+"ticker": null,
+"modality": "전달·제형 플랫폼",
+"area": "Metabolic",
+"stage": "Preclinical",
+"lead_asset": "BRZ-101 (제1형 당뇨병); 나노갤럭시 유전자 전달 플랫폼",
+"platform": "Y",
+"use_of_proceeds": "자체 파이프라인 임상 진입 및 나노갤럭시 플랫폼 확장",
+"outcome": null,
+"sources": [
+"https://www.hitnews.co.kr/news/articleView.html?idxno=74178",
+"http://www.edaily.co.kr/news/newspath.asp?newsid=02161526645354456",
+"https://www.medigatenews.com/news/2355336612"
+],
+"note": "회사 발표 2,500만달러(약 360억원); 통화 USD 원문",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0070"
 },
 {
 "company": "Slate Medicines",
@@ -2015,7 +2952,51 @@
 "note": "DartsBio(중국)에서 도입, Phase 1 2026 중반 개시 예정",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0047"
+"id": "i0071"
+},
+{
+"company": "갤럭스",
+"country": "한국",
+"date": "2026-02-10",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 29.2,
+"amount_krw": 420,
+"currency_orig": "KRW",
+"amount_orig": 420,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"유안타인베스트먼트",
+"한국산업은행",
+"인터베스트",
+"데일리파트너스-NH투자증권 조합",
+"패스웨이인베스트먼트",
+"SL인베스트먼트",
+"엔코어벤처스-TKG벤처스 조합",
+"스닉픽인베스트먼트"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "누적 투자유치 680억원",
+"exchange": null,
+"ticker": null,
+"modality": "디스커버리·AI 플랫폼",
+"area": "Other",
+"stage": "Discovery",
+"lead_asset": "AI 드노보 항체 설계 플랫폼",
+"platform": "Y",
+"use_of_proceeds": "AI 플랫폼 고도화, R&D 인프라 확충, 인재 확보, 후보물질 비임상 검증",
+"outcome": null,
+"sources": [
+"https://www.newsis.com/view/NISX20260210_0003509087",
+"https://www.etnews.com/20260210000273",
+"https://www.hitnews.co.kr/news/articleView.html?idxno=73769",
+"https://news.bizwatch.co.kr/article/healthcare/2026/02/10/0025"
+],
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0072"
 },
 {
 "company": "ILiAD Biotechnologies",
@@ -2057,7 +3038,7 @@
 "note": "국가는 refreshmiami 보도(Weston, FL) 근거; pivotal 인체감염시험 2026 개시 예정",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0048"
+"id": "i0073"
 },
 {
 "company": "Angitia Biopharmaceuticals",
@@ -2100,7 +3081,81 @@
 "note": "AGA111은 재조합 BMP-6 단백질, AGA2118/AGA2115는 이중항체; 질환영역은 골질환(Other)",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0049"
+"id": "i0074"
+},
+{
+"company": "소바젠",
+"country": "한국",
+"date": "2026-02-02",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 8.5,
+"amount_krw": 123,
+"currency_orig": "KRW",
+"amount_orig": 123,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "뉴스톱코리아: 투자 전 기업가치 약 1,080억원(반년 전 약 325억원); 단일 출처 수치라 valuation 필드 미채택",
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Neurology",
+"stage": "미상",
+"lead_asset": "SVG103 / SVG105",
+"platform": "N",
+"use_of_proceeds": "제3자배정 유상증자(프리IPO); 안젤리니파마와 총 5.5억달러 규모 기술이전 이후 유치",
+"outcome": null,
+"sources": [
+"https://www.newstopkorea.com/news/articleView.html?idxno=42897",
+"https://startuprecipe.co.kr/wp-content/uploads/2026/02/260202_weekly_startuprecipe_v001.pdf"
+],
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0075"
+},
+{
+"company": "퍼스트바이오테라퓨틱스",
+"country": "한국",
+"date": "2026-01-26",
+"type": "시리즈/비공개",
+"round": "Series D",
+"amount_usd": 21.9,
+"amount_krw": 317,
+"currency_orig": "KRW",
+"amount_orig": 317,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"스마일게이트인베스트먼트",
+"구름인베스트먼트",
+"리가켐바이오사이언스",
+"한국투자증권"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "누적 투자유치 약 1,080억원",
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Other",
+"stage": "Phase 1",
+"lead_asset": "FB849 (HPK1 저해제)",
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.newsis.com/view/NISX20260126_0003489485",
+"https://www.etnews.com/20260126000155",
+"https://biz.chosun.com/science-chosun/bio/2026/01/26/VFCGXGU6ABATZKU3YRDAPLGOV4/",
+"https://www.hitnews.co.kr/news/articleView.html?idxno=73195"
+],
+"note": "당초 계획 초과 마감; 전략적 투자자 리가켐바이오사이언스 참여",
+"_batch": "kr2526",
+"year": 2026,
+"id": "i0076"
 },
 {
 "company": "Corxel Pharmaceuticals",
@@ -2144,7 +3199,7 @@
 "note": "'최대 $287M'(up to) 표기; 2019년 상하이 설립, 미국 뉴저지 본사(longevity.technology); 날짜는 Fierce 기준(타 매체 1/23~1/26); 리드 명시 없음",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0050"
+"id": "i0077"
 },
 {
 "company": "Kinaset Therapeutics",
@@ -2191,7 +3246,7 @@
 "note": "기존 투자자 Gimv 참여; 모달리티는 JAK 억제제로 저분자 분류(출처에 'small molecule' 명시는 없음)",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0051"
+"id": "i0078"
 },
 {
 "company": "AirNexis Therapeutics",
@@ -2234,7 +3289,7 @@
 "note": "Haisco(중국)에서 AN01 도입; 출처에 본사 국가 명시 없음",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0052"
+"id": "i0079"
 },
 {
 "company": "Parabilis Medicines (구 FogPharma)",
@@ -2277,7 +3332,85 @@
 "note": "Phase 1/2 결과 후 Phase 3 진입 예정(데스모이드 종양)",
 "_batch": "ovp10a",
 "year": 2026,
-"id": "i0053"
+"id": "i0080"
+},
+{
+"company": "아울바이오",
+"country": "한국",
+"date": "2025-12-26",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 7.6,
+"amount_krw": 112,
+"currency_orig": "KRW",
+"amount_orig": 112,
+"amount_orig_unit": "억",
+"lead": [
+"파트너스인베스트먼트"
+],
+"investors": [
+"파트너스인베스트먼트",
+"메디치인베스트먼트",
+"IBK캐피탈"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "전달·제형 플랫폼",
+"area": "Metabolic",
+"stage": "미상",
+"lead_asset": "AUL009 (세마글루타이드 장기지속형)",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://startuprecipe.co.kr/wp-content/uploads/2026/01/251229_weekly_startuprecipe_v001.pdf",
+"https://www.thebell.co.kr/free/content/ArticleView.asp?key=202512261140463200106959"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0081"
+},
+{
+"company": "알지노믹스",
+"country": "한국",
+"date": "2025-12-18",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 31.6,
+"amount_krw": 464,
+"currency_orig": "KRW",
+"amount_orig": 464,
+"amount_orig_unit": "억",
+"lead": [
+"삼성증권",
+"NH투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "시총: 상장 첫날 종가 기준 약 1조2,380억원(메디칼투데이); 공모가 기준 시총은 출처 미확인",
+"exchange": "KOSDAQ",
+"ticker": "476830",
+"modality": "유전자치료·편집",
+"area": "Oncology",
+"stage": "Phase 2",
+"lead_asset": "RZ-001 (간세포암·교모세포종), RZ-004",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": "상장 첫날 공모가 대비 300%(따따블) 상승; 일라이릴리 기술이전(약 1.9조원) 보유",
+"sources": [
+"https://www.junggi.co.kr/article/articleView.html?no=34993",
+"https://www.yna.co.kr/view/AKR20251210147200008",
+"https://www.newsis.com/view/NISX20251217_0003444298",
+"https://www.medipana.com/news/articleView.html?idxno=404061"
+],
+"note": "206만주 × 2만2,500원 = 약 463.5억원",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0082"
 },
 {
 "company": "Atavistik Bio",
@@ -2317,7 +3450,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0054"
+"id": "i0083"
 },
 {
 "company": "Syremis Therapeutics",
@@ -2360,7 +3493,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0055"
+"id": "i0084"
 },
 {
 "company": "Addition Therapeutics",
@@ -2402,7 +3535,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0056"
+"id": "i0085"
 },
 {
 "company": "Ambros Therapeutics",
@@ -2445,7 +3578,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0057"
+"id": "i0086"
 },
 {
 "company": "Chai Discovery",
@@ -2488,7 +3621,44 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0058"
+"id": "i0087"
+},
+{
+"company": "쿼드메디슨",
+"country": "한국",
+"date": "2025-12-12",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 17.3,
+"amount_krw": 255,
+"currency_orig": "KRW",
+"amount_orig": 255,
+"amount_orig_unit": "억",
+"lead": [
+"NH투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "전달·제형 플랫폼",
+"area": "Other",
+"stage": "Phase 1",
+"lead_asset": "마이크로니들 B형간염 백신 (IND 승인); 골다공증 치료제 호주 1상",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://biz.chosun.com/science-chosun/bio/2025/12/01/L4WWNQTWHFHJFEWLDESEX7BZJM/",
+"https://www.yna.co.kr/view/AKR20251201139200008",
+"https://www.medipana.com/news/articleView.html?idxno=404061"
+],
+"note": "170만주 × 1만5,000원(희망밴드 상단)",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0088"
 },
 {
 "company": "D3 Bio",
@@ -2530,7 +3700,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0059"
+"id": "i0089"
 },
 {
 "company": "SanegeneBio",
@@ -2572,7 +3742,44 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0060"
+"id": "i0090"
+},
+{
+"company": "에임드바이오",
+"country": "한국",
+"date": "2025-12-04",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 48.1,
+"amount_krw": 707,
+"currency_orig": "KRW",
+"amount_orig": 707,
+"amount_orig_unit": "억",
+"lead": [
+"미래에셋증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": 480.1,
+"valuation_note": "공모가(1만1,000원) 기준 상장 후 시가총액 약 7,057억원",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "ADC",
+"area": "Oncology",
+"stage": "Phase 1",
+"lead_asset": "AMB302, AMB303",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": "상장 첫날 공모가 대비 300%(따따블) 상승",
+"sources": [
+"https://www.joongangenews.com/news/articleView.html?idxno=472338",
+"https://www.mk.co.kr/article/11483953",
+"https://www.medipana.com/news/articleView.html?idxno=404061"
+],
+"note": "일반청약 경쟁률 1,736.8:1, 증거금 약 15.4조원",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0091"
 },
 {
 "company": "OTR Therapeutics",
@@ -2611,7 +3818,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0061"
+"id": "i0092"
 },
 {
 "company": "Triana Biomedicines",
@@ -2652,7 +3859,41 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0062"
+"id": "i0093"
+},
+{
+"company": "포트래이",
+"country": "한국",
+"date": "2025-12-02",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 9.9,
+"amount_krw": 145,
+"currency_orig": "KRW",
+"amount_orig": 145,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "디스커버리·AI 플랫폼",
+"area": "Oncology",
+"stage": "Discovery",
+"lead_asset": "공간전사체·AI 기반 정밀 타깃 발굴",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.mt.co.kr/future/2025/12/02/2025120213330944064",
+"http://www.biotimes.co.kr/news/articleView.html?idxno=25681",
+"https://www.hitnews.co.kr/news/articleView.html?idxno=71510"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0094"
 },
 {
 "company": "Protego Biopharma",
@@ -2693,7 +3934,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0063"
+"id": "i0095"
 },
 {
 "company": "Aspen Neuroscience",
@@ -2735,7 +3976,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0064"
+"id": "i0096"
 },
 {
 "company": "Profluent",
@@ -2776,7 +4017,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0065"
+"id": "i0097"
 },
 {
 "company": "Artios Pharma",
@@ -2815,7 +4056,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0066"
+"id": "i0098"
 },
 {
 "company": "Solve Therapeutics",
@@ -2859,7 +4100,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0067"
+"id": "i0099"
 },
 {
 "company": "Braveheart Bio",
@@ -2901,7 +4142,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0068"
+"id": "i0100"
 },
 {
 "company": "AAVantgarde Bio",
@@ -2943,7 +4184,79 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0069"
+"id": "i0101"
+},
+{
+"company": "메디맵바이오",
+"country": "한국",
+"date": "2025-10-27",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 18.0,
+"amount_krw": 256,
+"currency_orig": "KRW",
+"amount_orig": 256,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타 단백질·융합단백",
+"area": "Immunology",
+"stage": "미상",
+"lead_asset": "MFA031",
+"platform": "Y",
+"use_of_proceeds": "주요 파이프라인 사업화 및 글로벌 기술협력 확대",
+"outcome": null,
+"sources": [
+"http://www.biotimes.co.kr/news/articleView.html?idxno=24845",
+"https://www.venturesquare.net/1010655",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=70439",
+"https://startuprecipe.co.kr/wp-content/uploads/2025/10/251027_weekly_startuprecipe_v001.pdf"
+],
+"note": "히트뉴스는 메디맵바이오를 바이오소재 기업으로 분류하나 바이오타임즈·PDF는 융합항체 플랫폼 MediLink 기반 면역치료제 개발사로 기술 — 수정 확인 필요; 참여 14개 기관(기존 6·신규 8)",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0102"
+},
+{
+"company": "피노바이오",
+"country": "한국",
+"date": "2025-10-27",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 9.1,
+"amount_krw": 130,
+"currency_orig": "KRW",
+"amount_orig": 130,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"미래에셋캐피탈"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "ADC",
+"area": "Oncology",
+"stage": "Preclinical",
+"lead_asset": "PBX-004 (ITGB6 표적 ADC)",
+"platform": "Y",
+"use_of_proceeds": "PBX-004 비임상·임상 개발 및 코스닥 상장 준비",
+"outcome": null,
+"sources": [
+"http://www.edaily.co.kr/news/newspath.asp?newsid=01948326642337184",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=70439",
+"https://startuprecipe.co.kr/wp-content/uploads/2025/10/251027_weekly_startuprecipe_v001.pdf"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0103"
 },
 {
 "company": "Hemab Therapeutics",
@@ -2986,7 +4299,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0070"
+"id": "i0104"
 },
 {
 "company": "Electra Therapeutics",
@@ -3030,7 +4343,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0071"
+"id": "i0105"
 },
 {
 "company": "Adcytherix",
@@ -3072,7 +4385,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0072"
+"id": "i0106"
 },
 {
 "company": "Tubulis",
@@ -3116,7 +4429,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0073"
+"id": "i0107"
 },
 {
 "company": "Pelage Pharmaceuticals",
@@ -3157,7 +4470,44 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0074"
+"id": "i0108"
+},
+{
+"company": "아이엠바이오로직스",
+"country": "한국",
+"date": "2025-10-14",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 29.6,
+"amount_krw": 422,
+"currency_orig": "KRW",
+"amount_orig": 422,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"한국산업은행"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "이데일리·머니투데이: 약 2,000억원 수준 기업가치 평가(출처 상 pre/post 구분 불명)",
+"exchange": null,
+"ticker": null,
+"modality": "항체",
+"area": "Immunology",
+"stage": "미상",
+"lead_asset": "IMB-101",
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": "2026-03-20 코스닥 상장(공모 520억원)",
+"sources": [
+"http://www.edaily.co.kr/news/newspath.asp?newsid=02906086642332920",
+"https://www.sedaily.com/NewsView/2GZ6S45CGY",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=70439",
+"https://www.mt.co.kr/thebio/2025/10/30/2025103015551139282"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0109"
 },
 {
 "company": "Kailera Therapeutics",
@@ -3201,7 +4551,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0075"
+"id": "i0110"
 },
 {
 "company": "Kardigan Therapeutics",
@@ -3242,7 +4592,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0076"
+"id": "i0111"
 },
 {
 "company": "Expedition Therapeutics",
@@ -3286,7 +4636,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0077"
+"id": "i0112"
 },
 {
 "company": "Nilo Therapeutics",
@@ -3327,7 +4677,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0078"
+"id": "i0113"
 },
 {
 "company": "Arthrosi Therapeutics",
@@ -3368,7 +4718,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0079"
+"id": "i0114"
 },
 {
 "company": "Soufflé Therapeutics",
@@ -3410,7 +4760,44 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i0080"
+"id": "i0115"
+},
+{
+"company": "이뮤노포지",
+"country": "한국",
+"date": "2025-09-30",
+"type": "시리즈/비공개",
+"round": "제3자배정 유상증자(다운라운드)",
+"amount_usd": 7.9,
+"amount_krw": 110,
+"currency_orig": "KRW",
+"amount_orig": 110,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"한국산업은행",
+"LB인베스트먼트",
+"컴퍼니케이파트너스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "뉴스톱코리아: 300억대 몸값(직전 2021년 라운드 650억원 안팎); PDF: 기업가치 절반으로 하향",
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Rare disease",
+"stage": "미상",
+"lead_asset": null,
+"platform": "N",
+"use_of_proceeds": "재무구조 개선 병행(차입금 30억원 출자전환)",
+"outcome": null,
+"sources": [
+"https://www.newstopkorea.com/news/articleView.html?idxno=40111",
+"https://startuprecipe.co.kr/wp-content/uploads/2025/10/250929_weekly_startuprecipe_v001.pdf"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0116"
 },
 {
 "company": "Star Therapeutics",
@@ -3453,7 +4840,7 @@
 "note": null,
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0081"
+"id": "i0117"
 },
 {
 "company": "Crystalys Therapeutics",
@@ -3495,7 +4882,7 @@
 "note": null,
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0082"
+"id": "i0118"
 },
 {
 "company": "Ollin Biosciences",
@@ -3533,7 +4920,7 @@
 "note": null,
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0083"
+"id": "i0119"
 },
 {
 "company": "Odyssey Therapeutics",
@@ -3577,7 +4964,51 @@
 "note": null,
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0084"
+"id": "i0120"
+},
+{
+"company": "엘리시젠(구 뉴라클제네틱스)",
+"country": "한국",
+"date": "2025-09-08",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 30.1,
+"amount_krw": 420,
+"currency_orig": "KRW",
+"amount_orig": 420,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"이연제약",
+"한국산업은행",
+"알보리즘",
+"프리미어파트너스",
+"유안타인베스트먼트",
+"데일리파트너스",
+"NH투자증권"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "유전자치료·편집",
+"area": "Ophthalmology",
+"stage": "Phase 1",
+"lead_asset": "NG101 (wAMD, VEGF 저해 AAV8)",
+"platform": "N",
+"use_of_proceeds": "NG101 등 핵심 파이프라인 임상 개발 및 글로벌 사업화",
+"outcome": null,
+"sources": [
+"https://www.newsis.com/view/NISX20250908_0003320047",
+"https://www.sedaily.com/NewsView/2GXUKEPTK9",
+"http://www.biotimes.co.kr/news/articleView.html?idxno=26573",
+"https://startuprecipe.co.kr/wp-content/uploads/2025/11/251103_weekly_startuprecipe_v001.pdf"
+],
+"note": "1차 261억원(2025-09-08) + 산업은행·알보리즘 108억원(2025-11) + 데일리파트너스·NH 50억원(2026-01-19 최종 클로징) = 총 420억원; 일자는 1차 발표일",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0121"
 },
 {
 "company": "Treeline Biosciences",
@@ -3612,7 +5043,52 @@
 "note": "Investors not disclosed in source",
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0085"
+"id": "i0122"
+},
+{
+"company": "에스씨바이오",
+"country": "한국",
+"date": "2025-09-01",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 10.0,
+"amount_krw": 140,
+"currency_orig": "KRW",
+"amount_orig": 140,
+"amount_orig_unit": "억",
+"lead": [
+"유니온투자파트너스"
+],
+"investors": [
+"유니온투자파트너스",
+"현대기술투자",
+"파이오니어인베스트먼트",
+"에스엘인베스트먼트",
+"코오롱인베스트먼트",
+"산은인프라자산운용",
+"인라이트벤처스",
+"엑스퀘어드"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Oncology",
+"stage": "Preclinical",
+"lead_asset": "SCB002 (Sirt6 타깃 항암제)",
+"platform": "Y",
+"use_of_proceeds": "SCB002·SCB001 임상 및 후속 파이프라인 연구, 글로벌 기술이전 협상",
+"outcome": null,
+"sources": [
+"https://www.yakup.com/news/index.html?mode=view&cat=12&nid=315335",
+"http://www.biotimes.co.kr/news/articleView.html?idxno=23714",
+"http://news.mt.co.kr/mtview.php?no=2025090109532411110"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0123"
 },
 {
 "company": "Wugen",
@@ -3656,7 +5132,7 @@
 "note": null,
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0086"
+"id": "i0124"
 },
 {
 "company": "Kriya Therapeutics",
@@ -3692,7 +5168,75 @@
 "note": "Tracker/Labiotech give $313M (313.3); Pharmaceutical Technology/GlobalData cite $320M Series D. Round label per Pharmaceutical Technology; Fierce says 'new series fundraise'.",
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0087"
+"id": "i0125"
+},
+{
+"company": "지투지바이오",
+"country": "한국",
+"date": "2025-08-14",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 37.6,
+"amount_krw": 522,
+"currency_orig": "KRW",
+"amount_orig": 522,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "전달·제형 플랫폼",
+"area": "Multiple",
+"stage": "미상",
+"lead_asset": "InnoLAMP 장기지속형 주사제 플랫폼 (치매·당뇨병·수술 후 통증 등)",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.newsis.com/view/NISX20250814_0003290241",
+"https://www.medipana.com/article/view.php?news_idx=347220&sch_cate=D"
+],
+"note": "공모가 5만8,000원(희망밴드 상단), 수요예측 경쟁률 810.6:1; 상장 첫날 약 50~62% 상승",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0126"
+},
+{
+"company": "넥스아이",
+"country": "한국",
+"date": "2025-08-12",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 43.9,
+"amount_krw": 610,
+"currency_orig": "KRW",
+"amount_orig": 610,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "누적 투자액 880억원; 목표 500억원 초과 달성",
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Oncology",
+"stage": "Phase 1",
+"lead_asset": "NXI-101 / NXI-201",
+"platform": "Y",
+"use_of_proceeds": "NXI-201 개발 집중, 내년 상반기 IND 및 코스닥 상장 추진",
+"outcome": "2026-05 Pre-IPO 500억원 유치",
+"sources": [
+"http://www.hitnews.co.kr/news/articleView.html?idxno=67785",
+"https://www.sedaily.com/NewsView/2GWLZRBHRK",
+"https://www.yakup.com/news/index.html?mode=view&cat=12&nid=314542"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0127"
 },
 {
 "company": "Strand Therapeutics",
@@ -3736,7 +5280,7 @@
 "note": null,
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0088"
+"id": "i0128"
 },
 {
 "company": "Minghui Pharmaceutical",
@@ -3779,7 +5323,43 @@
 "note": "Pipeline spans small molecule, bispecific and ADC; single modality not assignable",
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0089"
+"id": "i0129"
+},
+{
+"company": "프로티나",
+"country": "한국",
+"date": "2025-07-29",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 15.2,
+"amount_krw": 210,
+"currency_orig": "KRW",
+"amount_orig": 210,
+"amount_orig_unit": "억",
+"lead": [
+"한국투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": 109.4,
+"valuation_note": "공모가 기준 상장 후 예상 시가총액 약 1,510억원",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "디스커버리·AI 플랫폼",
+"area": "Other",
+"stage": "Discovery",
+"lead_asset": "SPID(단백질-단백질 상호작용) 분석 플랫폼",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.ggilbo.com/news/articleView.html?idxno=1103649",
+"https://www.medipana.com/article/view.php?news_idx=347220&sch_cate=D"
+],
+"note": "항체 최적화·바이오마커 발굴 서비스 중심의 신약개발 플랫폼 기업 — 신약개발사 해당 여부 확신 낮음; 일반청약 경쟁률 1,797:1",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0130"
 },
 {
 "company": "Artbio",
@@ -3822,7 +5402,44 @@
 "note": null,
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0090"
+"id": "i0131"
+},
+{
+"company": "노보메디슨",
+"country": "한국",
+"date": "2025-07-28",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 19.9,
+"amount_krw": 275,
+"currency_orig": "KRW",
+"amount_orig": 275,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"유한양행",
+"큐로셀",
+"스틱벤처스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Oncology",
+"stage": "Phase 2",
+"lead_asset": "포셀티닙(Poseltinib, Multi-TEC 억제제)",
+"platform": "N",
+"use_of_proceeds": "진행 중 임상 마무리, 조건부 허가·글로벌 기술이전·국내 상업화 추진",
+"outcome": null,
+"sources": [
+"http://www.hitnews.co.kr/news/articleView.html?idxno=67109",
+"http://www.edaily.co.kr/news/newspath.asp?newsid=02725686642239112"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0132"
 },
 {
 "company": "MapLight Therapeutics",
@@ -3866,7 +5483,7 @@
 "note": "Forbion and Goldman Sachs Alternatives listed first; lead not explicitly labeled in source",
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0091"
+"id": "i0133"
 },
 {
 "company": "Dispatch Bio",
@@ -3907,7 +5524,7 @@
 "note": null,
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0092"
+"id": "i0134"
 },
 {
 "company": "Avalyn Pharma",
@@ -3951,7 +5568,165 @@
 "note": null,
 "_batch": "ovp09a",
 "year": 2025,
-"id": "i0093"
+"id": "i0135"
+},
+{
+"company": "트리오어",
+"country": "한국",
+"date": "2025-07-17",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 18.1,
+"amount_krw": 250,
+"currency_orig": "KRW",
+"amount_orig": 250,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"우리벤처파트너스",
+"신한벤처투자",
+"현대기술투자",
+"IMM인베스트먼트",
+"LSK인베스트먼트",
+"CKD창업투자"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "ADC",
+"area": "Oncology",
+"stage": "Preclinical",
+"lead_asset": "TROSIG ADC 플랫폼 기반 후보",
+"platform": "Y",
+"use_of_proceeds": "ADC 후보 전임상·임상 진입, 글로벌 기술이전",
+"outcome": null,
+"sources": [
+"https://www.medigatenews.com/news/2406736379",
+"http://news.mt.co.kr/mtview.php?no=2025071807421997811",
+"https://www.venturesquare.net/993891",
+"https://startuprecipe.co.kr/wp-content/uploads/2025/08/250825_weekly_startuprecipe_v001.pdf"
+],
+"note": "1차 225억원(2025-07-17) + 추가 25억원(CKD창업투자, 2025-08) 합산 250억원(멀티 클로징)",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0136"
+},
+{
+"company": "일리미스테라퓨틱스",
+"country": "한국",
+"date": "2025-07-14",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 42.0,
+"amount_krw": 580,
+"currency_orig": "KRW",
+"amount_orig": 580,
+"amount_orig_unit": "억",
+"lead": [
+"DSC인베스트먼트"
+],
+"investors": [
+"DSC인베스트먼트",
+"한국산업은행",
+"아주IB투자",
+"LB인베스트먼트",
+"하나벤처스",
+"IMM인베스트먼트"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "더벨 제목: 후보물질만으로 900억 프리밸류(단일 출처, 수치 미채택)",
+"exchange": null,
+"ticker": null,
+"modality": "기타 단백질·융합단백",
+"area": "Neurology",
+"stage": "Preclinical",
+"lead_asset": "ILM01",
+"platform": "Y",
+"use_of_proceeds": "ILM01 전임상 본격화 및 추가 후보물질 연구",
+"outcome": null,
+"sources": [
+"http://www.edaily.co.kr/news/newspath.asp?newsid=03011046642234520",
+"https://www.news1.kr/bio/pharmaceutical-bio/5845173",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=67400"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0137"
+},
+{
+"company": "소바젠",
+"country": "한국",
+"date": "2025-07-03",
+"type": "시리즈/비공개",
+"round": "Bridge",
+"amount_usd": 17.0,
+"amount_krw": 235,
+"currency_orig": "KRW",
+"amount_orig": 235,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"에이티넘인베스트먼트",
+"한국산업은행",
+"프리미어파트너스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Neurology",
+"stage": "미상",
+"lead_asset": "SVG103 / SVG105 (뇌전증 등)",
+"platform": "N",
+"use_of_proceeds": "임상 파이프라인 개발 가속; 내년 기술성평가 신청 계획",
+"outcome": "2026-02 Pre-IPO 123억원 유치",
+"sources": [
+"https://www.topdaily.kr/articles/104287",
+"https://startuprecipe.co.kr/wp-content/uploads/2025/07/250630_weekly_startuprecipe_v001.pdf"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0138"
+},
+{
+"company": "일동바이오사이언스",
+"country": "한국",
+"date": "2025-06-23",
+"type": "시리즈/비공개",
+"round": "Pre-IPO(구주 매각)",
+"amount_usd": 21.8,
+"amount_krw": 300,
+"currency_orig": "KRW",
+"amount_orig": 300,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "일동홀딩스가 보유 지분 47%를 300억원에 매각하는 구조(신주 아님); 이후 기업가치 하락 보도(서울경제)",
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Other",
+"stage": "미상",
+"lead_asset": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.newsis.com/view/NISX20250623_0003223574",
+"https://www.sedaily.com/NewsView/2GU6QHPSTV",
+"https://www.news1.kr/bio/pharmaceutical-bio/5822771"
+],
+"note": "구주 매각 형태의 프리IPO 투자 유치로 회사 유입 자금 여부 불명 — 확신 낮음",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0139"
 },
 {
 "company": "Draig Therapeutics",
@@ -3994,7 +5769,7 @@
 "note": "신경정신계; 날짜는 Fierce 트래커(6/18) 기준",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0094"
+"id": "i0140"
 },
 {
 "company": "SpliceBio",
@@ -4039,7 +5814,7 @@
 "note": "SB-007 Phase 1/2 ASTRA; Protein Splicing 이중 AAV",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0095"
+"id": "i0141"
 },
 {
 "company": "Antares Therapeutics",
@@ -4086,7 +5861,53 @@
 "note": "Scorpion Therapeutics 스핀아웃; 가장 앞선 프로그램 2026 임상 진입 예정",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0096"
+"id": "i0142"
+},
+{
+"company": "에임드바이오",
+"country": "한국",
+"date": "2025-06-02",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 37.2,
+"amount_krw": 511,
+"currency_orig": "KRW",
+"amount_orig": 511,
+"amount_orig_unit": "억",
+"lead": [
+"인터베스트",
+"DS자산운용",
+"삼성생명공익재단",
+"SMB투자파트너스"
+],
+"investors": [
+"인터베스트",
+"DS자산운용",
+"삼성생명공익재단",
+"SMB투자파트너스",
+"미래에셋증권"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "누적 투자액 1,135억원(더벨)",
+"exchange": null,
+"ticker": null,
+"modality": "ADC",
+"area": "Oncology",
+"stage": "Phase 1",
+"lead_asset": "AMB302 / AMB303",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": "2025-12-04 코스닥 상장",
+"sources": [
+"https://biz.chosun.com/science-chosun/bio/2025/06/02/LUMONYZRKZE7JNJTTORBXKTP5Y/",
+"https://www.sedaily.com/NewsView/2GTXZEO11M",
+"https://www.mk.co.kr/article/11334105",
+"https://startuprecipe.co.kr/wp-content/uploads/2025/06/250602_weekly_startuprecipe_v001.pdf"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0143"
 },
 {
 "company": "GlycoEra",
@@ -4131,7 +5952,7 @@
 "note": "이원특이성(bispecific) 세포외 분해제; 국가는 Swiss(venturelab) 기준 스위스",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0097"
+"id": "i0144"
 },
 {
 "company": "GRIN Therapeutics",
@@ -4168,7 +5989,81 @@
 "note": "Angelini와의 북미 외 지역 라이선스/협업 계약과 동시 발표; 출처 상 리드 투자자 명시 없음",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0098"
+"id": "i0145"
+},
+{
+"company": "인투셀",
+"country": "한국",
+"date": "2025-05-23",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 18.2,
+"amount_krw": 255,
+"currency_orig": "KRW",
+"amount_orig": 255,
+"amount_orig_unit": "억",
+"lead": [
+"미래에셋증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "ADC",
+"area": "Oncology",
+"stage": "미상",
+"lead_asset": "B7-H3 표적 ADC; OPAS 링커·PMT 세포침투 기술",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.cbci.co.kr/news/articleView.html?idxno=502230",
+"https://www.yna.co.kr/view/AKR20250512135900008",
+"https://www.medipana.com/article/view.php?news_idx=343151&sch_cate=D"
+],
+"note": "150만주 × 1만7,000원(희망밴드 상단); 상장 첫날 약 95~107% 상승",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0146"
+},
+{
+"company": "이뮨온시아",
+"country": "한국",
+"date": "2025-05-19",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 23.5,
+"amount_krw": 329,
+"currency_orig": "KRW",
+"amount_orig": 329,
+"amount_orig_unit": "억",
+"lead": [
+"한국투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "데일리팜: 상장일 시총 4,117억원 데뷔(상장 첫날 기준)",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "항체",
+"area": "Oncology",
+"stage": "Phase 2",
+"lead_asset": "IMC-001 (PD-L1), IMC-002 (CD47)",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.yna.co.kr/view/AKR20250508166300008",
+"https://www.medipana.com/article/view.php?news_idx=343151&sch_cate=D",
+"http://www.smedaily.co.kr/news/articleView.html?idxno=326705"
+],
+"note": "모회사 유한양행; 공모가 3,600원(희망밴드 상단), 일반청약 경쟁률 913:1",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0147"
 },
 {
 "company": "CellCentric",
@@ -4208,7 +6103,7 @@
 "note": "이전 라운드: RA Capital $35M(전년), Pfizer 전략투자 $25M",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0099"
+"id": "i0148"
 },
 {
 "company": "Pathos AI",
@@ -4242,7 +6137,7 @@
 "note": "투자자 비공개(기존+신규); pocenbrodib Phase 1b/2a",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0100"
+"id": "i0149"
 },
 {
 "company": "Azafaros",
@@ -4285,7 +6180,43 @@
 "note": "USD 환산 $147M은 Fierce 기재치; Phase 3 진입 예정(2H25)",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0101"
+"id": "i0150"
+},
+{
+"company": "오가노이드사이언스",
+"country": "한국",
+"date": "2025-05-09",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 18.0,
+"amount_krw": 252,
+"currency_orig": "KRW",
+"amount_orig": 252,
+"amount_orig_unit": "억",
+"lead": [
+"한국투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "세포치료",
+"area": "Other",
+"stage": "미상",
+"lead_asset": "오가노이드 기반 재생치료제 플랫폼",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"http://www.issuenbiz.com/news/articleView.html?idxno=60274",
+"https://www.medipana.com/article/view.php?news_idx=343151&sch_cate=D"
+],
+"note": "공모가 2만1,000원(희망밴드 최상단); 오가노이드 기반 동물대체시험(NAMs) 사업 병행 — 신약개발사 해당 여부 확신 낮음",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0151"
 },
 {
 "company": "NewLimit",
@@ -4330,7 +6261,7 @@
 "note": "후생유전학적 리프로그래밍 기반 노화 치료제(AI+유전체 플랫폼); 확신 낮음(적응증/모달리티/단계 출처 미기재)",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0102"
+"id": "i0152"
 },
 {
 "company": "Granite Bio",
@@ -4369,7 +6300,49 @@
 "note": "Series A $30M(Versant, Novartis VF 리드) + Series B $70M(Forbion, Sanofi Ventures 리드)",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0103"
+"id": "i0153"
+},
+{
+"company": "프로젠",
+"country": "한국",
+"date": "2025-04-18",
+"type": "시리즈/비공개",
+"round": "유상증자(CPS 80억+CB 140억)",
+"amount_usd": 15.3,
+"amount_krw": 220,
+"currency_orig": "KRW",
+"amount_orig": 220,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"유한양행",
+"JW중외제약",
+"에스엘바이젠",
+"이수만(A2O엔터테인먼트 대표)",
+"수성에셋인베스트먼트·티쓰리벤처스 조합"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타 단백질·융합단백",
+"area": "Metabolic",
+"stage": "Phase 2",
+"lead_asset": "PG-102 (GLP-1/GLP-2 이중작용제)",
+"platform": "Y",
+"use_of_proceeds": "임상 및 후속 파이프라인 개발",
+"outcome": null,
+"sources": [
+"https://www.yakup.com/news/index.html?mode=view&cat=12&nid=309006",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=63719",
+"http://www.biotimes.co.kr/news/articleView.html?idxno=20917",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=64190"
+],
+"note": "전환우선주 80억원 + 전환사채 140억원의 메자닌 구성(히트뉴스 비상장 집계 기준)",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0154"
 },
 {
 "company": "Glycomine",
@@ -4416,7 +6389,7 @@
 "note": "GLM101은 mannose-1-phosphate 보충 요법(출처 표기)",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0104"
+"id": "i0155"
 },
 {
 "company": "Merida Biosciences",
@@ -4457,7 +6430,7 @@
 "note": "Fc 기반 항체 유사 치료제(자가항체 제거); 프로그램: Graves, 알레르기, 막성신병증",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0105"
+"id": "i0156"
 },
 {
 "company": "RayThera",
@@ -4495,7 +6468,7 @@
 ],
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0106"
+"id": "i0157"
 },
 {
 "company": "Neurona Therapeutics",
@@ -4544,7 +6517,7 @@
 "note": "NRTX-1001 Phase 1/2 진행 중; 라운드 명칭 출처 상 미표기",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0107"
+"id": "i0158"
 },
 {
 "company": "Atsena Therapeutics",
@@ -4588,7 +6561,52 @@
 "note": "ATSN-201은 Phase I/II 진행 중",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0108"
+"id": "i0159"
+},
+{
+"company": "프레이저테라퓨틱스",
+"country": "한국",
+"date": "2025-04-01",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 20.2,
+"amount_krw": 290,
+"currency_orig": "KRW",
+"amount_orig": 290,
+"amount_orig_unit": "억",
+"lead": [
+"JJDC (Johnson & Johnson Innovation)"
+],
+"investors": [
+"JJDC",
+"프리미어파트너스",
+"K2인베스트먼트",
+"미래에셋캐피탈",
+"쿼드자산운용",
+"STIC벤처스",
+"컴퍼니케이파트너스",
+"키움인베스트먼트"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "TPD(분해제)",
+"area": "Multiple",
+"stage": "미상",
+"lead_asset": "SPiDEM 플랫폼 (타우·α-시뉴클레인, 항암)",
+"platform": "Y",
+"use_of_proceeds": "신약 연구개발 및 글로벌 사업화",
+"outcome": "2026-07 Pre-IPO 500억원 추가 유치",
+"sources": [
+"https://www.newsis.com/view/NISX20250401_0003121514",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=63082",
+"https://biz.chosun.com/science-chosun/bio/2025/04/01/MZ2MSGCPIBB5TC5XMW7WZ33TAI/"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0160"
 },
 {
 "company": "AIRNA",
@@ -4631,7 +6649,7 @@
 "note": "RNA 편집(AATD)",
 "_batch": "ovp08b",
 "year": 2025,
-"id": "i0109"
+"id": "i0161"
 },
 {
 "company": "Isomorphic Labs",
@@ -4670,7 +6688,49 @@
 "note": "Round label 'first external funding round'; programs mainly oncology and immunology",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0110"
+"id": "i0162"
+},
+{
+"company": "다임바이오",
+"country": "한국",
+"date": "2025-03-25",
+"type": "시리즈/비공개",
+"round": "Series A",
+"amount_usd": 8.2,
+"amount_krw": 120,
+"currency_orig": "KRW",
+"amount_orig": 120,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"파트너스인베스트먼트",
+"메리츠증권",
+"삼호그린인베스트먼트",
+"중소기업은행",
+"메디톡스벤처투자",
+"코너스톤투자파트너스",
+"미리어드생명과학"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Oncology",
+"stage": "Phase 1",
+"lead_asset": "DM5167 (PARP-1 선택 억제 면역항암제)",
+"platform": "N",
+"use_of_proceeds": "DM5167 임상, DM3159(퇴행성 뇌질환) 비임상 개발",
+"outcome": null,
+"sources": [
+"https://www.newspim.com/news/view/20250325000508",
+"http://www.edaily.co.kr/news/newspath.asp?newsid=02548566642106928",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=62980"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0163"
 },
 {
 "company": "Curevo Vaccines",
@@ -4714,7 +6774,7 @@
 "note": "Country not stated in fetched source",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0111"
+"id": "i0164"
 },
 {
 "company": "Latigo Biotherapeutics",
@@ -4759,7 +6819,49 @@
 "note": "Modality inferred from oral dosing/NaV1.8 description; Phase 2 starts later 2025",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0112"
+"id": "i0165"
+},
+{
+"company": "카리스바이오",
+"country": "한국",
+"date": "2025-03-04",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 7.9,
+"amount_krw": 115,
+"currency_orig": "KRW",
+"amount_orig": 115,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"산업은행",
+"프리미어파트너스",
+"데브시스터즈벤처스",
+"아주IB투자",
+"한국벤처투자",
+"연대바이오헬스기술지주",
+"연세대학교기술지주"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "세포치료",
+"area": "Other",
+"stage": "미상",
+"lead_asset": "iPSC 유래 내피세포 치료제",
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"http://news.mt.co.kr/mtview.php?no=2025030414362346457",
+"https://www.pharmnews.com/news/articleView.html?idxno=258063",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=62980"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0166"
 },
 {
 "company": "Callio Therapeutics",
@@ -4805,7 +6907,7 @@
 "note": "Country not stated in fetched source; stage inferred from 'to achieve clinical PoC'",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0113"
+"id": "i0167"
 },
 {
 "company": "Eikon Therapeutics",
@@ -4848,7 +6950,44 @@
 "note": "Initial closing; round led by unnamed existing investors; platform flag from labiotech 'microscope technology' description",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0114"
+"id": "i0168"
+},
+{
+"company": "오름테라퓨틱",
+"country": "한국",
+"date": "2025-02-14",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 34.5,
+"amount_krw": 500,
+"currency_orig": "KRW",
+"amount_orig": 500,
+"amount_orig_unit": "억",
+"lead": [
+"한국투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": 288.7,
+"valuation_note": "공모가(2만원) 기준 시가총액 4,186억원(비즈워치); 공모가는 희망밴드 하단 대비 17% 낮은 2만원",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "ADC",
+"area": "Oncology",
+"stage": "미상",
+"lead_asset": "ORM-5029 (HER2 유방암), ORM-1023, ORM-1153, ORM-6151; TPD 기반 DAC 플랫폼",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": "상장 3거래일 만에 공모가 대비 65~80% 상승",
+"sources": [
+"https://www.newsis.com/view/NISX20250203_0003051279",
+"https://www.medipana.com/article/view.php?news_idx=340088&sch_cate=D",
+"https://news.bizwatch.co.kr/article/healthcare/2025/12/26/0021"
+],
+"note": "250만주 × 2만원(신주); 일반청약 미달을 간신히 피함(뉴스토프)",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0169"
 },
 {
 "company": "Abcuro",
@@ -4893,7 +7032,7 @@
 "note": "Phase 2/3 pivotal; topline 1H 2026",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0115"
+"id": "i0170"
 },
 {
 "company": "AdvanCell",
@@ -4935,7 +7074,52 @@
 "note": "Phase 1/2 in mCRPC; oversubscribed",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0116"
+"id": "i0171"
+},
+{
+"company": "큐어버스",
+"country": "한국",
+"date": "2025-01-16",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 17.2,
+"amount_krw": 250,
+"currency_orig": "KRW",
+"amount_orig": 250,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"유스틱벤처스",
+"대교인베스트먼트",
+"유티씨인베스트먼트",
+"유안타인베스트먼트",
+"그래디언트",
+"솔리더스인베스트먼트",
+"파트너스인베스트먼트",
+"KB증권"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "이데일리 제목: 440억대 프리밸류 인정(단일 출처, 수치 미채택)",
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Neurology",
+"stage": "Phase 1",
+"lead_asset": "CV-01",
+"platform": "N",
+"use_of_proceeds": "자가면역질환 후보 미국 FDA 임상1상 진입 추진 및 추가 기술이전",
+"outcome": null,
+"sources": [
+"https://www.thebell.co.kr/free/content/ArticleView.asp?key=202501162234476320102718",
+"http://www.edaily.co.kr/news/newspath.asp?newsid=04185286642067240",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=61518",
+"https://startuprecipe.co.kr/wp-content/uploads/2025/02/250203_weekly_startuprecipe_v001.pdf"
+],
+"note": "원문 일자는 더벨 기사(2025-01-16) 기준",
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0172"
 },
 {
 "company": "Umoja Biopharma",
@@ -4980,7 +7164,7 @@
 "note": "Exactly $100M, meets >= threshold; oversubscribed",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0117"
+"id": "i0173"
 },
 {
 "company": "Tune Therapeutics",
@@ -5019,7 +7203,50 @@
 "note": "Described as 'over $175M'; exact announcement day approx (PR id 20250112; Crunchbase week Jan 11-17)",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0118"
+"id": "i0174"
+},
+{
+"company": "리스큐어바이오사이언스",
+"country": "한국",
+"date": "2025-01-10",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 13.7,
+"amount_krw": 200,
+"currency_orig": "KRW",
+"amount_orig": 200,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"유안타인베스트먼트",
+"인터밸류파트너스",
+"디티앤인베스트먼트",
+"IBK증권",
+"이지자산운용",
+"인트로바이오",
+"로이투자파트너스",
+"뮤어우즈벤처스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "전달·제형 플랫폼",
+"area": "Other",
+"stage": "미상",
+"lead_asset": "LB-P8 (간질환, 미국 2상 계획) / BBB 셔틀 Exo-Pass N",
+"platform": "Y",
+"use_of_proceeds": "간질환 후보 LB-P8 미국 임상2상, BBB 셔틀 플랫폼 공동사업화, LB-P2D 미국 임상 진입 연구",
+"outcome": null,
+"sources": [
+"http://www.biotimes.co.kr/news/articleView.html?idxno=19172",
+"http://www.edaily.co.kr/news/newspath.asp?newsid=02443606642036408",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=61518"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0175"
 },
 {
 "company": "Kardigan",
@@ -5056,7 +7283,7 @@
 ],
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0119"
+"id": "i0176"
 },
 {
 "company": "Windward Bio",
@@ -5101,7 +7328,7 @@
 "note": "Lead asset described as Phase 2-ready; licensed from Kelun-Biotech and Harbour BioMed",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0120"
+"id": "i0177"
 },
 {
 "company": "Timberlyne Therapeutics",
@@ -5143,7 +7370,7 @@
 "note": "Asset licensed from Keymed Biosciences; Phase 1/2 data in ITP; country not stated in fetched source",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0121"
+"id": "i0178"
 },
 {
 "company": "Ouro Medicines",
@@ -5187,7 +7414,7 @@
 "note": "Asset licensed from Keymed (Phase 2 in myeloma in China); Ouro plans Phase 1 in 2025; country not stated in fetched source",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0122"
+"id": "i0179"
 },
 {
 "company": "Verdiva Bio",
@@ -5224,7 +7451,7 @@
 "note": "Oral once-weekly GLP-1 / oral amylin and injectables per release; modality/stage not specified in source",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0123"
+"id": "i0180"
 },
 {
 "company": "Aviceda Therapeutics",
@@ -5270,7 +7497,80 @@
 "note": "Phase 2b/3 trial vs Izervay; upsized round",
 "_batch": "ovp08a",
 "year": 2025,
-"id": "i0124"
+"id": "i0181"
+},
+{
+"company": "진코어",
+"country": "한국",
+"date": "2025-01-03",
+"type": "시리즈/비공개",
+"round": "Bridge",
+"amount_usd": 6.9,
+"amount_krw": 100,
+"currency_orig": "KRW",
+"amount_orig": 100,
+"amount_orig_unit": "억",
+"lead": [
+"인터베스트"
+],
+"investors": [
+"인터베스트"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "유전자치료·편집",
+"area": "Rare disease",
+"stage": "미상",
+"lead_asset": null,
+"platform": "Y",
+"use_of_proceeds": "희귀질환 유전자치료제 개발",
+"outcome": null,
+"sources": [
+"https://www.yakup.com/news/index.html?mode=view&cat=12&nid=304638",
+"https://www.mk.co.kr/article/11208219",
+"http://www.hitnews.co.kr/news/articleView.html?idxno=63283"
+],
+"_batch": "kr2526",
+"year": 2025,
+"id": "i0182"
+},
+{
+"company": "온코닉테라퓨틱스",
+"country": "한국",
+"date": "2024-12-19",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 14.1,
+"amount_krw": 202,
+"currency_orig": "KRW",
+"amount_orig": 202,
+"amount_orig_unit": "억",
+"lead": [
+"NH투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": 97.9,
+"valuation_note": "공모가 13,000원(밴드 16,000~18,000원 하회) 기준 상장 후 예상 시총 약 1,405억원; 수요예측 경쟁률 198.96:1",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "기타·미상",
+"area": "Multiple",
+"stage": "복수 단계",
+"lead_asset": "자큐보(P-CAB, 2024-04 허가) / 네수파립(PARP·탄키라제 저해, 췌장암 2상)",
+"platform": "N",
+"use_of_proceeds": "순조달 약 197억원을 향후 2년간 R&D 인건비·임상비 등에 사용",
+"outcome": "2024-12-19 코스닥 상장",
+"sources": [
+"https://www.dailypharm.com/user/news/10500",
+"https://v.daum.net/v/20241222081457166"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0183"
 },
 {
 "company": "Ottimo Pharma",
@@ -5315,7 +7615,40 @@
 "note": "국가 출처 미명시(미국 추정, 확신 낮음); 'over $140M'; IND 2025 말 예정",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0125"
+"id": "i0184"
+},
+{
+"company": "온코크로스",
+"country": "한국",
+"date": "2024-12-18",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 7.2,
+"amount_krw": 104,
+"currency_orig": "KRW",
+"amount_orig": 104,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "공모가 7,300원(밴드 10,100~12,300원 대비 -27.7% 하회); 조달 약 104억원(당초 151~184억원 예상)",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "디스커버리·AI 플랫폼",
+"area": "Other",
+"stage": "미상",
+"lead_asset": "OJP3101(AMI/NASH), OC201/OC202e(항암), OC514(근질환)",
+"platform": "Y",
+"use_of_proceeds": "운영 39억원, 시설 7억원, R&D 및 발행제비용 약 57억원",
+"outcome": "2024-12-18 코스닥 상장",
+"sources": [
+"https://news.bizwatch.co.kr/article/mobile/2024/12/17/0023",
+"https://v.daum.net/v/20241222081457166"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0185"
 },
 {
 "company": "SiteOne Therapeutics",
@@ -5354,7 +7687,77 @@
 ],
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0126"
+"id": "i0186"
+},
+{
+"company": "핀테라퓨틱스",
+"country": "한국",
+"date": "2024-12-15",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 13.9,
+"amount_krw": 200,
+"currency_orig": "KRW",
+"amount_orig": 200,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "날짜 불명(THE VC 2024-12, 바이오스펙테이터 12월 집계 4곳 880억 중 포함 추정)이라 date_approx; 밸류·투자자 미확인",
+"exchange": null,
+"ticker": null,
+"modality": "TPD(분해제)",
+"area": "Oncology",
+"stage": "Preclinical",
+"lead_asset": "PIN-5018(CK1α 분해제, 분자접착; 1상 IND 신청 예정)",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://medigatenews.com/news/3685962392",
+"https://thevc.kr/pintherapeutics",
+"https://www.biospectator.com/news/view/23931"
+],
+"date_approx": true,
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0187"
+},
+{
+"company": "알지노믹스",
+"country": "한국",
+"date": "2024-12-15",
+"type": "시리즈/비공개",
+"round": "Pre-IPO",
+"amount_usd": 14.1,
+"amount_krw": 203,
+"currency_orig": "KRW",
+"amount_orig": 203,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "바이오스펙테이터 2024-12 집계에 203억 기재, 정확한 일자·투자자·밸류 미확인(date_approx); 누적 812억원(메디게이트)",
+"exchange": null,
+"ticker": null,
+"modality": "유전자치료·편집",
+"area": "Oncology",
+"stage": "Phase 1",
+"lead_asset": "RZ-001(RNA 트랜스스플라이싱 리보자임, 간암·교모세포종 1b/2상 국내·1/2a상 미국)",
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": "2025-05 릴리와 RNA 편집 라이선스 계약; 2025-12 코스닥 상장(공모가 22,500원, 공모 약 464억원; 바이오스펙테이터 27198)",
+"sources": [
+"https://www.biospectator.com/news/view/23931",
+"https://www.biospectator.com/news/view/26418",
+"https://medigatenews.com/news/3685962392"
+],
+"date_approx": true,
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0188"
 },
 {
 "company": "Angitia Biopharmaceuticals",
@@ -5397,7 +7800,7 @@
 "note": "AGA111 Phase 3, AGA2118 Phase 2; 근골격계를 Other로 분류; 기사상 캘리포니아 소재(중국계 투자자 다수)",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0127"
+"id": "i0189"
 },
 {
 "company": "Nuvig Therapeutics",
@@ -5441,7 +7844,7 @@
 "note": "Phase 1 완료, Phase 2 진입",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0128"
+"id": "i0190"
 },
 {
 "company": "Maze Therapeutics",
@@ -5483,7 +7886,7 @@
 "note": "신장/심혈관/대사 포커스, 신장질환을 Other로 분류; 2025 Q1 Phase 2 개시 예정",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0129"
+"id": "i0191"
 },
 {
 "company": "Adcendo",
@@ -5527,7 +7930,7 @@
 "note": "ADCE-D01 2024-10 FDA IND 클리어, Phase 1/2 예정(Stage는 실질 Preclinical~Phase 1)",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0130"
+"id": "i0192"
 },
 {
 "company": "Enveda",
@@ -5567,7 +7970,7 @@
 "note": "천연물 기반 AI 탐색 플랫폼; 모달리티는 출처상 미명시(저분자 추정 가능하나 플랫폼으로 분류)",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0131"
+"id": "i0193"
 },
 {
 "company": "Alentis Therapeutics",
@@ -5611,7 +8014,7 @@
 "note": "ALE.P02 FDA IND 승인, Phase 1/2는 2025 Q1 개시 예정",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0132"
+"id": "i0194"
 },
 {
 "company": "Trace Neuroscience",
@@ -5650,7 +8053,7 @@
 "note": "Fierce 트래커 표기는 'Trace Medicine'; 기사 URL상 Trace. 공식 회사명(Trace Neuroscience)은 출처 본문 미확인이므로 확신 낮음. 단계 출처상 미명시(전임상 추정)",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0133"
+"id": "i0195"
 },
 {
 "company": "Metsera",
@@ -5696,7 +8099,83 @@
 "note": "발표 11/12(기사 11/13); Phase 2(16주) 개시. 단계는 Phase 1/2",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0134"
+"id": "i0196"
+},
+{
+"company": "노벨티노빌리티",
+"country": "한국",
+"date": "2024-11-11",
+"type": "시리즈/비공개",
+"round": "Series C(Pre-IPO)",
+"amount_usd": 16.7,
+"amount_krw": 233,
+"currency_orig": "KRW",
+"amount_orig": 233,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"신한벤처투자",
+"삼호그린인베스트먼트",
+"SL인베스트먼트",
+"KB솔리더스헬스케어펀드",
+"브레이브인베스트먼트",
+"산은캐피탈"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "밸류 미공개; 리드 미명시",
+"exchange": null,
+"ticker": null,
+"modality": "ADC",
+"area": "Oncology",
+"stage": "Preclinical",
+"lead_asset": "NN3201(c-Kit ADC; FDA 1상 IND 2024-05 승인, 첫 투여 2025 상반기 목표)",
+"platform": "Y",
+"use_of_proceeds": "NN3201 임상 운영, 신규 타깃 후보 발굴",
+"outcome": "2025-01 코스닥 상장예비심사 청구 계획(출처 기재); 상장 여부는 미확인",
+"sources": [
+"https://medigatenews.com/news/2869223552",
+"https://www.biospectator.com/news/view/23538",
+"https://medigatenews.com/news/3685962392"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0197"
+},
+{
+"company": "에이치이엠파마",
+"country": "한국",
+"date": "2024-11-05",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 11.5,
+"amount_krw": 160,
+"currency_orig": "KRW",
+"amount_orig": 160,
+"amount_orig_unit": "억",
+"lead": [
+"신한투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": 114.8,
+"valuation_note": "공모가 23,000원 기준 예상 시총 약 1,601억원; 수요예측 경쟁률 1,220.7:1. 사업이 맞춤형 헬스케어+LBP 디스커버리 플랫폼으로 신약개발 순수성은 낮음",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "기타·미상",
+"area": "Other",
+"stage": "Discovery",
+"lead_asset": null,
+"platform": "Y",
+"use_of_proceeds": "맞춤형 헬스케어·LBP 선행 연구개발, 해외 진출 시설자금",
+"outcome": "2024-11-05 코스닥 상장",
+"sources": [
+"https://medigatenews.com/news/1671070647",
+"https://dailypharm.com/user/news/15356"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0198"
 },
 {
 "company": "Evommune",
@@ -5742,7 +8221,7 @@
 "note": "날짜는 Fierce 트래커 10/31 (Pulse2 기사 11/7). 국가 출처 미명시(미국 추정, 확신 낮음). 복수 모달리티(저분자+융합단백)",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0135"
+"id": "i0199"
 },
 {
 "company": "Axonis Therapeutics",
@@ -5783,7 +8262,7 @@
 "note": "STAT 본문 유료(일부만 확인); 모달리티·단계 미확인. 이온채널 대상 통증/(타 매체 간질) 언급. PRNewswire 링크는 Fierce 트래커 제공, 직접 열람 못함",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0136"
+"id": "i0200"
 },
 {
 "company": "Alpha-9 Oncology",
@@ -5828,7 +8307,7 @@
 "note": "출처 본문상 리드 자산명 미명시; MC1R 영상제 Phase 1 진행",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0137"
+"id": "i0201"
 },
 {
 "company": "AvenCell Therapeutics",
@@ -5870,7 +8349,51 @@
 "note": "보도자료에 임상 단계 구체 Phase 미기재(임상 중), Phase 1로 분류 시 확신 낮음; R&D/제조 독일 드레스덴",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0138"
+"id": "i0202"
+},
+{
+"company": "마이크로바이오틱스",
+"country": "한국",
+"date": "2024-10-21",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 11.0,
+"amount_krw": 150,
+"currency_orig": "KRW",
+"amount_orig": 150,
+"amount_orig_unit": "억",
+"lead": [
+"DSC인베스트먼트",
+"슈미트(Schmidt)"
+],
+"investors": [
+"프리미어파트너스",
+"한국투자파트너스",
+"한국투자증권",
+"솔리더스인베스트먼트",
+"S&S인베스트먼트",
+"원티드랩파트너스",
+"퀀텀FA"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "밸류 미공개; 누적 240억원",
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Infectious disease",
+"stage": "Preclinical",
+"lead_asset": "MP001(천연 박테리오파지 3종 칵테일, 다제내성 녹농균 폐렴; IND 2024말~2025 신청 예정)",
+"platform": "Y",
+"use_of_proceeds": "국내 최초 파지 임상 개시, 후속 파이프라인 개발",
+"outcome": null,
+"sources": [
+"https://www.biospectator.com/news/view/23359",
+"https://www.etoday.co.kr/news/view/2411266"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0203"
 },
 {
 "company": "Seaport Therapeutics",
@@ -5915,7 +8438,7 @@
 "note": "신경정신(우울증) 영역을 Neurology로 분류; 2024-04 론칭 이후 누적 $325M. Stage는 Phase 2b 진입 예정 기준",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0139"
+"id": "i0204"
 },
 {
 "company": "Terray Therapeutics",
@@ -5960,7 +8483,44 @@
 "note": "Fierce 트래커 10/17, 보도자료 10/18; 국가는 LA 발신지 기준 추정",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0140"
+"id": "i0205"
+},
+{
+"company": "셀비온",
+"country": "한국",
+"date": "2024-10-15",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 21.0,
+"amount_krw": 287,
+"currency_orig": "KRW",
+"amount_orig": 287,
+"amount_orig_unit": "억",
+"lead": [
+"대신증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "공모가 15,000원(밴드 10,000~12,200원 상단 대비 +23%); 시총 출처 미기재",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "방사성의약품",
+"area": "Oncology",
+"stage": "Phase 2",
+"lead_asset": "Lu-177-DGUL(PSMA 표적, mCRPC)",
+"platform": "N",
+"use_of_proceeds": "신약 임상비용, 연구자금, 연구인력 확보",
+"outcome": "2024-10 중순 코스닥 상장(정확한 상장일 출처 미확인; 일반청약 10/7~8)",
+"sources": [
+"https://www.dailypharm.com/user/news/12814",
+"https://www.dailypharm.com/user/news/13395",
+"https://www.biospectator.com/news/view/22861"
+],
+"date_approx": true,
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0206"
 },
 {
 "company": "Treeline Biosciences",
@@ -5994,7 +8554,7 @@
 "date_approx": true,
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0141"
+"id": "i0207"
 },
 {
 "company": "City Therapeutics",
@@ -6037,7 +8597,7 @@
 "note": "날짜는 BusinessWire URL(20241008) 기준",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0142"
+"id": "i0208"
 },
 {
 "company": "Judo Bio",
@@ -6080,7 +8640,7 @@
 "note": "Seed와 Series A 합산 $100M; 질환영역은 신장/전신질환 표적으로 출처상 특정 적응증 없음(Other)",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0143"
+"id": "i0209"
 },
 {
 "company": "Purespring Therapeutics",
@@ -6121,7 +8681,7 @@
 "note": "출처 환산치 약 $105M 사용; 영역은 신장질환(Rare disease로 분류, 확신 낮음). 보도자료 런던 10/7, Forbion 페이지 10/9",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0144"
+"id": "i0210"
 },
 {
 "company": "Triveni Bio",
@@ -6162,7 +8722,7 @@
 "note": "Fierce 트래커 표 제목은 $152M/Series A로 표기되나 본문·BioPharma Dive는 $115M Series B",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0145"
+"id": "i0211"
 },
 {
 "company": "Kailera Therapeutics",
@@ -6202,7 +8762,7 @@
 "note": "국가는 출처 본문에 미명시(미국 추정, 확신 낮음). 모달리티는 GLP-1/GIP 이중작용제(주사)로 펩타이드 분류. Phase 3는 중국 내 Hengrui 진행 기준",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i0146"
+"id": "i0212"
 },
 {
 "company": "Aktis Oncology",
@@ -6245,7 +8805,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0147"
+"id": "i0213"
 },
 {
 "company": "Vicebio",
@@ -6286,7 +8846,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0148"
+"id": "i0214"
 },
 {
 "company": "F2G",
@@ -6331,7 +8891,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0149"
+"id": "i0215"
 },
 {
 "company": "Candid Therapeutics",
@@ -6377,7 +8937,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0150"
+"id": "i0216"
 },
 {
 "company": "Superluminal Medicines",
@@ -6419,7 +8979,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0151"
+"id": "i0217"
 },
 {
 "company": "ArsenalBio",
@@ -6462,7 +9022,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0152"
+"id": "i0218"
 },
 {
 "company": "eGenesis",
@@ -6506,7 +9066,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0153"
+"id": "i0219"
 },
 {
 "company": "Navigator Medicines",
@@ -6545,7 +9105,43 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0154"
+"id": "i0220"
+},
+{
+"company": "이엔셀",
+"country": "한국",
+"date": "2024-08-23",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 17.7,
+"amount_krw": 240,
+"currency_orig": "KRW",
+"amount_orig": 240,
+"amount_orig_unit": "억",
+"lead": [
+"NH투자증권"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": 105.6,
+"valuation_note": "공모가 15,300원(밴드 상단) 기준 상장 후 시총 약 1,431억원; 일반청약 경쟁률 928:1",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "세포치료",
+"area": "Other",
+"stage": "Phase 1",
+"lead_asset": "EN001(뒤센근위축증 DMD, 임상 1b/2상) / CMT 1A 치료제(1b상)",
+"platform": "N",
+"use_of_proceeds": "제4 GMP 생산시설 구축, 샤르코마리투스(CMT) 임상 비용",
+"outcome": "2024-08-23 코스닥 상장; CDO/CMO 사업 병행",
+"sources": [
+"https://www.biospectator.com/news/view/22777",
+"https://medigatenews.com/news/1301774098",
+"https://v.daum.net/v/20240826135055460"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0221"
 },
 {
 "company": "Borealis Biosciences",
@@ -6584,7 +9180,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0155"
+"id": "i0222"
 },
 {
 "company": "Pathalys Pharma",
@@ -6627,7 +9223,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0156"
+"id": "i0223"
 },
 {
 "company": "Halda Therapeutics",
@@ -6670,7 +9266,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0157"
+"id": "i0224"
 },
 {
 "company": "IDRx",
@@ -6715,7 +9311,46 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0158"
+"id": "i0225"
+},
+{
+"company": "아델",
+"country": "한국",
+"date": "2024-08-01",
+"type": "시리즈/비공개",
+"round": "Series B bridge",
+"amount_usd": 12.5,
+"amount_krw": 170,
+"currency_orig": "KRW",
+"amount_orig": 170,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"스톤브릿지벤처스",
+"한국산업은행",
+"유안타인베스트먼트",
+"스마일게이트인베스트먼트",
+"민트벤처파트너스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "밸류 미공개; 7/31 클로징, 8/1 보도; 누적 300억원",
+"exchange": null,
+"ticker": null,
+"modality": "항체",
+"area": "Neurology",
+"stage": "Phase 1",
+"lead_asset": "ADEL-Y01(아세틸화 tau 항체, 알츠하이머, 미국 1상)",
+"platform": "N",
+"use_of_proceeds": "ADEL-Y01 개발비, ADEL-Y04 전임상 R&D",
+"outcome": null,
+"sources": [
+"https://www.biospectator.com/news/view/22708",
+"https://www.biospectator.com/news/view/22679"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0226"
 },
 {
 "company": "Outpace Bio",
@@ -6759,7 +9394,49 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0159"
+"id": "i0227"
+},
+{
+"company": "에임드바이오",
+"country": "한국",
+"date": "2024-07-31",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 29.0,
+"amount_krw": 400,
+"currency_orig": "KRW",
+"amount_orig": 400,
+"amount_orig_unit": "억",
+"lead": [
+"삼성라이프사이언스펀드",
+"인베스트(인터베스트)"
+],
+"investors": [
+"DS자산운용",
+"민트벤처파트너스",
+"유한양행",
+"삼성생명공익재단"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "밸류 미공개; 삼성라이프사이언스펀드(SI)·인터베스트(FI) 리드(데일리팜 표기 '인터베스트', 바이오스펙테이터 'Intervest')",
+"exchange": null,
+"ticker": null,
+"modality": "ADC",
+"area": "Oncology",
+"stage": "Preclinical",
+"lead_asset": "AMB302(FGFR3 표적 ADC)",
+"platform": "N",
+"use_of_proceeds": "AMB302 임상 준비 및 후속 ADC·BBB 투과 뇌질환 파이프라인 개발",
+"outcome": "2025-01 FGFR3 ADC를 Biohaven에 라이선스 아웃; 2025-06 Pre-IPO 511억원(바이오스펙테이터 25593); 2025 말 코스닥 상장(데일리팜 336087)",
+"sources": [
+"https://www.biospectator.com/news/view/22674",
+"https://dailypharm.com/user/news/14637",
+"https://www.biospectator.com/news/view/23469"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0228"
 },
 {
 "company": "Autobahn Therapeutics",
@@ -6803,7 +9480,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0160"
+"id": "i0229"
 },
 {
 "company": "Third Arc Bio",
@@ -6849,7 +9526,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0161"
+"id": "i0230"
 },
 {
 "company": "NGM Biopharmaceuticals",
@@ -6884,7 +9561,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0162"
+"id": "i0231"
 },
 {
 "company": "Cardurion Pharmaceuticals",
@@ -6929,7 +9606,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0163"
+"id": "i0232"
 },
 {
 "company": "Scorpion Therapeutics",
@@ -6974,7 +9651,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0164"
+"id": "i0233"
 },
 {
 "company": "CatalYm",
@@ -7018,7 +9695,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0165"
+"id": "i0234"
 },
 {
 "company": "Asceneuron",
@@ -7061,7 +9738,45 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0166"
+"id": "i0235"
+},
+{
+"company": "알토스바이오로직스",
+"country": "한국",
+"date": "2024-07-09",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 17.8,
+"amount_krw": 245,
+"currency_orig": "KRW",
+"amount_orig": 245,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"마그나인베스트먼트",
+"솔리더스인베스트먼트",
+"IBK기업은행",
+"스마트앤그로스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "밸류 미공개; 알테오젠 자회사; 바이오스펙테이터 7월 집계에서는 250억원으로 표기(기사 본문 245억원 채택); 2021년 시리즈A 605억원",
+"exchange": null,
+"ticker": null,
+"modality": "이중·다중항체",
+"area": "Ophthalmology",
+"stage": "복수 단계",
+"lead_asset": "OP-01(VEGF×Tie2 다중항체, 습성 AMD) / ALT-L9(애플리버셉트 바이오시밀러, 글로벌 3상 완료)",
+"platform": "N",
+"use_of_proceeds": "OP-01 개발 중심",
+"outcome": null,
+"sources": [
+"https://www.biospectator.com:443/news/view/22472",
+"https://www.biospectator.com/news/view/22679"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0236"
 },
 {
 "company": "Myricx Bio",
@@ -7104,7 +9819,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0167"
+"id": "i0237"
 },
 {
 "company": "Beacon Therapeutics",
@@ -7145,7 +9860,7 @@
 ],
 "_batch": "ovp07a",
 "year": 2024,
-"id": "i0168"
+"id": "i0238"
 },
 {
 "company": "Formation Bio",
@@ -7189,7 +9904,7 @@
 "note": "AI 활용 약물개발(외부 자산 도입·공동개발) 모델. 신약개발사 해당 여부 경계선",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0169"
+"id": "i0239"
 },
 {
 "company": "METiS Pharmaceuticals (剂泰医药)",
@@ -7228,7 +9943,7 @@
 "note": "저분자 Phase 3 + mRNA 파이프라인 병행(핵산·CGT 전달 중심). 누적 약 $3억. 중국 기업 중 유일하게 확인된 ≥$100M 건",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0170"
+"id": "i0240"
 },
 {
 "company": "Marea Therapeutics",
@@ -7272,7 +9987,7 @@
 "note": "A/B 분할 금액 미공개; 심대사(cardiometabolic)",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0171"
+"id": "i0241"
 },
 {
 "company": "Santa Ana Bio",
@@ -7314,7 +10029,7 @@
 "note": "스텔스 해제. Series B $125M(GV 리드) + Series A 약 $43M(파생값). 모달리티는 Fierce 트래커 'Antibodies' 표기 기준 - 확신 낮음",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0172"
+"id": "i0242"
 },
 {
 "company": "Alzheon",
@@ -7350,7 +10065,7 @@
 "note": "전액 클로징/트랜치 여부 미기재; 투자자는 'institutional and private investors'만 기재. 모달리티 저분자는 경구 정제 기재 기반",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0173"
+"id": "i0243"
 },
 {
 "company": "ITM Isotope Technologies Munich (ITM)",
@@ -7391,7 +10106,7 @@
 "note": "€188M, 출처 환산 US$204M(Labiotech 환산은 $202M). 방사성동위원소 생산 사업 병행 기업이나 ITM-11 Phase 3 보유로 포함",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0174"
+"id": "i0244"
 },
 {
 "company": "AltruBio",
@@ -7430,7 +10145,7 @@
 "note": "'up to $225M'(트랜치 여부 불명). 모달리티(항체)는 Synapse 제목 'immune checkpoint antibody' 기준, 확신 중간",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0175"
+"id": "i0245"
 },
 {
 "company": "Pheon Therapeutics",
@@ -7474,7 +10189,42 @@
 "note": "영국(런던) 소재는 KCL 스핀아웃 보도·KPMG 유럽 Q2 목록 기반",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0176"
+"id": "i0246"
+},
+{
+"company": "아이디언스",
+"country": "한국",
+"date": "2024-05-20",
+"type": "시리즈/비공개",
+"round": "전략적투자(제3자배정 유상증자)",
+"amount_usd": 18.2,
+"amount_krw": 250,
+"currency_orig": "KRW",
+"amount_orig": 250,
+"amount_orig_unit": "억",
+"lead": [
+"동아에스티"
+],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "밸류 미공개; 일동홀딩스 계열 R&D 자회사; 동아에스티가 2대주주로 신주 1,914만주 인수; 신약 공동개발 계약 병행; 출범 후 누적 약 900억원",
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Oncology",
+"stage": "Phase 1",
+"lead_asset": "베나다파립(경구 PARP 저해제; 위암 FDA 희귀의약품, 고형암 1상)",
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://dailypharm.com/user/news/16948",
+"https://www.biospectator.com/news/view/22084"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0247"
 },
 {
 "company": "Uniquity Bio",
@@ -7510,7 +10260,7 @@
 "note": "릴리스 문구 'up to $300M'(상한; 전액 집행 여부 불명). 일자는 BW ID(05-14)와 매체 보도(05-15) 사이. 단일 투자자 출자라 크로스오버/VC 라운드와 성격 상이 - 포함 여부 검토 필요. Crunchbase 월간 요약은 $475M로 표기(상이)",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0177"
+"id": "i0248"
 },
 {
 "company": "Lycia Therapeutics",
@@ -7555,7 +10305,7 @@
 "note": "세포외 단백질 분해 LYTAC 플랫폼",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0178"
+"id": "i0249"
 },
 {
 "company": "Bluejay Therapeutics",
@@ -7601,7 +10351,7 @@
 "note": "Phase I/II 연구; 모달리티는 출처 미기재",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0179"
+"id": "i0250"
 },
 {
 "company": "Attovia Therapeutics",
@@ -7646,7 +10396,7 @@
 "note": "Attobody 기반 biparatopic 바이오로직",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0180"
+"id": "i0251"
 },
 {
 "company": "Zenas BioPharma",
@@ -7685,7 +10435,84 @@
 "note": "Fierce 원문상 4개 기관 공동 표기",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0181"
+"id": "i0252"
+},
+{
+"company": "디앤디파마텍",
+"country": "한국",
+"date": "2024-05-02",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 26.5,
+"amount_krw": 363,
+"currency_orig": "KRW",
+"amount_orig": 363,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": 251.2,
+"valuation_note": "공모가 33,000원(희망밴드 22,000~26,000원 상회) 기준 상장 시총 약 3,442억원; 수요예측 경쟁률 848.5:1",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "기타·미상",
+"area": "Metabolic",
+"stage": "미상",
+"lead_asset": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": "2024-05-02 코스닥 상장",
+"sources": [
+"https://www.metroseoul.co.kr/article/20240421500277",
+"https://www.dailypharm.com/user/news/21150"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0253"
+},
+{
+"company": "아벨로스테라퓨틱스",
+"country": "한국",
+"date": "2024-05-02",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 12.4,
+"amount_krw": 170,
+"currency_orig": "KRW",
+"amount_orig": 170,
+"amount_orig_unit": "억",
+"lead": [
+"스타셋인베스트먼트"
+],
+"investors": [
+"메디톡스벤처투자",
+"신한캐피탈",
+"LSK인베스트먼트",
+"흥국증권",
+"SV인베스트먼트",
+"미래에셋벤처투자",
+"쿼드자산운용",
+"타임폴리오캐피탈"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "밸류 미공개; 4/30 클로징, 5/2 발표(바이오스펙테이터 4월 집계 포함); 누적 290억원(시리즈A 120억 포함)",
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Oncology",
+"stage": "Preclinical",
+"lead_asset": "AVS1001(MASTL 저해제, 합성치사)",
+"platform": "N",
+"use_of_proceeds": "AVS1001 임상 개발, 후속 3개 프로그램 후보 선정, BD",
+"outcome": null,
+"sources": [
+"https://www.biospectator.com/news/view/21815",
+"https://www.biospectator.com/news/view/21816"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0254"
 },
 {
 "company": "BridgeBio Oncology Therapeutics",
@@ -7728,7 +10555,7 @@
 "note": "BridgeBio Pharma 자회사; 라운드 명칭 미기재. 임상(BBO-8520)+전임상 혼재. 'private external capital' 표현",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0182"
+"id": "i0255"
 },
 {
 "company": "Reunion Neuroscience",
@@ -7771,7 +10598,7 @@
 "note": "국가: 전신 Field Trip Health(토론토, TSX 상장) 기반 캐나다로 기재 - 라운드 릴리스 자체에는 소재지 미확인(확신 중간). Phase 1 완료, Phase 2 개시 예정",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0183"
+"id": "i0256"
 },
 {
 "company": "Enlaza Therapeutics",
@@ -7816,7 +10643,7 @@
 "note": "단계(Preclinical)는 Fierce 트래커 기재 기준",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0184"
+"id": "i0257"
 },
 {
 "company": "Endeavor BioMedicines",
@@ -7852,7 +10679,7 @@
 "note": null,
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0185"
+"id": "i0258"
 },
 {
 "company": "Xaira Therapeutics",
@@ -7898,7 +10725,7 @@
 "note": "'1B 초과 committed capital'; 라운드 명칭 없음. 단계는 플랫폼/디스커버리로 판단(출처에 명시 없음)",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0186"
+"id": "i0259"
 },
 {
 "company": "Metsera",
@@ -7941,7 +10768,7 @@
 "note": "라운드 명칭은 릴리스 미기재(Fierce/Labiotech는 Series A 표기)",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0187"
+"id": "i0260"
 },
 {
 "company": "TORL BioTherapeutics",
@@ -7986,7 +10813,7 @@
 "note": null,
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0188"
+"id": "i0261"
 },
 {
 "company": "Seaport Therapeutics",
@@ -8026,7 +10853,7 @@
 "note": "Phase 2a(건강인 불안 모델) 개념증명 결과 보유; 질환영역은 신경정신(불안성 우울증)",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0189"
+"id": "i0262"
 },
 {
 "company": "Obsidian Therapeutics",
@@ -8071,7 +10898,7 @@
 "note": "BusinessWire 릴리스 ID 04-03, 매체 기사 04-04; 임상 단계(phase)는 출처 미기재",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0190"
+"id": "i0263"
 },
 {
 "company": "Alterome Therapeutics",
@@ -8116,7 +10943,7 @@
 "note": null,
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0191"
+"id": "i0264"
 },
 {
 "company": "Diagonal Therapeutics",
@@ -8154,7 +10981,7 @@
 "note": "라운드 명칭·리드는 Fierce 본문에 미기재(스텔스 해제 시 $128M 조달); JPM Q2 덱은 라운드 미기재. 확신 낮음(라운드 구분)",
 "_batch": "ovp06b",
 "year": 2024,
-"id": "i0192"
+"id": "i0265"
 },
 {
 "company": "Avenzo Therapeutics",
@@ -8203,7 +11030,7 @@
 "note": "date inferred from release ID; total raised since 2022 founding $347M",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0193"
+"id": "i0266"
 },
 {
 "company": "Mirador Therapeutics",
@@ -8248,7 +11075,7 @@
 "note": "inflammatory & fibrotic disease; IND expected next year; 17 investors total per BioPharma Dive",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0194"
+"id": "i0267"
 },
 {
 "company": "Capstan Therapeutics",
@@ -8297,7 +11124,7 @@
 "note": "oversubscribed",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0195"
+"id": "i0268"
 },
 {
 "company": "Clasp Therapeutics",
@@ -8337,7 +11164,7 @@
 "note": "peptide-HLA targeting T cell engagers; ACS fund named as 'American Cancer Society philanthropic fund'",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0196"
+"id": "i0269"
 },
 {
 "company": "Engrail Therapeutics",
@@ -8378,7 +11205,7 @@
 "note": "neuropsychiatry",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0197"
+"id": "i0270"
 },
 {
 "company": "Tubulis",
@@ -8418,7 +11245,7 @@
 "note": "EUR128M = USD139M per EQT release; upsized/oversubscribed",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0198"
+"id": "i0271"
 },
 {
 "company": "Alumis",
@@ -8465,7 +11292,7 @@
 "note": "upsized round",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0199"
+"id": "i0272"
 },
 {
 "company": "Sionna Therapeutics",
@@ -8510,7 +11337,7 @@
 "note": "upsized, oversubscribed; cystic fibrosis",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0200"
+"id": "i0273"
 },
 {
 "company": "BlossomHill Therapeutics",
@@ -8553,7 +11380,7 @@
 "note": "oncology + autoimmune; date inferred from release ID (20240229)",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0201"
+"id": "i0274"
 },
 {
 "company": "Latigo Biotherapeutics",
@@ -8593,7 +11420,7 @@
 "note": "company debut from stealth; pain indication mapped to Neurology",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0202"
+"id": "i0275"
 },
 {
 "company": "BioAge Labs",
@@ -8634,7 +11461,7 @@
 "note": null,
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0203"
+"id": "i0276"
 },
 {
 "company": "ProfoundBio",
@@ -8676,7 +11503,7 @@
 "note": "Seattle and Suzhou",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0204"
+"id": "i0277"
 },
 {
 "company": "Alys Pharmaceuticals",
@@ -8712,7 +11539,7 @@
 "note": "LOW CONFIDENCE: single-investor $100M launch by merging six Medicxi portfolio companies (vectorized siRNA/peptides/antibodies); HQ country not verified",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0205"
+"id": "i0278"
 },
 {
 "company": "Neurona Therapeutics",
@@ -8758,7 +11585,7 @@
 "note": "Series E label from Labiotech/Drug Discovery Trends; press release gives no series name; Phase I/II",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0206"
+"id": "i0279"
 },
 {
 "company": "COUR Pharmaceuticals",
@@ -8801,7 +11628,49 @@
 "note": "antigen-specific immune tolerance platform; Phase IIa",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0207"
+"id": "i0280"
+},
+{
+"company": "다안바이오테라퓨틱스",
+"country": "한국",
+"date": "2024-01-25",
+"type": "시리즈/비공개",
+"round": "Series A",
+"amount_usd": 17.3,
+"amount_krw": 230,
+"currency_orig": "KRW",
+"amount_orig": 230,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"솔라스타벤처스(아주IB투자)",
+"컴퍼니케이",
+"타임폴리오",
+"파라투스",
+"에이티넘인베스트먼트",
+"스톤브릿지벤처스",
+"데일리파트너스",
+"KB인베스트먼트"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "밸류 미공개; 투자자 12곳(상위 8곳만 기재), 리드 미명시; 2022년 시드 50억원",
+"exchange": null,
+"ticker": null,
+"modality": "세포치료",
+"area": "Oncology",
+"stage": "Preclinical",
+"lead_asset": "DN-101(TCR-T 세포치료, EGFR-TKI 내성 폐암; 임상 진입 목표 2026)",
+"platform": "N",
+"use_of_proceeds": "DN-101 전임상·임상 개발 및 글로벌 진출",
+"outcome": null,
+"sources": [
+"https://www.mt.co.kr/thebio/2024/01/25/2024012516254577992",
+"https://medigatenews.com/news/3685962392"
+],
+"_batch": "kr2324",
+"year": 2024,
+"id": "i0281"
 },
 {
 "company": "Synnovation Therapeutics",
@@ -8842,7 +11711,7 @@
 "note": "launch; Wilmington DE",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0208"
+"id": "i0282"
 },
 {
 "company": "Ji Xing Pharmaceuticals",
@@ -8879,7 +11748,7 @@
 "note": "Bayer $35M + RTW $127M = $162M (Labiotech/Endpoints); Bayer gets negotiation rights for commercialization; in-licensing company",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0209"
+"id": "i0283"
 },
 {
 "company": "OnCusp Therapeutics",
@@ -8925,7 +11794,7 @@
 "note": "date uncertain: Patsnap says 5 Jan, Sidley post 11 Jan; NYC HQ per Patsnap; IND cleared Q3 2023",
 "_batch": "ovp06a",
 "year": 2024,
-"id": "i0210"
+"id": "i0284"
 },
 {
 "company": "Sudo Biosciences",
@@ -8969,7 +11838,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0211"
+"id": "i0285"
 },
 {
 "company": "Tome Biosciences",
@@ -9013,7 +11882,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0212"
+"id": "i0286"
 },
 {
 "company": "Bicara Therapeutics",
@@ -9053,7 +11922,39 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0213"
+"id": "i0287"
+},
+{
+"company": "와이바이오로직스",
+"country": "한국",
+"date": "2023-12-05",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 10.4,
+"amount_krw": 135,
+"currency_orig": "KRW",
+"amount_orig": 135,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": 96.0,
+"valuation_note": "공모가 9,000원 기준 상장 후 시총 약 1,248억원(보통주 기준 추정, 데일리팜); 공모 150만주, 수요예측 경쟁률 226.89:1",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "항체",
+"area": "Other",
+"stage": "미상",
+"lead_asset": null,
+"platform": "Y",
+"use_of_proceeds": "차세대 플랫폼 기술 개발, 허가용 비임상, 신규 파이프라인 전임상",
+"outcome": "2023-12-05 코스닥 상장",
+"sources": [
+"https://www.dailypharm.com/user/news/22419"
+],
+"_batch": "kr2324",
+"year": 2023,
+"id": "i0288"
 },
 {
 "company": "Odyssey Therapeutics",
@@ -9097,7 +11998,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0214"
+"id": "i0289"
 },
 {
 "company": "Seismic Therapeutic",
@@ -9141,7 +12042,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0215"
+"id": "i0290"
 },
 {
 "company": "VectorY Therapeutics",
@@ -9183,7 +12084,40 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0216"
+"id": "i0291"
+},
+{
+"company": "큐로셀",
+"country": "한국",
+"date": "2023-11-09",
+"type": "IPO",
+"round": "코스닥 상장(기술특례)",
+"amount_usd": 24.7,
+"amount_krw": 320,
+"currency_orig": "KRW",
+"amount_orig": 320,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "공모가 20,000원(희망밴드 29,800~33,500원 하회); 시총 출처 미기재",
+"exchange": "KOSDAQ",
+"ticker": null,
+"modality": "세포치료",
+"area": "Oncology",
+"stage": "Phase 2",
+"lead_asset": "안발셀(anbal-cel, CD19 CAR-T, R/R DLBCL)",
+"platform": "N",
+"use_of_proceeds": "안발셀 상업화 및 신규 파이프라인 개발",
+"outcome": "2023-11-09 코스닥 상장",
+"sources": [
+"https://www.etoday.co.kr/news/view/2332188",
+"https://m.dailypharm.com/user/news/22078"
+],
+"_batch": "kr2324",
+"year": 2023,
+"id": "i0292"
 },
 {
 "company": "Terremoto Biosciences",
@@ -9222,7 +12156,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0217"
+"id": "i0293"
 },
 {
 "company": "MapLight Therapeutics",
@@ -9261,7 +12195,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0218"
+"id": "i0294"
 },
 {
 "company": "Aiolos Bio",
@@ -9302,7 +12236,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0219"
+"id": "i0295"
 },
 {
 "company": "Agomab Therapeutics",
@@ -9341,7 +12275,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0220"
+"id": "i0296"
 },
 {
 "company": "Iambic Therapeutics",
@@ -9386,7 +12320,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0221"
+"id": "i0297"
 },
 {
 "company": "Avalyn Pharma",
@@ -9433,7 +12367,80 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0222"
+"id": "i0298"
+},
+{
+"company": "네오켄바이오",
+"country": "한국",
+"date": "2023-09-26",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 7.5,
+"amount_krw": 100,
+"currency_orig": "KRW",
+"amount_orig": 100,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [
+"쿼드자산운용",
+"빌랑스인베스트먼트",
+"동훈인베스트먼트",
+"프롤로그벤처스",
+"메디톡스벤처투자",
+"HLB인베스트먼트",
+"비엠벤처스"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "기사 단일 출처에서 포스트머니 550억원 언급(2개 이상 교차확인 불가로 null 처리); 의료용 대마 기반 사업(식품·화장품 원료 JV 병행)이라 신약개발 순수성 낮음",
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Multiple",
+"stage": "미상",
+"lead_asset": null,
+"platform": "N",
+"use_of_proceeds": "태국 JV 확대, 이스라엘 대학·CRO와 신약개발 가속",
+"outcome": null,
+"sources": [
+"https://www.biospectator.com/news/view/19919"
+],
+"_batch": "kr2324",
+"year": 2023,
+"id": "i0299"
+},
+{
+"company": "브렉소젠",
+"country": "한국",
+"date": "2023-09-15",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 9.0,
+"amount_krw": 120,
+"currency_orig": "KRW",
+"amount_orig": 120,
+"amount_orig_unit": "억",
+"lead": [],
+"investors": [],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "바이오스펙테이터 9월 집계(2023-10-05, 유료기사 일부만 확인)의 소제목 기준 120억원·Series C; 투자자·사업 내용 미확인이라 일자는 9월 중 추정(date_approx), 신약개발 해당 여부 저신뢰",
+"exchange": null,
+"ticker": null,
+"modality": "기타·미상",
+"area": "Other",
+"stage": "미상",
+"lead_asset": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.biospectator.com/news/view/19927"
+],
+"date_approx": true,
+"_batch": "kr2324",
+"year": 2023,
+"id": "i0300"
 },
 {
 "company": "Generate Biomedicines",
@@ -9475,7 +12482,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0223"
+"id": "i0301"
 },
 {
 "company": "Mariana Oncology",
@@ -9518,7 +12525,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0224"
+"id": "i0302"
 },
 {
 "company": "Apollo Therapeutics",
@@ -9557,7 +12564,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0225"
+"id": "i0303"
 },
 {
 "company": "Nimbus Therapeutics",
@@ -9602,7 +12609,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0226"
+"id": "i0304"
 },
 {
 "company": "Rapport Therapeutics",
@@ -9646,7 +12653,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0227"
+"id": "i0305"
 },
 {
 "company": "Genesis Therapeutics",
@@ -9689,7 +12696,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0228"
+"id": "i0306"
 },
 {
 "company": "Abcuro",
@@ -9734,7 +12741,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0229"
+"id": "i0307"
 },
 {
 "company": "ADARx Pharmaceuticals",
@@ -9779,7 +12786,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0230"
+"id": "i0308"
 },
 {
 "company": "Alltrna",
@@ -9814,7 +12821,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0231"
+"id": "i0309"
 },
 {
 "company": "CG Oncology",
@@ -9859,7 +12866,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0232"
+"id": "i0310"
 },
 {
 "company": "아이엠바이오로직스",
@@ -9901,7 +12908,7 @@
 ],
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0233"
+"id": "i0311"
 },
 {
 "company": "업테라",
@@ -9935,7 +12942,7 @@
 ],
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0234"
+"id": "i0312"
 },
 {
 "company": "파로스아이바이오",
@@ -9968,7 +12975,7 @@
 ],
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0235"
+"id": "i0313"
 },
 {
 "company": "Kriya Therapeutics",
@@ -10004,7 +13011,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0236"
+"id": "i0314"
 },
 {
 "company": "Septerna",
@@ -10046,7 +13053,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i0237"
+"id": "i0315"
 },
 {
 "company": "Alkeus Pharmaceuticals",
@@ -10086,7 +13093,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0238"
+"id": "i0316"
 },
 {
 "company": "큐라티스",
@@ -10123,7 +13130,7 @@
 ],
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0239"
+"id": "i0317"
 },
 {
 "company": "Beacon Therapeutics",
@@ -10161,7 +13168,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0240"
+"id": "i0318"
 },
 {
 "company": "Upstream Bio",
@@ -10206,7 +13213,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0241"
+"id": "i0319"
 },
 {
 "company": "Bitterroot Bio",
@@ -10248,7 +13255,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0242"
+"id": "i0320"
 },
 {
 "company": "Acepodia",
@@ -10286,7 +13293,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0243"
+"id": "i0321"
 },
 {
 "company": "Eikon Therapeutics",
@@ -10321,7 +13328,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0244"
+"id": "i0322"
 },
 {
 "company": "Carmot Therapeutics",
@@ -10365,7 +13372,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0245"
+"id": "i0323"
 },
 {
 "company": "ElevateBio",
@@ -10409,7 +13416,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0246"
+"id": "i0324"
 },
 {
 "company": "ReNAgade Therapeutics",
@@ -10448,39 +13455,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0247"
-},
-{
-"company": "CJ바이오사이언스",
-"country": "한국",
-"date": "2023-05-22",
-"type": "후속공모",
-"round": "유상증자(주주배정 후 일반공모)",
-"amount_usd": 49.1,
-"amount_krw": 650,
-"currency_orig": "KRW",
-"amount_orig": 650,
-"amount_orig_unit": "억",
-"lead": [],
-"investors": [],
-"valuation_pre": null,
-"valuation_post": null,
-"valuation_note": "신주 3,233,830주, 예정발행가 20,100원",
-"exchange": "KOSDAQ",
-"ticker": null,
-"modality": "기타·미상",
-"area": "Other",
-"stage": "미상",
-"lead_asset": null,
-"platform": "Y",
-"use_of_proceeds": null,
-"outcome": null,
-"sources": [
-"https://dealsite.co.kr/articles/104157"
-],
-"_batch": "kr2023",
-"year": 2023,
-"id": "i0248"
+"id": "i0325"
 },
 {
 "company": "Boundless Bio",
@@ -10525,7 +13500,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0249"
+"id": "i0326"
 },
 {
 "company": "에스바이오메딕스",
@@ -10561,7 +13536,7 @@
 ],
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0250"
+"id": "i0327"
 },
 {
 "company": "Orbital Therapeutics",
@@ -10602,7 +13577,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0251"
+"id": "i0328"
 },
 {
 "company": "Vedanta Biosciences",
@@ -10647,7 +13622,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0252"
+"id": "i0329"
 },
 {
 "company": "Alentis Therapeutics",
@@ -10691,7 +13666,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0253"
+"id": "i0330"
 },
 {
 "company": "지아이이노베이션",
@@ -10728,7 +13703,7 @@
 ],
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0254"
+"id": "i0331"
 },
 {
 "company": "ArriVent BioPharma",
@@ -10773,7 +13748,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0255"
+"id": "i0332"
 },
 {
 "company": "트리오어",
@@ -10814,7 +13789,7 @@
 "date_approx": true,
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0256"
+"id": "i0333"
 },
 {
 "company": "피노바이오",
@@ -10856,7 +13831,7 @@
 "date_approx": true,
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0257"
+"id": "i0334"
 },
 {
 "company": "일리미스테라퓨틱스",
@@ -10901,7 +13876,7 @@
 "date_approx": true,
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0258"
+"id": "i0335"
 },
 {
 "company": "상트네어바이오사이언스",
@@ -10936,7 +13911,7 @@
 "date_approx": true,
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0259"
+"id": "i0336"
 },
 {
 "company": "자이메디",
@@ -10976,7 +13951,7 @@
 "date_approx": true,
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0260"
+"id": "i0337"
 },
 {
 "company": "유빅스테라퓨틱스",
@@ -11009,7 +13984,7 @@
 "date_approx": true,
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0261"
+"id": "i0338"
 },
 {
 "company": "에스씨바이오",
@@ -11042,7 +14017,7 @@
 "date_approx": true,
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0262"
+"id": "i0339"
 },
 {
 "company": "바로팜",
@@ -11080,7 +14055,7 @@
 "date_approx": true,
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0263"
+"id": "i0340"
 },
 {
 "company": "프로티움사이언스",
@@ -11116,7 +14091,7 @@
 "date_approx": true,
 "_batch": "kr2023",
 "year": 2023,
-"id": "i0264"
+"id": "i0341"
 },
 {
 "company": "Chroma Medicine",
@@ -11156,7 +14131,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0265"
+"id": "i0342"
 },
 {
 "company": "CARGO Therapeutics",
@@ -11202,7 +14177,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0266"
+"id": "i0343"
 },
 {
 "company": "Hemab Therapeutics",
@@ -11240,7 +14215,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0267"
+"id": "i0344"
 },
 {
 "company": "Aera Therapeutics",
@@ -11277,7 +14252,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0268"
+"id": "i0345"
 },
 {
 "company": "Amolyt Pharma",
@@ -11322,7 +14297,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0269"
+"id": "i0346"
 },
 {
 "company": "Metagenomi",
@@ -11364,7 +14339,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0270"
+"id": "i0347"
 },
 {
 "company": "BioRay Pharmaceutical",
@@ -11401,7 +14376,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0271"
+"id": "i0348"
 },
 {
 "company": "HighTide Therapeutics",
@@ -11440,7 +14415,7 @@
 ],
 "_batch": "ovp04",
 "year": 2023,
-"id": "i0272"
+"id": "i0349"
 },
 {
 "company": "Apogee Therapeutics",
@@ -11486,7 +14461,7 @@
 "note": "총 $169M(헤드라인) 중 Series B $149M(공동리드 Deep Track, RTW); Series A 분 약 $20M 추정이나 출처 미확인. 모달리티/리드 자산은 출처 본문 미확인(항체 포트폴리오 기사 제목 근거)",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0273"
+"id": "i0350"
 },
 {
 "company": "인벤티지랩",
@@ -11521,7 +14496,7 @@
 "note": "장기지속형 약물전달 플랫폼 기업; 신약개발 기준 해당 여부 경계선",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0274"
+"id": "i0351"
 },
 {
 "company": "FogPharma",
@@ -11565,7 +14540,7 @@
 "note": "리드 투자자 명시 없음(출처상 CEO 주도 표현만 있음). 보도자료 11-22, 매체 11-24",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0275"
+"id": "i0352"
 },
 {
 "company": "Zenas BioPharma",
@@ -11610,7 +14585,7 @@
 "note": "BioWorld 날짜는 11-14, 보도자료 11-07 사용. 기존 투자자 Wellington, Tellus, Quan, Xencor 참여",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0276"
+"id": "i0353"
 },
 {
 "company": "Emalex Biosciences",
@@ -11650,7 +14625,7 @@
 "note": "upsized, 초과청약",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0277"
+"id": "i0354"
 },
 {
 "company": "샤페론",
@@ -11685,7 +14660,7 @@
 "note": "공모액 137억은 딜사이트(공모가 확정 기사); 상장일은 데일리팜 기준 10/19(딜사이트는 10/17 언급). 리드 자산 누세핀은 코로나 폐렴 2b/3상(출처). 모달리티 분류는 저신뢰",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0278"
+"id": "i0355"
 },
 {
 "company": "Treeline Biosciences",
@@ -11723,7 +14698,7 @@
 "note": "확신 낮음: 후보물질 미공개로 modality/stage 미상, 리드 미확인",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0279"
+"id": "i0356"
 },
 {
 "company": "Neumora Therapeutics",
@@ -11766,43 +14741,7 @@
 "note": "Biospace 제목이 'Raises Additional'로 추가 조달 성격(누적 약 $650M). 일자는 URL 기준",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0280"
-},
-{
-"company": "제넥신",
-"country": "한국",
-"date": "2022-09-28",
-"type": "후속공모",
-"round": "주주배정 후 일반공모 유상증자",
-"amount_usd": 72.0,
-"amount_krw": 1000,
-"currency_orig": "KRW",
-"amount_orig": 1000,
-"amount_orig_unit": "억",
-"lead": [],
-"investors": [
-"한독"
-],
-"valuation_pre": null,
-"valuation_post": null,
-"valuation_note": "발행가 17,250원(전일종가 대비 36.23% 할인), 신주 5,797,102주",
-"exchange": "KOSDAQ",
-"ticker": null,
-"modality": "기타 단백질·융합단백",
-"area": "Multiple",
-"stage": "복수 단계",
-"lead_asset": null,
-"platform": "Y",
-"use_of_proceeds": "R&D 운영자금 1,000억원 전액",
-"outcome": null,
-"sources": [
-"https://dailypharm.com/user/news/35964"
-],
-"date_approx": true,
-"note": "날짜는 기사일(2022-09-28)로 대체; 납입 12/13, 신주상장 12/27 예정. 최대주주 한독이 배정분 약 75% 참여 예정(약 113억원). 실제 최종 조달액은 미확인",
-"_batch": "kr2022",
-"year": 2022,
-"id": "i0281"
+"id": "i0357"
 },
 {
 "company": "Acelyrin",
@@ -11842,7 +14781,7 @@
 "note": "출처는 izokibep을 저분자로 서술했으나 실제로는 Affibody 유래 소형 단백질이라 단백질로 분류. Phase 2 완료, Phase 3 2건 예정/개시 단계",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0282"
+"id": "i0358"
 },
 {
 "company": "Arsenal Biosciences",
@@ -11885,7 +14824,7 @@
 "note": "리드 투자자 미공개, 초과청약",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0283"
+"id": "i0359"
 },
 {
 "company": "Bao Pharma",
@@ -11918,7 +14857,7 @@
 "note": "확신 낮음: 'over $100m' 헤드라인 외 정보 없음, 투자자·자산 미확인(태그상 항체/재조합 단백질)",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0284"
+"id": "i0360"
 },
 {
 "company": "Orna Therapeutics",
@@ -11957,7 +14896,7 @@
 "note": "초기 클로징 약 $121M + 약 $100M은 HSR 승인 등 종결조건 후 예정(합산 $221M). 리드 미공개",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0285"
+"id": "i0361"
 },
 {
 "company": "Sironax",
@@ -12004,7 +14943,7 @@
 "note": "RIPK1 억제제 modality는 저분자로 분류(출처 본문 직접 명시 없음)",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0286"
+"id": "i0362"
 },
 {
 "company": "Oricell Therapeutics",
@@ -12043,7 +14982,7 @@
 "note": "'over $120M'; 금액은 120으로 기재. stage는 IND 승인(2022-06) 및 ASCO 2021 초기 데이터 기준 추정",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0287"
+"id": "i0363"
 },
 {
 "company": "에이프릴바이오",
@@ -12077,7 +15016,7 @@
 "note": "공모액 207억은 데일리팜(밴드하회 후 확정액); 바이오스펙테이터는 신주 162만주 언급(곱하면 약 259억)으로 수치 불일치. 모달리티/영역/단계는 출처 미기재로 기억 기반 분류, 저신뢰",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0288"
+"id": "i0364"
 },
 {
 "company": "Areteia Therapeutics",
@@ -12111,7 +15050,7 @@
 "note": "일자 불명(2022-07). 출처는 Labiotech 월간 요약뿐, 투자자·자산 미확인",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0289"
+"id": "i0365"
 },
 {
 "company": "Carmot Therapeutics",
@@ -12145,41 +15084,7 @@
 "note": "일자 불명(2022-07). 출처는 Labiotech 월간 요약뿐, 투자자·자산 미확인",
 "_batch": "ovp03",
 "year": 2022,
-"id": "i0290"
-},
-{
-"company": "브릿지바이오테라퓨틱스",
-"country": "한국",
-"date": "2022-06-30",
-"type": "후속공모",
-"round": "제3자배정 유상증자",
-"amount_usd": 38.1,
-"amount_krw": 486,
-"currency_orig": "KRW",
-"amount_orig": 486,
-"amount_orig_unit": "억",
-"lead": [],
-"investors": [],
-"valuation_pre": null,
-"valuation_post": null,
-"valuation_note": null,
-"exchange": "KOSDAQ",
-"ticker": null,
-"modality": "기타·미상",
-"area": "Other",
-"stage": "미상",
-"lead_asset": null,
-"platform": "N",
-"use_of_proceeds": "임상 3개 파이프라인(BBT-401, BBT-877, BBT-176) 가속 등 R&D 운영자금",
-"outcome": null,
-"sources": [
-"https://www.etoday.co.kr/news/view/2148966"
-],
-"date_approx": true,
-"note": "2022-05-31 및 06-30 두 차례 납입, 06-30 납입완료 공시일을 날짜로 사용(이사회 결의일은 미확인). 투자자 미기재. 모달리티/영역은 기억 기반",
-"_batch": "kr2022",
-"year": 2022,
-"id": "i0291"
+"id": "i0366"
 },
 {
 "company": "보로노이",
@@ -12214,7 +15119,7 @@
 "note": "공모액 529억은 데일리팜(2023-12-01) 집계치; 1.3M주x4만원=520억과 근소 차이",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0292"
+"id": "i0367"
 },
 {
 "company": "Upstream Bio",
@@ -12258,7 +15163,7 @@
 "note": "Astellas에서 도입한 임상단계 자산",
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0293"
+"id": "i0368"
 },
 {
 "company": "Kriya Therapeutics",
@@ -12294,7 +15199,7 @@
 "note": "WRAL 5/16 보도, 법무법인 게시 5/19",
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0294"
+"id": "i0369"
 },
 {
 "company": "MOMA Therapeutics",
@@ -12339,7 +15244,7 @@
 "note": "모달리티·영역·단계 출처 미확인(저확신)",
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0295"
+"id": "i0370"
 },
 {
 "company": "OMass Therapeutics",
@@ -12381,7 +15286,7 @@
 "note": "£75.5M; 회사 PR 4/29, Fierce 4/28",
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0296"
+"id": "i0371"
 },
 {
 "company": "Tessera Therapeutics",
@@ -12424,7 +15329,7 @@
 "note": "'over $300M'; 보도자료 URL 일자 2022-04-19, 일부 매체 4/21",
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0297"
+"id": "i0372"
 },
 {
 "company": "노벨티노빌리티",
@@ -12468,7 +15373,7 @@
 "note": "금액은 '300억원 이상' 보도(하한 300억 기재). 업계 소식통 보도로 회사 미확인. 리드/참여 구분은 출처상 기존(후속)/신규 투자자 구분을 그대로 옮김",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0298"
+"id": "i0373"
 },
 {
 "company": "Triana Biomedicines",
@@ -12510,7 +15415,7 @@
 "note": null,
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0299"
+"id": "i0374"
 },
 {
 "company": "스파크바이오파마",
@@ -12555,7 +15460,7 @@
 ],
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0300"
+"id": "i0375"
 },
 {
 "company": "바이오오케스트라",
@@ -12592,7 +15497,7 @@
 "note": "2022년 1분기 중 집행(메디게이트 분기 집계 기사, 정확한 일자 미기재; 2월15일은 임의 대체). 전략투자(종근당 계열). 모달리티/영역은 기억 기반",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0301"
+"id": "i0376"
 },
 {
 "company": "셀렉신",
@@ -12628,7 +15533,7 @@
 "note": "2022년 1분기 중 집행(메디게이트 분기 집계 기사, 정확한 일자 미기재; 2월15일은 임의 대체). 누적 600억원. 메디톡스벤처투자는 4개 사 투자 묶음 중 참여",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0302"
+"id": "i0377"
 },
 {
 "company": "싸이러스테라퓨틱스",
@@ -12664,7 +15569,7 @@
 "note": "2022년 1분기 중 집행(메디게이트 분기 집계 기사, 정확한 일자 미기재; 2월15일은 임의 대체). 누적 390억원",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0303"
+"id": "i0378"
 },
 {
 "company": "핀테라퓨틱스",
@@ -12701,7 +15606,7 @@
 "note": "2022년 1분기 중 집행(메디게이트 분기 집계 기사, 정확한 일자 미기재; 2월15일은 임의 대체). ",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0304"
+"id": "i0379"
 },
 {
 "company": "큐로셀",
@@ -12737,7 +15642,7 @@
 "note": "2022년 1분기 중 집행(메디게이트 분기 집계 기사, 정확한 일자 미기재; 2월15일은 임의 대체). 5년간 누적 975억원. 모달리티/영역은 기억 기반",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0305"
+"id": "i0380"
 },
 {
 "company": "오가노이드사이언스",
@@ -12773,7 +15678,7 @@
 "note": "2022년 1분기 중 집행(메디게이트 분기 집계 기사, 정확한 일자 미기재; 2월15일은 임의 대체). 누적 약 480억원. 오가노이드 기반 세포치료제 기업(신약 기준 경계선)",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0306"
+"id": "i0381"
 },
 {
 "company": "VasThera(바스테라)",
@@ -12809,7 +15714,7 @@
 "note": "2022년 1분기 중 집행(메디게이트 분기 집계 기사, 정확한 일자 미기재; 2월15일은 임의 대체). 누적 232억원. 메디톡스벤처투자는 복수 투자자 중 1곳",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0307"
+"id": "i0382"
 },
 {
 "company": "씨티셀즈(CTCELLS)",
@@ -12845,7 +15750,7 @@
 "note": "2022년 1분기 중 집행(메디게이트 분기 집계 기사, 정확한 일자 미기재; 2월15일은 임의 대체). 전략투자",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0308"
+"id": "i0383"
 },
 {
 "company": "파로스백신",
@@ -12882,7 +15787,7 @@
 "note": "2022년 1분기 중(일자 미기재). 원문 USD 24M, 기사 환산 약 285억원",
 "_batch": "kr2022",
 "year": 2022,
-"id": "i0309"
+"id": "i0384"
 },
 {
 "company": "Ventus Therapeutics",
@@ -12928,7 +15833,7 @@
 "note": null,
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0310"
+"id": "i0385"
 },
 {
 "company": "Leyden Labs",
@@ -12961,7 +15866,7 @@
 "note": "출처 유료벽으로 투자자·리드 자산 미확인. 모달리티·영역은 보조 분류이며 저확신",
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0311"
+"id": "i0386"
 },
 {
 "company": "Altos Labs",
@@ -12998,7 +15903,7 @@
 "note": "언론 보도 'fully committed' $3B; 신약개발 해당성 경계(저확신). 투자자는 보도상(reportedly)",
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0312"
+"id": "i0387"
 },
 {
 "company": "ZhenGe Biotech",
@@ -13031,7 +15936,7 @@
 "note": "출처 본문 유료벽: 투자자·모달리티·신약개발 해당 여부 미확인(저확신)",
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0313"
+"id": "i0388"
 },
 {
 "company": "Eikon Therapeutics",
@@ -13074,41 +15979,7 @@
 "note": null,
 "_batch": "ovp02",
 "year": 2022,
-"id": "i0314"
-},
-{
-"company": "진원생명과학",
-"country": "한국",
-"date": "2021-11-26",
-"date_approx": false,
-"type": "후속공모",
-"round": "주주배정 유상증자(+일반공모)",
-"amount_usd": 96.2,
-"amount_krw": 1140,
-"currency_orig": "KRW",
-"amount_orig": 1140,
-"amount_orig_unit": "억",
-"lead": [],
-"investors": [],
-"valuation_pre": null,
-"valuation_post": null,
-"valuation_note": null,
-"exchange": null,
-"ticker": null,
-"modality": "백신",
-"area": "Infectious disease",
-"stage": "미상",
-"lead_asset": null,
-"platform": "N",
-"use_of_proceeds": "자회사 VGXI 생산시설 설비 및 코로나 백신·치료제 R&D",
-"outcome": null,
-"sources": [
-"https://newstomato.com/ReadNews.aspx?no=1089954"
-],
-"note": "구주주 청약률 96.09%, 잔여 일반공모; 기사일 기준 날짜",
-"_batch": "kr2021",
-"year": 2021,
-"id": "i0315"
+"id": "i0389"
 },
 {
 "company": "Quell Therapeutics",
@@ -13154,7 +16025,7 @@
 ],
 "_batch": "ovp01",
 "year": 2021,
-"id": "i0316"
+"id": "i0390"
 },
 {
 "company": "Generate Biomedicines",
@@ -13187,7 +16058,7 @@
 ],
 "_batch": "ovp01",
 "year": 2021,
-"id": "i0317"
+"id": "i0391"
 },
 {
 "company": "셀랩메드",
@@ -13221,41 +16092,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0318"
-},
-{
-"company": "고바이오랩",
-"country": "한국",
-"date": "2021-11-15",
-"date_approx": true,
-"type": "후속공모",
-"round": "3자배정 유상증자 + CB",
-"amount_usd": 38.4,
-"amount_krw": 455,
-"currency_orig": "KRW",
-"amount_orig": 455,
-"amount_orig_unit": "억",
-"lead": [],
-"investors": [],
-"valuation_pre": null,
-"valuation_post": null,
-"valuation_note": null,
-"exchange": null,
-"ticker": null,
-"modality": "기타·미상",
-"area": "Other",
-"stage": "미상",
-"lead_asset": null,
-"platform": "N",
-"use_of_proceeds": null,
-"outcome": null,
-"sources": [
-"https://www.biospectator.com/news/view/14886"
-],
-"note": "유증+CB 합산 금액, 분리 불가. 확신 낮음",
-"_batch": "kr2021",
-"year": 2021,
-"id": "i0319"
+"id": "i0392"
 },
 {
 "company": "오가노이드사이언스",
@@ -13289,7 +16126,7 @@
 "note": "신약개발 해당 여부 미확인. 확신 낮음",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0320"
+"id": "i0393"
 },
 {
 "company": "Arbor Biotechnologies",
@@ -13335,7 +16172,7 @@
 ],
 "_batch": "ovp01",
 "year": 2021,
-"id": "i0321"
+"id": "i0394"
 },
 {
 "company": "bit.bio",
@@ -13375,7 +16212,7 @@
 ],
 "_batch": "ovp01",
 "year": 2021,
-"id": "i0322"
+"id": "i0395"
 },
 {
 "company": "Mammoth Biosciences",
@@ -13419,7 +16256,7 @@
 ],
 "_batch": "ovp01",
 "year": 2021,
-"id": "i0323"
+"id": "i0396"
 },
 {
 "company": "Laronde",
@@ -13459,7 +16296,7 @@
 ],
 "_batch": "ovp01",
 "year": 2021,
-"id": "i0324"
+"id": "i0397"
 },
 {
 "company": "Genuine Biotech",
@@ -13501,7 +16338,7 @@
 ],
 "_batch": "ovp01",
 "year": 2021,
-"id": "i0325"
+"id": "i0398"
 },
 {
 "company": "Abogen Biosciences",
@@ -13541,7 +16378,7 @@
 ],
 "_batch": "ovp01",
 "year": 2021,
-"id": "i0326"
+"id": "i0399"
 },
 {
 "company": "티카로스",
@@ -13575,7 +16412,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0327"
+"id": "i0400"
 },
 {
 "company": "에이프릴바이오",
@@ -13609,7 +16446,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0328"
+"id": "i0401"
 },
 {
 "company": "아이엠바이오",
@@ -13643,7 +16480,7 @@
 "note": "신약개발 여부 미확인. 확신 낮음",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0329"
+"id": "i0402"
 },
 {
 "company": "에스알파테라퓨틱스",
@@ -13677,109 +16514,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0330"
-},
-{
-"company": "레고켐바이오",
-"country": "한국",
-"date": "2021-07-15",
-"date_approx": true,
-"type": "후속공모",
-"round": "3자배정 유상증자",
-"amount_usd": 139.1,
-"amount_krw": 1600,
-"currency_orig": "KRW",
-"amount_orig": 1600,
-"amount_orig_unit": "억",
-"lead": [],
-"investors": [],
-"valuation_pre": null,
-"valuation_post": null,
-"valuation_note": null,
-"exchange": null,
-"ticker": null,
-"modality": "기타·미상",
-"area": "Other",
-"stage": "미상",
-"lead_asset": null,
-"platform": "N",
-"use_of_proceeds": null,
-"outcome": null,
-"sources": [
-"https://www.biospectator.com/news/view/13832"
-],
-"note": "투자자 출처 미기재",
-"_batch": "kr2021",
-"year": 2021,
-"id": "i0331"
-},
-{
-"company": "강스템바이오",
-"country": "한국",
-"date": "2021-07-15",
-"date_approx": true,
-"type": "후속공모",
-"round": "주주배정 유상증자",
-"amount_usd": 43.5,
-"amount_krw": 500,
-"currency_orig": "KRW",
-"amount_orig": 500,
-"amount_orig_unit": "억",
-"lead": [],
-"investors": [],
-"valuation_pre": null,
-"valuation_post": null,
-"valuation_note": null,
-"exchange": null,
-"ticker": null,
-"modality": "기타·미상",
-"area": "Other",
-"stage": "미상",
-"lead_asset": null,
-"platform": "N",
-"use_of_proceeds": null,
-"outcome": null,
-"sources": [
-"https://www.biospectator.com/news/view/13832"
-],
-"note": "이사회 결정 단계 금액",
-"_batch": "kr2021",
-"year": 2021,
-"id": "i0332"
-},
-{
-"company": "신라젠",
-"country": "한국",
-"date": "2021-07-15",
-"date_approx": true,
-"type": "후속공모",
-"round": "3자배정 유상증자",
-"amount_usd": 34.8,
-"amount_krw": 400,
-"currency_orig": "KRW",
-"amount_orig": 400,
-"amount_orig_unit": "억",
-"lead": [],
-"investors": [],
-"valuation_pre": null,
-"valuation_post": null,
-"valuation_note": null,
-"exchange": null,
-"ticker": null,
-"modality": "기타·미상",
-"area": "Other",
-"stage": "미상",
-"lead_asset": null,
-"platform": "N",
-"use_of_proceeds": null,
-"outcome": null,
-"sources": [
-"https://www.biospectator.com/news/view/13832"
-],
-"note": "확신 낮음",
-"_batch": "kr2021",
-"year": 2021,
-"id": "i0333"
+"id": "i0403"
 },
 {
 "company": "온코인사이트",
@@ -13813,7 +16548,7 @@
 "note": "신약개발 여부 미확인. 확신 낮음",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0334"
+"id": "i0404"
 },
 {
 "company": "카리스바이오",
@@ -13847,7 +16582,7 @@
 "note": "신약개발 여부 미확인. 확신 낮음",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0335"
+"id": "i0405"
 },
 {
 "company": "스탠다임",
@@ -13883,7 +16618,7 @@
 "note": "원문 US$10M 약 112억원",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0336"
+"id": "i0406"
 },
 {
 "company": "Shape Therapeutics",
@@ -13915,7 +16650,7 @@
 ],
 "_batch": "ovp01",
 "year": 2021,
-"id": "i0337"
+"id": "i0407"
 },
 {
 "company": "Apollo Therapeutics",
@@ -13948,7 +16683,7 @@
 "note": "BioWorld 헤드라인; 라운드·투자자 미확인; 확신 낮음",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0338"
+"id": "i0408"
 },
 {
 "company": "Inmagene Biopharmaceuticals",
@@ -13982,7 +16717,7 @@
 "note": "국가 본문 미확인",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0339"
+"id": "i0409"
 },
 {
 "company": "오름테라퓨틱",
@@ -14016,7 +16751,7 @@
 "note": "라운드 미기재",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0340"
+"id": "i0410"
 },
 {
 "company": "지아이이노베이션",
@@ -14050,7 +16785,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0341"
+"id": "i0411"
 },
 {
 "company": "뉴라클제네틱스",
@@ -14084,7 +16819,7 @@
 "note": "헤드라인 기준 금액, 확신 중간",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0342"
+"id": "i0412"
 },
 {
 "company": "Umoja Biopharma",
@@ -14116,7 +16851,7 @@
 ],
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0343"
+"id": "i0413"
 },
 {
 "company": "Bright Peak Therapeutics",
@@ -14149,7 +16884,7 @@
 "note": "engineered cytokine; 국가 본문 미확인",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0344"
+"id": "i0414"
 },
 {
 "company": "Synthekine",
@@ -14182,7 +16917,7 @@
 "note": "BioWorld 2021-06-14자 기사에 'disclosed June 10'",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0345"
+"id": "i0415"
 },
 {
 "company": "파노로스바이오",
@@ -14216,7 +16951,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0346"
+"id": "i0416"
 },
 {
 "company": "에피바이오텍",
@@ -14250,7 +16985,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0347"
+"id": "i0417"
 },
 {
 "company": "프로티나",
@@ -14284,7 +17019,7 @@
 "note": "신약개발 기업 해당 여부 미확인(단백질 분석/AI 플랫폼 추정 불가). 확신 낮음",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0348"
+"id": "i0418"
 },
 {
 "company": "Elpiscience",
@@ -14316,7 +17051,7 @@
 ],
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0349"
+"id": "i0419"
 },
 {
 "company": "Exscientia",
@@ -14360,7 +17095,7 @@
 "note": "Series D $225M + SoftBank 추가 $300M 인출가능 약정(최대 $525M); amount는 $225M",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0350"
+"id": "i0420"
 },
 {
 "company": "네오젠TC",
@@ -14395,7 +17130,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0351"
+"id": "i0421"
 },
 {
 "company": "세닉스바이오테크",
@@ -14429,7 +17164,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0352"
+"id": "i0422"
 },
 {
 "company": "넥셀",
@@ -14463,7 +17198,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0353"
+"id": "i0423"
 },
 {
 "company": "레모넥스",
@@ -14497,7 +17232,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0354"
+"id": "i0424"
 },
 {
 "company": "Ventus Therapeutics",
@@ -14540,7 +17275,7 @@
 ],
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0355"
+"id": "i0425"
 },
 {
 "company": "Repertoire Immune Medicines",
@@ -14578,7 +17313,7 @@
 ],
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0356"
+"id": "i0426"
 },
 {
 "company": "Theseus Pharmaceuticals",
@@ -14610,7 +17345,7 @@
 ],
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0357"
+"id": "i0427"
 },
 {
 "company": "Entrada Therapeutics",
@@ -14644,7 +17379,7 @@
 "note": "OSU 게시일 기준; 발표 원문 미확인",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0358"
+"id": "i0428"
 },
 {
 "company": "Omega Therapeutics",
@@ -14686,7 +17421,7 @@
 "note": "upsized; 리드 미공개",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0359"
+"id": "i0429"
 },
 {
 "company": "Epimab Biotherapeutics",
@@ -14719,7 +17454,7 @@
 "note": "BioWorld 헤드라인; 세부정보 미확인",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0360"
+"id": "i0430"
 },
 {
 "company": "바오밥에이바이오",
@@ -14754,7 +17489,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0361"
+"id": "i0431"
 },
 {
 "company": "핀테라퓨틱스",
@@ -14788,7 +17523,7 @@
 "note": null,
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0362"
+"id": "i0432"
 },
 {
 "company": "에이프릴바이오",
@@ -14824,7 +17559,7 @@
 "note": "라운드 미기재; 기사 제목 기준 유한양행 투자. 확신 낮음",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0363"
+"id": "i0433"
 },
 {
 "company": "온코닉테라퓨틱스",
@@ -14858,7 +17593,7 @@
 "note": "MT 4/11 기사 '지난달'=3월",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0364"
+"id": "i0434"
 },
 {
 "company": "ElevateBio",
@@ -14893,7 +17628,7 @@
 "note": "세포·유전자치료 플랫폼; 투자자 본문 미확인",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0365"
+"id": "i0435"
 },
 {
 "company": "Arctic Vision",
@@ -14927,7 +17662,7 @@
 "note": "'$100M+' 표기; 하한 100으로 기재",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0366"
+"id": "i0436"
 },
 {
 "company": "Tenaya Therapeutics",
@@ -14959,7 +17694,7 @@
 ],
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0367"
+"id": "i0437"
 },
 {
 "company": "Yisheng Biopharma",
@@ -14993,7 +17728,7 @@
 "note": "BioWorld 2021-02-25(재게재 03-02)",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0368"
+"id": "i0438"
 },
 {
 "company": "알토스바이오로직스",
@@ -15027,7 +17762,7 @@
 "note": "바이오스펙테이터 1~2월 집계 기사, 월 불명(1~2월)",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0369"
+"id": "i0439"
 },
 {
 "company": "하플사이언스",
@@ -15061,41 +17796,7 @@
 "note": "1~2월 집계, 월 불명",
 "_batch": "kr2021",
 "year": 2021,
-"id": "i0370"
-},
-{
-"company": "메디프론",
-"country": "한국",
-"date": "2021-02-15",
-"date_approx": true,
-"type": "후속공모",
-"round": "3자배정 유상증자",
-"amount_usd": 13.5,
-"amount_krw": 150,
-"currency_orig": "KRW",
-"amount_orig": 150,
-"amount_orig_unit": "억",
-"lead": [],
-"investors": [],
-"valuation_pre": null,
-"valuation_post": null,
-"valuation_note": null,
-"exchange": null,
-"ticker": null,
-"modality": "기타·미상",
-"area": "Other",
-"stage": "미상",
-"lead_asset": null,
-"platform": "N",
-"use_of_proceeds": null,
-"outcome": null,
-"sources": [
-"https://www.biospectator.com/news/view/12654"
-],
-"note": "1~2월 집계, 월 불명; 상장사 여부·시장은 출처 미기재",
-"_batch": "kr2021",
-"year": 2021,
-"id": "i0371"
+"id": "i0440"
 },
 {
 "company": "Vividion Therapeutics",
@@ -15129,7 +17830,7 @@
 "note": "URL 경로(/2021/02/)로만 월 확인; 일자 불명; 'undruggable' 타깃 플랫폼; 확신 낮음",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0372"
+"id": "i0441"
 },
 {
 "company": "TScan Therapeutics",
@@ -15162,7 +17863,7 @@
 "note": "BioWorld 헤드라인(2021-01-25) 기준; 세부정보 본문 미확인; 확신 낮음",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0373"
+"id": "i0442"
 },
 {
 "company": "IO Biotech",
@@ -15206,7 +17907,7 @@
 ],
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0374"
+"id": "i0443"
 },
 {
 "company": "Visen Pharmaceuticals",
@@ -15251,7 +17952,7 @@
 "note": "내분비 질환 중심(Ascendis 제휴 기반)",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0375"
+"id": "i0444"
 },
 {
 "company": "EQRx",
@@ -15292,7 +17993,7 @@
 "note": "리드 투자자 미공개; 설립 후 누적 약 $750M",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0376"
+"id": "i0445"
 },
 {
 "company": "Valo Health",
@@ -15336,7 +18037,7 @@
 "note": "2021-01-11 $190M 발표 후 2021-03-10 최종 클로징 $300M(Koch $110M 포함)로 합산",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0377"
+"id": "i0446"
 },
 {
 "company": "Scorpion Therapeutics",
@@ -15370,7 +18071,7 @@
 "note": "BioWorld 헤드라인 'oversubscribed $162M series B'; 투자자 본문 미확인",
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0378"
+"id": "i0447"
 },
 {
 "company": "Senti Biosciences",
@@ -15414,7 +18115,7 @@
 ],
 "_batch": "ovp00",
 "year": 2021,
-"id": "i0379"
+"id": "i0448"
 }
 ]
 }
