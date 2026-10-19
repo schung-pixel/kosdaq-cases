@@ -507,6 +507,9 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
   #fClose{display:grid}
   .fgrid{padding:8px 10px}
   .opt{min-height:40px;font-size:14px}
+  .fpanel .opt{min-height:38px;font-size:14px}
+  .fpanel-head .linkbtn{display:none}
+  .psum{padding:10px 16px}
   .fpanel-foot{display:flex;gap:8px;position:sticky;bottom:0;background:var(--surface);padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line2)}
   .fpanel-foot .primary{flex:1}
   .sheet{left:0;right:0;top:auto;bottom:0;width:auto;max-height:92vh;transform:none;border-radius:24px 24px 0 0;padding:0;animation:sheetup .42s cubic-bezier(.25,1,.4,1)}
@@ -666,6 +669,19 @@ html:not(.stuck) .edge-t{opacity:0}
 
 
 
+/* ===== filter panel v2: chip grid + summary ===== */
+.fpanel .opts{display:flex;flex-wrap:wrap;gap:6px;padding:2px 8px 4px}
+.fpanel .opt{width:auto;max-width:100%;min-height:34px;padding:4px 6px 4px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);gap:6px;font-size:13px;justify-content:flex-start}
+.fpanel .opt span{overflow-wrap:anywhere}
+.fpanel .opt:hover{background:var(--surface2)}
+.fpanel .opt[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);box-shadow:none}
+.fpanel .opt[aria-pressed="true"] small{background:var(--accent);color:var(--accent-ink)}
+.fpanel .years{padding:2px 8px 4px}
+.psum{display:flex;flex-wrap:wrap;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line2);background:var(--surface2)}
+@media (min-width:821px){.psum{display:none!important}}
+.psum[hidden]{display:none}
+.psum .tagx{font-size:12px}
+.psum .linkbtn{font-size:12px}
 /* ===== 투자 사례 ===== */
 .icards{display:block}
 @media(min-width:1181px){.icards{display:grid;grid-template-columns:1fr 1fr}.icards .card{border-right:1px solid var(--line2)}}
@@ -945,6 +961,7 @@ img{max-width:100%}
     <div class="shade" id="fShade" hidden></div>
     <aside class="fpanel" id="fpanel" hidden aria-label="필터" role="region">
       <div class="fpanel-head"><h2>필터 <span class="cnt" id="fCnt2"></span></h2><span style="display:flex;gap:6px;align-items:center"><button class="linkbtn" id="fResetTop" type="button">초기화</button><button class="xbtn glass" id="fClose" type="button" aria-label="필터 닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span></div>
+      <div class="psum" data-src="active" hidden></div>
       <div class="fgrid">
         <div class="fgroup"><span class="label">기간</span><div class="years"><select id="yFrom" aria-label="시작 연도"></select><span class="hint">~</span><select id="yTo" aria-label="끝 연도"></select></div></div>
         <div class="fgroup"><span class="label">사후 경과</span><div class="opts" data-g="status"></div><p class="fnote">붉은 숫자는 계약 후 권리반환·개발 중단이 확인된 거래 수입니다. 합계 <i id="alertN">–</i>건</p></div>
@@ -960,9 +977,10 @@ img{max-width:100%}
     <div class="shade" id="ffShade" hidden></div>
     <aside class="fpanel" id="ffpanel" hidden aria-label="FDA 필터" role="region">
       <div class="fpanel-head"><h2>필터 <span class="cnt" id="ffCnt2"></span></h2><span style="display:flex;gap:6px;align-items:center"><button class="linkbtn" id="ffResetTop" type="button">초기화</button><button class="xbtn glass" id="ffClose" type="button" aria-label="필터 닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span></div>
+      <div class="psum" data-src="factive" hidden></div>
       <div class="fgrid">
+        <div class="fgroup"><span class="label">기간</span><div class="years"><select id="ffyFrom" aria-label="시작 연도"></select><span class="hint">~</span><select id="ffyTo" aria-label="끝 연도"></select></div></div>
         <div class="fgroup"><span class="label">기술거래 연결</span><div class="opts" data-fg="link"></div></div>
-        <div class="fgroup"><span class="label">승인 연도</span><div class="opts" data-fg="yr"></div></div>
         <div class="fgroup"><span class="label">승인 부서</span><div class="opts" data-fg="ct"></div></div>
         <div class="fgroup"><span class="label">신속 심사·지정</span><div class="opts" data-fg="des"></div><p class="fnote">CBER 승인은 지정 정보가 대부분 비어 있습니다.</p></div>
         <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-fg="mod"></div></div>
@@ -974,10 +992,11 @@ img{max-width:100%}
     <div class="shade" id="iShade" hidden></div>
     <aside class="fpanel" id="ipanel" hidden aria-label="투자 사례 필터" role="region">
       <div class="fpanel-head"><h2>필터 <span class="cnt" id="iCnt2"></span></h2><span style="display:flex;gap:6px;align-items:center"><button class="linkbtn" id="iResetTop" type="button">초기화</button><button class="xbtn glass" id="iClose" type="button" aria-label="필터 닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span></div>
+      <div class="psum" data-src="iactive" hidden></div>
       <div class="fgrid">
+        <div class="fgroup"><span class="label">기간</span><div class="years"><select id="iyFrom" aria-label="시작 연도"></select><span class="hint">~</span><select id="iyTo" aria-label="끝 연도"></select></div></div>
         <div class="fgroup"><span class="label">구분</span><div class="opts" data-ig="type"></div></div>
         <div class="fgroup"><span class="label">지역</span><div class="opts" data-ig="reg"></div></div>
-        <div class="fgroup"><span class="label">투자 연도</span><div class="opts" data-ig="yr"></div></div>
         <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-ig="mod"></div></div>
         <div class="fgroup"><span class="label">조달 시점 단계</span><div class="opts" data-ig="stage"></div></div>
       </div>
@@ -1862,10 +1881,18 @@ const FGROUPS={
   mod:{vals:()=>fCount(a=>a._mod).filter(v=>v!=="미상").concat(FDA.some(a=>a._mod==="미상")?["미상"]:[]),label:v=>v,get:a=>a._mod},
   org:{vals:()=>["기술도입","인수","공동개발","자체개발","불명"],label:v=>v==="불명"?"확인 안 됨":v,get:a=>a._org}};
 function fMatch(a,g){const s=FF[g];if(!s.size)return true;const v=FGROUPS[g].get(a);return FGROUPS[g].multi?v.some(x=>s.has(x)):s.has(v)}
-function fBuildPanel(){document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg,G=FGROUPS[g];
+
+function ffYearsAll(){return [...new Set(FDA.map(a=>a._yr).filter(Boolean))].sort()}
+function ffYearsBuild(){const ys=ffYearsAll();["ffyFrom","ffyTo"].forEach(id=>{const el=$(id);if(el)el.innerHTML=ys.map(y=>`<option value="${y}">${y}년</option>`).join("")});ffYearsSync()}
+function ffYearsSync(){const ys=ffYearsAll(),f=$("ffyFrom"),t=$("ffyTo");if(!f||!ys.length)return;const sel=[...FF.yr].sort();
+  f.value=sel.length?sel[0]:ys[0];t.value=sel.length?sel[sel.length-1]:ys[ys.length-1];if(typeof ddSyncAll==="function")ddSyncAll()}
+function ffYearsChange(){const ys=ffYearsAll();let a=$("ffyFrom").value,b=$("ffyTo").value;if(a>b)[a,b]=[b,a];
+  FF.yr.clear();if(!(a===ys[0]&&b===ys[ys.length-1]))ys.filter(y=>y>=a&&y<=b).forEach(y=>FF.yr.add(y));fApply()}
+function ffYearsLabel(){const s=[...FF.yr].sort();return s.length===1?s[0]+"년":s[0]+"~"+s[s.length-1]+"년"}
+function fBuildPanel(){ffYearsBuild();document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg,G=FGROUPS[g];
   box.innerHTML=G.vals().map(v=>{const n=FDA.filter(a=>G.multi?G.get(a).includes(v):G.get(a)===v).length;
     return n?`<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="${FF[g].has(v)}"><span>${esc(G.label(v))}</span><small>${n}</small></button>`:""}).join("")})}
-function fSyncPanel(){document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(FF[g].has(b.dataset.v))))})}
+function fSyncPanel(){ffYearsSync();document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(FF[g].has(b.dataset.v))))})}
 const fFilterN=()=>FGS.reduce((n,g)=>n+FF[g].size,0)+(FF.since?1:0);
 function fReset(keepQ){const q=FF.q;FGS.forEach(g=>FF[g].clear());FF.since=null;FF.compsOnly=false;FF.q=keepQ?q:""}
 
@@ -1891,7 +1918,7 @@ function fDrawChips(){
 function fChipInd(reveal){const w=$("fchipsWrap");if(!w)return;moveInd(w,$("fchips").querySelector('.chip[aria-pressed="true"]'),reveal)}
 function fDrawActive(){
   const out=[];if(FF.since)out.push(["since","","최근 12개월"]);
-  FGS.forEach(g=>FF[g].forEach(v=>out.push([g,v,FGROUPS[g].label(v)])));
+  FGS.forEach(g=>{if(g==="yr"){if(FF.yr.size)out.push(["yr","*",ffYearsLabel()]);return}FF[g].forEach(v=>out.push([g,v,FGROUPS[g].label(v)]))});
   if(FF.compsOnly)out.push(["comps","","★ 비교 승인만"]);
   $("factive").innerHTML=out.map(([g,v,t])=>`<button type="button" class="tagx" data-g="${g}" data-v="${esc(v)}" aria-label="${esc(t)} 조건 빼기">${esc(t)}<span aria-hidden="true">×</span></button>`).join("")+(out.length>1?'<button type="button" class="linkbtn" id="fclearAll">모두 지우기</button>':"");
 }
@@ -2078,7 +2105,7 @@ $("fchips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b
   const c=FCHIPS.find(x=>x.id===b.dataset.c),was=c.on();FCHIPS.forEach(x=>{if(x!==c&&x.on())x.set(false)});c.set(!was);fApply()});
 $("factive").addEventListener("click",e=>{if(e.target.closest("#fclearAll")){fReset(true);fApply();return}
   const b=e.target.closest(".tagx");if(!b)return;const g=b.dataset.g;
-  if(g==="since")FF.since=null;else if(g==="comps")FF.compsOnly=false;else FF[g].delete(b.dataset.v);fApply()});
+  if(g==="since")FF.since=null;else if(g==="comps")FF.compsOnly=false;else if(g==="yr")FF.yr.clear();else FF[g].delete(b.dataset.v);fApply()});
 $("ffpanel").addEventListener("click",e=>{const b=e.target.closest(".opt");if(!b)return;const g=b.closest("[data-fg]").dataset.fg,v=b.dataset.v;FF[g].has(v)?FF[g].delete(v):FF[g].add(v);fApply()});
 $("ffBtn").onclick=()=>$("ffpanel").hidden?openFPanel():closeFPanel();
 $("ffClose").onclick=()=>closeFPanel();$("ffApply").onclick=()=>closeFPanel();$("ffShade").onclick=()=>closeFPanel();
@@ -2100,6 +2127,7 @@ let fWasPhone=isPhone(),fWasCards=useCards();
 addEventListener("resize",()=>{const p=isPhone(),c=useCards();
   if(p!==fWasPhone){fWasPhone=p;$("ffShade").hidden=true;$("ffpanel").hidden=p;$("ffBtn").setAttribute("aria-expanded","false");lockSync()}
   if(c!==fWasCards){fWasCards=c;fDrawList()}});
+["ffyFrom","ffyTo"].forEach(id=>$(id)&&$(id).addEventListener("change",ffYearsChange));
 let INV=[],IVIEW=[],ishown=40,isortK="date",isortDir=-1,INV_ERR="";
 const IF={q:"",since:null,type:new Set(),reg:new Set(),yr:new Set(),mod:new Set(),stage:new Set(),mega:false,compsOnly:false};
 const IGS=["type","reg","yr","mod","stage"];
@@ -2124,10 +2152,18 @@ const IGROUPS={
   yr:{vals:()=>[...new Set(INV.map(a=>a._yr))].sort().reverse(),label:v=>v+"년",get:a=>a._yr},
   mod:{vals:()=>iCount(a=>a._mod).filter(v=>v!=="기타·미상").concat(INV.some(a=>a._mod==="기타·미상")?["기타·미상"]:[]),label:v=>v,get:a=>a._mod},
   stage:{vals:()=>["Discovery","Preclinical","Phase 1","Phase 2","Phase 3","허가신청·승인","복수 단계","미상"],label:v=>v,get:a=>a._stage}};
-function iBuildPanel(){document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig,G=IGROUPS[g];
+
+function iYearsAll(){return [...new Set(INV.map(a=>a._yr).filter(Boolean))].sort()}
+function iYearsBuild(){const ys=iYearsAll();["iyFrom","iyTo"].forEach(id=>{const el=$(id);if(el)el.innerHTML=ys.map(y=>`<option value="${y}">${y}년</option>`).join("")});iYearsSync()}
+function iYearsSync(){const ys=iYearsAll(),f=$("iyFrom"),t=$("iyTo");if(!f||!ys.length)return;const sel=[...IF.yr].sort();
+  f.value=sel.length?sel[0]:ys[0];t.value=sel.length?sel[sel.length-1]:ys[ys.length-1];if(typeof ddSyncAll==="function")ddSyncAll()}
+function iYearsChange(){const ys=iYearsAll();let a=$("iyFrom").value,b=$("iyTo").value;if(a>b)[a,b]=[b,a];
+  IF.yr.clear();if(!(a===ys[0]&&b===ys[ys.length-1]))ys.filter(y=>y>=a&&y<=b).forEach(y=>IF.yr.add(y));iApply()}
+function iYearsLabel(){const s=[...IF.yr].sort();return s.length===1?s[0]+"년":s[0]+"~"+s[s.length-1]+"년"}
+function iBuildPanel(){iYearsBuild();document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig,G=IGROUPS[g];
   box.innerHTML=G.vals().map(v=>{const n=INV.filter(a=>G.get(a)===v).length;
     return n?`<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="${IF[g].has(v)}"><span>${esc(G.label(v))}</span><small>${n}</small></button>`:""}).join("")})}
-function iSyncPanel(){document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(IF[g].has(b.dataset.v))))})}
+function iSyncPanel(){iYearsSync();document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(IF[g].has(b.dataset.v))))})}
 const iFilterN=()=>IGS.reduce((n,g)=>n+IF[g].size,0)+(IF.since?1:0)+(IF.mega?1:0);
 function iClearAll(keepQ){const q=IF.q;IGS.forEach(g=>IF[g].clear());IF.since=null;IF.mega=false;IF.compsOnly=false;IF.q=keepQ?q:""}
 /* quick chips (one at a time) */
@@ -2149,7 +2185,7 @@ function iDrawChips(){
 function iChipInd(reveal){const w=$("ichipsWrap");if(w)moveInd(w,$("ichips").querySelector('.chip[aria-pressed="true"]'),reveal)}
 function iDrawActive(){
   const out=[];if(IF.since)out.push(["since","","최근 12개월"]);if(IF.mega)out.push(["mega","","대형 ($200M+)"]);
-  IGS.forEach(g=>IF[g].forEach(v=>out.push([g,v,IGROUPS[g].label(v)])));
+  IGS.forEach(g=>{if(g==="yr"){if(IF.yr.size)out.push(["yr","*",iYearsLabel()]);return}IF[g].forEach(v=>out.push([g,v,IGROUPS[g].label(v)]))});
   if(IF.compsOnly)out.push(["comps","","★ 관심 사례만"]);
   $("iactive").innerHTML=out.map(([g,v,t])=>`<button type="button" class="tagx" data-g="${g}" data-v="${esc(v)}" aria-label="${esc(t)} 조건 빼기">${esc(t)}<span aria-hidden="true">×</span></button>`).join("")+(out.length>1?'<button type="button" class="tagx clr" data-g="all">모두 지우기</button>':"")}
 function iSort(){const k=isortK,dir=isortDir;
@@ -2255,7 +2291,7 @@ $("ichips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b
   if(b.dataset.c==="all"){ICHIPS.forEach(c=>{if(c.on())c.set(false)});iApply();return}
   const c=ICHIPS.find(x=>x.id===b.dataset.c);if(!c)return;const was=c.on();ICHIPS.forEach(x=>{if(x.on())x.set(false)});if(!was)c.set(true);iApply()});
 $("iactive").addEventListener("click",e=>{const b=e.target.closest(".tagx");if(!b)return;const g=b.dataset.g,v=b.dataset.v;
-  if(g==="all")iClearAll(true);else if(g==="since")IF.since=null;else if(g==="mega")IF.mega=false;else if(g==="comps")IF.compsOnly=false;else IF[g].delete(v);iApply()});
+  if(g==="all")iClearAll(true);else if(g==="since")IF.since=null;else if(g==="mega")IF.mega=false;else if(g==="comps")IF.compsOnly=false;else if(g==="yr")IF.yr.clear();else IF[g].delete(v);iApply()});
 $("ipanel").addEventListener("click",e=>{const b=e.target.closest(".opt");if(!b)return;const g=b.closest("[data-ig]").dataset.ig,v=b.dataset.v;IF[g].has(v)?IF[g].delete(v):IF[g].add(v);iApply()});
 $("iBtn").onclick=()=>$("ipanel").hidden?openIPanel():closeIPanel();
 $("iClose").onclick=()=>closeIPanel();$("iApply").onclick=()=>closeIPanel();$("iShade").onclick=()=>closeIPanel();
@@ -2273,6 +2309,8 @@ $("icards").addEventListener("click",onIListClick);
 $("icards").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.target.closest("button")){const it=e.target.closest("[data-ii]");if(it)openInv(IVIEW[+it.dataset.ii])}});
 let iWasPhone=isPhone();
 addEventListener("resize",()=>{const p=isPhone();if(p!==iWasPhone){iWasPhone=p;$("iShade").hidden=true;$("ipanel").hidden=p;$("iBtn").setAttribute("aria-expanded","false");lockSync()}});
+
+["iyFrom","iyTo"].forEach(id=>$(id)&&$(id).addEventListener("change",iYearsChange));
 /* ---------- FDA approvals: prescribing-information (PI) popup panes, charts, and ✦ AI search ---------- */
 let FDAPI={},FDAPI_STATE="idle",FDAPI_LOADER=null;
 function setFdaPi(arr){FDAPI={};(arr||[]).forEach(p=>{if(p&&p.id)FDAPI[p.id]=p});FDAPI_STATE="ready";piRefresh()}
@@ -2654,7 +2692,7 @@ function ddClose(dd,refocus){if(!dd||!dd.menu)return;dd.menu.remove();dd.menu=nu
 document.addEventListener("pointerdown",e=>{if(ddOpenNow&&!ddOpenNow.menu.contains(e.target)&&!ddOpenNow.btn.contains(e.target))ddClose(ddOpenNow)},true);
 addEventListener("scroll",e=>{if(ddOpenNow&&!(e.target instanceof Element&&ddOpenNow.menu.contains(e.target)))ddClose(ddOpenNow)},{capture:true,passive:true});
 addEventListener("resize",()=>{if(ddOpenNow)ddClose(ddOpenNow)});
-makeDD($("sort"),$("sortDD"),"pill");makeDD($("fsort"),$("fsortDD"),"pill");makeDD($("isort"),$("isortDD"),"pill");makeDD($("yFrom"),null,"sm");makeDD($("yTo"),null,"sm");
+makeDD($("sort"),$("sortDD"),"pill");makeDD($("fsort"),$("fsortDD"),"pill");makeDD($("isort"),$("isortDD"),"pill");makeDD($("yFrom"),null,"sm");["ffyFrom","ffyTo","iyFrom","iyTo"].forEach(id=>$(id)&&makeDD($(id),null,"sm"));makeDD($("yTo"),null,"sm");
 
 /* overlays: scroll lock */
 let askFocus=null,panelFocus=null;
@@ -2843,6 +2881,14 @@ async function runAiSearch(q){
     apply();
   }
 }
+
+/* filter panel summary bar mirrors the page's active-filter chips */
+document.querySelectorAll(".psum").forEach(ps=>{const src=$(ps.dataset.src);if(!src)return;
+  const sync=()=>{const html=src.innerHTML.replace(/ id="/g,' data-id="');ps.innerHTML=html;ps.hidden=!src.querySelector(".tagx")};
+  new MutationObserver(sync).observe(src,{childList:true,subtree:true});sync();
+  ps.addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
+    if(b.dataset.id){const t=$(b.dataset.id);if(t)t.click();return}
+    const t=[...src.querySelectorAll(".tagx")].find(x=>x.dataset.g===b.dataset.g&&(x.dataset.v||"")===(b.dataset.v||""));if(t)t.click()})});
 
 drawChips();
 
