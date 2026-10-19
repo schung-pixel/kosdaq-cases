@@ -1,6 +1,6 @@
 {
 "generated": "2026-10-19",
-"count": 595,
+"count": 616,
 "items": [
 {
 "company": "City Therapeutics",
@@ -249,7 +249,7 @@
 },
 {
 "company": "Soufflé Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2026-10-13",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -297,7 +297,8 @@
 "as_of": "2026-10",
 "co_src": [
 "https://www.indianpharmapost.com/news/souffle-therapeutics-raises-135-million-to-advance-rna-therapies-into-clinical-trials-22159"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "TRex Bio",
@@ -797,7 +798,7 @@
 },
 {
 "company": "Encoded Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2026-09-09",
 "type": "시리즈/비공개",
 "round": "Series F",
@@ -855,7 +856,8 @@
 "as_of": "2026-09",
 "co_src": [
 "https://fiercebiotech.com/biotech/encoded-executes-275m-raise-advance-dravet-syndrome-asset-and-scale-manufacturing"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Solstice Oncology",
@@ -1757,7 +1759,7 @@
 },
 {
 "company": "AdvanCell",
-"country": "미상",
+"country": "호주",
 "date": "2026-07-15",
 "type": "시리즈/비공개",
 "round": "Series D",
@@ -1812,7 +1814,8 @@
 "as_of": "2026-07",
 "co_src": [
 "https://www.biospace.com/press-releases/advancell-closes-us-315-million-oversubscribed-series-d-financing-to-advance-targeted-alpha-therapies-and-expand-clinical-and-commercial-manufacturing-infrastructure"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Avere Therapeutics",
@@ -2414,7 +2417,7 @@
 },
 {
 "company": "Serapha Bio",
-"country": "미상",
+"country": "미국",
 "date": "2026-06-23",
 "type": "시리즈/비공개",
 "round": "Series A ($138M 확정 + $92M 합병 종결 시 추가 예정, 총 $230M) / Boundless Bio 역합병 동시 PIPE",
@@ -2469,7 +2472,8 @@
 "as_of": "2026-06",
 "co_src": [
 "https://www.fiercebiotech.com/biotech/serapha-bio-takes-flight-boundless-merger-230m-and-gene-editing-prospect-china"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Ollin Biosciences",
@@ -2535,7 +2539,7 @@
 },
 {
 "company": "cAMPfield Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2026-06-18",
 "type": "시리즈/비공개",
 "round": "Series A",
@@ -2587,7 +2591,8 @@
 "as_of": "2026-06",
 "co_src": [
 "https://pharmexec.com/view/kardigan-400-million-initial-ipo-campfield-launches-180-million-series-a"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Kardigan",
@@ -2879,7 +2884,7 @@
 },
 {
 "company": "Beren Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2026-06-10",
 "type": "시리즈/비공개",
 "round": "Equity financing (지분 $135M, 별도 Hercules 부채/로열티 최대 $165M)",
@@ -2928,10 +2933,11 @@
 "as_of": "2026-06",
 "co_src": [
 "https://globalgenes.org/raredaily/beren-raises-300-million-to-prepare-for-potential-commercial-launch-of-npc-therapy/"
-]
+],
+"audited": "2026-10-19"
 },
 {
-"company": "Parabilis Medicines",
+"company": "Parabilis Medicines (구 FogPharma)",
 "country": "미국",
 "date": "2026-06-09",
 "type": "IPO",
@@ -2964,7 +2970,7 @@
 "note": "33.5M sh x $20 = $670M base; option 5,025,000 sh; plus concurrent Regeneron PP 4,166,666 sh @ $18 (~$75M); biobucks total IPO $770.5M incl option. Overallotment & PP excluded. Stage: registrational Ph3 planned H1 2027 (currently earlier-stage; classification 'Phase 3' is low confidence). Registrational Phase 3 planned H1 2027; current stage not stated.",
 "_batch": "ipo03",
 "year": 2026,
-"id": "i6d628107",
+"id": "i55d85a07",
 "about": "Helicon 안정화 나선 펩타이드 플랫폼으로 β-catenin 등 난치 표적 항암제를 개발하는 임상 단계 바이오텍",
 "pipeline": [
 {
@@ -3918,7 +3924,7 @@
 },
 {
 "company": "Ray Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2026-04-21",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -3974,11 +3980,12 @@
 "co_src": [
 "https://www.biospace.com/press-releases/ray-therapeutics-announces-upsized-and-oversubscribed-125-million-series-b-financing-for-vision-restoration-treatments",
 "https://www.biospace.com/press-releases/ray-therapeutics-receives-fda-regenerative-medicine-advanced-therapy-rmat-designation-for-rtx-015-in-retinitis-pigmentosa"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Tortugas Neuroscience",
-"country": "미상",
+"country": "미국",
 "date": "2026-04-21",
 "type": "시리즈/비공개",
 "round": "Seed + Series A",
@@ -4045,7 +4052,8 @@
 "co_src": [
 "https://www.fiercebiotech.com/biotech/tortugas-comes-out-its-shell-106m-fund-4-phase-2-stage-neuro-drugs",
 "https://www.biospace.com/press-releases/tortugas-neuroscience-launches-with-106-million-to-advance-clinical-stage-pipeline-targeting-new-and-major-neurology-and-neuropsychiatric-disorders"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Kailera Therapeutics",
@@ -4209,7 +4217,7 @@
 },
 {
 "company": "Beeline Medicines",
-"country": "미상",
+"country": "미국",
 "date": "2026-04-15",
 "type": "시리즈/비공개",
 "round": "Series A",
@@ -4267,11 +4275,12 @@
 "as_of": "2026-04",
 "co_src": [
 "https://www.fiercebiotech.com/biotech/bain-backed-beeline-medicines-buzzes-out-stealth-300m-and-5-programs-bms"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Terremoto Biosciences",
-"country": "미상",
+"country": "미국",
 "date": "2026-04-15",
 "type": "시리즈/비공개",
 "round": "Series C",
@@ -4332,7 +4341,8 @@
 "as_of": "2026-04",
 "co_src": [
 "https://www.fiercebiotech.com/biotech/terremoto-takes-108m-series-c-fuel-clinical-trials-akt1-inhibitors"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Neomorph",
@@ -4587,7 +4597,7 @@
 },
 {
 "company": "Stipple Bio",
-"country": "미상",
+"country": "미국",
 "date": "2026-04-06",
 "type": "시리즈/비공개",
 "round": "Series A",
@@ -4641,7 +4651,8 @@
 "co_src": [
 "https://www.fiercebiotech.com/biotech/buoyed-100m-series-stipple-bio-debuts-advance-lead-oncology-asset-clinic",
 "https://www.biospace.com/press-releases/stipple-bio-emerges-from-stealth-with-oversubscribed-100-million-series-a-financing-to-advance-stp-100-into-early-clinical-studies-and-advance-a-precision-oncology-pipeline-that-leverages-its-pointillist-platform"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Syneron Bio",
@@ -4802,7 +4813,7 @@
 },
 {
 "company": "Ambrosia Biosciences",
-"country": "미상",
+"country": "미국",
 "date": "2026-03-31",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -4855,7 +4866,8 @@
 "as_of": "2026-03",
 "co_src": [
 "https://pulse2.com/ambrosia-biosciences-100-million-raised-for-cardiometabolic-small-molecule-pipeline-advancement"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "듀셀바이오테라퓨틱스",
@@ -5319,7 +5331,7 @@
 "http://www.edaily.co.kr/news/newspath.asp?newsid=02161526645354456",
 "https://www.medigatenews.com/news/2355336612"
 ],
-"note": "회사 발표 2,500만달러(약 360억원); 통화 USD 원문",
+"note": "회사 발표 2,500만달러(약 360억원); 통화 USD 원문; 미국 법인이나 국내 VC 주도·원화 보도 건으로 국내 기준(100억 원) 적용",
 "_batch": "kr2526",
 "year": 2026,
 "id": "iec1d91fc",
@@ -5598,7 +5610,7 @@
 },
 {
 "company": "Angitia Biopharmaceuticals",
-"country": "미상",
+"country": "미국",
 "date": "2026-02-05",
 "type": "시리즈/비공개",
 "round": "Series D",
@@ -5662,7 +5674,8 @@
 "as_of": "2026-02",
 "co_src": [
 "https://www.fiercebiotech.com/biotech/angitia-raises-130m-challenge-amgen-bone-building-bispecifics"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Eikon Therapeutics",
@@ -5931,7 +5944,7 @@
 },
 {
 "company": "Kinaset Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2026-01-10",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -5987,7 +6000,8 @@
 "as_of": "2026-01",
 "co_src": [
 "https://businesswire.com/news/home/20260110058494/en/Kinaset-Therapeutics-Announces-%24103-Million-Oversubscribed-Series-B-Financing-to-Advance-Novel-Inhaled-Therapeutic-Candidate-for-Respiratory-Diseases"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Ribo Life Science",
@@ -6058,7 +6072,7 @@
 },
 {
 "company": "AirNexis Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2026-01-09",
 "type": "시리즈/비공개",
 "round": "Series A",
@@ -6110,7 +6124,8 @@
 "as_of": "2026-01",
 "co_src": [
 "https://www.businesswire.com/news/home/20260109716906/en/AirNexis-Therapeutics-Launches-with-%24200M-Series-A-to-Advance-Phase-2-Dual-PDE34-Inhibitor-AN01-for-Chronic-Obstructive-Pulmonary-Disease-COPD"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Aktis Oncology",
@@ -6390,7 +6405,7 @@
 },
 {
 "company": "Atavistik Bio",
-"country": "미상",
+"country": "미국",
 "date": "2025-12-18",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -6439,7 +6454,8 @@
 "as_of": "2025-12",
 "co_src": [
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Syremis Therapeutics",
@@ -6499,7 +6515,7 @@
 },
 {
 "company": "Addition Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-12-17",
 "type": "시리즈/비공개",
 "round": "Total financing",
@@ -6543,11 +6559,12 @@
 "as_of": "2025-12",
 "co_src": [
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Ambros Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-12-16",
 "type": "시리즈/비공개",
 "round": "Series A",
@@ -6599,11 +6616,12 @@
 "as_of": "2025-12",
 "co_src": [
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Chai Discovery",
-"country": "미상",
+"country": "미국",
 "date": "2025-12-15",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -6648,7 +6666,8 @@
 "as_of": "2026-07",
 "co_src": [
 "https://www.businesswire.com/news/home/20260713849009/en/Chai-Discovery-Announces-400M-Series-C-to-Advance-AI-Driven-Molecular-Design"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "쿼드메디슨",
@@ -6770,7 +6789,7 @@
 },
 {
 "company": "SanegeneBio",
-"country": "미상",
+"country": "미국",
 "date": "2025-12-08",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -6828,7 +6847,8 @@
 "co_src": [
 "https://www.lqventures.com/?p=90440",
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "에임드바이오",
@@ -6935,7 +6955,7 @@
 },
 {
 "company": "Triana Biomedicines",
-"country": "미상",
+"country": "미국",
 "date": "2025-12-03",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -6986,7 +7006,8 @@
 "co_src": [
 "https://www.fiercebiotech.com/biotech/pfizer-backed-triana-scores-120m-series-b-take-molecular-glue-degrader-clinic",
 "https://www.biospace.com/with-focus-on-molecular-glue-triana-hits-the-ground-with-110-million"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Bao Pharmaceuticals",
@@ -7077,7 +7098,7 @@
 },
 {
 "company": "Protego Biopharma",
-"country": "미상",
+"country": "미국",
 "date": "2025-12-01",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -7128,11 +7149,12 @@
 "co_src": [
 "https://www.biopharmadive.com/news/protego-al-light-chain-amyloidosis-series-b/806103/",
 "https://www.biospace.com/business/novartis-backed-protego-eyes-pivotal-amyloidosis-study-with-130m-series-b"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Aspen Neuroscience",
-"country": "미상",
+"country": "미국",
 "date": "2025-11-20",
 "type": "시리즈/비공개",
 "round": "Series C",
@@ -7183,11 +7205,12 @@
 "as_of": "2025-11",
 "co_src": [
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Profluent",
-"country": "미상",
+"country": "미국",
 "date": "2025-11-19",
 "type": "시리즈/비공개",
 "round": "Funding (round unspecified)",
@@ -7231,7 +7254,8 @@
 "co_src": [
 "https://pulse2.com/profluent-106-million/",
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Artios Pharma",
@@ -7293,7 +7317,7 @@
 },
 {
 "company": "Solve Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-11-17",
 "type": "시리즈/비공개",
 "round": "Upsized financing",
@@ -7353,6 +7377,75 @@
 "co_src": [
 "https://businesswire.com/news/home/20251117481427/en/Solve-Therapeutics-Raises-%24120-Million-to-Develop-Best-in-Class-ADCs-for-Solid-Tumors",
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
+],
+"audited": "2026-10-19"
+},
+{
+"company": "Iambic Therapeutics",
+"country": "미국",
+"date": "2025-11-10",
+"type": "시리즈/비공개",
+"round": "Oversubscribed financing (round name not stated)",
+"amount_usd": 100,
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 100,
+"amount_orig_unit": "M",
+"lead": [],
+"investors": [
+"Abingworth",
+"Alexandria Venture Investments",
+"ARK",
+"Catalio",
+"Illumina Ventures",
+"Mubadala",
+"Qatar Investment Authority",
+"Regeneron Ventures"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "디스커버리·AI 플랫폼",
+"area": "Oncology",
+"stage": "Phase 1",
+"lead_asset": "IAM1363",
+"platform": "Y",
+"use_of_proceeds": "AI 발굴 파이프라인 및 플랫폼 기술 발전",
+"outcome": null,
+"note": "출처 표현은 'over $100 million'(정확 금액 미공개); amount_usd 100은 하한값. 라운드명·리드 미공개.",
+"sources": [
+"https://www.businesswire.com/news/home/20251110232927/en/Iambic-Raises-Over-$100-Million-in-an-Oversubscribed-Round-to-Advance-Its-Portfolio-of-AI-Discovered-Therapeutics-and-Leading-Platform-Technologies"
+],
+"_batch": "gap_2025h2",
+"year": 2025,
+"id": "i6a17493b",
+"about": "AI 플랫폼으로 HER2 억제제 등 표적항암 저분자를 개발하는 임상 1상 단계 바이오텍(2026년 10월 나스닥 상장)",
+"pipeline": [
+{
+"name": "IAM1363",
+"target": "HER2 (경구, 뇌투과성 저분자)",
+"indication": "HER2 변이 진행성 고형암",
+"stage": "Phase 1"
+},
+{
+"name": "IAM-C1",
+"target": "CDK2/CDK4 dual inhibitor",
+"indication": "유방암, CCNE1 증폭 암",
+"stage": "Preclinical"
+},
+{
+"name": "IAM217",
+"target": "KIF18A (allosteric, 뇌투과성)",
+"indication": "난소암, 삼중음성유방암 등 고형암",
+"stage": "Preclinical"
+}
+],
+"as_of": "2026-10",
+"co_src": [
+"https://www.fiercebiotech.com/biotech/iambic-goes-public-150m-ipo-accelerate-clinical-development-oncology-pipeline",
+"https://dealroom.co/news/162724-iambic-prices-150m-ipo-to-fund-ai-discovered-drug-pipeline/"
 ]
 },
 {
@@ -7411,7 +7504,7 @@
 },
 {
 "company": "Braveheart Bio",
-"country": "미상",
+"country": "미국",
 "date": "2025-11-05",
 "type": "시리즈/비공개",
 "round": "Series A",
@@ -7463,7 +7556,8 @@
 "co_src": [
 "https://www.iposcoop.com/?p=38868",
 "https://www.dcatvci.org/top-industry-news/biotech-briefs-braveheart-bio-attovia-latigo-biotherapeutics-more/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "AAVantgarde Bio",
@@ -7747,7 +7841,7 @@
 },
 {
 "company": "Electra Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-10-22",
 "type": "시리즈/비공개",
 "round": "Series C",
@@ -7800,7 +7894,8 @@
 "as_of": "2026-09",
 "co_src": [
 "https://www.bioxconomy.com/investment/electra-raises-350m-in-upsized-ipo-to-advance-precision-immune-therapies"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Adcytherix",
@@ -7977,7 +8072,7 @@
 },
 {
 "company": "Pelage Pharmaceuticals",
-"country": "미상",
+"country": "미국",
 "date": "2025-10-15",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -8027,7 +8122,8 @@
 "as_of": "2025-10",
 "co_src": [
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "아이엠바이오로직스",
@@ -8088,7 +8184,7 @@
 },
 {
 "company": "Kailera Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-10-14",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -8154,11 +8250,12 @@
 "co_src": [
 "https://www.iposcoop.com/?p=38053",
 "https://www.pharmaceutical-technology.com/news/kailera-nets-600m-to-power-phase-iii-launch-of-obesity-drug/"
-]
+],
+"audited": "2026-10-19"
 },
 {
-"company": "Kardigan Therapeutics",
-"country": "미상",
+"company": "Kardigan",
+"country": "미국",
 "date": "2025-10-14",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -8195,7 +8292,7 @@
 "date_approx": false,
 "_batch": "ovp09b",
 "year": 2025,
-"id": "i8b243784",
+"id": "ic68754ac",
 "about": "심근수축 활성제 danicamtiv 등 후기 단계 심혈관 자산을 개발하는 바이오텍",
 "pipeline": [
 {
@@ -8221,11 +8318,12 @@
 "co_src": [
 "https://www.fiercebiotech.com/biotech/kardigan-fashions-254m-series-b-spin-late-stage-cardio-assets-through-clinic",
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Expedition Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-10-09",
 "type": "시리즈/비공개",
 "round": "Series A",
@@ -8278,11 +8376,12 @@
 "as_of": "2026-08",
 "co_src": [
 "https://www.biospace.com/press-releases/expedition-therapeutics-announces-oversubscribed-115-million-series-b-financing-to-advance-next-generation-dpp1-inhibitor-for-copd"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Nilo Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-10-08",
 "type": "시리즈/비공개",
 "round": "Series A",
@@ -8325,11 +8424,12 @@
 "as_of": "2025-10",
 "co_src": [
 "https://www.fiercebiotech.com/biotech/immunology-biotech-nilo-launches-101m-and-mission-harness-neural-circuits"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Arthrosi Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-10-08",
 "type": "시리즈/비공개",
 "round": "Series E",
@@ -8380,11 +8480,12 @@
 "co_src": [
 "https://www.fiercebiotech.com/biotech/arthrosi-raises-153m-fueling-dash-toward-phase-3-gout-data-2026",
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Soufflé Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-10-07",
 "type": "시리즈/비공개",
 "round": "Series A",
@@ -8435,7 +8536,8 @@
 "as_of": "2026-10",
 "co_src": [
 "https://www.indianpharmapost.com/news/souffle-therapeutics-raises-135-million-to-advance-rna-therapies-into-clinical-trials-22159"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "이뮤노포지",
@@ -8490,7 +8592,7 @@
 },
 {
 "company": "Star Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-09-30",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -8542,11 +8644,12 @@
 "as_of": "2025-09",
 "co_src": [
 "https://businesswire.com/news/home/20250929595423/en/Star-Therapeutics-Announces-Oversubscribed-%24125-Million-Series-D-Financing"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Crystalys Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-09-30",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -8597,7 +8700,8 @@
 "as_of": "2026-07",
 "co_src": [
 "https://www.biospace.com/press-releases/crystalys-therapeutics-announces-130-million-series-b-financing-to-advance-global-phase-3-development-and-commercialization-of-dotinurad-for-gout"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "GenFleet Therapeutics (Jinfang Pharmaceutical Technology)",
@@ -8655,7 +8759,7 @@
 },
 {
 "company": "Ollin Biosciences",
-"country": "미상",
+"country": "미국",
 "date": "2025-09-17",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -8708,7 +8812,8 @@
 "as_of": "2026-06",
 "co_src": [
 "https://www.fiercebiotech.com/biotech/ollin-hauls-330m-enlist-vabysmo-challenger-phase-3-eye-disease-gauntlet"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "LB Pharmaceuticals",
@@ -8758,7 +8863,7 @@
 },
 {
 "company": "Odyssey Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-09-10",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -8818,7 +8923,8 @@
 "co_src": [
 "https://xtalks.com/odyssey-therapeutics-ipo-aims-to-address-ibd-therapeutic-ceiling-4880/",
 "https://news.bgov.com/mergers-and-acquisitions/biotech-odyssey-raises-304-million-in-upsized-ipo-placement"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "엘리시젠(구 뉴라클제네틱스)",
@@ -8878,8 +8984,73 @@
 ]
 },
 {
+"company": "Enveda Biosciences",
+"country": "미국",
+"date": "2025-09-04",
+"type": "시리즈/비공개",
+"round": "Series D",
+"amount_usd": 150,
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 150,
+"amount_orig_unit": "M",
+"lead": [
+"Premji Invest"
+],
+"investors": [
+"Kinnevik",
+"Dimension",
+"Lux Capital"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "출처에 밸류에이션 미공개(일부 매체는 유니콘 지위 언급)",
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Immunology",
+"stage": "Phase 1",
+"lead_asset": "ENV-294",
+"platform": "Y",
+"use_of_proceeds": "복수 프로그램의 임상 진입 및 다중 기전 질환 추구",
+"outcome": null,
+"sources": [
+"https://www.biopharmadive.com/news/enveda-series-d-immune-obesity-dolsten-board/759080",
+"https://news.crunchbase.com/?p=92275",
+"https://www.builtincolorado.com/articles/enveda-raises-series-d-adds-former-pfizer-cso-to-board-20250904"
+],
+"_batch": "gap_2025h2",
+"year": 2025,
+"id": "i40f733d3",
+"about": "천연물 분자를 AI(PRISM 플랫폼)로 탐색해 경구 면역·대사 신약을 개발하는 임상 2상 단계 바이오텍",
+"pipeline": [
+{
+"name": "ENV-294",
+"target": "미공개(과활성 면역반응 억제)",
+"indication": "아토피피부염, 천식",
+"stage": "Phase 2"
+},
+{
+"name": "ENV-308",
+"target": "미공개(순환 렙틴 감소)",
+"indication": "대사질환(GLP-1 중단 후 체중 유지 가능성)",
+"stage": "Phase 1"
+},
+{
+"name": "ENV-6946",
+"target": "미공개(다중 염증 경로)",
+"indication": "염증성장질환",
+"stage": "Phase 1"
+}
+],
+"as_of": "2026-09",
+"co_src": [
+"https://pulse2.com/enveda-raises-311-million-series-e-led-by-catalio-capital-management-bringing-total-funding-to-over-845-million/"
+]
+},
+{
 "company": "Treeline Biosciences",
-"country": "미상",
+"country": "미국",
 "date": "2025-09-03",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -8935,7 +9106,8 @@
 "as_of": "2025-09",
 "co_src": [
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "에스씨바이오",
@@ -9010,7 +9182,7 @@
 },
 {
 "company": "Wugen",
-"country": "미상",
+"country": "미국",
 "date": "2025-08-27",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -9063,11 +9235,12 @@
 "as_of": "2025-08",
 "co_src": [
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Kriya Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-08-18",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -9131,7 +9304,8 @@
 "co_src": [
 "https://www.biopharmatrend.com/news/kriya-raises-313-million-to-advance-gene-therapy-programs-1347/",
 "https://www.biopharmadive.com/news/gene-therapy-biotech-kriya-adds-150m-in-fresh-funds/689034/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "지투지바이오",
@@ -9253,7 +9427,7 @@
 },
 {
 "company": "Strand Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-08-07",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -9306,11 +9480,12 @@
 "as_of": "2025-08",
 "co_src": [
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Minghui Pharmaceutical",
-"country": "미상",
+"country": "중국",
 "date": "2025-08-07",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -9320,7 +9495,10 @@
 "currency_orig": "USD",
 "amount_orig": 131,
 "amount_orig_unit": "M",
-"lead": [],
+"lead": [
+"OrbiMed",
+"Qiming Venture Partners"
+],
 "investors": [
 "OrbiMed",
 "Qiming Venture Partners",
@@ -9374,7 +9552,8 @@
 "as_of": "2025-08",
 "co_src": [
 "https://www.fiercebiotech.com/biotech/minghui-raises-131m-pre-ipo-round-bankroll-jak-inhibitor-launch-adc-trials"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "프로티나",
@@ -9428,7 +9607,7 @@
 },
 {
 "company": "Artbio",
-"country": "미상",
+"country": "미국",
 "date": "2025-07-29",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -9480,7 +9659,8 @@
 "as_of": "2025-07",
 "co_src": [
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "노보메디슨",
@@ -9493,7 +9673,9 @@
 "currency_orig": "KRW",
 "amount_orig": 275,
 "amount_orig_unit": "억",
-"lead": [],
+"lead": [
+"스틱벤처스"
+],
 "investors": [
 "유한양행",
 "큐로셀",
@@ -9537,11 +9719,12 @@
 "co_src": [
 "https://medigatenews.com/news/3265495935",
 "https://www.biospectator.com/news/view/27629"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "MapLight Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2025-07-28",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -9595,7 +9778,8 @@
 "co_src": [
 "https://forbion.com/news-insights/news/maplight-therapeutics-announces-pricing-of-initial-public-offering/",
 "https://fiercebiotech.com/biotech/fierce-biotech-fundraising-tracker-25"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Leads Biolabs",
@@ -9700,7 +9884,7 @@
 },
 {
 "company": "Avalyn Pharma",
-"country": "미상",
+"country": "미국",
 "date": "2025-07-22",
 "date_approx": false,
 "type": "시리즈/비공개",
@@ -9765,7 +9949,8 @@
 "as_of": "2026-04",
 "co_src": [
 "https://pharmaphorum.com/news/avalyn-seeks-300m-its-ipo"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "트리오어",
@@ -13379,7 +13564,7 @@
 ]
 },
 {
-"company": "Enveda",
+"company": "Enveda Biosciences",
 "country": "미국",
 "date": "2024-11-21",
 "type": "시리즈/비공개",
@@ -13416,7 +13601,7 @@
 "note": "천연물 기반 AI 탐색 플랫폼; 모달리티는 출처상 미명시(저분자 추정 가능하나 플랫폼으로 분류)",
 "_batch": "ovp07b",
 "year": 2024,
-"id": "i87f8e138",
+"id": "id240d9ff",
 "about": "AI로 천연물 유래 화합물을 발굴해 아토피피부염 등 염증질환을 개발하는 임상 1상 단계 바이오텍",
 "pipeline": [
 {
@@ -13457,7 +13642,7 @@
 "exchange": null,
 "ticker": null,
 "outcome": "2026-02 Pre-IPO 360억원 유치(브리즈바이오로 사명 변경, 한국 상장 추진)",
-"company": "진에딧(GenEdit, 현 브리즈바이오)",
+"company": "브리즈바이오(구 진에딧)",
 "date": "2024-11-20",
 "round": "Series B",
 "amount_usd": 35.0,
@@ -13469,7 +13654,7 @@
 "lead_asset": null,
 "platform": "Y",
 "use_of_proceeds": "면역질환 등 주요 적응증 R&D 가속, 파이프라인 확장 및 글로벌 제약사 추가 제휴",
-"note": "미국(샌프란시스코) 본사 한인 창업 바이오텍으로 엄격한 '한국 법인' 기준 시 제외 가능(기존 kr2526.json의 브리즈바이오 레코드와 동일 처리 위해 포함). 금액 원화는 출처 환산치(약 473억). 제넨텍 협업(최대 6.44억달러, 선급 1,500만달러) 기사 언급. 비바이러스 전달(HNP/고분자) 유전자의약 플랫폼, 기존 신경질환에서 면역으로 확장.",
+"note": "미국(샌프란시스코) 본사 한인 창업 바이오텍으로 엄격한 '한국 법인' 기준 시 제외 가능(기존 kr2526.json의 브리즈바이오 레코드와 동일 처리 위해 포함). 금액 원화는 출처 환산치(약 473억). 제넨텍 협업(최대 6.44억달러, 선급 1,500만달러) 기사 언급. 비바이러스 전달(HNP/고분자) 유전자의약 플랫폼, 기존 신경질환에서 면역으로 확장.; 미국 법인이나 국내 VC 주도·원화 보도 건으로 국내 기준(100억 원) 적용",
 "sources": [
 "https://www.biospectator.com/news/view/23617",
 "https://medigatenews.com/news/3685962392",
@@ -13477,7 +13662,7 @@
 ],
 "_batch": "kr_gap",
 "year": 2024,
-"id": "ia2f838ca",
+"id": "i4d80bb21",
 "about": "비지질 친수성 나노입자 전달체 NanoGalaxy 기반 유전자의약품 개발사 (현 브리즈바이오로 사명 변경)",
 "pipeline": [
 {
@@ -20583,7 +20768,7 @@
 ]
 },
 {
-"company": "Agomab Therapeutics",
+"company": "AgomAb Therapeutics",
 "country": "벨기에",
 "date": "2023-10-10",
 "type": "시리즈/비공개",
@@ -20619,7 +20804,7 @@
 ],
 "_batch": "ovp05",
 "year": 2023,
-"id": "i88bcf42e",
+"id": "i87cb2062",
 "about": "장관 국소 ALK5 억제제 ontunisertib으로 섬유협착성 크론병 등 염증·섬유화 질환을 개발하는 벨기에 바이오텍",
 "pipeline": [
 {
@@ -22089,7 +22274,7 @@
 },
 {
 "company": "Alkeus Pharmaceuticals",
-"country": "미상",
+"country": "미국",
 "date": "2023-06-19",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -22139,7 +22324,8 @@
 "co_src": [
 "https://alkeuspharma.com/wp-content/uploads/2025/10/AAO-curtain-raiser-press-release-_10092025_FINAL.pdf",
 "https://pulse2.com/alkeus-pharmaceuticals-150-million-funding/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "큐라티스",
@@ -22305,7 +22491,7 @@
 },
 {
 "company": "Bitterroot Bio",
-"country": "미상",
+"country": "미국",
 "date": "2023-06-07",
 "type": "시리즈/비공개",
 "round": "Series A",
@@ -22357,7 +22543,8 @@
 "co_src": [
 "https://www.clinicaltrialvanguard.com/news/bitterroot-bio-announces-positive-phase-1-data-for-brb-002",
 "https://www.fiercebiotech.com/research/bitterroot-bio-emerges-stealth-mode-tackle-sweet-145-million-series"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Acepodia",
@@ -22418,8 +22605,64 @@
 ]
 },
 {
+"company": "ITM Isotope Technologies Munich (ITM)",
+"country": "독일",
+"date": "2023-06-05",
+"type": "시리즈/비공개",
+"round": "Equity financing (€255M, 라운드명 미기재)",
+"amount_usd": 273,
+"amount_krw": null,
+"currency_orig": "EUR",
+"amount_orig": 255,
+"amount_orig_unit": "M",
+"lead": [
+"Temasek"
+],
+"investors": [
+"BlackRock Alternatives",
+"Qatar Investment Authority",
+"Nextech",
+"ATHOS",
+"Carbyne"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": "USD 환산은 KPMG 집계치($273m) 사용. 대부분 신주(primary), 소수 구주 포함. Petrichor 전환대출 €90M이 원 조건대로 지분 전환되어 포함됨.",
+"exchange": null,
+"ticker": null,
+"modality": "방사성의약품",
+"area": "Oncology",
+"stage": "Phase 3",
+"lead_asset": "ITM-11 (n.c.a. 177Lu-edotreotide, GEP-NET)",
+"platform": "N",
+"use_of_proceeds": "파이프라인 개발, 상업화 준비, 177Lu 생산 확대, 225Ac GMP 생산, 자체 완제 생산",
+"outcome": "2024-06 €188M 추가 조달(기수록 레코드 기준)",
+"sources": [
+"https://www.biospace.com/itm-announces-255m-investment-round-plans-to-advance-radiopharmaceutical-pipeline-and-to-expand-radioisotope-production-capacities",
+"https://eurexchange.com/dbcm-en/newsroom/focus-news/Largest-financing-round-255-million-for-Garching-based-ITM-3590310",
+"https://assets.kpmg.com/content/dam/kpmg/ch/pdf/kpmg-ch-european-life-sciences-deals-overview-2023-2024.pdf"
+],
+"_batch": "gap_eu",
+"year": 2023,
+"id": "ie7727533",
+"about": "177Lu-edotreotide(ITM-11) 등 방사성의약품과 의료용 동위원소 생산·공급을 하는 독일 기업 (2026년 9월 Telix 인수 발표, 종결 전)",
+"pipeline": [
+{
+"name": "ITM-11 (177Lu-edotreotide)",
+"target": "SSTR (소마토스타틴 수용체)",
+"indication": "위장관췌장 신경내분비종양(GEP-NET); NDA에 대해 2026.8 FDA CRL(CMC), 재제출 예정",
+"stage": "허가신청·승인"
+}
+],
+"as_of": "2026-09",
+"co_src": [
+"https://www.pharmaceutical-technology.com/news/telix-to-acquire-itm/",
+"https://www.santelog.com/actualites-sante-nasdaq/itm-receives-complete-response-letter-177lu-edotreotide-itm-11"
+]
+},
+{
 "company": "Eikon Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2023-06-01",
 "type": "시리즈/비공개",
 "round": "Series C (first close)",
@@ -22470,7 +22713,8 @@
 "co_src": [
 "https://biopharmadive.com/news/eikon-biotech-ipo-price-cancer-drugs-2026/811169",
 "https://www.eikontx.com/news/eikon-therapeutics-secures-350-7-million-series-d-to-advance-clinical-stage-programs-and-future-pipeline/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Carmot Therapeutics",
@@ -22641,7 +22885,7 @@
 },
 {
 "company": "Boundless Bio",
-"country": "미상",
+"country": "미국",
 "date": "2023-05-16",
 "type": "시리즈/비공개",
 "round": "Series C",
@@ -22695,7 +22939,8 @@
 "as_of": "2023-05",
 "co_src": [
 "https://www.businesswire.com/news/home/20230516005138/en"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Acelyrin",
@@ -22711,7 +22956,8 @@
 "lead": [
 "Morgan Stanley",
 "Jefferies",
-"TD Cowen"
+"TD Cowen",
+"Piper Sandler"
 ],
 "investors": [],
 "valuation_pre": null,
@@ -22752,7 +22998,8 @@
 "co_src": [
 "https://www.biopharmadive.com/news/alumis-acelyrin-merger-deal-tyk2-lonigutamab/739505/",
 "https://www.biopharmadive.com/news/acelyrin-sets-hopes-high-for-arthritis-drug-with-300m-fundraise/631841/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "에스바이오메딕스",
@@ -23071,7 +23318,7 @@
 },
 {
 "company": "ArriVent BioPharma",
-"country": "미상",
+"country": "미국",
 "date": "2023-03-27",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -23137,7 +23384,8 @@
 "as_of": "2024-03",
 "co_src": [
 "https://www.biospace.com/arrivent-biopharma-reports-full-year-2023-financial-results"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "트리오어",
@@ -23607,8 +23855,76 @@
 ]
 },
 {
+"company": "Noema Pharma",
+"country": "스위스",
+"date": "2023-03-07",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 112,
+"amount_krw": null,
+"currency_orig": "CHF",
+"amount_orig": 103,
+"amount_orig_unit": "M",
+"lead": [
+"Forbion",
+"Jeito Capital"
+],
+"investors": [
+"UPMC Enterprises",
+"Sofinnova Partners",
+"Polaris Partners",
+"Gilde Healthcare",
+"Invus"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Neurology",
+"stage": "Phase 2",
+"lead_asset": "basimglurant (NOE-101, mGluR5 inhibitor); gemlapodect (NOE-105)",
+"platform": "N",
+"use_of_proceeds": "basimglurant·gemlapodect(NOE-105)·NOE-115 등 임상 단계 자산 개발",
+"outcome": "2024-12-11 Series B를 CHF130M(약 US$147M)으로 확장(EQT Life Sciences 신규 참여)",
+"sources": [
+"https://noemapharma.com/noema-pharma-raises-chf-103-million-usd-112-million-in-series-b-financing-round-led-by-forbion-and-jeito-capital/",
+"https://sofinnovapartners.com/news/noema-pharma-extends-series-b-financing-round-closing-chf130-million"
+],
+"_batch": "gap_eu",
+"year": 2023,
+"id": "id2da376d",
+"about": "mGluR5 NAM basimglurant 등 신경계·정신계 질환 저분자를 개발하는 임상 2상 단계 스위스 바이오텍",
+"pipeline": [
+{
+"name": "basimglurant (NOE-101)",
+"target": "mGluR5 negative allosteric modulator",
+"indication": "삼차신경통 관련 신경병증성 통증 (Phase 2/3, FDA Fast Track), 결절성 경화증(TSC) Phase 2b",
+"stage": "Phase 2"
+},
+{
+"name": "gemlapodect (NOE-105)",
+"target": "PDE10A inhibitor (파이프라인 도표 표기)",
+"indication": "뚜렛 증후군 (Phase 2a 성공 후 Phase 2b 투여 개시)",
+"stage": "Phase 2"
+},
+{
+"name": "cendifensine (NOE-115)",
+"target": "serotonin/norepinephrine/dopamine 조절 monoamine modulator",
+"indication": "폐경 관련 혈관운동 증상(안면홍조) (Phase 2a 호전 보고)",
+"stage": "Phase 2"
+}
+],
+"as_of": "2025-11",
+"co_src": [
+"https://noemapharma.com/?p=1213",
+"https://noemapharma.com/news-events/"
+]
+},
+{
 "company": "Chroma Medicine",
-"country": "미상",
+"country": "미국",
 "date": "2023-03-01",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -23658,7 +23974,8 @@
 "co_src": [
 "https://www.biopharmadive.com/news/chroma-nvelop-merge-epigenetic-editing-nchroma-walsh-liu/735189/",
 "https://www.biopharmadive.com/news/chroma-gene-epigenetic-editing-series-b-funding/643545/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "CARGO Therapeutics",
@@ -24235,6 +24552,69 @@
 ]
 },
 {
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 200,
+"amount_orig_unit": "M",
+"lead": [],
+"investors": [
+"IDG Capital Partners",
+"CMG-SDIC Capital Management",
+"China Cinda Asset Management",
+"Sherpa Capital"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": "2023-07 HKEX IPO(기존 DB 수록)",
+"sources": [
+"https://equalocean.com/analysis/2023010519347-china-vc-investment-list-q4-2022-healthcare"
+],
+"company": "Sichuan Kelun-Biotech Biopharmaceutical",
+"date": "2022-12-30",
+"round": "Series B",
+"amount_usd": 200,
+"modality": "기타·미상",
+"area": "Oncology",
+"stage": "미상",
+"lead_asset": null,
+"note": "EqualOcean Q4 2022 목록만 확인(단일 출처, 본문 미확인); 모달리티·단계·area는 출처 미확인(area는 기존 Kelun IPO 레코드 참조 필요); 확신 낮음",
+"_batch": "gap_cn",
+"year": 2022,
+"id": "i54cfd8c1",
+"about": "TROP2 ADC sac-TMT 등 ADC·신규 약물접합체 플랫폼 기반 항암제를 상업화·개발하는 홍콩 상장 바이오텍",
+"pipeline": [
+{
+"name": "sacituzumab tirumotecan (sac-TMT, SKB264/MK-2870)",
+"target": "TROP2 ADC",
+"indication": "삼중음성유방암, EGFR 변이 NSCLC, HR+/HER2- 유방암 (중국 승인); 1L NSCLC·TNBC 심사 중",
+"stage": "상업화"
+},
+{
+"name": "trastuzumab botidotin (A166)",
+"target": "HER2 ADC",
+"indication": "HER2 양성 유방암 2L+ (중국 승인)",
+"stage": "상업화"
+},
+{
+"name": "lunbotinib (A400/EP0031)",
+"target": "RET inhibitor",
+"indication": "RET 융합 양성 진행성 NSCLC (NDA 제출)",
+"stage": "허가신청·승인"
+}
+],
+"as_of": "2026-08",
+"co_src": [
+"https://www.webull.com/news/15417903741969408"
+]
+},
+{
 "company": "Apogee Therapeutics",
 "country": "미국",
 "date": "2022-12-07",
@@ -24304,6 +24684,71 @@
 "co_src": [
 "https://www.biospace.com/press-releases/apogee-therapeutics-provides-pipeline-progress-and-reports-second-quarter-2025-financial-results",
 "https://www.pharmafocuseurope.com/pressreleases/apogee-therapeutics-launches-with-169-million-to-develop-potentially"
+]
+},
+{
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "CNY",
+"amount_orig": 750,
+"amount_orig_unit": "M",
+"lead": [
+"Zhuhai Gree Financial Investment Management",
+"Kingray Capital"
+],
+"investors": [
+"Efung Capital",
+"Shenyin & Wanguo Investment",
+"Zhuhai Shenhonggejin Medical and Health Industry Investment Fund",
+"Jiaxing Weilong Equity Investment",
+"China Medical System",
+"Wuxi Guolian Capital",
+"Jinhang Group"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://media.dealstreetasia.com/stories/trinomab-closes-104m-pre-ipo-round-318988",
+"https://equalocean.com/news/2022112919248-fully-native-human-mab-drug-developer-trinomab-raises-cny-750-mn-pre-ipo-round"
+],
+"company": "Trinomab Biotech",
+"date": "2022-11-29",
+"round": "Pre-IPO",
+"amount_usd": 104.5,
+"modality": "항체",
+"area": "Infectious disease",
+"stage": "복수 단계",
+"lead_asset": "TNM001 (항RSV 완전인간항체, Phase 2) / TNM002 (항파상풍독소 항체, Phase 3)",
+"note": "RMB750M ≈ US$104.4~104.5M; HitmAb 플랫폼",
+"_batch": "gap_cn",
+"year": 2022,
+"id": "i3831d51d",
+"about": "HitmAb 플랫폼 기반 완전인간 단일클론항체로 감염질환 항체신약을 개발하는 중국 바이오텍 (2026년 6월 STAR 시장 IPO 등록 승인)",
+"pipeline": [
+{
+"name": "TNM002 (stapledutaxumab)",
+"target": "항파상풍독소 완전인간 mAb",
+"indication": "파상풍 예방 (2025-02 중국 시판 승인)",
+"stage": "허가신청·승인"
+},
+{
+"name": "TNM001",
+"target": "항RSV 완전인간 mAb",
+"indication": "영유아 RSV 하기도감염 예방 (NDA 접수·우선심사)",
+"stage": "허가신청·승인"
+}
+],
+"as_of": "2026-06",
+"co_src": [
+"https://www.itiger.com/news/2640155809",
+"https://equalocean.com/news/2022112919248-fully-native-human-mab-drug-developer-trinomab-raises-cny-750-mn-pre-ipo-round"
 ]
 },
 {
@@ -24545,7 +24990,7 @@
 },
 {
 "company": "Prime Medicine",
-"country": "미상",
+"country": "미국",
 "date": "2022-10-19",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -24600,7 +25045,8 @@
 "co_src": [
 "https://investors.primemedicine.com/news-releases/news-release-details/prime-medicine-reports-full-year-2025-financial-results-and",
 "https://wsgr.com/en/insights/wilson-sonsini-advises-prime-medicine-on-patent-matters-related-to-dollar175-million-ipo.html"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "샤페론",
@@ -24784,7 +25230,7 @@
 },
 {
 "company": "Third Harmonic Bio",
-"country": "미상",
+"country": "미국",
 "date": "2022-09-14",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -24827,7 +25273,8 @@
 "co_src": [
 "https://www.fiercebiotech.com/biotech/third-harmonics-song-end-biotech-looks-liquidate-sell-urticaria-drug",
 "https://thepharmaletter.com/biotechnology/brief-third-harmonic-bio-has-announced-pricing-of-upsized-ipo"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Acelyrin",
@@ -24890,7 +25337,7 @@
 ]
 },
 {
-"company": "Arsenal Biosciences",
+"company": "ArsenalBio",
 "country": "미국",
 "date": "2022-09-06",
 "type": "시리즈/비공개",
@@ -24930,7 +25377,7 @@
 "note": "리드 투자자 미공개, 초과청약",
 "_batch": "ovp03",
 "year": 2022,
-"id": "id7e67b6f",
+"id": "i6a36f952",
 "about": "CRISPR 유전자 삽입 기반 프로그래머블 CAR-T로 고형암을 치료하는 임상 단계 바이오텍",
 "pipeline": [
 {
@@ -25259,6 +25706,67 @@
 "co_src": [
 "https://www.mt.co.kr/thebio/2026/06/07/2026060514410488267",
 "https://dailypharm.com/user/news/38082"
+]
+},
+{
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 160,
+"amount_orig_unit": "M",
+"lead": [
+"Boyu Capital",
+"Sequoia Capital China"
+],
+"investors": [
+"OrbiMed",
+"Creacion Ventures",
+"Loyal Valley Capital",
+"Starr Investment"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://equalocean.com/analysis/2022122119306-2022-china-year-review-healthcare"
+],
+"company": "Frontera Therapeutics",
+"date": "2022-07-19",
+"round": "Series B",
+"amount_usd": 160,
+"modality": "유전자치료·편집",
+"area": "미상",
+"stage": "미상",
+"lead_asset": null,
+"note": "EqualOcean 2022 연간 리뷰 단일 출처; 본사(중국 vs 미국 보스턴 병기 가능)·modality(유전자치료 추정) 미확인; 확신 낮음",
+"_batch": "gap_cn",
+"year": 2022,
+"id": "i03a396d6",
+"about": "APEX 플랫폼 기반 AAV 유전자치료제로 유전성 망막질환·혈우병 등을 개발하는 임상 1상 단계 바이오텍",
+"pipeline": [
+{
+"name": "FT-002",
+"target": "RPGR gene (AAV)",
+"indication": "RPGR 관련 X-연관 망막색소변성(XLRP) (용량증량 파일럿 임상 예비 데이터)",
+"stage": "Phase 1"
+},
+{
+"name": "FT-001",
+"target": "RPE65 gene (AAV)",
+"indication": "RPE65 관련 망막이영양증/레버 선천성 흑암시",
+"stage": "Phase 1"
+}
+],
+"as_of": "2024-04",
+"co_src": [
+"https://fronteratherapeutics.com/news/212.html",
+"https://www.biospace.com/article/frontera-raises-160-million-seriesb-genetherapy"
 ]
 },
 {
@@ -25623,7 +26131,7 @@
 },
 {
 "company": "PepGen",
-"country": "미상",
+"country": "미국",
 "date": "2022-05-05",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -25672,11 +26180,12 @@
 "co_src": [
 "https://www.biospace.com/press-releases/pepgen-reports-first-quarter-2025-financial-results-and-recent-corporate-highlights",
 "https://www.biospace.com/pepgen-announces-pricing-of-initial-public-offering-may-06-2022"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "HilleVax",
-"country": "미상",
+"country": "미국",
 "date": "2022-04-28",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -25719,7 +26228,8 @@
 "co_src": [
 "https://www.sec.gov/Archives/edgar/data/1888012/000119312525182307/d82697dsc14d9.htm",
 "https://www.santelog.com/actualites-sante-nasdaq/hillevax-reports-full-year-2024-financial-results-and-highlights-recent"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "OMass Therapeutics",
@@ -26043,6 +26553,55 @@
 "as_of": "2026-05",
 "co_src": [
 "https://news.bizwatch.co.kr/article/0113/2026/05/11/0007"
+]
+},
+{
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 120,
+"amount_orig_unit": "M",
+"lead": [
+"CDH Investments",
+"Huaxing Healthcare Capital"
+],
+"investors": [
+"E Fund",
+"BOCG",
+"CPE",
+"Optimas"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.dealstreetasia.com/?p=286348",
+"https://equalocean.com/analysis/2022122119306-2022-china-year-review-healthcare"
+],
+"company": "InnoRNA",
+"date": "2022-03-28",
+"round": "Series B",
+"amount_usd": 120,
+"modality": "RNA(siRNA·ASO·mRNA 등)",
+"area": "미상",
+"stage": "미상",
+"lead_asset": null,
+"note": "DealStreetAsia 보도일 2022-03-28(EqualOcean은 05-28로 표기, 오기 추정); 누적 10억 위안 초과; modality는 회사명·EqualOcean 분류 기반 추정 - 출처 본문 미확인; 확신 낮음",
+"_batch": "gap_cn",
+"year": 2022,
+"id": "if1a07365",
+"about": "표적 전달 LNP 플랫폼 기반 mRNA 치료제를 개발하는 홍콩 기반 바이오텍 (2022년 BeiGene과 공동연구·LNP 라이선스)",
+"pipeline": [],
+"as_of": "2022-07",
+"co_src": [
+"https://www.fiercebiotech.com/biotech/doubling-down-mrna-beigene-taps-rising-hong-kong-star-create-targeted-therapies",
+"https://www.avcj.com/avcj/news/3026542/cdh-huaxing-lead-usd120m-series-b-for-china-s-innorna"
 ]
 },
 {
@@ -26588,7 +27147,7 @@
 },
 {
 "company": "Arcellx",
-"country": "미상",
+"country": "미국",
 "date": "2022-02-03",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -26643,7 +27202,8 @@
 "co_src": [
 "https://www.gilead.com/news/news-details/2026/gilead-sciences-completes-acquisition-of-arcellx-ahead-of-potential-commercial-launch-of-anito-cel",
 "https://www.sec.gov/Archives/edgar/data/1786205/000119312522032077/d303972dex991.htm"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Leyden Labs",
@@ -26743,48 +27303,8 @@
 ]
 },
 {
-"company": "ZhenGe Biotech",
-"country": "중국",
-"date": "2022-01-11",
-"type": "시리즈/비공개",
-"round": "Series C",
-"amount_usd": 100,
-"amount_krw": null,
-"currency_orig": "USD",
-"amount_orig": 100,
-"amount_orig_unit": "M",
-"lead": [],
-"investors": [],
-"valuation_pre": null,
-"valuation_post": null,
-"valuation_note": null,
-"exchange": null,
-"ticker": null,
-"modality": "기타·미상",
-"area": "Other",
-"stage": "미상",
-"lead_asset": null,
-"platform": "N",
-"use_of_proceeds": null,
-"outcome": null,
-"sources": [
-"https://www.venturecapitaljournal.com/zhenge-biotech-rakes-in-100m-series-c/"
-],
-"note": "출처 본문 유료벽: 투자자·모달리티·신약개발 해당 여부 미확인(저확신)",
-"_batch": "ovp02",
-"year": 2022,
-"id": "i745b3832",
-"about": "단클론·이중특이 항체, ADC, 융합단백질, 백신을 대상으로 하는 중국 CDMO·R&D 그룹 (자체 신약 파이프라인은 확인되지 않음)",
-"pipeline": [],
-"as_of": "2022-01",
-"co_src": [
-"https://www.fiercepharma.com/manufacturing/china-s-zhenge-biotech-raises-100m-series-c-round-financing",
-"https://www.venturecapitaljournal.com/zhenge-biotech-rakes-in-100m-series-c/"
-]
-},
-{
 "company": "Amylyx Pharmaceuticals",
-"country": "미상",
+"country": "미국",
 "date": "2022-01-07",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -26840,11 +27360,12 @@
 "co_src": [
 "https://www.sec.gov/Archives/edgar/data/0001658551/000119312526336670/amlx-ex99_1.htm",
 "https://medcitynews.com/2022/01/amylyx-pharmas-ipo-lands-190m-as-als-drug-begins-fda-review/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "CinCor Pharma",
-"country": "미상",
+"country": "미국",
 "date": "2022-01-07",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -26889,7 +27410,8 @@
 "co_src": [
 "https://www.astrazeneca.com/media-centre/press-releases/2023/astrazeneca-acquires-cincor-for-cardiorenal-asset.html",
 "https://medcitynews.com/2022/01/amylyx-pharmas-ipo-lands-190m-as-als-drug-begins-fda-review/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Eikon Therapeutics",
@@ -26952,6 +27474,134 @@
 "co_src": [
 "https://biopharmadive.com/news/eikon-biotech-ipo-price-cancer-drugs-2026/811169",
 "https://www.eikontx.com/news/eikon-therapeutics-secures-350-7-million-series-d-to-advance-clinical-stage-programs-and-future-pipeline/"
+]
+},
+{
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 200,
+"amount_orig_unit": "M",
+"lead": [],
+"investors": [
+"Vivo Capital",
+"Bain Capital Life Sciences",
+"Primavera Capital"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.biocentury.com/article/641327",
+"https://www.baincapital.com/news/avistone-pharmaceuticals-secures-200-million-strategic-investment-vivo-capital-bain-capital"
+],
+"company": "Beijing Avistone Pharmaceuticals (Avistone)",
+"date": "2021-12-08",
+"round": "Series A",
+"amount_usd": 200,
+"modality": "저분자",
+"area": "Oncology",
+"stage": "미상",
+"lead_asset": null,
+"note": "modality는 출처상 'targeted cancer drugs/TKI' 기반 추정(저분자); 리드 투자자 미명시; 신설 합병법인(Pearl Biotechnology+Adamadle)",
+"_batch": "gap_cn",
+"year": 2021,
+"id": "ie9c3f089",
+"about": "c-Met 억제제 vebreltinib 등 폐암·뇌종양 표적항암 저분자를 개발하는 중국 바이오텍",
+"pipeline": [
+{
+"name": "vebreltinib",
+"target": "c-Met inhibitor",
+"indication": "MET exon14 skipping NSCLC (2023-11 조건부 승인), PTPRZ1-MET 융합 신경교종 (2024-04 승인)",
+"stage": "허가신청·승인"
+},
+{
+"name": "ANS03",
+"target": "ROS1/NTRK Type II TKI",
+"indication": "ROS1·NTRK 변이 고형암",
+"stage": "Phase 1"
+},
+{
+"name": "ANS01 (ANS014004)",
+"target": "c-Met Type II TKI",
+"indication": "고형암 (FDA·Health Canada 임상 승인)",
+"stage": "Phase 1"
+}
+],
+"as_of": "2025-04",
+"co_src": [
+"https://www.businesswire.com/news/home/20250415613561/en",
+"https://www.pharmafocusasia.com/index.php/news/avistone-secures-approval-for-vebreltinib-as-initial-met-tki-therapy-for-rare-brain-glioma-subtype-in-china"
+]
+},
+{
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 300,
+"amount_orig_unit": "M",
+"lead": [
+"SoftBank Vision Fund 2",
+"5Y Capital"
+],
+"investors": [
+"Chimera Investments",
+"Fortune Growth Fund",
+"Jinyi Capital",
+"New Frontier Capital",
+"IMO Ventures",
+"Mirae Asset Group"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.avcj.com/avcj/news/3025622/vision-fund-joins-usd300m-round-for-china-vaccine-developer",
+"https://www.nippon.com/en/news/reu20211129KBN2IE0ZX"
+],
+"company": "Abogen Biosciences",
+"date": "2021-11-29",
+"round": "Series C 확장 (Series C extension)",
+"amount_usd": 300,
+"modality": "RNA(siRNA·ASO·mRNA 등)",
+"area": "Infectious disease",
+"stage": "Phase 3",
+"lead_asset": "mRNA COVID-19 vaccine (ARCoV)",
+"note": "기존 DB의 2021-08-19 $700M Series C와 별개의 확장 라운드(102일 후); Reuters 2021-11-29, AVCJ 2021-12-01",
+"_batch": "gap_cn",
+"year": 2021,
+"id": "i5403ea61",
+"about": "mRNA 플랫폼으로 대상포진 백신과 mRNA 인코딩 T세포 인게이저를 개발하는 중국 바이오텍 (2026년 10월 ABO2203 Novartis 라이선스)",
+"pipeline": [
+{
+"name": "ABO1108",
+"target": "mRNA 동결건조 대상포진 백신",
+"indication": "대상포진 예방",
+"stage": "Phase 3"
+},
+{
+"name": "ABO2203",
+"target": "mRNA-encoded CD19xCD3 T cell engager",
+"indication": "자가면역질환 (루푸스 등 속발 불응성 ITP)",
+"stage": "Phase 1"
+}
+],
+"as_of": "2026-10",
+"co_src": [
+"https://www.pharmtech.com/view/abo2203s-7b-milestones-signal-rna-capacity-demand",
+"https://endpoints.news/chinas-abogen-a-small-mrna-upstart-sets-a-biotech-record-with-mammoth-700m-series-c/"
 ]
 },
 {
@@ -27174,6 +27824,63 @@
 ]
 },
 {
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 180,
+"amount_orig_unit": "M",
+"lead": [
+"6 Dimensions Capital"
+],
+"investors": [
+"Ruentex Group",
+"KB Investment",
+"WTT Investment",
+"Mubadala Investment Company",
+"HBM Healthcare Investments",
+"Goldman Sachs"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.wsgr.com/en/insights/wilson-sonsini-advises-6-dimensions-and-its-portfolio-ignis-therapeutics-on-ignis-dollar180-million-series-a-financing-and-strategic-licensing-agreement-with-skbp.html",
+"https://globalventuring.com/corporate/ignis-emerges-with-180m"
+],
+"company": "Ignis Therapeutics",
+"date": "2021-11-11",
+"round": "Series A",
+"amount_usd": 180,
+"modality": "저분자",
+"area": "Neurology",
+"stage": "복수 단계",
+"lead_asset": "Cenobamate / solriamfetol 등 SK Biopharmaceuticals 도입 6개 임상 화합물",
+"note": "SK바이오팜 라이선스 동시 발표; 모달리티는 cenobamate/solriamfetol 성격상 저분자(출처 직접 명시 없음); 본사 상하이(BioWorld 기업명 표기)",
+"_batch": "gap_cn",
+"year": 2021,
+"id": "icc4fc151",
+"about": "SK바이오팜 도입 CNS 신약(세노바메이트 등)의 중화권 개발·상업화를 맡은 SK바이오팜-6 Dimension 합작 바이오텍",
+"pipeline": [
+{
+"name": "cenobamate",
+"target": "항경련제(SK바이오팜 도입)",
+"indication": "성인 부분발작 뇌전증 (2025-12 중국 NMPA 승인, 2026-03 출시)",
+"stage": "상업화"
+}
+],
+"as_of": "2026-03",
+"co_src": [
+"https://v.daum.net/v/20260326170003469?f=p",
+"https://www.geneonline.com/sk-biopharm-spinout-launches-with-180-million-to-bring-neuroscience-drugs-to-china/"
+]
+},
+{
 "company": "Arbor Biotechnologies",
 "country": "미국",
 "date": "2021-11-09",
@@ -27329,7 +28036,7 @@
 },
 {
 "company": "Entrada Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-10-28",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -27390,7 +28097,8 @@
 "co_src": [
 "https://www.sec.gov/Archives/edgar/data/0001689375/000110465926063325/tm2614944d1_ex99-1.htm",
 "https://www.biospace.com/entrada-therapeutics-announces-pricing-of-upsized-initial-public-offering"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Ventyx Biosciences",
@@ -27454,7 +28162,7 @@
 },
 {
 "company": "Xilio Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-10-18",
 "date_approx": true,
 "type": "IPO",
@@ -27510,11 +28218,12 @@
 "co_src": [
 "https://ir.xiliotx.com/news-releases/news-release-details/xilio-therapeutics-announces-pipeline-and-business-updates-and-9",
 "https://www.renaissancecapital.com/IPO-Center/News/87682/US-IPO-Weekly-Recap-Portillo’s-gains-87-percent-in-an-11-IPO-week"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Theseus Pharmaceuticals",
-"country": "미상",
+"country": "미국",
 "date": "2021-10-04",
 "date_approx": true,
 "type": "IPO",
@@ -27558,11 +28267,12 @@
 "co_src": [
 "https://www.sec.gov/Archives/edgar/data/1745020/000110465923128468/tm2333444d1_ex99-1.htm",
 "https://www.renaissancecapital.com/IPO-Center/News/87052/US-IPO-Weekly-Recap-Healthcare-and-Canadian-crosslistings-lead-an-8-IPO-wee"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Pyxis Oncology",
-"country": "미상",
+"country": "미국",
 "date": "2021-10-04",
 "date_approx": true,
 "type": "IPO",
@@ -27606,7 +28316,8 @@
 "co_src": [
 "https://www.sec.gov/Archives/edgar/data/0001782223/000119312526385901/pyxs-ex99_1.htm",
 "https://www.renaissancecapital.com/IPO-Center/News/87052/US-IPO-Weekly-Recap-Healthcare-and-Canadian-crosslistings-lead-an-8-IPO-wee"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Exscientia",
@@ -27660,7 +28371,7 @@
 },
 {
 "company": "DICE Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-09-15",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -27715,7 +28426,8 @@
 "co_src": [
 "https://www.biospace.com/lilly-to-acquire-dice-therapeutics-to-advance-innovation-in-immunology",
 "https://medcitynews.com/2021/09/dices-ipo-roll-comes-up-with-204m-for-rd-of-oral-drugs-to-rival-biologics/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Tyra Biosciences",
@@ -27929,6 +28641,61 @@
 "co_src": [
 "https://thebambooworks.com/genuine-biotech-takes-third-shot-at-ipo-as-financial-pressures-mount/",
 "https://www.dealstreetasia.com/?p=257881"
+]
+},
+{
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 100,
+"amount_orig_unit": "M",
+"lead": [
+"Tsing Song Capital",
+"Shenzhen Capital Group",
+"Greater Bay Area Homeland Development Fund"
+],
+"investors": [
+"Dyee Capital",
+"Lilly Asia Ventures"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://dealstreetasia.com/stories/ionova-secures-100m-256986",
+"https://www.1stoncology.com/blog/?p=62941"
+],
+"company": "Shenzhen Ionova Life Science",
+"date": "2021-08-23",
+"round": "미공개 (신규 라운드)",
+"amount_usd": 100,
+"modality": "기타·미상",
+"area": "Oncology",
+"stage": "Phase 1",
+"lead_asset": "INV-1120",
+"note": "면역항암+표적치료; 보도일 2021-08-23(DealStreetAsia)/08-27(PR); 정확히 $100M",
+"_batch": "gap_cn",
+"year": 2021,
+"id": "iae04143b",
+"about": "EP4 길항제 INV-1120 등 종양미세환경·면역조절 기반 면역+표적 병용 항암제를 개발하는 선전 소재 임상 단계 바이오텍",
+"pipeline": [
+{
+"name": "INV-1120",
+"target": "EP4 receptor antagonist (경구 저분자)",
+"indication": "진행성 고형암 (Phase 1 용량증량 완료, pembrolizumab 병용 Phase 1b 진행)",
+"stage": "Phase 1"
+}
+],
+"as_of": "2022-12",
+"co_src": [
+"https://onclive.com/view/inv-1120-proves-tolerable-in-advanced-solid-tumors-moves-to-expansion-in-combination-with-pembrolizumab",
+"https://1stoncology.com/blog/?p=62941"
 ]
 },
 {
@@ -28196,8 +28963,75 @@
 ]
 },
 {
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 400,
+"amount_orig_unit": "M",
+"lead": [
+"OrbiMed",
+"RRJ Capital"
+],
+"investors": [
+"Sequoia Capital",
+"Sino Biopharmaceutical",
+"5Y Capital"
+],
+"valuation_pre": null,
+"valuation_post": 2000,
+"valuation_note": "KrAsia: RMB130억 초과(약 US$20억)",
+"exchange": null,
+"ticker": null,
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": "2024-06 HKEX 상장(기존 DB 수록)",
+"sources": [
+"https://kr-asia.com/ai-pharma-startup-xtalpi-nets-usd-400-million-in-series-d-round-to-accelerate-drug-discovery",
+"https://equalocean.com/news/2021081116534-xtalpi-raises-usd-400-mn-series-d"
+],
+"company": "XtalPi",
+"date": "2021-08-11",
+"round": "Series D",
+"amount_usd": 400,
+"modality": "디스커버리·AI 플랫폼",
+"area": "Multiple",
+"stage": "Discovery",
+"lead_asset": null,
+"note": "본사 선전(출처 미명시, 기존 DB는 XtalPi IPO를 '중국'으로 수록); AI 신약 R&D 서비스 중심",
+"_batch": "gap_cn",
+"year": 2021,
+"id": "i1d28425c",
+"about": "AI·양자물리·로봇자동화 기반 신약 발굴 서비스와 파이프라인 라이선스를 병행하는 홍콩 상장 AI 신약개발사",
+"pipeline": [
+{
+"name": "SIGX1094 (Signet 파트너)",
+"target": "FAK/SRC dual inhibitor",
+"indication": "KRAS G12C 폐암 병용 (중국 Phase 1, Phase II/III 신청 접수)",
+"stage": "Phase 1"
+},
+{
+"name": "RTX-117 (ReviR 파트너)",
+"target": "eIF2B activator",
+"indication": "건강인 대상 Phase 1 (Phase 2는 2027 상반기 예정)",
+"stage": "Phase 1"
+},
+{
+"name": "TRK/RET dual-target 후보 (자체)",
+"target": "TRK/RET (장관 제한형 저분자)",
+"indication": "미공개 (한·중 IND 준비 중)",
+"stage": "Preclinical"
+}
+],
+"as_of": "2026-08",
+"co_src": [
+"https://tirto.id/xtalpi-holdings-announces-2026-interim-results-hBvU",
+"https://kr-asia.com/ai-pharma-startup-xtalpi-nets-usd-400-million-in-series-d-round-to-accelerate-drug-discovery"
+]
+},
+{
 "company": "Adagio Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-08-05",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -28258,6 +29092,72 @@
 "co_src": [
 "https://www.santelog.com/actualites-sante-nasdaq/invivyd-reports-second-quarter-2026-financial-results-and-recent-business",
 "https://www.biospace.com/adagio-therapeutics-announces-pricing-of-initial-public-offering"
+],
+"audited": "2026-10-19"
+},
+{
+"company": "T-knife Therapeutics",
+"country": "독일",
+"date": "2021-08-02",
+"type": "시리즈/비공개",
+"round": "Series B",
+"amount_usd": 110,
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 110,
+"amount_orig_unit": "M",
+"lead": [
+"Fidelity Management & Research Company"
+],
+"investors": [
+"Andera Partners",
+"Forbion",
+"Versant Ventures",
+"Casdin Capital",
+"Qatar Investment Authority",
+"RA Capital Management",
+"Sixty Degree Capital",
+"LSP"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "세포치료",
+"area": "Oncology",
+"stage": "미상",
+"lead_asset": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.fenwick.com/insights/experience/fenwick-represents-t-knife-therapeutics-in-110-million-series-b-financing",
+"https://www.torys.com/work/2021/08/2da4682e-1afb-44e8-8cd5-36d536bb9837",
+"https://www.labiotech.eu/trends-news/europe-biotech-funding-august"
+],
+"_batch": "gap_eu",
+"year": 2021,
+"id": "i011431f1",
+"about": "HuTCR·MyT 플랫폼 기반 TCR-T 세포치료제로 고형암을 개발하는 독일·미국 임상 단계 바이오텍",
+"pipeline": [
+{
+"name": "TK-8001",
+"target": "MAGE-A1 TCR-T (HLA-A*02:01 제한)",
+"indication": "MAGE-A1 양성 진행성·전이성 고형암 (IMAG1NE Phase 1/2)",
+"stage": "Phase 1"
+},
+{
+"name": "TK-6302",
+"target": "PRAME 표적 CRISPR 제조 TCR-T",
+"indication": "PRAME 표적 고형암 (2026-03 유럽 임상시험 승인, Phase 1 ATLAS 예정)",
+"stage": "Preclinical"
+}
+],
+"as_of": "2026-03",
+"co_src": [
+"https://yespress.io/t-knife-therapeutics.md",
+"https://cgtlive.com/view/tcr-t-cell-therapy-trial-for-mage-a1-positive-solid-tumors-doses-first-patient"
 ]
 },
 {
@@ -28320,8 +29220,72 @@
 ]
 },
 {
+"company": "Artios Pharma",
+"country": "영국",
+"date": "2021-07-27",
+"type": "시리즈/비공개",
+"round": "Series C",
+"amount_usd": 153,
+"amount_krw": null,
+"currency_orig": "GBP",
+"amount_orig": 110,
+"amount_orig_unit": "M",
+"lead": [
+"Omega Funds",
+"TCG X"
+],
+"investors": [
+"Avidity Partners",
+"Invus",
+"Deep Track Capital",
+"Sofinnova Partners",
+"Tetragon Financial Group",
+"RTW Investments",
+"Soleus Capital",
+"Piper Heartland Healthcare Capital"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Oncology",
+"stage": "Phase 1",
+"lead_asset": "ART0380 (ATR inhibitor); ART4215 (Polθ inhibitor)",
+"platform": "N",
+"use_of_proceeds": "ATR·Polθ 억제제 임상 개발(단독 및 병용, 다수 고형암)",
+"outcome": "2025-11 Series D 추가 조달(기수록 레코드 기준)",
+"sources": [
+"https://www.biospace.com/artios-announces-153-million-110-million-series-c-financing-led-by-omega-funds-and-tcg-x",
+"https://www.labiotech.eu/?p=91671"
+],
+"_batch": "gap_eu",
+"year": 2021,
+"id": "i9a430b88",
+"about": "DNA 손상 반응(DDR) 억제 기전의 항암제를 개발하는 임상 단계 바이오텍",
+"pipeline": [
+{
+"name": "Alnodesertib",
+"target": "DDR inhibitor",
+"indication": "2차 췌장암, 3차 대장암 등 ATM 결손 고형암",
+"stage": "Phase 1/2"
+},
+{
+"name": "DDR-ADC",
+"target": "DDR inhibitor 탑재 ADC",
+"indication": "항암",
+"stage": "Discovery"
+}
+],
+"as_of": "2025-11",
+"co_src": [
+"https://www.fiercebiotech.com/biotech/artios-pharma-secures-115m-series-d-take-its-dna-damage-response-pipeline-deeper-clinic"
+]
+},
+{
 "company": "Icosavax",
-"country": "미상",
+"country": "미국",
 "date": "2021-07-26",
 "date_approx": true,
 "type": "IPO",
@@ -28364,11 +29328,12 @@
 "as_of": "2024-02",
 "co_src": [
 "https://www.pharmaceutical-technology.com/news/astrazeneca-icosavax-acquisition/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Nuvalent",
-"country": "미상",
+"country": "미국",
 "date": "2021-07-26",
 "date_approx": true,
 "type": "IPO",
@@ -28423,11 +29388,12 @@
 "as_of": "2026-10",
 "co_src": [
 "https://nuvalent.com/pipeline/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Tenaya Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-07-26",
 "date_approx": true,
 "type": "IPO",
@@ -28482,11 +29448,12 @@
 "as_of": "2026-08",
 "co_src": [
 "https://investors.tenayatherapeutics.com/news-releases/news-release-details/tenaya-therapeutics-reports-second-quarter-2026-financial"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Omega Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-07-26",
 "date_approx": true,
 "type": "IPO",
@@ -28529,11 +29496,12 @@
 "as_of": "2025-07",
 "co_src": [
 "https://elevenflo.com/blog/omega-therapeutics-files-chapter-11-after-burning-through-novo-nordisk-partnership-funds"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Immuneering",
-"country": "미상",
+"country": "미국",
 "date": "2021-07-26",
 "date_approx": true,
 "type": "IPO",
@@ -28576,11 +29544,12 @@
 "as_of": "2026-06",
 "co_src": [
 "https://ir.immuneering.com/news-releases/news-release-details/immuneering-announces-first-patient-dosed-pivotal-phase-3"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Absci",
-"country": "미상",
+"country": "미국",
 "date": "2021-07-22",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -28628,11 +29597,12 @@
 "as_of": "2026-03",
 "co_src": [
 "https://investors.absci.com/news-releases/news-release-details/absci-reports-business-updates-and-fourth-quarter-and-full-1"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Caribou Biosciences",
-"country": "미상",
+"country": "미국",
 "date": "2021-07-22",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -28681,11 +29651,12 @@
 "as_of": "2026-03",
 "co_src": [
 "https://investor.cariboubio.com/news-releases/news-release-details/caribou-biosciences-reports-fourth-quarter-and-full-year-2025"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Imago BioSciences",
-"country": "미상",
+"country": "미국",
 "date": "2021-07-15",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -28729,11 +29700,12 @@
 "co_src": [
 "https://www.biopharmadive.com/news/merck-imago-acquire-deal-bone-marrow-cancer/637054/",
 "https://www.wfmz.com/news/area/lehighvalley/merck-completes-1-35-billion-purchase-of-imago-developer-of-medicine-for-bone-marrow-diseases/article_27793560-91f8-11ed-8dcd-7bddeadc5d02.html"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Erasca",
-"country": "미상",
+"country": "미국",
 "date": "2021-07-15",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -28788,7 +29760,8 @@
 "as_of": "2025-05",
 "co_src": [
 "https://www.barchart.com/story/news/32367561/erasca-announces-early-clinical-advancement-and-prioritization-of-ras-targeting-franchise-coupled-with-more-than-3-years-of-projected-cash-runway"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "TScan Therapeutics",
@@ -29126,7 +30099,7 @@
 },
 {
 "company": "Acumen Pharmaceuticals",
-"country": "미상",
+"country": "미국",
 "date": "2021-06-30",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -29174,11 +30147,12 @@
 "as_of": "2026-03",
 "co_src": [
 "https://investors.acumenpharm.com/news-releases/news-release-details/acumen-pharmaceuticals-reports-financial-results-year-ended-1"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Aerovate Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-06-29",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -29228,11 +30202,12 @@
 "co_src": [
 "https://synapse.patsnap.com/article/jade-biosciences-finalizes-merger-with-aerovate-and-300m-private-placement",
 "https://www.sec.gov/Archives/edgar/data/1798749/000119312525110004/d847557dex991.htm"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "GH Research",
-"country": "미상",
+"country": "아일랜드",
 "date": "2021-06-25",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -29247,11 +30222,11 @@
 "valuation_post": null,
 "valuation_note": null,
 "exchange": "Nasdaq",
-"ticker": null,
+"ticker": "GHRS",
 "modality": "기타·미상",
 "area": "Other",
-"stage": "미상",
-"lead_asset": null,
+"stage": "Phase 2",
+"lead_asset": "inhalable 5-MeO-DMT (GH001), 치료저항성 우울증",
 "platform": "N",
 "use_of_proceeds": null,
 "outcome": null,
@@ -29274,11 +30249,12 @@
 "as_of": "2026-01",
 "co_src": [
 "https://ghres.gcs-web.com/news-releases/news-release-details/gh-research-announces-fda-lifts-clinical-hold-gh001-clearing/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Graphite Bio",
-"country": "미상",
+"country": "미국",
 "date": "2021-06-24",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -29322,11 +30298,12 @@
 "co_src": [
 "https://www.biospace.com/press-releases/lenz-therapeutics-announces-us-fda-approval-of-vizz-for-the-treatment-of-presbyopia",
 "https://www.streetinsider.com/Business+Wire/LENZ+Therapeutics+and+Graphite+Bio+Announce+Merger+Agreement/22416318.html"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Elevation Oncology",
-"country": "미상",
+"country": "미국",
 "date": "2021-06-24",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -29370,7 +30347,8 @@
 "co_src": [
 "https://www.fiercebiotech.com/biotech/embattled-elevation-becomes-latest-biotech-accept-concentra-buyout",
 "https://www.tipranks.com/news/company-announcements/elevation-oncology-merges-with-concentra-biosciences"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Monte Rosa Therapeutics",
@@ -29489,7 +30467,7 @@
 },
 {
 "company": "ATAI Life Sciences",
-"country": "미상",
+"country": "독일",
 "date": "2021-06-18",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -29544,11 +30522,12 @@
 "as_of": "2026-05",
 "co_src": [
 "https://ir.atai.com/news-releases/news-release-details/ataibeckley-reports-first-quarter-2026-financial-results-and"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Cyteir Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-06-18",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -29591,11 +30570,12 @@
 "as_of": "2023-06",
 "co_src": [
 "https://www.tipranks.com/news/the-fly/cyteir-therapeutics-announces-plan-of-liquidation-dissolution"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Ambrx Biopharma",
-"country": "미상",
+"country": "미국",
 "date": "2021-06-18",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -29645,11 +30625,12 @@
 "co_src": [
 "https://www.pharmaceutical-technology.com/news/johnson-and-johnson-ambrx/",
 "https://www.dcatvci.org/top-industry-news/jj-completes-2-bn-acquisition-of-adc-company-ambrx-biopharma/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Lyell Immunopharma",
-"country": "미상",
+"country": "미국",
 "date": "2021-06-17",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -29698,7 +30679,8 @@
 "as_of": "2026-05",
 "co_src": [
 "https://www.1stoncology.com/blog/?p=110678"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Century Therapeutics",
@@ -30204,7 +31186,7 @@
 },
 {
 "company": "Bright Peak Therapeutics",
-"country": "미상",
+"country": "스위스",
 "date": "2021-06-10",
 "type": "시리즈/비공개",
 "round": "Series B",
@@ -30246,7 +31228,8 @@
 "as_of": "2024-06",
 "co_src": [
 "https://www.pharmaceutical-technology.com/news/jj-backed-bright-peak-secures-90m-to-advance-immunoconjugate-programme"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Synthekine",
@@ -30292,6 +31275,67 @@
 "as_of": "2026-04",
 "co_src": [
 "https://www.biospace.com/press-releases/synthekine-presents-updated-clinical-and-translational-data-demonstrating-strong-activity-for-stk-012-in-first-line-non-squamous-nsclc-in-oral-presentation-at-aacr-2026"
+]
+},
+{
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "CNY",
+"amount_orig": 1200,
+"amount_orig_unit": "M",
+"lead": [
+"Sequoia Capital China",
+"China Merchants Medical and Healthcare Industry Equity Fund",
+"WuXi AppTec",
+"Greenwoods Investment"
+],
+"investors": [
+"OrbiMed",
+"Advantech Capital",
+"Guoxin Guotong",
+"Efund",
+"Forebright",
+"Tsing Song Capital",
+"CITIC Securities"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "Y",
+"use_of_proceeds": "연 1억 도즈 규모 생산시설 2곳 구축, 백신 임상 진행",
+"outcome": null,
+"sources": [
+"https://www.fiercebiotech.com/biotech/china-s-stemirna-raises-188m-to-fund-mrna-covid-19-vaccine",
+"https://media.dealstreetasia.com/stories/sequoia-stemirna-therapeutics-244051"
+],
+"company": "Stemirna Therapeutics",
+"date": "2021-06-04",
+"round": "미공개 (신규 라운드)",
+"amount_usd": 188,
+"modality": "RNA(siRNA·ASO·mRNA 등)",
+"area": "Infectious disease",
+"stage": "Phase 1",
+"lead_asset": "mRNA COVID-19 vaccine",
+"note": "ChinaBio는 2021-05 발표로 집계; Fierce 기사일 2021-06-04; RMB1.2B; 단계는 'Phase 2 임박' 서술 기반 추정",
+"_batch": "gap_cn",
+"year": 2021,
+"id": "i9c3301c6",
+"about": "mRNA 백신·항암백신 개발사로 2023년 이후 mRNA CDMO/CRO 파트너로 재편 중인 상하이 소재 기업",
+"pipeline": [
+{
+"name": "mRNA COVID-19 vaccine",
+"target": "SARS-CoV-2 mRNA",
+"indication": "COVID-19 예방 (중국 임상 승인, 시판 승인 미획득)",
+"stage": "Phase 1"
+}
+],
+"as_of": "2023-11",
+"co_src": [
+"https://thebambooworks.com/chinas-mrna-pioneer-stemirna-faces-post-covid-reinvention-test/",
+"https://yicaiglobal.com/news/chinas-stemirna-to-shut-down-mrna-vaccine-factory-as-demand-for-covid-19-jabs-falls"
 ]
 },
 {
@@ -30619,6 +31663,64 @@
 ]
 },
 {
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "CNY",
+"amount_orig": 1000,
+"amount_orig_unit": "M",
+"lead": [
+"GL Ventures",
+"CDG Capital",
+"CPE"
+],
+"investors": [
+"Citic Securities",
+"TigerYeah Capital",
+"Wanhui Capital",
+"Zhejiang Kunjian Xintai Equity Investment"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "Y",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.avcj.com/avcj/news/3023825/china-gps-commit-usd160m-to-local-adc-player",
+"https://media.dealstreetasia.com/stories/dac-biotech-gl-ventures-240357",
+"https://thebambooworks.com/investors-bet-big-on-cancer-drug-infant-duality-biologics-and-its-rockstar-founder/"
+],
+"company": "Hangzhou DAC Biotech",
+"date": "2021-05-12",
+"round": "Series C",
+"amount_usd": 156,
+"modality": "ADC",
+"area": "Oncology",
+"stage": "Preclinical",
+"lead_asset": null,
+"note": "RMB1B(~$156-160M) 출처별 달러 환산 상이; 단계는 3개 후보 임상 진입으로 복수 단계에 가까움; 리드 투자자 표기 매체별 상이(Hillhouse 표기 1건)",
+"_batch": "gap_cn",
+"year": 2021,
+"id": "ia6089f3f",
+"about": "CPT113 등 ADC용 링커-페이로드 플랫폼과 ADC 후보를 개발하는 항저우 소재 바이오텍 (2026년 Whitehawk에 CPT113 옵션 라이선스)",
+"pipeline": [
+{
+"name": "DXC006",
+"target": "CD56 ADC (CPT113 링커-페이로드)",
+"indication": "소세포폐암·비소세포폐암·신경내분비종양 등 고형암",
+"stage": "Phase 1"
+}
+],
+"as_of": "2026-05",
+"co_src": [
+"https://allsci.com/news/licensing-deals/whitehawk-therapeutics-licenses-hangzhou-dacs-cpt113-linker-payload-for-up-to-five-adc-programs/",
+"https://www.1stoncology.com/blog/?p=111204"
+]
+},
+{
 "company": "Talaris Therapeutics",
 "country": "미국",
 "date": "2021-05-06",
@@ -30890,7 +31992,7 @@
 },
 {
 "company": "Biomea Fusion",
-"country": "미상",
+"country": "미국",
 "date": "2021-04-15",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -30939,7 +32041,8 @@
 "co_src": [
 "https://biomeafusion.gcs-web.com/news-releases/news-release-details/biomea-fusion-reports-second-quarter-2026-financial-results-and",
 "https://www.biospace.com/biomea-announces-pricing-of-initial-public-offering-apr-16-2021"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "네오젠TC",
@@ -31372,8 +32475,81 @@
 ]
 },
 {
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 170,
+"amount_orig_unit": "M",
+"lead": [
+"Lake Bleu Capital"
+],
+"investors": [
+"Partners Investment",
+"Superstring Capital",
+"Orion Science Capital",
+"Fountainhead Partners",
+"CBC Group"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": null,
+"sources": [
+"https://www.biospectrumasia.com/news/48/17876/chinas-affamed-therapeutics-completes-us170m-series-b-financing-.html"
+],
+"company": "AffaMed Therapeutics",
+"date": "2021-03-30",
+"round": "Series B",
+"amount_usd": 170,
+"modality": "기타·미상",
+"area": "Multiple",
+"stage": "복수 단계",
+"lead_asset": null,
+"note": "출처: 'over US$170M'; 안과·신경·정신 파이프라인; 본사 상하이",
+"_batch": "gap_cn",
+"year": 2021,
+"id": "i9168ed7f",
+"about": "안과·신경과·정신과 질환의 도입·공동개발(DEXTENZA, fasedienol, AM712 등) 중심 중국 바이오텍",
+"pipeline": [
+{
+"name": "fasedienol (PH94B, Vistagen 파트너)",
+"target": "neuroactive nasal spray",
+"indication": "사회불안장애 (Phase 3 탑라인 긍정, 2023-08)",
+"stage": "Phase 3"
+},
+{
+"name": "DEXTENZA",
+"target": "dexamethasone 서방형 눈물점 삽입제",
+"indication": "안과수술 후 안염증·통증 (중국 Phase 3, 마카오 승인, 싱가포르 NDA 접수)",
+"stage": "Phase 3"
+},
+{
+"name": "AM006",
+"target": "미공개",
+"indication": "파킨슨병 (중국 Phase IIb 승인)",
+"stage": "Phase 2"
+},
+{
+"name": "AM712",
+"target": "이중특이 바이오의약품",
+"indication": "망막 혈관질환 (미국 IND 승인·Phase 1)",
+"stage": "Phase 1"
+}
+],
+"as_of": "2024-02",
+"co_src": [
+"https://pharmacompass.com/radio-compass-news/affamed-therapeutics",
+"https://www.clinicaltrialsarena.com/news/affamed-nmpa-approval-dextenza-study/"
+]
+},
+{
 "company": "Achilles Therapeutics",
-"country": "미상",
+"country": "영국",
 "date": "2021-03-30",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -31416,7 +32592,8 @@
 "co_src": [
 "https://1stoncology.com/blog/?p=98502",
 "https://forbion.com/news-insights/news/achilles-therapeutics-announces-pricing-of-initial-public-offering/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Omega Therapeutics",
@@ -31475,7 +32652,7 @@
 },
 {
 "company": "Edgewise Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-03-26",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -31519,7 +32696,8 @@
 "co_src": [
 "https://www.biospace.com/press-releases/edgewise-therapeutics-completes-sale-of-sevasemten-for-up-to-2-65-billion-strengthening-balance-sheet-and-centering-company-focus-on-cardiovascular-pipeline",
 "https://cobioscience.com/?p=12509"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Ikena Oncology",
@@ -31618,8 +32796,66 @@
 ]
 },
 {
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 155,
+"amount_orig_unit": "M",
+"lead": [
+"Invesco Developing Markets Fund"
+],
+"investors": [
+"GIC",
+"Lake Bleu Capital"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "N",
+"use_of_proceeds": "감염병·CNS 파이프라인 진전, 미국·중국 임상 가속",
+"outcome": "2021-07 HKEX 상장(기존 DB 수록)",
+"sources": [
+"https://www.biospace.com/brii-biosciences-closes-us-155-million-series-c-financing",
+"https://www.avcj.com/avcj/news/3023340/invesco-leads-usd155m-round-for-chinas-brii-biosciences"
+],
+"company": "Brii Biosciences",
+"date": "2021-03-23",
+"round": "Series C",
+"amount_usd": 155,
+"modality": "기타·미상",
+"area": "Infectious disease",
+"stage": "복수 단계",
+"lead_asset": "BRII-835 (VIR-2218) + BRII-179 (HBV)",
+"note": "본사 베이징/미 노스캐롤라이나 더럼 병기(보도자료 dateline Durham·Beijing) - 국가 분류 확인 필요; 모달리티 복수(항체·항생제·siRNA 등)",
+"_batch": "gap_cn",
+"year": 2021,
+"id": "i92552ff5",
+"about": "B형간염(HBV) 기능적 완치를 목표로 단백질 면역치료제와 siRNA를 개발하는 임상 2상 단계 바이오텍",
+"pipeline": [
+{
+"name": "BRII-179",
+"target": "HBV 재조합 단백질 면역치료제",
+"indication": "만성 B형간염 기능적 완치",
+"stage": "Phase 2"
+},
+{
+"name": "elebsiran",
+"target": "HBV 표적 siRNA",
+"indication": "만성 B형간염 기능적 완치",
+"stage": "Phase 2"
+}
+],
+"as_of": "2026-03",
+"co_src": [
+"https://www.placera.se/pressmeddelanden/brii-biosciences-provides-corporate-updates-and-reports-full-year-2025-financial-results-20260319"
+]
+},
+{
 "company": "Design Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-03-22",
 "date_approx": true,
 "type": "IPO",
@@ -31676,7 +32912,8 @@
 "co_src": [
 "https://designtx.gcs-web.com/news-releases/news-release-details/design-therapeutics-reports-fourth-quarter-and-full-year-2025",
 "https://www.renaissancecapital.com/IPO-Center/News/80141/US-IPO-Weekly-Recap-Healthcare-shines-in-a-17-IPO-week"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Epimab Biotherapeutics",
@@ -31739,7 +32976,7 @@
 },
 {
 "company": "Finch Therapeutics",
-"country": "미상",
+"country": "미국",
 "date": "2021-03-18",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -31782,7 +33019,8 @@
 "co_src": [
 "https://elevenflo.com/blog/finch-therapeutics-chapter-11",
 "https://www.biospace.com/article/releases/finch-therapeutics-announces-pricing-of-upsized-initial-public-offering-mar-19-2021/"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Connect Biopharma",
@@ -31846,7 +33084,7 @@
 },
 {
 "company": "Instil Bio",
-"country": "미상",
+"country": "미국",
 "date": "2021-03-18",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -31883,7 +33121,8 @@
 "co_src": [
 "https://www.1stoncology.com/blog/?p=109678",
 "https://www.1stoncology.com/blog/?p=60350"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "바오밥에이바이오",
@@ -32222,6 +33461,74 @@
 ]
 },
 {
+"company": "atai Life Sciences",
+"country": "독일",
+"date": "2021-03-03",
+"type": "시리즈/비공개",
+"round": "Series D",
+"amount_usd": 157,
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 157,
+"amount_orig_unit": "M",
+"lead": [
+"Apeiron Investment Group",
+"Thiel Capital",
+"Woodline Partners"
+],
+"investors": [
+"Fearless Ventures",
+"Falcon Edge Capital",
+"Catalio Capital Management",
+"Subversive Capital",
+"Highline Capital"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Neurology",
+"stage": "미상",
+"lead_asset": null,
+"platform": "N",
+"use_of_proceeds": null,
+"outcome": "2021-06 Nasdaq IPO(기수록 레코드 기준)",
+"sources": [
+"https://www.thepharmaletter.com/article/157-million-financing-round-a-monumental-moment-for-atai",
+"https://tech.eu/features/46400/in-sickness-and-in-wealth-top-15-european-healthtech-funding-rounds-in-2021/"
+],
+"_batch": "gap_eu",
+"year": 2021,
+"id": "i8b9df2d3",
+"about": "치료저항성 우울증 등 정신건강용 신속작용 사이키델릭 계열 치료제를 개발하는 임상 단계 바이오텍 (현 사명 AtaiBeckley)",
+"pipeline": [
+{
+"name": "BPL-003 (mebufotenin benzoate)",
+"target": "비강 분무형 mebufotenin",
+"indication": "치료저항성 우울증 (EoP2 완료, Phase 3 2026년 2분기 개시 예정)",
+"stage": "Phase 2"
+},
+{
+"name": "VLS-01",
+"target": "DMT 구강 필름",
+"indication": "치료저항성 우울증",
+"stage": "Phase 2"
+},
+{
+"name": "EMP-01",
+"target": "R-MDMA 경구제",
+"indication": "사회불안장애",
+"stage": "Phase 2"
+}
+],
+"as_of": "2026-05",
+"co_src": [
+"https://ir.atai.com/news-releases/news-release-details/ataibeckley-reports-first-quarter-2026-financial-results-and"
+]
+},
+{
 "company": "Tenaya Therapeutics",
 "country": "미국",
 "date": "2021-03-01",
@@ -32336,6 +33643,73 @@
 "co_src": [
 "https://yishengbio.gcs-web.com/news-releases/news-release-details/ys-biopharma-announces-unaudited-financial-results-first-quarter",
 "https://synapse.patsnap.com/news-detail/c790de47-572e-3677-a135-8f97a92c9f70-six-years-separated-from-a-rabies-vaccine-scandal-china%25E2%2580%2599s-yishengbio-grabs-130m-to-go-big-in-infectious-diseases-cancer"
+]
+},
+{
+"country": "중국",
+"type": "시리즈/비공개",
+"amount_krw": null,
+"currency_orig": "USD",
+"amount_orig": 230,
+"amount_orig_unit": "M",
+"lead": [
+"GL Ventures",
+"Temasek"
+],
+"investors": [
+"Oceanpine Capital",
+"OrbiMed",
+"Delos Capital"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"platform": "Y",
+"use_of_proceeds": "파이프라인 개발, 자체 R&D·cGMP 생산 역량 확대, 신규 프로그램 임상 진입",
+"outcome": "2021-09 HKEX 상장",
+"sources": [
+"https://www.1stoncology.com/blog/?p=55281",
+"https://thepharmaletter.com/biotechnology/230-million-financing-round-for-clover-biopharmaceutical"
+],
+"company": "Clover Biopharmaceuticals",
+"date": "2021-02-22",
+"round": "Series C",
+"amount_usd": 230,
+"modality": "백신",
+"area": "Infectious disease",
+"stage": "복수 단계",
+"lead_asset": "SCB-2019 (S-Trimer COVID-19 vaccine)",
+"note": "Trimer-Tag 플랫폼; SCB-313(TRAIL-Trimer) Phase 1 병행; outcome은 기존 지식 기반이라 출처 미확인(확신 낮음)",
+"_batch": "gap_cn",
+"year": 2021,
+"id": "i184263e2",
+"about": "Trimer-Tag 플랫폼 기반 재조합 단백질 백신(COVID-19, RSV 등)과 바이오의약품을 개발하는 중국 바이오텍",
+"pipeline": [
+{
+"name": "SCB-2019",
+"target": "SARS-CoV-2 spike trimer subunit vaccine",
+"indication": "COVID-19 예방 (2022-12 중국 긴급사용 승인, 2023-02 출시)",
+"stage": "상업화"
+},
+{
+"name": "RSV+hMPV±PIV3 combination vaccine",
+"target": "RSV/hMPV/PIV3",
+"indication": "고령자 호흡기 바이러스 예방 (2026-01 Phase 2 등록 시작)",
+"stage": "Phase 2"
+},
+{
+"name": "SCB-1019 (RSV PreF)",
+"target": "RSV prefusion F",
+"indication": "60-85세 RSV 재접종 (미국 Phase 1)",
+"stage": "Phase 1"
+}
+],
+"as_of": "2026-03",
+"co_src": [
+"https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0325/2026032500105.pdf",
+"https://sp-edge.com/companies/579070"
 ]
 },
 {
@@ -32630,7 +34004,7 @@
 },
 {
 "company": "Vor Biopharma",
-"country": "미상",
+"country": "미국",
 "date": "2021-02-05",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -32679,7 +34053,8 @@
 "as_of": "2026-08",
 "co_src": [
 "https://www.sec.gov/Archives/edgar/data/0001817229/000119312526343607/vor-20260630.htm"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Pharvaris",
@@ -32742,7 +34117,7 @@
 },
 {
 "company": "Terns Pharmaceuticals",
-"country": "미상",
+"country": "미국",
 "date": "2021-02-05",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -32785,7 +34160,8 @@
 "as_of": "2026-01",
 "co_src": [
 "https://www.sec.gov/Archives/edgar/data/1831363/000119312526008907/d69982dex991.htm"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Immunocore Holdings",
@@ -32906,7 +34282,7 @@
 },
 {
 "company": "Sana Biotechnology",
-"country": "미상",
+"country": "미국",
 "date": "2021-02-03",
 "type": "IPO",
 "round": "IPO(Nasdaq)",
@@ -32962,7 +34338,8 @@
 "co_src": [
 "https://www.sec.gov/Archives/edgar/data/0001770121/000119312526342371/sana-ex99_1.htm",
 "https://ir.sana.com/news-releases/news-release-details/sana-announces-upsized-pricing-initial-public-offering"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "Sensei Biotherapeutics",
@@ -33072,16 +34449,25 @@
 "amount_orig": 100,
 "amount_orig_unit": "M",
 "lead": [],
-"investors": [],
+"investors": [
+"BlackRock",
+"RA Capital Management",
+"Longwood Fund",
+"6 Dimensions Capital",
+"Bessemer Venture Partners",
+"GV",
+"Novartis Venture Fund",
+"Pitango HealthTech"
+],
 "valuation_pre": null,
 "valuation_post": null,
 "valuation_note": null,
 "exchange": null,
 "ticker": null,
-"modality": "기타·미상",
+"modality": "세포치료",
 "area": "Oncology",
-"stage": "미상",
-"lead_asset": null,
+"stage": "Preclinical",
+"lead_asset": "TSC-100, TSC-101 (TCR-T, IND-enabling)",
 "platform": "N",
 "use_of_proceeds": null,
 "outcome": null,
@@ -33110,7 +34496,8 @@
 "as_of": "2026-08",
 "co_src": [
 "https://tscan.gcs-web.com/news-releases/news-release-details/tscan-therapeutics-reports-second-quarter-2026-financial-results"
-]
+],
+"audited": "2026-10-19"
 },
 {
 "company": "IO Biotech",
@@ -33168,6 +34555,78 @@
 "co_src": [
 "https://elevenflo.com/blog/io-biotech-chapter-7-liquidation",
 "https://www.aimatmelanoma.org/io-biotech-announces-phase-3-results-for-cylembio-keytruda-in-advanced-melanoma/"
+]
+},
+{
+"company": "NewAmsterdam Pharma",
+"country": "네덜란드",
+"date": "2021-01-14",
+"type": "시리즈/비공개",
+"round": "Series A",
+"amount_usd": 196,
+"amount_krw": null,
+"currency_orig": "EUR",
+"amount_orig": 160,
+"amount_orig_unit": "M",
+"lead": [
+"Forbion",
+"Morningside Ventures",
+"Ascendant BioCapital"
+],
+"investors": [
+"Kaiser Foundation Hospitals",
+"BVF Partners",
+"Population Health Partners",
+"LSP Dementia Fund",
+"Peter Thiel",
+"Janus Henderson Investors",
+"Medpace",
+"GL Capital"
+],
+"valuation_pre": null,
+"valuation_post": null,
+"valuation_note": null,
+"exchange": null,
+"ticker": null,
+"modality": "저분자",
+"area": "Cardiovascular",
+"stage": "Phase 2",
+"lead_asset": "obicetrapib (CETP inhibitor)",
+"platform": "N",
+"use_of_proceeds": "obicetrapib(ApoB·LDL-c 저하 저분자) Phase 3 전 과정 개발 자금",
+"outcome": null,
+"sources": [
+"https://www.biospace.com/newamsterdam-pharma-completes-196m-160m-series-a-funding-for-comprehensive-phase-3-development-program",
+"https://www.unquote.com/benelux/official-record/3022467/forbion-et-al-in-usd196m-round-for-newamsterdam-pharma"
+],
+"_batch": "gap_eu",
+"year": 2021,
+"id": "ifad18ac2",
+"about": "CETP 억제제 obicetrapib 중심의 LDL-C 저하 심혈관·대사질환 저분자를 개발하는 네덜란드 임상 3상 단계 바이오텍",
+"pipeline": [
+{
+"name": "obicetrapib",
+"target": "CETP inhibitor",
+"indication": "스타틴 병용 LDL-C 저하 (EMA·영국·스위스 심사, 결정 2026 하반기 예상)",
+"stage": "허가신청·승인"
+},
+{
+"name": "obicetrapib + ezetimibe 복합제",
+"target": "CETP inhibitor + cholesterol absorption inhibitor",
+"indication": "LDL-C 저하 (EMA·영국·스위스 심사 중, TANDEM Phase 3)",
+"stage": "허가신청·승인"
+},
+{
+"name": "obicetrapib (PREVAIL)",
+"target": "CETP inhibitor",
+"indication": "심혈관 사건(MACE) 감소 CVOT (9,500명+, 중간분석 2026 4분기 예정)",
+"stage": "Phase 3"
+}
+],
+"as_of": "2026-05",
+"co_src": [
+"https://www.sec.gov/Archives/edgar/data/0001936258/000119312526210283/nams-ex99_1.htm",
+"https://www.sec.gov/Archives/edgar/data/1936258/000119312525114456/d905689dex991.htm"
 ]
 },
 {
