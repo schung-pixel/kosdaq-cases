@@ -544,6 +544,7 @@ dl.kv dd{margin:0;overflow-wrap:anywhere}
 html[data-page="deals"] [data-pg]:not([data-pg="deals"]),
 html[data-page="fda"] [data-pg]:not([data-pg="fda"]),
 html[data-page="info"] [data-pg]:not([data-pg="info"]),
+html[data-page="inv"] [data-pg]:not([data-pg="inv"]),
 html:not([data-page]) [data-pg]:not([data-pg="deals"]){display:none!important}
 html:not([data-page="deals"]) #fpanel,html:not([data-page="fda"]) #ffpanel{display:none!important}
 html[data-page="info"] .main{grid-template-columns:minmax(0,1fr)}
@@ -665,6 +666,18 @@ html:not(.stuck) .edge-t{opacity:0}
 
 
 
+/* ===== 투자 사례 ===== */
+.icards{display:block}
+@media(min-width:1181px){.icards{display:grid;grid-template-columns:1fr 1fr}.icards .card{border-right:1px solid var(--line2)}}
+.card.icard .iamt{font-family:var(--f-mono);font-size:20px;font-weight:500;text-align:right;white-space:nowrap}
+.card.icard .iamt small{font-size:11px;color:var(--muted);margin-left:2px;font-family:var(--f-body)}
+.card.icard .fmoa{grid-column:1/-1}
+.card.icard .who{display:block}
+.iamt.big{font-size:30px;font-family:var(--f-mono);font-weight:500}.iamt.big small{font-size:14px;color:var(--muted);margin-left:3px;font-family:var(--f-body)}
+.irow{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px;padding:9px 0;border-top:1px solid var(--line2);font-size:13.5px;overflow-wrap:anywhere}
+.irow .label{color:var(--muted);font-size:12px}
+.invnote{margin:0;font-size:12px;color:var(--muted);padding:0 4px}
+.src{font-size:12.5px;color:var(--info);word-break:break-all}
 /* ===== FDA: AI search, MoA on cards, prescribing-information popup (tabs, charts, tables) ===== */
 .fmoa{display:flex;gap:6px;align-items:baseline;font-size:12.5px;line-height:1.5;color:var(--muted);overflow-wrap:anywhere}
 .fmoa b{flex:0 0 auto;font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--accent)}
@@ -909,6 +922,7 @@ img{max-width:100%}
       <span class="ind" aria-hidden="true"></span>
       <button class="tab" type="button" data-sec="secList">기술거래</button>
       <button class="tab" type="button" data-sec="secFda">FDA 승인</button>
+      <button class="tab" type="button" data-sec="secInv">투자 사례</button>
       <button class="tab" type="button" data-sec="secInfo">정보</button>
     </nav>
     <div class="topacts">
@@ -1125,6 +1139,59 @@ img{max-width:100%}
         <div class="more" id="fmoreWrap" hidden><button class="btn sm" id="fmore" type="button">더 보기</button></div>
       </section>
 
+      <div class="srow" data-pg="inv">
+        <form class="sbox" id="iqform" role="search" action="#" autocomplete="off">
+          <svg class="sico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="iq" class="search" type="search" inputmode="search" enterkeyhint="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="회사·투자자·파이프라인 검색" aria-label="투자 사례 검색">
+          <button class="sclear" id="iqx" type="button" aria-label="검색어 지우기" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </form>
+      </div>
+      <section class="bar" data-pg="inv" aria-label="투자 사례 바로가기">
+        <div class="crow">
+          <div class="pglass"><div class="chips" id="ichipsWrap" role="group" aria-label="투자 유형"><span class="ind" aria-hidden="true"></span><span class="chips-in" id="ichips"></span></div></div>
+        </div>
+        <div class="crow">
+          <div class="pglass"><div class="chips" id="ichipsRWrap" role="group" aria-label="지역"><span class="ind" aria-hidden="true"></span><span class="chips-in" id="ichipsR"></span></div></div>
+        </div>
+      </section>
+      <p class="invnote" data-pg="inv">수집 진행 중인 자료입니다. 현재 2021~2023년 일부 구간만 수록되어 있어 건수·합계는 실제보다 적습니다.</p>
+
+      <section class="kcar" id="ikcar" data-pg="inv" aria-roledescription="carousel" aria-label="투자 요약과 통계">
+        <div class="ktrack" id="iktrack">
+          <div class="kslide" role="group" aria-roledescription="slide" aria-label="1 / 2 · 요약"><section class="summary" id="iKpi" data-pg="inv" aria-label="투자 요약">
+        <div><span class="label" id="ikNl">조달 건수</span><span class="v num" id="ikN">–</span><span class="s" id="ikNs">&nbsp;</span></div>
+        <div><span class="label">조달 합계 (USD)</span><span class="v num" id="ikS">–</span><span class="s" id="ikSs">&nbsp;</span></div>
+        <div><span class="label">라운드 규모 중앙값</span><span class="v num" id="ikM">–</span><span class="s" id="ikMs">&nbsp;</span></div>
+        <div><span class="label">최대 라운드</span><span class="v num" id="ikB">–</span><span class="s" id="ikBs">&nbsp;</span></div>
+      </section></div>
+          <div class="kslide" role="group" aria-roledescription="slide" aria-label="2 / 2 · 연도별"><div class="panel">
+          <header><h2>연도별 조달</h2><span class="legend"><span><i style="background:var(--c1)"></i>합계(USD)</span><span><i style="background:var(--c3)"></i>건수</span></span></header>
+          <div class="pbody"><div class="scroll"><svg id="iyearChart" viewBox="0 0 460 150" width="100%" role="img" aria-label="연도별 투자 건수와 합계"></svg></div></div>
+        </div></div>
+        </div>
+        <div class="kdots" id="ikdots"><button type="button" class="karr" data-d="-1" aria-label="이전 카드"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button><button type="button" class="kdot" data-i="0" aria-label="요약"></button><button type="button" class="kdot" data-i="1" aria-label="연도별"></button><button type="button" class="karr" data-d="1" aria-label="다음 카드"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button></div>
+      </section>
+
+      <section class="ledger" id="secInv" data-pg="inv" aria-label="투자 사례 목록">
+        <div class="ledger-top">
+          <h2 id="iTitle">목록</h2>
+          <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <button class="btn sm" id="iReset" type="button" hidden>초기화</button>
+            <div class="dd" id="iyrDD"></div><div class="dd" id="isortDD"></div>
+            <button class="btn sm" id="icsv" type="button" aria-label="CSV 내려받기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>CSV<span class="csvx"> 내려받기</span></button>
+          </span>
+        </div>
+        <select id="iyr" aria-label="연도" hidden></select>
+        <select id="isort" aria-label="정렬" hidden>
+          <option value="date:-1">최신순</option>
+          <option value="date:1">오래된순</option>
+          <option value="amt:-1">금액 큰 순</option>
+          <option value="company:1">회사명순</option>
+        </select>
+        <div class="icards" id="icards"><div class="empty">투자 사례를 불러오는 중입니다.</div></div>
+        <div class="more" id="imoreWrap" hidden><button class="btn sm" id="imore" type="button">더 보기</button></div>
+      </section>
+
       <section class="info" id="secInfo" data-pg="info" aria-label="정보">
         <h2>수록 기준과 설정</h2>
         <div class="infogrid">
@@ -1169,6 +1236,7 @@ img{max-width:100%}
   <span class="ind" aria-hidden="true"></span>
   <button class="tb" type="button" data-sec="secList"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>기술거래</button>
   <button class="tb" type="button" data-sec="secFda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 3v5.2c0 4.2-2.9 7.3-7 8.8-4.1-1.5-7-4.6-7-8.8V6.5z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>FDA 승인</button>
+  <button class="tb" type="button" data-sec="secInv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3.5-4 3 2.5L20 7"/></svg>투자 사례</button>
   <button class="tb" type="button" data-sec="secInfo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.2"/></svg>정보</button>
 </nav>
 
@@ -2003,6 +2071,110 @@ let fWasPhone=isPhone(),fWasCards=useCards();
 addEventListener("resize",()=>{const p=isPhone(),c=useCards();
   if(p!==fWasPhone){fWasPhone=p;$("ffShade").hidden=true;$("ffpanel").hidden=p;$("ffBtn").setAttribute("aria-expanded","false");lockSync()}
   if(c!==fWasCards){fWasCards=c;fDrawList()}});
+/* ---------- 투자 사례 page: biotech funding rounds (private rounds, IPO, follow-on) ---------- */
+let INV=[],IVIEW=[],ishown=40,isortK="date",isortDir=-1,INV_ERR="";
+const IF={q:"",type:"",reg:"",yr:""};
+const isKR=r=>r.country==="한국";
+const iAmt=r=>isKR(r)&&r.amount_krw!=null?`${fmt(r.amount_krw)}<small>억 원</small>`:(r.amount_usd!=null?`$${fmt(r.amount_usd)}<small>M</small>`:"–");
+const iAmtT=r=>isKR(r)&&r.amount_krw!=null?`${fmt(r.amount_krw)}억 원`:(r.amount_usd!=null?`$${fmt(r.amount_usd)}M`:"–");
+const iTypeCls=r=>r.type==="IPO"?"info":r.type==="후속공모"?"good":"";
+function inorm(src){const a={...src};a._yr=String(a.date||"").slice(0,4);a._reg=isKR(a)?"국내":"해외";a._mod=a.modality||"기타·미상";
+  a._hay=[a.company,a.country,a.round,a.type,a.modality,a.area,a.lead_asset,(a.lead||[]).join(" "),(a.investors||[]).join(" "),a.exchange,a.ticker,a.use_of_proceeds].join(" ").toLowerCase();return a}
+function invFailed(msg){INV_ERR=msg;if(INV.length)return;$("icards").innerHTML=`<div class="empty">${esc(msg)}</div>`;$("iTitle").textContent="목록"}
+function setInv(arr){try{INV=(arr||[]).map(inorm);const last=INV.map(a=>a.date).sort().pop();
+  if($("istamp"))$("istamp").innerHTML=last?`${fmt(INV.length)}건 · 최근 <b>${esc(last)}</b>`:"–";
+  iBuildYears();iApply()}catch(e){invFailed("투자 사례 화면을 그리지 못했습니다: "+(e&&e.message||e))}}
+function iBuildYears(){const ys=[...new Set(INV.map(a=>a._yr))].sort().reverse(),sel=$("iyr"),cur=sel.value;
+  sel.innerHTML=`<option value="">전체 연도</option>`+ys.map(y=>`<option value="${y}">${y}년</option>`).join("");sel.value=ys.includes(cur)?cur:"";IF.yr=sel.value;ddSyncAll()}
+const ICH_TYPE=[["","전체"],["시리즈/비공개","비공개 라운드"],["IPO","IPO"],["후속공모","후속공모"]],ICH_REG=[["","전체 지역"],["해외","해외"],["국내","국내"]];
+function iDrawChips(){
+  for(const [id,arr,key] of [["ichips",ICH_TYPE,"type"],["ichipsR",ICH_REG,"reg"]]){const box=$(id);
+    if(!box.dataset.built){box.innerHTML=arr.map(([v,t])=>`<button type="button" class="chip" data-v="${esc(v)}" aria-pressed="false">${t}</button>`).join("");box.dataset.built="1"}
+    box.querySelectorAll(".chip").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.v===IF[key])))}
+  iChipInd(true)}
+function iChipInd(reveal){for(const [w,c] of [["ichipsWrap","ichips"],["ichipsRWrap","ichipsR"]]){const W=$(w);if(W)moveInd(W,$(c).querySelector('.chip[aria-pressed="true"]'),reveal)}}
+function iSort(){const k=isortK,dir=isortDir;
+  IVIEW.sort((a,b)=>{let x=k==="amt"?a.amount_usd:a[k],y=k==="amt"?b.amount_usd:b[k];
+    if(x==null||x==="")return 1;if(y==null||y==="")return -1;
+    const c=typeof x==="number"?x-y:String(x).localeCompare(String(y),"ko");return c*dir||String(b.date).localeCompare(String(a.date))})}
+function iApply(keep){
+  const terms=IF.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  IVIEW=INV.filter(a=>(!IF.type||a.type===IF.type)&&(!IF.reg||a._reg===IF.reg)&&(!IF.yr||a._yr===IF.yr)&&terms.every(t=>a._hay.includes(t)));
+  iSort();if(!keep)ishown=40;
+  iDrawChips();iDrawKpi();iDrawList();
+  const any=IF.type||IF.reg||IF.yr||IF.q;$("iReset").hidden=!any}
+function iDrawYears(){
+  const svg=$("iyearChart");if(!svg)return;const box=svg.parentElement;
+  const W=Math.max(260,Math.round(box.clientWidth||460)),H=Math.max(100,Math.round(box.clientHeight||150)),L=40,R=30,T=24,B=22,iw=W-L-R,ih=H-T-B;
+  svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  const years=[...new Set(INV.map(a=>a._yr))].sort();if(!years.length){svg.innerHTML="";return}
+  const by=years.map(y=>{const g=IVIEW.filter(a=>a._yr===y);return{y,n:g.length,usd:g.reduce((s,a)=>s+(a.amount_usd||0),0)}});
+  const mxN=Math.max(1,...by.map(b=>b.n)),mxU=Math.max(1,...by.map(b=>b.usd)),NT=ih<120?2:4;
+  const nU=Math.ceil(mxU*1.1/NT/100)*100*NT||NT*100,nN=Math.ceil(mxN*1.15/NT)*NT||NT,bw=iw/years.length,out=[];
+  for(let i=0;i<=NT;i++){const y=T+ih-ih*i/NT;out.push(`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-dasharray="2 4"/><text x="${L-6}" y="${y+4}" text-anchor="end">${fmt(nU*i/NT/1000,1)}B</text><text x="${W-R+6}" y="${y+4}" text-anchor="start" fill="var(--c3)">${fmt(nN*i/NT)}</text>`)}
+  by.forEach((b,i)=>{const x=L+bw*i+bw*.2,w=bw*.6,h=ih*b.usd/nU,y=T+ih-h;
+    out.push(`<g><title>${b.y}년 ${fmt(b.n)}건 · 합계 $${fmt(b.usd)}M</title><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="4" fill="var(--c1)" opacity=".85"/></g>`);
+    out.push(`<text x="${x+w/2}" y="${H-6}" text-anchor="middle">${b.y.slice(2)}${b.y==="2026"?"*":""}</text>`)});
+  const pts=by.map((b,i)=>[L+bw*i+bw/2,T+ih-ih*b.n/nN,b.n]);
+  out.push(`<polyline points="${pts.map(p=>p[0]+","+p[1]).join(" ")}" fill="none" stroke="var(--c3)" stroke-width="2" stroke-linejoin="round"/>`);
+  pts.forEach(p=>out.push(`<circle cx="${p[0]}" cy="${p[1]}" r="3.4" fill="var(--c3)"/><text x="${p[0]}" y="${p[1]-8}" text-anchor="middle" fill="var(--c3)" class="tv">${p[2]}</text>`));
+  svg.innerHTML=out.join("");
+}
+function iDrawKpi(){
+  try{iDrawYears()}catch(e){}
+  const ys=[...new Set(INV.map(a=>a._yr))].sort(),Y=IF.yr||ys[ys.length-1]||"",P=String(+Y-1);
+  const base=IVIEW.filter(a=>IF.yr?true:true),cur=base.filter(a=>a._yr===Y),prv=INV.filter(a=>a._yr===P&&(!IF.type||a.type===IF.type)&&(!IF.reg||a._reg===IF.reg));
+  const sum=g=>g.reduce((s,a)=>s+(a.amount_usd||0),0),med=g=>{const v=g.map(a=>a.amount_usd).filter(x=>x!=null).sort((a,b)=>a-b);return v.length?v[Math.floor(v.length/2)]:null};
+  const big=g=>g.reduce((m,a)=>(a.amount_usd||0)>(m?m.amount_usd:-1)?a:m,null);
+  const $$=(id,h,s)=>{$(id).innerHTML=h;$(id+"s").textContent=s};
+  $("ikNl").textContent=`${Y}년 조달 건수`;
+  $$("ikN",`${fmt(cur.length)}<small>건</small>`,prv.length?`${P}년 ${fmt(prv.length)}건`:" ");
+  const fs=v=>v>=1000?`$${fmt(v/1000,1)}<small>B</small>`:`$${fmt(v)}<small>M</small>`;$$("ikS",fs(sum(cur)),prv.length?`${P}년 `+fs(sum(prv)).replace(/<[^>]+>/g,""):" ");
+  const m=med(cur),mp=med(prv);$$("ikM",m==null?"–":`$${fmt(m)}<small>M</small>`,mp==null?" ":`${P}년 $${fmt(mp)}M`);
+  const b=big(cur);$$("ikB",b?`$${fmt(b.amount_usd)}<small>M</small>`:"–",b?b.company:" ");
+}
+const iNew=a=>(Date.now()-Date.parse(a.date))/864e5<=14?'<span class="new">NEW</span>':"";
+const iTags=a=>[`<span class="tag ${a.type==="IPO"?"plat":""}">${esc(a.type==="시리즈/비공개"?(a.round||"비공개 라운드"):a.type+(a.exchange?" · "+a.exchange:""))}</span>`,a.modality&&a.modality!=="기타·미상"?`<span class="tag">${esc(a.modality)}</span>`:"",a.area&&a.area!=="Other"?`<span class="tag">${esc(a.area)}</span>`:"",a.stage&&a.stage!=="미상"?`<span class="tag">${esc(a.stage)}</span>`:""].join("");
+function iDrawList(){
+  $("iTitle").textContent=`목록 (${fmt(IVIEW.length)}건)`;
+  if(!INV.length)return;
+  if(!IVIEW.length){$("icards").innerHTML='<div class="empty">조건에 맞는 투자 사례가 없습니다. 조건을 줄여 보세요.</div>';$("imoreWrap").hidden=true;return}
+  $("icards").innerHTML=IVIEW.slice(0,ishown).map((a,i)=>`<article class="card icard" data-ii="${i}" tabindex="0">
+    <div class="meta"><span class="num">${esc(a.date)}${a.date_approx?"~":""}</span><span class="tag">${esc(a.country||"–")}</span>${iNew(a)}</div>
+    <div class="iamt num">${iAmt(a)}</div>
+    <div class="who"><span class="fbn">${esc(a.company)}</span><span class="fsp">${esc((a.lead&&a.lead.length?a.lead:a.investors||[]).slice(0,3).join(", ")||"투자자 미공개·미확인")}</span></div>
+    <div class="tags" style="grid-column:1/-1">${iTags(a)}</div>
+    ${a.lead_asset?`<div class="fmoa"><b>파이프라인</b><span>${esc(a.lead_asset)}</span></div>`:""}
+  </article>`).join("");
+  $("imoreWrap").hidden=IVIEW.length<=ishown;
+}
+function iToCSV(rows){const q=v=>{if(v==null)return"";const s=String(v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
+  const head=["일자","회사","국가","구분","라운드","금액(USD 백만)","금액(억 원)","리드 투자자","참여 투자자","프리밸류(USD 백만)","포스트밸류(USD 백만)","시장","티커","모달리티","질환영역","단계","리드 파이프라인","자금 용도","이후 경과","출처"];
+  return "﻿"+[head.join(","),...rows.map(a=>[a.date,a.company,a.country,a.type,a.round,a.amount_usd,a.amount_krw,(a.lead||[]).join(" / "),(a.investors||[]).join(" / "),a.valuation_pre,a.valuation_post,a.exchange,a.ticker,a.modality,a.area,a.stage,a.lead_asset,a.use_of_proceeds,a.outcome,(a.sources||[]).join(" ")].map(q).join(","))].join("\n")}
+function openInv(a){
+  const s=$("sheet"),wasOpen=!s.hidden;if(!wasOpen){lastFocus=document.activeElement;SHEET_STACK.length=0}
+  const row=(k,v)=>v==null||v===""||(Array.isArray(v)&&!v.length)?"":`<div class="irow"><span class="label">${k}</span><span>${Array.isArray(v)?v.map(esc).join(", "):v}</span></div>`;
+  const val=a.valuation_post!=null||a.valuation_pre!=null?[a.valuation_pre!=null?`프리 $${fmt(a.valuation_pre)}M`:"",a.valuation_post!=null?`포스트 $${fmt(a.valuation_post)}M`:""].filter(Boolean).join(" · "):"";
+  s.innerHTML=`<div class="sheet-head"><div><div class="label">${esc(a.date)}${a.date_approx?" (대략)":""} · ${esc(a.type)}</div><h2 id="sTitle">${esc(a.company)}</h2><div class="sub">${esc(a.country||"")} · ${esc(a.round||"")}</div></div><button class="xbtn glass" id="sClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="sbody"><div class="iamt big num">${iAmt(a)}</div>${isKR(a)&&a.amount_usd!=null?`<p class="hint">환산 약 $${fmt(a.amount_usd,1)}M (월평균 환율 추정)</p>`:""}
+  <div class="tags" style="margin:8px 0 12px">${iTags(a)}</div>
+  ${row("리드 투자자",a.lead)}${row("참여 투자자",a.investors)}${row("밸류에이션",val)}${row("밸류 비고",a.valuation_note?esc(a.valuation_note):"")}${row("상장",[a.exchange,a.ticker].filter(Boolean).join(" · "))}${row("리드 파이프라인",a.lead_asset?esc(a.lead_asset):"")}${row("자금 용도",a.use_of_proceeds?esc(a.use_of_proceeds):"")}${row("이후 경과",a.outcome?esc(a.outcome):"")}${a.note?row("메모",esc(a.note)):""}
+  <div class="fsec"><div class="label">출처</div>${(a.sources||[]).map(u=>`<a class="src" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(u.replace(/^https?:\/\/(www\.)?/,"").slice(0,60))}</a>`).join("<br>")}</div></div>`;
+  $("sheetBg").hidden=false;s.hidden=false;lockSync();if(!wasOpen)pushLayer("sheet");s._fda=null;
+  $("sClose").onclick=closeSheet;$("sClose").focus();const sb=s.querySelector(".sbody");if(sb){sb.scrollTop=0;fadeMask(sb)}}
+/* events */
+$("iq").addEventListener("input",e=>{IF.q=e.target.value;$("iqx").hidden=!IF.q;iApply()});
+$("iqform").addEventListener("submit",e=>e.preventDefault());
+$("iqx").onclick=()=>{$("iq").value="";IF.q="";$("iqx").hidden=true;iApply();$("iq").focus()};
+$("ichips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;IF.type=b.dataset.v;iApply()});
+$("ichipsR").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;IF.reg=b.dataset.v;iApply()});
+$("iyr").addEventListener("change",e=>{IF.yr=e.target.value;iApply()});
+$("isort").addEventListener("change",e=>{const [k,d]=e.target.value.split(":");isortK=k;isortDir=+d;iApply(true)});
+$("iReset").onclick=()=>{IF.q=IF.type=IF.reg=IF.yr="";$("iq").value="";$("iyr").value="";$("iqx").hidden=true;ddSyncAll();iApply()};
+$("icsv").onclick=()=>saveCSV(iToCSV(IVIEW),`투자사례_${new Date().toISOString().slice(0,10)}.csv`);
+$("imore").onclick=()=>{ishown+=40;iDrawList()};
+$("icards").addEventListener("click",e=>{if(e.target.closest("a"))return;const it=e.target.closest("[data-ii]");if(it)openInv(IVIEW[+it.dataset.ii])});
+$("icards").addEventListener("keydown",e=>{if(e.key==="Enter"){const it=e.target.closest("[data-ii]");if(it)openInv(IVIEW[+it.dataset.ii])}});
 /* ---------- FDA approvals: prescribing-information (PI) popup panes, charts, and ✦ AI search ---------- */
 let FDAPI={},FDAPI_STATE="idle",FDAPI_LOADER=null;
 function setFdaPi(arr){FDAPI={};(arr||[]).forEach(p=>{if(p&&p.id)FDAPI[p.id]=p});FDAPI_STATE="ready";piRefresh()}
@@ -2338,7 +2510,7 @@ function moveInd(wrap,target,reveal){
     else if(r>wrap.scrollLeft+wrap.clientWidth-pad)wrap.scrollTo({left:r-wrap.clientWidth+pad,behavior:"smooth"})}
 }
 function chipInd(reveal){const on=$("chips").querySelector('.chip[aria-pressed="true"]');moveInd($("chipsWrap"),on,reveal)}
-function layoutInd(){moveInd($("tabs"),$("tabs").querySelector('[aria-current="true"]'));moveInd($("tabbar"),$("tabbar").querySelector('.tb[aria-current="true"]'));chipInd(false);fChipInd(false);if(typeof pTabInd==="function")pTabInd(false)}
+function layoutInd(){moveInd($("tabs"),$("tabs").querySelector('[aria-current="true"]'));moveInd($("tabbar"),$("tabbar").querySelector('.tb[aria-current="true"]'));chipInd(false);fChipInd(false);if(typeof iChipInd==="function")iChipInd(false);if(typeof pTabInd==="function")pTabInd(false)}
 
 /* compare toggle (★ 비교) sits next to the filter button on each page */
 function syncVSeg(){$("cmpBtn").setAttribute("aria-pressed",String(F.compsOnly))}
@@ -2384,14 +2556,14 @@ function ddClose(dd,refocus){if(!dd||!dd.menu)return;dd.menu.remove();dd.menu=nu
 document.addEventListener("pointerdown",e=>{if(ddOpenNow&&!ddOpenNow.menu.contains(e.target)&&!ddOpenNow.btn.contains(e.target))ddClose(ddOpenNow)},true);
 addEventListener("scroll",e=>{if(ddOpenNow&&!(e.target instanceof Element&&ddOpenNow.menu.contains(e.target)))ddClose(ddOpenNow)},{capture:true,passive:true});
 addEventListener("resize",()=>{if(ddOpenNow)ddClose(ddOpenNow)});
-makeDD($("sort"),$("sortDD"),"pill");makeDD($("fsort"),$("fsortDD"),"pill");makeDD($("yFrom"),null,"sm");makeDD($("yTo"),null,"sm");
+makeDD($("sort"),$("sortDD"),"pill");makeDD($("fsort"),$("fsortDD"),"pill");makeDD($("isort"),$("isortDD"),"pill");makeDD($("iyr"),$("iyrDD"),"pill");makeDD($("yFrom"),null,"sm");makeDD($("yTo"),null,"sm");
 
 /* overlays: scroll lock */
 let askFocus=null,panelFocus=null;
 function lockSync(){const open=!$("sheet").hidden||(isPhone()&&(!$("fpanel").hidden||!$("ffpanel").hidden));document.documentElement.classList.toggle("lock",open)}
 
 /* pages: top tabs (desktop) + bottom tab bar (phone); each page keeps its own scroll position */
-const PAGE_OF={secKpi:"deals",secStats:"deals",secList:"deals",secFda:"fda",secInfo:"info"},PAGE_TAB={deals:"secList",fda:"secFda",info:"secInfo"},PAGE_NAME={deals:"기술거래",fda:"FDA 승인",info:"정보"};
+const PAGE_OF={secKpi:"deals",secStats:"deals",secList:"deals",secFda:"fda",secInv:"inv",secInfo:"info"},PAGE_TAB={deals:"secList",fda:"secFda",inv:"secInv",info:"secInfo"},PAGE_NAME={deals:"기술거래",fda:"FDA 승인",inv:"투자 사례",info:"정보"};
 const reduceMotion=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
 function setActiveSec(id){document.querySelectorAll("[data-sec]").forEach(b=>b.setAttribute("aria-current",String(b.dataset.sec===id)));layoutInd()}
 let curPage=null;const PAGE_Y={};
@@ -2429,6 +2601,7 @@ function initCar(trId,dotsId,charts){const tr=$(trId);if(!tr)return;const sl=[..
 }
 initCar("ktrack","kdots",[["yearChart",()=>drawYears()]]);
 initCar("fktrack","fkdots",[["fyearChart",()=>drawFYears()]]);
+initCar("iktrack","ikdots",[["iyearChart",()=>iDrawYears()]]);
 
 /* sticky heights → --hh (top bar) and --sm (scroll margin) */
 const visSrow=()=>[...document.querySelectorAll(".srow")].find(e=>e.offsetParent)||document.querySelector(".srow");
@@ -2580,6 +2753,7 @@ useHistory=true;
   FDAPI_LOADER=async()=>{const r=await fetch("data/fdapi.json");if(!r.ok)throw new Error(r.status);return (await r.json()).items||[]};
   try{
     const [dRes,rRes,fRes]=await Promise.all([fetch("data/deals.json"),fetch("data/runs.json").catch(()=>null),fetch("data/fda.json").catch(()=>null)]);
+    fetch("data/invest.json").then(r=>r.ok?r.json():Promise.reject(r.status)).then(j=>setInv(j.items||[])).catch(e=>invFailed("투자 사례를 불러오지 못했습니다 ("+e+")."));
     if(!dRes||!dRes.ok)throw new Error("deals");
     const d=await dRes.json(); let runs=[];
     try{if(rRes&&rRes.ok)runs=(await rRes.json()).runs||[]}catch(e){}
