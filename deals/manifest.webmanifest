@@ -1,7 +1,7 @@
 {
   "name": "신약 딜북",
   "short_name": "신약 딜북",
-  "description": "2021년 이후 총액 $200M 이상 글로벌 신약 기술거래와 FDA 신약 승인 검색·비교",
+  "description": "글로벌 신약 기술거래, FDA 신약 승인, 바이오텍 투자 사례 검색·비교",
   "lang": "ko",
   "id": "./",
   "start_url": "./",
