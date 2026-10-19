@@ -677,6 +677,13 @@ html:not(.stuck) .edge-t{opacity:0}
 .irow{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px;padding:9px 0;border-top:1px solid var(--line2);font-size:13.5px;overflow-wrap:anywhere}
 .irow .label{color:var(--muted);font-size:12px}
 .istarw{display:flex;align-items:center;justify-content:flex-end;gap:6px}
+.iabout{display:block;font-size:13px;color:var(--ink);line-height:1.45;margin-top:2px}
+.iabout.big{margin:0 0 12px;font-size:14px}
+.ipipe{grid-column:1/-1;display:grid;gap:3px;font-size:12.5px;color:var(--muted);padding:8px 10px;background:var(--surface2);border-radius:10px}
+.ipipe b{font-weight:600;font-size:11px;color:var(--faint)}
+.ipp{display:block;overflow-wrap:anywhere}.ipp i{font-style:normal;font-weight:600;color:var(--ink)}.ipp em{font-style:normal;font-size:11px;color:var(--accent);margin-left:2px}
+.ipr{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:8px 0;border-top:1px solid var(--line2);font-size:13px}
+.ipr span:nth-child(2){grid-column:1/2;color:var(--muted);font-size:12.5px}
 .invnote{margin:0;font-size:12px;color:var(--muted);padding:0 4px}
 .src{font-size:12.5px;color:var(--info);word-break:break-all}
 /* ===== FDA: AI search, MoA on cards, prescribing-information popup (tabs, charts, tables) ===== */
@@ -2104,7 +2111,7 @@ function iRegion(c){const k=String(c||"").split("/")[0].trim();return k==="한�
 const isKR=r=>r.country==="한국";
 const iAmt=r=>isKR(r)&&r.amount_krw!=null?`${fmt(r.amount_krw)}<small>억 원</small>`:(r.amount_usd!=null?`$${fmt(r.amount_usd)}<small>M</small>`:"–");
 function inorm(src){const a={...src};a._yr=String(a.date||"").slice(0,4);a._reg=iRegion(a.country);a._mod=a.modality||"기타·미상";a._stage=a.stage||"미상";
-  a._hay=[a.company,a.country,a.round,a.type,a.modality,a.area,a.lead_asset,(a.lead||[]).join(" "),(a.investors||[]).join(" "),a.exchange,a.ticker,a.use_of_proceeds].join(" ").toLowerCase();return a}
+  a._hay=[a.company,a.country,a.round,a.type,a.modality,a.area,a.lead_asset,a.about,(a.pipeline||[]).map(p=>[p.name,p.target,p.indication].join(" ")).join(" "),(a.lead||[]).join(" "),(a.investors||[]).join(" "),a.exchange,a.ticker,a.use_of_proceeds].join(" ").toLowerCase();return a}
 function invFailed(msg){INV_ERR=msg;if(INV.length)return;$("icards").innerHTML=`<div class="empty">${esc(msg)}</div>`;$("iTitle").textContent="목록"}
 function setInv(arr){try{INV=(arr||[]).map(inorm);const last=INV.map(a=>a.date).sort().pop();
   if($("istamp"))$("istamp").innerHTML=last?`${fmt(INV.length)}건 · 최근 <b>${esc(last)}</b>`:"–";
@@ -2189,6 +2196,10 @@ function iDrawKpi(){
 }
 const iNew=a=>(Date.now()-Date.parse(a.date))/864e5<=14?'<span class="new">NEW</span>':"";
 const iTags=a=>[`<span class="tag ${a.type==="IPO"?"plat":""}">${esc(a.type==="시리즈/비공개"?(a.round||"비공개 라운드"):a.type+(a.exchange?" · "+a.exchange:""))}</span>`,a.modality&&a.modality!=="기타·미상"?`<span class="tag">${esc(a.modality)}</span>`:"",a.area&&a.area!=="Other"?`<span class="tag">${esc(a.area)}</span>`:"",a.stage&&a.stage!=="미상"?`<span class="tag">${esc(a.stage)}</span>`:""].join("");
+const iStageShort=s=>({"Discovery":"탐색","Preclinical":"전임상","Phase 1":"1상","Phase 2":"2상","Phase 3":"3상","Phase 1/2":"1/2상","허가신청·승인":"허가","상업화":"상업화","미확인":""}[s]??(String(s||"").startsWith("미확인")?"":s||""));
+function iPipeLine(a){const p=(a.pipeline||[]).slice(0,3);
+  if(p.length)return `<div class="ipipe"><b>주요 파이프라인</b>${p.map(x=>`<span class="ipp"><i>${esc(x.name||"")}</i>${x.target?` · ${esc(x.target)}`:""}${x.indication?` · ${esc(x.indication)}`:""}${x.stage?` <em>${esc(iStageShort(x.stage))}</em>`:""}</span>`).join("")}</div>`;
+  return a.lead_asset?`<div class="ipipe"><b>파이프라인</b><span class="ipp">${esc(a.lead_asset)}</span></div>`:""}
 function iDrawList(){
   $("iTitle").textContent=`목록 (${fmt(IVIEW.length)}건)`;
   if(!INV.length)return;
@@ -2196,23 +2207,24 @@ function iDrawList(){
   $("icards").innerHTML=IVIEW.slice(0,ishown).map((a,i)=>`<article class="card icard" data-ii="${i}" tabindex="0">
     <div class="meta"><span class="num">${esc(a.date)}${a.date_approx?"~":""}</span><span class="tag">${esc(a.country||"–")}</span>${iNew(a)}</div>
     <div class="istarw">${istar(a)}<span class="iamt num">${iAmt(a)}</span></div>
-    <div class="who"><span class="fbn">${esc(a.company)}</span><span class="fsp">${esc((a.lead&&a.lead.length?a.lead:a.investors||[]).slice(0,3).join(", ")||"투자자 미공개·미확인")}</span></div>
+    <div class="who"><span class="fbn">${esc(a.company)}</span>${a.about?`<span class="iabout">${esc(a.about)}</span>`:""}<span class="fsp">${esc((a.lead&&a.lead.length?a.lead:a.investors||[]).slice(0,3).join(", ")||"투자자 미공개·미확인")}</span></div>
     <div class="tags" style="grid-column:1/-1">${iTags(a)}</div>
-    ${a.lead_asset?`<div class="fmoa"><b>파이프라인</b><span>${esc(a.lead_asset)}</span></div>`:""}
+    ${iPipeLine(a)}
   </article>`).join("");
   $("imoreWrap").hidden=IVIEW.length<=ishown;
 }
 function iToCSV(rows){const q=v=>{if(v==null)return"";const s=String(v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
-  const head=["일자","회사","국가","구분","라운드","금액(USD 백만)","금액(억 원)","리드 투자자","참여 투자자","프리밸류(USD 백만)","포스트밸류(USD 백만)","시장","티커","모달리티","질환영역","단계","리드 파이프라인","자금 용도","이후 경과","출처"];
-  return "﻿"+[head.join(","),...rows.map(a=>[a.date,a.company,a.country,a.type,a.round,a.amount_usd,a.amount_krw,(a.lead||[]).join(" / "),(a.investors||[]).join(" / "),a.valuation_pre,a.valuation_post,a.exchange,a.ticker,a.modality,a.area,a.stage,a.lead_asset,a.use_of_proceeds,a.outcome,(a.sources||[]).join(" ")].map(q).join(","))].join("\n")}
+  const head=["일자","회사","국가","구분","라운드","금액(USD 백만)","금액(억 원)","리드 투자자","참여 투자자","프리밸류(USD 백만)","포스트밸류(USD 백만)","시장","티커","모달리티","질환영역","단계","리드 파이프라인","회사 소개","주요 파이프라인","자금 용도","이후 경과","출처"];
+  return "﻿"+[head.join(","),...rows.map(a=>[a.date,a.company,a.country,a.type,a.round,a.amount_usd,a.amount_krw,(a.lead||[]).join(" / "),(a.investors||[]).join(" / "),a.valuation_pre,a.valuation_post,a.exchange,a.ticker,a.modality,a.area,a.stage,a.lead_asset,a.about,(a.pipeline||[]).map(p=>[p.name,p.target,p.indication,p.stage].filter(Boolean).join("/")).join(" ; "),a.use_of_proceeds,a.outcome,(a.sources||[]).join(" ")].map(q).join(","))].join("\n")}
 function openInv(a){
   const s=$("sheet"),wasOpen=!s.hidden;if(!wasOpen){lastFocus=document.activeElement;SHEET_STACK.length=0}
   const row=(k,v)=>v==null||v===""||(Array.isArray(v)&&!v.length)?"":`<div class="irow"><span class="label">${k}</span><span>${Array.isArray(v)?v.map(esc).join(", "):v}</span></div>`;
   const val=a.valuation_post!=null||a.valuation_pre!=null?[a.valuation_pre!=null?`프리 $${fmt(a.valuation_pre)}M`:"",a.valuation_post!=null?`포스트 $${fmt(a.valuation_post)}M`:""].filter(Boolean).join(" · "):"";
   s.innerHTML=`<div class="sheet-head"><div><div class="label">${esc(a.date)}${a.date_approx?" (대략)":""} · ${esc(a.type)}</div><h2 id="sTitle">${esc(a.company)}</h2><div class="sub">${esc(a.country||"")} · ${esc(a.round||"")}</div></div><button class="xbtn glass" id="sClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
   <div class="sbody"><div class="iamt big num">${iAmt(a)}</div>${isKR(a)&&a.amount_usd!=null?`<p class="hint">환산 약 $${fmt(a.amount_usd,1)}M (월평균 환율 추정)</p>`:""}
-  <div class="tags" style="margin:8px 0 12px">${iTags(a)}</div>
-  ${row(a.type==="IPO"?"주관사":"리드 투자자",a.lead)}${row(a.type==="IPO"?"참여 투자자·기관":"참여 투자자",a.investors)}${row("밸류에이션",val)}${row("밸류 비고",a.valuation_note?esc(a.valuation_note):"")}${row("상장",[a.exchange,a.ticker].filter(Boolean).join(" · "))}${row("리드 파이프라인",a.lead_asset?esc(a.lead_asset):"")}${row("자금 용도",a.use_of_proceeds?esc(a.use_of_proceeds):"")}${row("이후 경과",a.outcome?esc(a.outcome):"")}${a.note?row("메모",esc(a.note)):""}
+  <div class="tags" style="margin:8px 0 12px">${iTags(a)}</div>${a.about?`<p class="iabout big">${esc(a.about)}</p>`:""}
+  ${(a.pipeline||[]).length?`<div class="fsec"><div class="label">주요 파이프라인${a.as_of?` <span class="hint">(${esc(a.as_of)} 기준)</span>`:""}</div>${a.pipeline.map(x=>`<div class="ipr"><b>${esc(x.name||"")}</b><span>${[x.target,x.indication].filter(Boolean).map(esc).join(" · ")}</span>${x.stage?`<span class="tag">${esc(iStageShort(x.stage))}</span>`:""}</div>`).join("")}${(a.co_src||[]).map(u=>`<a class="src" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(u.replace(/^https?:\/\/(www\.)?/,"").slice(0,60))}</a>`).join("<br>")}</div>`:""}
+  ${row(a.type==="IPO"?"주관사":"리드 투자자",a.lead)}${row(a.type==="IPO"?"참여 투자자·기관":"참여 투자자",a.investors)}${row("밸류에이션",val)}${row("밸류 비고",a.valuation_note?esc(a.valuation_note):"")}${row("상장",[a.exchange,a.ticker].filter(Boolean).join(" · "))}${(a.pipeline||[]).length?"":row("리드 파이프라인",a.lead_asset?esc(a.lead_asset):"")}${row("자금 용도",a.use_of_proceeds?esc(a.use_of_proceeds):"")}${row("이후 경과",a.outcome?esc(a.outcome):"")}${a.note?row("메모",esc(a.note)):""}
   <div class="fsec"><div class="label">출처</div>${(a.sources||[]).map(u=>`<a class="src" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(u.replace(/^https?:\/\/(www\.)?/,"").slice(0,60))}</a>`).join("<br>")}</div></div>`;
   $("sheetBg").hidden=false;s.hidden=false;lockSync();if(!wasOpen)pushLayer("sheet");s._fda=null;
   $("sClose").onclick=closeSheet;$("sClose").focus();const sb=s.querySelector(".sbody");if(sb){sb.scrollTop=0;fadeMask(sb)}}
