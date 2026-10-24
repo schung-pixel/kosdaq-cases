@@ -4,10 +4,9 @@
 
 ## GitHub Pages에 올리기
 1. GitHub에서 새 저장소를 만듭니다(예: `kosdaq-cases`, Public).
-2. 저장소 첫 화면의 **uploading an existing file**을 눌러 이 폴더 안의 파일을 모두 끌어다 놓고 Commit 합니다.
-   (`index.html`, `manifest.webmanifest`, `sw.js`, `.nojekyll`, `icons/` 폴더)
+2. 앱 파일은 `review/` 폴더(`index.html`, `manifest.webmanifest`, `sw.js`, `icons/`)에 있습니다. 저장소 루트의 `index.html`·`sw.js`는 옛 주소에서 새 주소로 넘겨 주는 연결용입니다.
 3. **Settings → Pages**에서 Source를 `Deploy from a branch`, Branch를 `main` / `(root)`로 두고 Save.
-4. 1~2분 뒤 `https://<아이디>.github.io/kosdaq-cases/` 주소가 열립니다.
+4. 1~2분 뒤 `https://<아이디>.github.io/kosdaq-cases/review/` 주소가 열립니다. (2026.10.24 딜북과 주소 범위가 겹치지 않도록 `/kosdaq-cases/`에서 이전)
 
 ## 안드로이드에 설치
 1. 위 주소를 크롬으로 엽니다.
@@ -15,7 +14,7 @@
 3. 앱 서랍에 '상장 심사 사례' 아이콘이 생깁니다. 한 번 열어 두면 인터넷 없이도 열립니다.
 
 ## 내용 갱신
-`index.html`을 새 파일로 바꿔 올리고 `sw.js`의 `VERSION` 값을 바꾸면, 폰에서 앱을 인터넷 연결 상태로 한 번 열 때 최신판으로 바뀝니다.
+`review/index.html`을 새 파일로 바꿔 올리고 `review/sw.js`의 `VERSION` 값을 바꾸면, 폰에서 앱을 인터넷 연결 상태로 한 번 열 때 최신판으로 바뀝니다.
 
 ※ 공개 저장소의 GitHub Pages는 주소를 아는 사람 누구나 볼 수 있습니다(검색엔진 노출은 차단 설정됨).
 
