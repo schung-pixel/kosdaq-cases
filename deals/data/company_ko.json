@@ -3574,5 +3574,45 @@
  "Novo": {
   "ko": "노보",
   "alias": "노보노디스크 노보 노디스크 Novo Nordisk"
+ },
+ "Abogen": {
+  "ko": "아보젠",
+  "alias": ""
+ },
+ "Alentis Therapeutics": {
+  "ko": "알렌티스 테라퓨틱스",
+  "alias": "알렌티스"
+ },
+ "Theramex": {
+  "ko": "테라멕스",
+  "alias": ""
+ },
+ "Asieris Pharmaceuticals": {
+  "ko": "아시에리스 제약",
+  "alias": "아시에리스"
+ },
+ "Defand": {
+  "ko": "디펀드",
+  "alias": ""
+ },
+ "Enodia Therapeutics": {
+  "ko": "에노디아 테라퓨틱스",
+  "alias": "에노디아"
+ },
+ "insitro": {
+  "ko": "인시트로",
+  "alias": ""
+ },
+ "PepStar Therapeutics": {
+  "ko": "펩스타 테라퓨틱스",
+  "alias": "펩스타"
+ },
+ "Georgiamune": {
+  "ko": "조지아뮨",
+  "alias": ""
+ },
+ "Nouscom": {
+  "ko": "누스콤",
+  "alias": ""
  }
 }
