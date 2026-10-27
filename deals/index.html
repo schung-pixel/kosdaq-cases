@@ -747,6 +747,12 @@ body.faimode .bar[data-pg="fda"]{display:none}
 .pi-box.boxed{background:var(--bad-soft);box-shadow:inset 3px 0 0 var(--bad)}
 .pi-box.boxed .pi-h{color:var(--bad)}
 .pi-h{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--muted)}
+.chemsec{gap:10px}
+.chem{margin:0;display:grid;gap:6px;background:var(--surface2);border-radius:14px;padding:10px 12px}
+.chemsvg{min-height:120px;display:grid;place-items:center;overflow:hidden}
+.chemsvg svg{max-width:100%;height:auto}
+.chem figcaption{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:12.5px;color:var(--muted)}
+.chem figcaption b{color:var(--ink);font-weight:600}
 .mcard{background:var(--surface2);border-radius:14px;padding:13px 15px;box-shadow:inset 3px 0 0 var(--accent);display:grid;gap:6px}
 .mcard .mt{font-size:15px;font-weight:650;line-height:1.4}
 .mcard .md{font-size:13.5px;line-height:1.7;color:var(--ink);overflow-wrap:anywhere}
@@ -2109,6 +2115,7 @@ function showPTab(a,t,scroll){
   bindPane(a);
   const sb=s.querySelector(".sbody");if(sb&&scroll)sb.scrollTop=0;
   pTabInd(true);if(sb)fadeMask(sb);
+  if(t==="ov")requestAnimationFrame(()=>drawChem($("ppanes")));
 }
 function pTabInd(reveal){const w=$("ptabs");if(!w)return;moveInd(w,w.querySelector('.chip[aria-pressed="true"]'),reveal)}
 function bindPane(a){
@@ -2447,6 +2454,7 @@ function paneOv(a){
   return `<div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm sstar" id="fsStar" data-id="${esc(a.id)}" type="button">${FCOMPS.has(a.id)?"★ 비교 승인에서 빼기":"☆ 비교 승인에 담기"}</button></div>
    <div class="terms"><div><span class="label">승인일</span><span class="v">${esc(a.date)}</span></div><div><span class="label">승인 구분</span><span class="v sm">${esc(a.center||"–")}${a.type?` · ${esc(a.type)}`:""}</span></div><div><span class="label">모달리티</span><span class="v sm">${esc(a.modality||"–")}</span></div><div><span class="label">확보 경로</span><span class="v sm">${esc(org)}</span></div></div>
    ${moa||p.moa_l?`<div class="mcard"><span class="label">작용기전 (MoA)</span><div class="mt">${esc(moa||"")}</div>${p.moa_l?`<div class="md">${esc(p.moa_l)}</div>`:""}</div>`:""}
+   ${chemCard(a)}
    <div class="tsec"><div class="label">적응증</div><div class="tsum">${esc(a.indication||"–")}</div></div>
    ${p.basis?`<div class="tsec"><div class="label">승인 근거</div><div class="tsum">${esc(p.basis)}</div>${(p.trials||[]).length?`<button type="button" class="btn sm ptabgo" data-go="tr" style="justify-self:start">임상 결과 자세히 ›</button>`:""}</div>`:""}
    <div class="tsec"><div class="label">신속 심사·지정</div><div class="ftags">${desTags(a)||'<span class="hint">확인된 지정 없음</span>'}</div></div>
@@ -2573,6 +2581,21 @@ function drawFMode(){
 }
 $("fsMode").addEventListener("click",()=>setFSMode(FSMODE==="ai"?"kw":"ai",true));
 $("faiHint").addEventListener("click",e=>{const b=e.target.closest(".ex button");if(!b)return;const t=b.dataset.q||b.textContent;$("fq").value=t;syncFqx();runFdaAi(t)});
+
+/* ===== 화학구조 (PubChem SMILES → SmilesDrawer) ===== */
+function chemCard(a){const c=a.chem||[];if(!c.length)return"";
+  return `<div class="tsec chemsec"><div class="label">화학구조</div>${c.map(x=>`<figure class="chem">${x.smiles?`<div class="chemsvg" data-smiles="${esc(x.smiles)}" role="img" aria-label="${esc(x.name)} 화학구조"></div>`:`<div class="hint">분자량이 커 구조도는 생략합니다.</div>`}
+    <figcaption><b>${esc(x.name)}</b><span class="num">${esc(x.formula).replace(/(\d+)/g,"<sub>$1</sub>")}</span><span class="num">${fmt(x.mw,1)} g/mol</span><a class="src" href="https://pubchem.ncbi.nlm.nih.gov/compound/${encodeURIComponent(x.cid)}" target="_blank" rel="noopener noreferrer">PubChem ${esc(x.cid)}</a></figcaption></figure>`).join("")}<p class="hint" style="margin:0">출처: PubChem(성분명 기준 조회). 염·수화물 형태는 표시와 다를 수 있습니다.</p></div>`}
+let SD_P=null;
+function loadSD(){if(window.SmilesDrawer)return Promise.resolve(window.SmilesDrawer);if(SD_P)return SD_P;
+  SD_P=new Promise((ok,no)=>{const t=document.createElement("script");t.src="https://cdn.jsdelivr.net/npm/smiles-drawer@2.1.7/dist/smiles-drawer.min.js";t.onload=()=>ok(window.SmilesDrawer);t.onerror=()=>{SD_P=null;no(new Error("load"))};document.head.appendChild(t)});return SD_P}
+function chemDark(){const t=document.documentElement.getAttribute("data-theme");return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
+function drawChem(root){const els=[...(root||document).querySelectorAll(".chemsvg[data-smiles]:not([data-done])")];if(!els.length)return;
+  loadSD().then(SD=>{els.forEach(el=>{const w=Math.min(el.clientWidth||320,520),h=Math.round(Math.min(w*0.72,300));
+    const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("width",w);svg.setAttribute("height",h);el.innerHTML="";el.appendChild(svg);
+    try{const dr=new SD.SvgDrawer({width:w,height:h,padding:12,compactDrawing:false,terminalCarbons:false,explicitHydrogens:false});
+      SD.parse(el.dataset.smiles,tree=>{dr.draw(tree,svg,chemDark()?"dark":"light");el.dataset.done="1"},()=>{el.innerHTML='<div class="hint">구조를 그리지 못했습니다.</div>'})}
+    catch(e){el.innerHTML='<div class="hint">구조를 그리지 못했습니다.</div>'}})}).catch(()=>els.forEach(el=>el.innerHTML='<div class="hint">구조 그리기 도구를 불러오지 못했습니다(오프라인).</div>'))}
 function openSheet(d){
   lastFocus=document.activeElement;
   const kv=[["기술수출(라이선서)",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["기술도입(라이선시)",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
@@ -2794,7 +2817,7 @@ measure();
 /* settings: theme + glass transparency (per-viewer, browser storage) */
 const HOST_THEME=document.documentElement.getAttribute("data-theme");
 function setTheme(t,save){const r=document.documentElement;
-  if(t==="auto"){if(HOST_THEME)r.setAttribute("data-theme",HOST_THEME);else r.removeAttribute("data-theme")}else r.setAttribute("data-theme",t);
+  if(t==="auto"){if(HOST_THEME)r.setAttribute("data-theme",HOST_THEME);else r.removeAttribute("data-theme")}else r.setAttribute("data-theme",t);if(typeof piRefresh==="function")setTimeout(piRefresh,0);
   const s=$("themeSeg");s.style.setProperty("--i",["auto","light","dark"].indexOf(t));s.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.t===t)));
   if(save)try{localStorage.setItem("dealbook-theme",t)}catch(e){}
   syncSwitch()}
