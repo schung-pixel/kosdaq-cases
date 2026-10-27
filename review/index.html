@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#080C1C">
 <meta name="description" content="「코스닥 상장심사 이해와 실무」 2022~2026년판 심사사례 588건 검색">
 <meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1115">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -18,12 +19,12 @@
 <style>
 :root{
   color-scheme:light;
-  --bg:#EEF1FA;--surface:#FFFFFF;--surface2:#E9EDF8;--ink:#0E1630;--muted:#535C78;--faint:#8189A6;--line:#D6DCEE;--line2:#E3E7F4;
-  --accent:#2F4BD8;--accent-ink:#FFFFFF;--accent-soft:#E4E9FD;--eosin:#B83A6B;
+  --bg:#FFFFFF;--surface:#FFFFFF;--surface2:#F3F4F6;--ink:#111827;--muted:#6B7280;--faint:#9CA3AF;--line:#E5E7EB;--line2:#ECEEF1;--sbd:#D7DBE2;
+  --accent:#2F4BD8;--accent-ink:#FFFFFF;--accent-soft:#EEF1FD;--eosin:#B83A6B;
   --ok:#1D7448;--ok-bg:#E1F2E8;--info:#385C86;--info-bg:#E4ECF6;--bad:#B0301D;--bad-bg:#FBE6E1;--warn:#855400;--warn-bg:#FFF0CF;--vio:#654699;--vio-bg:#EDE7F8;--neu:#667180;--neu-bg:#E9EDF2;
-  --glass:#FFFFFF;--edge:rgba(24,34,70,.13);--spec:rgba(255,255,255,.9);--gloss:rgba(255,255,255,.5);--thumb:#FFFFFF;--track:rgba(30,40,80,.06);
+  --glass:#FFFFFF;--edge:#E5E7EB;--spec:transparent;--gloss:transparent;--thumb:#FFFFFF;--track:#F3F4F6;
   --sh1:0 1px 2px rgba(20,30,50,.04),0 1px 3px rgba(20,30,50,.05);--sh2:0 12px 32px rgba(20,30,50,.14),0 2px 6px rgba(20,30,50,.06);
-  --gsh:0 10px 30px -12px rgba(10,20,45,.35);
+  --gsh:none;
   --mark:#FFE3A3;--scrim:rgba(10,16,30,.32);
   --gk:61.4%;--gb:17.6px;--gkm:90.2%;
   --hh:64px;--sth:66px;--pad:max(16px,env(safe-area-inset-left,0px));--padr:max(16px,env(safe-area-inset-right,0px));
@@ -33,19 +34,19 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   color-scheme:dark;
-  --bg:#080C1C;--surface:#111831;--surface2:#18203D;--ink:#EAF0FF;--muted:#9AA6CC;--faint:#6F7AA0;--line:#243052;--line2:#1C2645;
-  --accent:#8FB2FF;--accent-ink:#0B1020;--accent-soft:#1D2A55;--eosin:#EE86AC;
+  --bg:#0F1115;--surface:#171A20;--surface2:#1F232B;--ink:#E8EAED;--muted:#9AA1AD;--faint:#6B7280;--line:#2A2F38;--line2:#23272F;--sbd:#363C47;
+  --accent:#8FB2FF;--accent-ink:#0B1020;--accent-soft:#1E2840;--eosin:#EE86AC;
   --ok:#6FD3A0;--ok-bg:#173528;--info:#94B6E0;--info-bg:#1C2B40;--bad:#FF8F7E;--bad-bg:#3A1C18;--warn:#F2C46A;--warn-bg:#3A2C10;--vio:#C3AEF2;--vio-bg:#2C2340;--neu:#A9B3C0;--neu-bg:#232C38;
-  --glass:#141B36;--edge:rgba(0,0,0,.55);--spec:rgba(255,255,255,.16);--gloss:rgba(255,255,255,.06);--thumb:#26315A;--track:rgba(255,255,255,.06);
-  --sh1:0 1px 2px rgba(0,0,0,.25),0 1px 3px rgba(0,0,0,.3);--sh2:0 12px 32px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);--gsh:0 10px 30px -12px rgba(0,0,0,.6);
+  --glass:#171A20;--edge:#2A2F38;--spec:transparent;--gloss:transparent;--thumb:#2A2F38;--track:#1F232B;
+  --sh1:0 1px 2px rgba(0,0,0,.25),0 1px 3px rgba(0,0,0,.3);--sh2:0 12px 32px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);--gsh:none;
   --mark:#5A4410;--scrim:rgba(0,0,0,.5);}}
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --bg:#080C1C;--surface:#111831;--surface2:#18203D;--ink:#EAF0FF;--muted:#9AA6CC;--faint:#6F7AA0;--line:#243052;--line2:#1C2645;
-  --accent:#8FB2FF;--accent-ink:#0B1020;--accent-soft:#1D2A55;--eosin:#EE86AC;
+  --bg:#0F1115;--surface:#171A20;--surface2:#1F232B;--ink:#E8EAED;--muted:#9AA1AD;--faint:#6B7280;--line:#2A2F38;--line2:#23272F;--sbd:#363C47;
+  --accent:#8FB2FF;--accent-ink:#0B1020;--accent-soft:#1E2840;--eosin:#EE86AC;
   --ok:#6FD3A0;--ok-bg:#173528;--info:#94B6E0;--info-bg:#1C2B40;--bad:#FF8F7E;--bad-bg:#3A1C18;--warn:#F2C46A;--warn-bg:#3A2C10;--vio:#C3AEF2;--vio-bg:#2C2340;--neu:#A9B3C0;--neu-bg:#232C38;
-  --glass:#141B36;--edge:rgba(0,0,0,.55);--spec:rgba(255,255,255,.16);--gloss:rgba(255,255,255,.06);--thumb:#26315A;--track:rgba(255,255,255,.06);
-  --sh1:0 1px 2px rgba(0,0,0,.25),0 1px 3px rgba(0,0,0,.3);--sh2:0 12px 32px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);--gsh:0 10px 30px -12px rgba(0,0,0,.6);
+  --glass:#171A20;--edge:#2A2F38;--spec:transparent;--gloss:transparent;--thumb:#2A2F38;--track:#1F232B;
+  --sh1:0 1px 2px rgba(0,0,0,.25),0 1px 3px rgba(0,0,0,.3);--sh2:0 12px 32px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);--gsh:none;
   --mark:#5A4410;--scrim:rgba(0,0,0,.5);}
 @media (prefers-contrast: more){:root{--edge:rgba(24,34,70,.45)}:root[data-theme="dark"]{--edge:rgba(255,255,255,.35)}}
 @media (prefers-contrast: more) and (prefers-color-scheme: dark){:root:not([data-theme="light"]){--edge:rgba(255,255,255,.35)}}
@@ -427,6 +428,38 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
   .hm h1{font-size:25px}
   .hm-sub{margin:7px 0 18px}
 }
+
+/* ===== 미니멀 화이트(2026.10.27): 배경 장식·유리 효과·그림자 제거 ===== */
+body::before,.hdeco{display:none}
+.glass,.search,.ctlp,.tabbar,.fab,.xbtn,.gp.glass{-webkit-backdrop-filter:none;backdrop-filter:none;background-image:none}
+.glass{background-color:var(--surface);box-shadow:none}
+.srow::before{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--bg);-webkit-mask-image:none;mask-image:none;bottom:0}
+.card,.card.open,.sstats div,.fc{box-shadow:none}
+.card{border-color:var(--line)}
+.mark,.hm .mark{background:#2F4BD8;border:0;box-shadow:none}
+.search,.sbox.big .search{background:var(--surface);border:1px solid var(--sbd);box-shadow:none}
+.sbox.big .search{box-shadow:0 1px 3px rgba(17,24,39,.06)}
+.search:focus,.sbox.big .search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.sbox.ai .search,.sbox.ai .search:not(:focus){border-color:color-mix(in srgb,var(--eosin) 55%,var(--sbd));box-shadow:none}
+.sbox.ai .search:focus{border-color:var(--eosin);box-shadow:0 0 0 3px color-mix(in srgb,var(--eosin) 15%,transparent)}
+.aitgl[aria-checked="true"]{box-shadow:none}
+.ctlp{background:var(--surface);box-shadow:none}
+.rchip{background:var(--surface)}
+.ibtn.glass{background:transparent;border-color:transparent;box-shadow:none}
+.topbar.glass{border:0;border-bottom:1px solid var(--line)}
+.ind{box-shadow:var(--sh1)}
+.glassset{display:none}
+.scrim{-webkit-backdrop-filter:none;backdrop-filter:none}
+.pop,.ddmenu{box-shadow:0 12px 32px rgba(17,24,39,.12)}
+@media (max-width:760px){
+  .tabbar{left:0;right:0;bottom:0;border-radius:0;border:0;border-top:1px solid var(--line);box-shadow:none;background:var(--surface);padding:4px max(8px,env(safe-area-inset-right,0px)) calc(4px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-left,0px))}
+  .tabbar .ind{display:none}
+  .tabbar .tab[aria-selected="true"]{background:transparent}
+  .fab{bottom:calc(76px + env(safe-area-inset-bottom,0px));box-shadow:0 2px 8px rgba(17,24,39,.12);background:var(--surface)}
+  .toast{bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+}
+.grp::before{content:"";position:absolute;z-index:-1;left:calc(-1 * var(--pad));right:calc(-1 * var(--padr));top:-2px;bottom:-10px;background:linear-gradient(180deg,var(--bg) 75%,color-mix(in srgb,var(--bg) 0%,transparent));pointer-events:none}
+.gp.glass{background-color:var(--surface)}
 </style>
 </head>
 <body>
@@ -763,7 +796,7 @@ $('brand').onclick=()=>setView('home');
 function effTheme(){const a=document.documentElement.getAttribute('data-theme');return a||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}
 function applyTheme(t,persist){document.documentElement.setAttribute('data-theme',t);
   $$('[data-theme-btn]').forEach(b=>b.setAttribute('aria-label',t==='dark'?'라이트 모드로 바꾸기':'다크 모드로 바꾸기'));
-  $$('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',t==='dark'?'#080C1C':'#EEF1FA'));
+  $$('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',t==='dark'?'#0F1115':'#FFFFFF'));
   if(persist)store.set('ksc2-theme',t);}
 $$('[data-theme-btn]').forEach(b=>b.addEventListener('click',()=>{const r=document.documentElement;r.classList.add('themefx');clearTimeout(window._tfx);applyTheme(effTheme()==='dark'?'light':'dark',true);window._tfx=setTimeout(()=>r.classList.remove('themefx'),650);}));
 applyTheme(store.get('ksc2-theme',null)||effTheme(),false);
