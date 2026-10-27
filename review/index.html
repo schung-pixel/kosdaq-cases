@@ -973,12 +973,17 @@ document.addEventListener('keydown',e=>{if(e.key==='/'&&!/input|textarea/i.test(
 let kbT;
 function hmShift(H,inst){const hq=$('hq'),hm=document.querySelector('#v-home .hm');if(!hm)return;
   if(H==null||document.activeElement!==hq||!MQ.matches){hm.style.transition='';hm.style.transform='';hm.dataset.sh=0;return;}
-  const cur=+hm.dataset.sh||0,r=hq.getBoundingClientRect(),top0=r.top+cur;
-  const want=Math.max(0,top0-24);
+  // 원래 위치 = 현재 화면 위치 - 지금 실제로 적용 중인 이동량(애니메이션 중간값 포함)
+  const t=getComputedStyle(hm).transform,ty=t&&t!=='none'?new DOMMatrixReadOnly(t).m42:0;
+  const top0=hq.getBoundingClientRect().top-ty;
+  // 브라우저가 입력칸을 보이게 하려고 화면 자체를 끌어올린 만큼(visualViewport.offsetTop)은 빼서 이중으로 올라가지 않게 함
+  const pan=window.visualViewport?Math.max(0,visualViewport.offsetTop):0;
+  const want=Math.max(0,Math.round(top0-24-pan));
   hm.dataset.sh=want;hm.style.transition=inst?'none':'';hm.style.transform=want?`translateY(${-want}px)`:'';}
 document.addEventListener('focusin',e=>{if(!MQ.matches||!e.target.matches('input[type=search],input[type=text],textarea'))return;clearTimeout(kbT);document.documentElement.classList.add('kb');
   if(e.target.id==='hq')hmShift(innerHeight*0.5);});
 addEventListener('resize',()=>{if(document.activeElement===$('hq'))hmShift(0,true);});
+{const re=()=>{if(document.activeElement===$('hq'))hmShift(0,true);};addEventListener('scroll',re,{passive:true});if(window.visualViewport){visualViewport.addEventListener('resize',re);visualViewport.addEventListener('scroll',re);}}
 // 키보드만 내려가고 입력칸 포커스가 남는 경우(안드로이드 뒤로/내림 버튼): 화면 높이가 돌아오면 포커스를 풀어 원래대로
 let kbBase=0,kbOpen=false;
 const vvH=()=>window.visualViewport?visualViewport.height:innerHeight;
