@@ -375,7 +375,7 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
   .topbar{display:none}
   .vhome{min-height:100svh;min-height:100vh}
   .hm-top{display:flex;justify-content:flex-end;gap:8px;padding:calc(12px + env(safe-area-inset-top,0px)) var(--padr) 0 var(--pad)}
-  .hm{padding-top:clamp(28px,8vh,90px);padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
+  .hm{padding-top:clamp(6px,2.5vh,28px);padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
   .hm-sub{font-size:12px}
   .hm h1{font-size:28px}
   .shell{display:block;padding-top:0}
@@ -394,7 +394,6 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
   html.kb .tabbar,html.kb .fab{opacity:0;pointer-events:none;transform:translateY(24px)}
   .tabbar{transition:opacity .2s,transform .25s}
   html.kb .toast{bottom:16px}
-  .vhome .hm{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
   .vhome .hm-top{transition:opacity .2s}
   html.kb .vhome .hm-top{opacity:0;pointer-events:none}
   .toast{bottom:calc(94px + env(safe-area-inset-bottom,0px))}
@@ -423,6 +422,11 @@ textarea.ta:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px v
 .mco.dim{opacity:.55}
 .mcv{font-weight:700;font-size:15px}
 .mcv.ok{color:var(--ok)}.mcv.ng{color:var(--bad)}
+@media (max-width:760px) and (max-height:760px){
+  .hm .mark{width:50px;height:50px;border-radius:15px;margin-bottom:12px}
+  .hm h1{font-size:25px}
+  .hm-sub{margin:7px 0 18px}
+}
 </style>
 </head>
 <body>
@@ -969,21 +973,9 @@ function resetAll(){if(st.ai){aiCtl?.abort();aiCtl=null;AI={};}st.q='';syncInput
 $('b-reset').onclick=resetAll;$('f-reset').onclick=()=>{st.oc.clear();st.tp.clear();st.yr='';renderSheet();render(true);};
 document.addEventListener('keydown',e=>{if(e.key==='/'&&!/input|textarea/i.test(document.activeElement?.tagName||'')){const t=st.view==='home'?$('hq'):st.view==='cases'?$('q'):null;if(t){e.preventDefault();t.focus();}}});
 
-// ---------- 키보드가 올라오면 하단 탭 숨김 + 홈 검색창을 키보드와 함께 올림(모바일) ----------
+// ---------- 키보드가 올라오면 하단 탭 숨김(모바일). 홈 검색창은 움직이지 않고 키보드 위쪽에 오도록 배치 ----------
 let kbT;
-function hmShift(H,inst){const hq=$('hq'),hm=document.querySelector('#v-home .hm');if(!hm)return;
-  if(H==null||document.activeElement!==hq||!MQ.matches){hm.style.transition='';hm.style.transform='';hm.dataset.sh=0;return;}
-  // 원래 위치 = 현재 화면 위치 - 지금 실제로 적용 중인 이동량(애니메이션 중간값 포함)
-  const t=getComputedStyle(hm).transform,ty=t&&t!=='none'?new DOMMatrixReadOnly(t).m42:0;
-  const top0=hq.getBoundingClientRect().top-ty;
-  // 브라우저가 입력칸을 보이게 하려고 화면 자체를 끌어올린 만큼(visualViewport.offsetTop)은 빼서 이중으로 올라가지 않게 함
-  const pan=window.visualViewport?Math.max(0,visualViewport.offsetTop):0;
-  const want=Math.max(0,Math.round(top0-24-pan));
-  hm.dataset.sh=want;hm.style.transition=inst?'none':'';hm.style.transform=want?`translateY(${-want}px)`:'';}
-document.addEventListener('focusin',e=>{if(!MQ.matches||!e.target.matches('input[type=search],input[type=text],textarea'))return;clearTimeout(kbT);document.documentElement.classList.add('kb');
-  if(e.target.id==='hq')hmShift(innerHeight*0.5);});
-addEventListener('resize',()=>{if(document.activeElement===$('hq'))hmShift(0,true);});
-{const re=()=>{if(document.activeElement===$('hq'))hmShift(0,true);};addEventListener('scroll',re,{passive:true});if(window.visualViewport){visualViewport.addEventListener('resize',re);visualViewport.addEventListener('scroll',re);}}
+document.addEventListener('focusin',e=>{if(!MQ.matches||!e.target.matches('input[type=search],input[type=text],textarea'))return;clearTimeout(kbT);document.documentElement.classList.add('kb');});
 // 키보드만 내려가고 입력칸 포커스가 남는 경우(안드로이드 뒤로/내림 버튼): 화면 높이가 돌아오면 포커스를 풀어 원래대로
 let kbBase=0,kbOpen=false;
 const vvH=()=>window.visualViewport?visualViewport.height:innerHeight;
@@ -992,7 +984,7 @@ function kbWatch(){const a=document.activeElement;if(!MQ.matches||!a||!a.matches
   const h=vvH();if(h<kbBase*0.8)kbOpen=true;else if(kbOpen&&h>=kbBase*0.9){kbOpen=false;a.blur();}}
 (window.visualViewport||window).addEventListener('resize',kbWatch);
 kbBase=vvH();
-document.addEventListener('focusout',e=>{if(!e.target.matches('input,textarea'))return;kbT=setTimeout(()=>{if(!document.activeElement||!document.activeElement.matches('input,textarea')){document.documentElement.classList.remove('kb');hmShift(null);}},120);});
+document.addEventListener('focusout',e=>{if(!e.target.matches('input,textarea'))return;kbT=setTimeout(()=>{if(!document.activeElement||!document.activeElement.matches('input,textarea')){document.documentElement.classList.remove('kb');}},120);});
 // ---------- popups ----------
 let openPopEl=null,popOpener=null;
 function openPop(id,opener){closePop(true);openPopEl=$(id);popOpener=opener||document.activeElement;

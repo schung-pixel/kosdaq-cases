@@ -1,5 +1,5 @@
 // 코스닥 상장 심사 사례 - 오프라인 캐시 (주소: ./review/)
-const VERSION = 'ksr-2026-10-27-kb1';
+const VERSION = 'ksr-2026-10-27-kb2';
 const FONTS = 'ksr-fonts';
 const CORE = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png'];
 
