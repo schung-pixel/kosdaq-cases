@@ -750,7 +750,7 @@ body.faimode .bar[data-pg="fda"]{display:none}
 .chemsec{gap:10px}
 .chem{margin:0;display:grid;gap:6px;background:var(--surface2);border-radius:14px;padding:10px 12px}
 .chemsvg{min-height:120px;display:grid;place-items:center;overflow:hidden}
-.chemsvg svg{max-width:100%;height:auto}
+.chemsvg svg{max-width:100%;height:auto;max-height:340px}
 .chem figcaption{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:12.5px;color:var(--muted)}
 .chem figcaption b{color:var(--ink);font-weight:600}
 .mcard{background:var(--surface2);border-radius:14px;padding:13px 15px;box-shadow:inset 3px 0 0 var(--accent);display:grid;gap:6px}
@@ -2584,18 +2584,23 @@ $("faiHint").addEventListener("click",e=>{const b=e.target.closest(".ex button")
 
 /* ===== 화학구조 (PubChem SMILES → SmilesDrawer) ===== */
 function chemCard(a){const c=a.chem||[];if(!c.length)return"";
-  return `<div class="tsec chemsec"><div class="label">화학구조</div>${c.map(x=>`<figure class="chem">${x.smiles?`<div class="chemsvg" data-smiles="${esc(x.smiles)}" role="img" aria-label="${esc(x.name)} 화학구조"></div>`:`<div class="hint">분자량이 커 구조도는 생략합니다.</div>`}
+  return `<div class="tsec chemsec"><div class="label">화학구조</div>${c.map(x=>`<figure class="chem">${x.smiles?`<div class="chemsvg" data-cid="${esc(x.cid)}" data-smiles="${esc(x.smiles)}" role="img" aria-label="${esc(x.name)} 화학구조"></div>`:`<div class="hint">분자량이 커 구조도는 생략합니다.</div>`}
     <figcaption><b>${esc(x.name)}</b><span class="num">${esc(x.formula).replace(/(\d+)/g,"<sub>$1</sub>")}</span><span class="num">${fmt(x.mw,1)} g/mol</span><a class="src" href="https://pubchem.ncbi.nlm.nih.gov/compound/${encodeURIComponent(x.cid)}" target="_blank" rel="noopener noreferrer">PubChem ${esc(x.cid)}</a></figcaption></figure>`).join("")}<p class="hint" style="margin:0">출처: PubChem(성분명 기준 조회). 염·수화물 형태는 표시와 다를 수 있습니다.</p></div>`}
 let SD_P=null;
 function loadSD(){if(window.SmilesDrawer)return Promise.resolve(window.SmilesDrawer);if(SD_P)return SD_P;
   SD_P=new Promise((ok,no)=>{const t=document.createElement("script");t.src="https://cdn.jsdelivr.net/npm/smiles-drawer@2.1.7/dist/smiles-drawer.min.js";t.onload=()=>ok(window.SmilesDrawer);t.onerror=()=>{SD_P=null;no(new Error("load"))};document.head.appendChild(t)});return SD_P}
 function chemDark(){const t=document.documentElement.getAttribute("data-theme");return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
-function drawChem(root){const els=[...(root||document).querySelectorAll(".chemsvg[data-smiles]:not([data-done])")];if(!els.length)return;
-  loadSD().then(SD=>{els.forEach(el=>{const w=Math.min(el.clientWidth||320,520),h=Math.round(Math.min(w*0.72,300));
+function sdDraw(el){return loadSD().then(SD=>{const w=Math.min(el.clientWidth||320,520),h=Math.round(Math.min(w*0.72,300));
     const svg=document.createElementNS("http://www.w3.org/2000/svg","svg");svg.setAttribute("width",w);svg.setAttribute("height",h);el.innerHTML="";el.appendChild(svg);
-    try{const dr=new SD.SvgDrawer({width:w,height:h,padding:12,compactDrawing:false,terminalCarbons:false,explicitHydrogens:false});
-      SD.parse(el.dataset.smiles,tree=>{dr.draw(tree,svg,chemDark()?"dark":"light");el.dataset.done="1"},()=>{el.innerHTML='<div class="hint">구조를 그리지 못했습니다.</div>'})}
-    catch(e){el.innerHTML='<div class="hint">구조를 그리지 못했습니다.</div>'}})}).catch(()=>els.forEach(el=>el.innerHTML='<div class="hint">구조 그리기 도구를 불러오지 못했습니다(오프라인).</div>'))}
+    const dr=new SD.SvgDrawer({width:w,height:h,padding:12,compactDrawing:false,terminalCarbons:false,explicitHydrogens:false});
+    SD.parse(el.dataset.smiles,tree=>{dr.draw(tree,svg,chemDark()?"dark":"light");el.dataset.done="1"},()=>{el.innerHTML='<div class="hint">구조를 그리지 못했습니다.</div>'})})
+  .catch(()=>{el.innerHTML='<div class="hint">구조 그리기 도구를 불러오지 못했습니다(오프라인).</div>'})}
+const CHEM_SVG={};
+function drawChem(root){[...(root||document).querySelectorAll(".chemsvg[data-smiles]:not([data-done])")].forEach(el=>{const cid=el.dataset.cid;
+  const put=t=>{el.innerHTML=t;el.dataset.done="1"};
+  if(cid&&CHEM_SVG[cid]){put(CHEM_SVG[cid]);return}
+  (cid?fetch("chem/"+encodeURIComponent(cid)+".svg").then(r=>r.ok?r.text():Promise.reject()):Promise.reject())
+    .then(t=>{if(!/^\s*<svg/.test(t))throw 0;CHEM_SVG[cid]=t;if(el.isConnected)put(t)}).catch(()=>sdDraw(el))})}
 function openSheet(d){
   lastFocus=document.activeElement;
   const kv=[["기술수출(라이선서)",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["기술도입(라이선시)",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
