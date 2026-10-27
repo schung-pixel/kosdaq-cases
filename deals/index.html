@@ -2693,7 +2693,7 @@ function setRuns(runs){
   if(!runs||!runs.length){$("stamp").innerHTML=`초기 구축 <b>2026-10-09</b>`;return}
   runs=[...runs].sort((a,b)=>String(b.run_at).localeCompare(String(a.run_at)));
   const r0=runs[0];latestTag=r0.tag||latestTag;$("stamp").innerHTML=`${esc(r0.period||"")} 반영 · <b>${esc(String(r0.run_at).slice(0,10))}</b>`;
-  $("runs").innerHTML=runs.slice(0,12).map(r=>`<div class="run"><span class="num">${esc(String(r.run_at).slice(0,10))}</span><span><b>${esc(r.period||"")}</b> · 신규 ${fmt(r.added||0)}건${r.status_updates?` · 사후 경과 ${fmt(r.status_updates)}건`:""}${r.summary?`<br><span class="hint">${esc(r.summary)}</span>`:""}</span></div>`).join("");
+  $("runs").innerHTML=runs.slice(0,12).map(r=>`<div class="run"><span class="num">${esc(String(r.run_at).slice(0,10))}</span><span><b>${esc(r.period||"")}</b> · ${r.added_deals!=null||r.added_fda!=null||r.added_invest!=null?`기술거래 ${fmt(r.added_deals||0)} · FDA ${fmt(r.added_fda||0)} · 투자 ${fmt(r.added_invest||0)}건`:`신규 ${fmt(r.added||0)}건`}${r.status_updates?` · 사후 경과 ${fmt(r.status_updates)}건`:""}${r.summary?`<br><span class="hint">${esc(r.summary)}</span>`:""}</span></div>`).join("");
   if(ALL.length){drawChips();drawList()}
 }
 function loadFailed(msg){$("stamp").textContent="불러오기 실패";$("rows").innerHTML=`<tr><td colspan="9" class="empty">${esc(msg)}</td></tr>`;$("cards").innerHTML=`<div class="empty">${esc(msg)}</div>`}
