@@ -6,7 +6,7 @@
 <meta name="description" content="「코스닥 상장심사 이해와 실무」 2022~2026년판 심사사례 588건 검색">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1115">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -34,18 +34,18 @@
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   color-scheme:dark;
-  --bg:#0F1115;--surface:#171A20;--surface2:#1F232B;--ink:#E8EAED;--muted:#9AA1AD;--faint:#6B7280;--line:#2A2F38;--line2:#23272F;--sbd:#363C47;
+  --bg:#000000;--surface:#121214;--surface2:#1C1C1F;--ink:#ECECEE;--muted:#9C9CA3;--faint:#6E6E76;--line:#2A2A2E;--line2:#1F1F23;--sbd:#38383D;
   --accent:#8FB2FF;--accent-ink:#0B1020;--accent-soft:#1E2840;--eosin:#EE86AC;
   --ok:#6FD3A0;--ok-bg:#173528;--info:#94B6E0;--info-bg:#1C2B40;--bad:#FF8F7E;--bad-bg:#3A1C18;--warn:#F2C46A;--warn-bg:#3A2C10;--vio:#C3AEF2;--vio-bg:#2C2340;--neu:#A9B3C0;--neu-bg:#232C38;
-  --glass:#171A20;--edge:#2A2F38;--spec:transparent;--gloss:transparent;--thumb:#2A2F38;--track:#1F232B;
+  --glass:#121214;--edge:#2A2A2E;--spec:transparent;--gloss:transparent;--thumb:#2A2A2E;--track:#1C1C1F;
   --sh1:0 1px 2px rgba(0,0,0,.25),0 1px 3px rgba(0,0,0,.3);--sh2:0 12px 32px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);--gsh:none;
   --mark:#5A4410;--scrim:rgba(0,0,0,.5);}}
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --bg:#0F1115;--surface:#171A20;--surface2:#1F232B;--ink:#E8EAED;--muted:#9AA1AD;--faint:#6B7280;--line:#2A2F38;--line2:#23272F;--sbd:#363C47;
+  --bg:#000000;--surface:#121214;--surface2:#1C1C1F;--ink:#ECECEE;--muted:#9C9CA3;--faint:#6E6E76;--line:#2A2A2E;--line2:#1F1F23;--sbd:#38383D;
   --accent:#8FB2FF;--accent-ink:#0B1020;--accent-soft:#1E2840;--eosin:#EE86AC;
   --ok:#6FD3A0;--ok-bg:#173528;--info:#94B6E0;--info-bg:#1C2B40;--bad:#FF8F7E;--bad-bg:#3A1C18;--warn:#F2C46A;--warn-bg:#3A2C10;--vio:#C3AEF2;--vio-bg:#2C2340;--neu:#A9B3C0;--neu-bg:#232C38;
-  --glass:#171A20;--edge:#2A2F38;--spec:transparent;--gloss:transparent;--thumb:#2A2F38;--track:#1F232B;
+  --glass:#121214;--edge:#2A2A2E;--spec:transparent;--gloss:transparent;--thumb:#2A2A2E;--track:#1C1C1F;
   --sh1:0 1px 2px rgba(0,0,0,.25),0 1px 3px rgba(0,0,0,.3);--sh2:0 12px 32px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);--gsh:none;
   --mark:#5A4410;--scrim:rgba(0,0,0,.5);}
 @media (prefers-contrast: more){:root{--edge:rgba(24,34,70,.45)}:root[data-theme="dark"]{--edge:rgba(255,255,255,.35)}}
@@ -796,7 +796,7 @@ $('brand').onclick=()=>setView('home');
 function effTheme(){const a=document.documentElement.getAttribute('data-theme');return a||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');}
 function applyTheme(t,persist){document.documentElement.setAttribute('data-theme',t);
   $$('[data-theme-btn]').forEach(b=>b.setAttribute('aria-label',t==='dark'?'라이트 모드로 바꾸기':'다크 모드로 바꾸기'));
-  $$('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',t==='dark'?'#0F1115':'#FFFFFF'));
+  $$('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',t==='dark'?'#000000':'#FFFFFF'));
   if(persist)store.set('ksc2-theme',t);}
 $$('[data-theme-btn]').forEach(b=>b.addEventListener('click',()=>{const r=document.documentElement;r.classList.add('themefx');clearTimeout(window._tfx);applyTheme(effTheme()==='dark'?'light':'dark',true);window._tfx=setTimeout(()=>r.classList.remove('themefx'),650);}));
 applyTheme(store.get('ksc2-theme',null)||effTheme(),false);
