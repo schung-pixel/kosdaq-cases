@@ -967,6 +967,7 @@ img{max-width:100%}
         <div class="fgroup"><span class="label">사후 경과</span><div class="opts" data-g="status"></div><p class="fnote">붉은 숫자는 계약 후 권리반환·개발 중단이 확인된 거래 수입니다. 합계 <i id="alertN">–</i>건</p></div>
         <div class="fgroup"><span class="label">원천 지역</span><div class="opts" data-g="reg"></div></div>
         <div class="fgroup"><span class="label">계약시점 단계</span><div class="opts" data-g="stage"></div></div>
+        <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-g="ta"></div></div>
         <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-g="mod"></div></div>
         <div class="fgroup"><span class="label">도입사 유형</span><div class="opts" data-g="le"></div></div>
         <div class="fgroup"><span class="label">계약 구분</span><div class="opts" data-g="kind"></div></div>
@@ -983,6 +984,7 @@ img{max-width:100%}
         <div class="fgroup"><span class="label">기술거래 연결</span><div class="opts" data-fg="link"></div></div>
         <div class="fgroup"><span class="label">승인 부서</span><div class="opts" data-fg="ct"></div></div>
         <div class="fgroup"><span class="label">신속 심사·지정</span><div class="opts" data-fg="des"></div><p class="fnote">CBER 승인은 지정 정보가 대부분 비어 있습니다.</p></div>
+        <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-fg="ta"></div></div>
         <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-fg="mod"></div></div>
         <div class="fgroup"><span class="label">확보 경로</span><div class="opts" data-fg="org"></div><p class="fnote">허가 보유사가 약을 확보한 경로입니다. 공개 정보로 확인된 경우만 표시했습니다.</p></div>
       </div>
@@ -997,6 +999,7 @@ img{max-width:100%}
         <div class="fgroup"><span class="label">기간</span><div class="years"><select id="iyFrom" aria-label="시작 연도"></select><span class="hint">~</span><select id="iyTo" aria-label="끝 연도"></select></div></div>
         <div class="fgroup"><span class="label">구분</span><div class="opts" data-ig="type"></div></div>
         <div class="fgroup"><span class="label">지역</span><div class="opts" data-ig="reg"></div></div>
+        <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-ig="ta"></div></div>
         <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-ig="mod"></div></div>
         <div class="fgroup"><span class="label">조달 시점 단계</span><div class="opts" data-ig="stage"></div></div>
       </div>
@@ -1298,7 +1301,7 @@ const REGIONS=["한국","미국","중국","유럽","일본","기타","미상"];
 const BIGPHARMA="글로벌 빅파마(Top20)";
 const $=id=>document.getElementById(id);
 let ALL=[], VIEW=[], shown=60, sortK="date", sortDir=-1, latestTag=null;
-const F={q:"",yFrom:null,yTo:null,since:null,onlyNew:false,compsOnly:false,reg:new Set(),mod:new Set(),stage:new Set(),le:new Set(),kind:new Set(),status:new Set()};
+const F={q:"",yFrom:null,yTo:null,since:null,onlyNew:false,compsOnly:false,reg:new Set(),mod:new Set(),stage:new Set(),le:new Set(),kind:new Set(),status:new Set(),ta:new Set()};
 const GROUP_LABEL={reg:"원천",mod:"",stage:"",le:"",kind:"",status:""};
 const KIND_LABEL={N:"개별 자산",Y:"플랫폼·디스커버리"};
 const STATUS_LABEL={ret:"권리반환·종료",stop:"개발 중단",down:"우선순위 하향",opt:"옵션 행사·계약 확장",appr:"허가",acq:"인수(원천사·도입사)"};
@@ -1339,6 +1342,7 @@ const GROUPS={
   stage:{get:d=>d.stage||"미상",values:()=>STAGES.filter(v=>ALL.some(d=>(d.stage||"미상")===v))},
   le:{get:d=>d.le_type||"미상",values:()=>byCount(d=>d.le_type||"미상")},
   kind:{get:d=>d.platform,values:()=>["N","Y"],label:v=>KIND_LABEL[v]},
+  ta:{test:(d,v)=>(d._ta||(d._ta=taDeal(d))).includes(v),values:()=>TA_ORDER.filter(v=>ALL.some(d=>(d._ta||(d._ta=taDeal(d))).includes(v)))},
   status:{test:(d,v)=>hasEv(d,v),values:()=>Object.keys(STATUS_LABEL).filter(k=>ALL.some(d=>hasEv(d,k))),label:v=>STATUS_LABEL[v]}
 };
 function byCount(fn){const m={};ALL.forEach(d=>{const v=fn(d);m[v]=(m[v]||0)+1});return Object.keys(m).sort((a,b)=>m[b]-m[a])}
@@ -1391,7 +1395,7 @@ function drawActive(){
   const [y0,y1]=yearsDefault();
   if(F.since)t.push(["since","","최근 3개월"]);
   else if(F.yFrom!=null&&(F.yFrom!=y0||F.yTo!=y1))t.push(["years","",F.yFrom===F.yTo?`${F.yFrom}년`:`${F.yFrom}~${F.yTo}년`]);
-  for(const g of ["reg","mod","stage","le","kind","status"])F[g].forEach(v=>t.push([g,v,(g==="reg"?"원천 ":"")+glabel(g,v)]));
+  for(const g of ["reg","mod","stage","le","kind","status","ta"])F[g].forEach(v=>t.push([g,v,(g==="reg"?"원천 ":"")+glabel(g,v)]));
   if(F.onlyNew)t.push(["new","","최근 추가분"]);
   const n=t.length;
   if(F.compsOnly){t.length=0;t.push(["comps","","★ 비교 거래만 보는 중 (다른 조건은 잠시 해제)"])}
@@ -1400,7 +1404,7 @@ function drawActive(){
 }
 function resetFilters(){
   F.q="";$("q").value="";F.since=null;F.onlyNew=false;F.compsOnly=false;
-  for(const g of ["reg","mod","stage","le","kind","status"])F[g]=new Set();
+  for(const g of ["reg","mod","stage","le","kind","status","ta"])F[g]=new Set();
   [F.yFrom,F.yTo]=yearsDefault();
 }
 
@@ -1417,7 +1421,7 @@ function apply(keepShown){
     ALL.forEach(d=>{d._score=0;d._near=null});
     const base=d=>{
       if(F.since){if(d.date<F.since)return false}else if(d.year<y0||d.year>y1)return false;
-      for(const g of ["reg","mod","stage","le","kind","status"]){
+      for(const g of ["reg","mod","stage","le","kind","status","ta"]){
         if(!F[g].size)continue;const G=GROUPS[g];
         if(G.test){if(![...F[g]].some(v=>G.test(d,v)))return false}
         else if(!F[g].has(G.get(d)))return false;
@@ -1823,6 +1827,37 @@ async function initComps(){try{COMPS=new Set(await compsStore.load())}catch(e){C
 
 /* ---------- detail sheet ---------- */
 function link(u){if(!u)return"";return u.split(" | ").filter(Boolean).map(x=>{let h=x;try{h=new URL(x).hostname.replace(/^www\./,"")}catch(e){}return /^https?:/.test(x)?`<a href="${esc(x)}" target="_blank" rel="noopener">${esc(h)}</a>`:esc(x)}).join(" · ")}
+/* ===== 치료영역(therapeutic area) 공통 분류 ===== */
+const TA_ORDER=["항암","면역·염증","신경·정신","대사·내분비","심혈관","감염·백신","호흡기","안과","혈액","신장","간·소화기","피부","희귀·유전질환","기타"];
+const TA_AREA={oncology:"항암",immunology:"면역·염증",fibrosis:"면역·염증",inflammation:"면역·염증",neurology:"신경·정신",cns:"신경·정신",psychiatry:"신경·정신",pain:"신경·정신",neuromuscular:"신경·정신",
+  metabolic:"대사·내분비",endocrinology:"대사·내분비",cardiometabolic:["대사·내분비","심혈관"],cardiovascular:"심혈관","infectious disease":"감염·백신",vaccines:"감염·백신",
+  respiratory:"호흡기",ophthalmology:"안과",hematology:"혈액",nephrology:"신장",hepatology:"간·소화기",liver:"간·소화기",gastroenterology:"간·소화기",gi:"간·소화기",
+  dermatology:"피부","rare disease":"희귀·유전질환"};
+const TA_KW=[
+  ["항암",/암|종양|백혈병|림프종|골수종|육종|흑색종|교모세포종|세포종|골수형성이상|히펠-린다우|\baml\b|\bmds\b|myelodysplas|cancer|tumou?r|carcinoma|oncolog|leukemi|lymphoma|myeloma|sarcoma|melanoma|nsclc|glioblastoma|glioma|neoplas|malignan/],
+  ["면역·염증",/자가면역|류마티스|건선|아토피|루푸스|크론|궤양성 ?대장염|염증성|쇼그렌|근무력증|두드러기|혈관염|vasculitis|autoimmun|rheumat|psoria|atopic|lupus|crohn|colitis|inflammat|sj[oö]gren|myasthenia|urticaria|immunolog|graft|이식편/],
+  ["신경·정신",/알츠하이머|파킨슨|치매|조현|우울|뇌전증|편두통|통증|다발성 ?경화|루게릭|근위축|헌팅턴|신경|수면|기면|주의력|불안|발작|지주막하|불면|운동실조|alzheimer|parkinson|dementia|schizophren|depress|epilep|migraine|pain|multiple sclerosis|\bals\b|amyotrophic|huntington|neuro|sleep|narcolep|adhd|anxiety|seizure|spinal muscular|duchenne/],
+  ["대사·내분비",/비만|당뇨|대사|고지혈|이상지질|콜레스테롤|갑상선|성장호르몬|내분비|저인산|고인산|페닐케톤뇨|말단비대|폐경|쿠싱|저나트륨|고칼륨|글리코겐|저혈당|hypoglyc|acromegal|menopaus|cushing|phenylketon|hyperphosphat|obes|diabet|metabolic|lipid|cholesterol|thyroid|endocrin|glp-?1|growth hormone|hypophosphat|weight/],
+  ["심혈관",/심부전|고혈압|심장|심근|혈전|뇌졸중|동맥|심방|빈맥|tachycard|cardi|heart|hypertens|thrombo|stroke|atrial|lp\(a\)|atheroscl|coronary/],
+  ["감염·백신",/감염|바이러스|세균|진균|백신|코로나|에이즈|hiv|b형 ?간염|c형 ?간염|독감|인플루엔자|결핵|말라리아|임질|수막구균|폐렴구균|탄저|칸디다|연속종|candid|meningococc|pneumococc|anthrax|infect|virus|viral|bacteri|fung|vaccin|covid|sars|hepatitis [bcd]|influenza|\brsv\b|tubercul|malaria|antibiotic/],
+  ["호흡기",/호흡기|천식|폐쇄성 ?폐|폐섬유|기관지|낭포성 ?섬유|폐동맥|respirat|asthma|copd|pulmonary|\bipf\b|cystic fibrosis|bronch/],
+  ["안과",/안과|황반|망막|녹내장|안구|시력|각막|포도막|노안|안검염|blephar|presbyopia|ophthalm|macular|retin|glaucoma|\beye|uveitis|ocular|cornea/],
+  ["혈액",/혈우병|빈혈|겸상|지중해빈혈|혈소판|발작성 ?야간|적혈구증가|골수증식|호중구감소|용혈|한랭응집|neutropen|hemoly|polycythemia|hemophilia|haemophilia|anemi|anaemi|sickle|thalass|thrombocytopen|\bpnh\b|hematolog/],
+  ["신장",/신장|신증|콩팥|사구체|투석|ckd|iga ?신|kidney|renal|nephr|glomerul/],
+  ["간·소화기",/지방간|간경변|간섬유|간질환|담관|담즙|소화|위장|변비|셀리악|구토|단백소실|nausea|vomit|mash|nash|liver|hepatic|biliary|cholang|gastro|bowel|celiac|steatohep/],
+  ["피부",/피부|탈모|여드름|백반증|한선염|습진|수포|주름|다한증|가려움|화상|가피|prurigo|hyperhidros|dermat|alopecia|acne|vitiligo|hidradenitis|skin|eczema/],
+  ["희귀·유전질환",/희귀|결핍증|저장병|골화|연골무형성|페닐케톤뇨|헌터|멘케스|알렉산더병|바스 증후군|표피박리|근이영양|근디스트로피|뒤셴|뒤센|니만-?픽|레트 증후군|프리드라이히|백질이영양|고옥살산뇨|whim|apds|chaple|윅스콧|뮤코다당|파브리|고셔|폼페|듀센|척수성 ?근위축|유전성|선천성|rare disease|orphan disease|deficiency|storage disease|mucopolysacchar|fabry|gaucher|pompe|duchenne|spinal muscular|hereditary|congenital/]];
+function taFromArea(a){const out=new Set();if(!a)return out;
+  String(a).toLowerCase().split(/\s*[\/;,·]\s*/).forEach(t=>{const v=TA_AREA[t.trim()];if(v)[].concat(v).forEach(x=>out.add(x))});return out}
+function taFromText(...txt){const s=txt.filter(Boolean).join(" ").toLowerCase();const out=new Set();if(!s)return out;
+  TA_KW.forEach(([k,re])=>{if(re.test(s))out.add(k)});return out}
+function taSort(set){const a=[...set];return a.length?TA_ORDER.filter(x=>set.has(x)):["기타"]}
+/* 기술거래: area 우선, 없거나 Multiple/Other면 적응증·표적으로 */
+function taDeal(d){let s=taFromArea(d.area);if(!s.size)s=taFromText(d.indication);return taSort(s)}
+/* FDA: 적응증 문장 */
+function taFda(a){return taSort(taFromText(a.indication))}
+/* 투자: area 우선, 없거나 Multiple/Other면 파이프라인 적응증 */
+function taInv(a){let s=taFromArea(a.area);if(!s.size)s=taFromText((a.pipeline||[]).map(p=>p.indication).join(" "),a.lead_asset);if(!s.size)s=taFromText(a.about);return taSort(s)}
 let lastFocus=null;
 function termsBlock(d){
   const rows=[["선급금",d.t_upfront],["마일스톤",d.t_miles],["총 계약규모",d.t_total],["지분투자",d.t_equity],["로열티",d.t_royalty],["계약 범위",d.t_scope]].filter(r=>r[1]);
@@ -1835,8 +1870,8 @@ function termsBlock(d){
 /* ---------- FDA approvals page: search, quick chips, filter rail/sheet, compare, list, detail sheet ---------- */
 let FMODE=null,FSMODE="kw",faiCtl=null;
 let FDA=[],FVIEW=[],FDA_BY_DEAL={},fshown=60,fsortK="date",fsortDir=-1;
-const FF={q:"",since:null,link:new Set(),yr:new Set(),ct:new Set(),des:new Set(),mod:new Set(),org:new Set(),compsOnly:false};
-const FGS=["link","yr","ct","des","mod","org"];
+const FF={q:"",since:null,link:new Set(),yr:new Set(),ct:new Set(),des:new Set(),mod:new Set(),org:new Set(),ta:new Set(),compsOnly:false};
+const FGS=["link","yr","ta","ct","des","mod","org"];
 let FCOMPS=new Set();
 let fdaCompsStore={load:async()=>{try{return JSON.parse(localStorage.getItem("dealbook-fda-comps")||"[]")}catch(e){return[]}},save:async ids=>{try{localStorage.setItem("dealbook-fda-comps",JSON.stringify(ids))}catch(e){}}};
 async function initFdaComps(){try{FCOMPS=new Set(await fdaCompsStore.load())}catch(e){FCOMPS=new Set()}if(FDA.length)fApply(true)}
@@ -1847,8 +1882,8 @@ const fdaMonths=(a,d)=>{const x=String(a.date||"").slice(0,7).split("-"),y=Strin
 const fDeals=a=>(a.deals||[]).map(l=>({l,d:ALL.find(x=>x.id===l.id)})).filter(x=>x.d).sort((p,q)=>String(p.d.date).localeCompare(String(q.d.date)));
 function fLead(a){let best=null;fDeals(a).forEach(({d})=>{const m=fdaMonths(a,d);if(m!=null&&m>=0&&(best==null||m>best))best=m});return best}
 function fnorm(src){const a={...src};  /* snapshots from the artifact db are frozen: never mutate them */
-  a._yr=String(a.date||"").slice(0,4);a._links=(a.deals||[]).length;a._mod=a.modality||"미상";a._org=a.origin||"불명";a._des=Array.isArray(a.designations)?a.designations:[];
-  a._hay=[a.brand,a.generic,a.sponsor,a.indication,a.modality,a.moa,a.hl,a.center,a._des.map(x=>DES_KO[x]||x).join(" ")].join(" ").toLowerCase();return a}
+  a._yr=String(a.date||"").slice(0,4);a._links=(a.deals||[]).length;a._mod=a.modality||"미상";a._org=a.origin||"불명";a._des=Array.isArray(a.designations)?a.designations:[];a._ta=taFda(a);
+  a._hay=[a.brand,a.generic,a.sponsor,a.indication,a.modality,a.moa,a.hl,a.center,a._des.map(x=>DES_KO[x]||x).join(" "),a._ta.join(" ")].join(" ").toLowerCase();return a}
 function fdaFailed(msg){FDA_ERR=msg;if(FDA.length)return;$("frows").innerHTML=`<tr><td colspan="7" class="empty">${esc(msg)}</td></tr>`;$("fcards").innerHTML=`<div class="empty">${esc(msg)}</div>`;$("fTitle").textContent="목록"}
 let FDA_ERR="";
 function setFda(arr){
@@ -1878,6 +1913,7 @@ const FGROUPS={
   yr:{vals:()=>[...new Set(FDA.map(a=>a._yr))].sort().reverse(),label:v=>v+"년",get:a=>a._yr},
   ct:{vals:()=>["CDER","CBER"],label:v=>v==="CDER"?"CDER · 신약":"CBER · 세포·유전자·백신",get:a=>a.center},
   des:{vals:()=>DES_ORDER,label:v=>DES_KO[v],get:a=>a._des,multi:true},
+  ta:{vals:()=>TA_ORDER,label:v=>v,get:a=>a._ta,multi:true},
   mod:{vals:()=>fCount(a=>a._mod).filter(v=>v!=="미상").concat(FDA.some(a=>a._mod==="미상")?["미상"]:[]),label:v=>v,get:a=>a._mod},
   org:{vals:()=>["기술도입","인수","공동개발","자체개발","불명"],label:v=>v==="불명"?"확인 안 됨":v,get:a=>a._org}};
 function fMatch(a,g){const s=FF[g];if(!s.size)return true;const v=FGROUPS[g].get(a);return FGROUPS[g].multi?v.some(x=>s.has(x)):s.has(v)}
@@ -2129,8 +2165,8 @@ addEventListener("resize",()=>{const p=isPhone(),c=useCards();
   if(c!==fWasCards){fWasCards=c;fDrawList()}});
 ["ffyFrom","ffyTo"].forEach(id=>$(id)&&$(id).addEventListener("change",ffYearsChange));
 let INV=[],IVIEW=[],ishown=40,isortK="date",isortDir=-1,INV_ERR="";
-const IF={q:"",since:null,type:new Set(),reg:new Set(),yr:new Set(),mod:new Set(),stage:new Set(),mega:false,compsOnly:false};
-const IGS=["type","reg","yr","mod","stage"];
+const IF={q:"",since:null,type:new Set(),reg:new Set(),yr:new Set(),mod:new Set(),stage:new Set(),ta:new Set(),mega:false,compsOnly:false};
+const IGS=["type","reg","yr","ta","mod","stage"];
 let ICOMPS=new Set();
 let invCompsStore={load:async()=>{try{return JSON.parse(localStorage.getItem("dealbook-inv-comps")||"[]")}catch(e){return[]}},save:async ids=>{try{localStorage.setItem("dealbook-inv-comps",JSON.stringify(ids))}catch(e){}}};
 async function initInvComps(){try{ICOMPS=new Set(await invCompsStore.load())}catch(e){ICOMPS=new Set()}if(INV.length)iApply(true)}
@@ -2138,8 +2174,8 @@ const EUR=new Set(["영국","독일","프랑스","네덜란드","스위스","이
 function iRegion(c){const k=String(c||"").split("/")[0].trim();return k==="한국"?"한국":k==="미국"?"미국":k==="중국"?"중국":EUR.has(k)?"유럽":"기타"}
 const isKR=r=>r.country==="한국";
 const iAmt=r=>isKR(r)&&r.amount_krw!=null?`${fmt(r.amount_krw)}<small>억 원</small>`:(r.amount_usd!=null?`$${fmt(r.amount_usd)}<small>M</small>`:"–");
-function inorm(src){const a={...src};a._yr=String(a.date||"").slice(0,4);a._reg=iRegion(a.country);a._mod=a.modality||"기타·미상";a._stage=a.stage||"미상";
-  a._hay=[a.company,a.country,a.round,a.type,a.modality,a.area,a.lead_asset,a.about,(a.pipeline||[]).map(p=>[p.name,p.target,p.indication].join(" ")).join(" "),(a.lead||[]).join(" "),(a.investors||[]).join(" "),a.exchange,a.ticker,a.use_of_proceeds].join(" ").toLowerCase();return a}
+function inorm(src){const a={...src};a._yr=String(a.date||"").slice(0,4);a._reg=iRegion(a.country);a._mod=a.modality||"기타·미상";a._stage=a.stage||"미상";a._ta=taInv(a);
+  a._hay=[a.company,a.country,a.round,a.type,a.modality,a.area,(a._ta||[]).join(" "),a.lead_asset,a.about,(a.pipeline||[]).map(p=>[p.name,p.target,p.indication].join(" ")).join(" "),(a.lead||[]).join(" "),(a.investors||[]).join(" "),a.exchange,a.ticker,a.use_of_proceeds].join(" ").toLowerCase();return a}
 function invFailed(msg){INV_ERR=msg;if(INV.length)return;$("icards").innerHTML=`<div class="empty">${esc(msg)}</div>`;$("iTitle").textContent="목록"}
 function setInv(arr){try{INV=(arr||[]).map(inorm);const last=INV.map(a=>a.date).sort().pop();
   if($("istamp"))$("istamp").innerHTML=last?`${fmt(INV.length)}건 · 최근 <b>${esc(last)}</b>`:"–";
@@ -2151,6 +2187,7 @@ const IGROUPS={
   reg:{vals:()=>["한국","미국","유럽","중국","기타"],label:v=>v,get:a=>a._reg},
   yr:{vals:()=>[...new Set(INV.map(a=>a._yr))].sort().reverse(),label:v=>v+"년",get:a=>a._yr},
   mod:{vals:()=>iCount(a=>a._mod).filter(v=>v!=="기타·미상").concat(INV.some(a=>a._mod==="기타·미상")?["기타·미상"]:[]),label:v=>v,get:a=>a._mod},
+  ta:{vals:()=>TA_ORDER,label:v=>v,get:a=>a._ta,multi:true},
   stage:{vals:()=>["Discovery","Preclinical","Phase 1","Phase 2","Phase 3","허가신청·승인","복수 단계","미상"],label:v=>v,get:a=>a._stage}};
 
 function iYearsAll(){return [...new Set(INV.map(a=>a._yr).filter(Boolean))].sort()}
@@ -2161,7 +2198,7 @@ function iYearsChange(){const ys=iYearsAll();let a=$("iyFrom").value,b=$("iyTo")
   IF.yr.clear();if(!(a===ys[0]&&b===ys[ys.length-1]))ys.filter(y=>y>=a&&y<=b).forEach(y=>IF.yr.add(y));iApply()}
 function iYearsLabel(){const s=[...IF.yr].sort();return s.length===1?s[0]+"년":s[0]+"~"+s[s.length-1]+"년"}
 function iBuildPanel(){iYearsBuild();document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig,G=IGROUPS[g];
-  box.innerHTML=G.vals().map(v=>{const n=INV.filter(a=>G.get(a)===v).length;
+  box.innerHTML=G.vals().map(v=>{const n=INV.filter(a=>G.multi?G.get(a).includes(v):G.get(a)===v).length;
     return n?`<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="${IF[g].has(v)}"><span>${esc(G.label(v))}</span><small>${n}</small></button>`:""}).join("")})}
 function iSyncPanel(){iYearsSync();document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(IF[g].has(b.dataset.v))))})}
 const iFilterN=()=>IGS.reduce((n,g)=>n+IF[g].size,0)+(IF.since?1:0)+(IF.mega?1:0);
@@ -2192,7 +2229,7 @@ function iSort(){const k=isortK,dir=isortDir;
   IVIEW.sort((a,b)=>{let x=k==="amt"?a.amount_usd:a[k],y=k==="amt"?b.amount_usd:b[k];
     if(x==null||x==="")return 1;if(y==null||y==="")return -1;
     const c=typeof x==="number"?x-y:String(x).localeCompare(String(y),"ko");return c*dir||String(b.date).localeCompare(String(a.date))})}
-function iMatch(a,g){const s=IF[g];return !s.size||s.has(IGROUPS[g].get(a))}
+function iMatch(a,g){const s=IF[g];if(!s.size)return true;const v=IGROUPS[g].get(a);return IGROUPS[g].multi?v.some(x=>s.has(x)):s.has(v)}
 function iApply(keep){
   const terms=IF.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
   IVIEW=INV.filter(a=>(!IF.compsOnly||ICOMPS.has(a.id))&&(!IF.since||String(a.date)>=IF.since)&&(!IF.mega||(a.amount_usd||0)>=200)&&IGS.every(g=>iMatch(a,g))&&terms.every(t=>a._hay.includes(t)));
@@ -2220,7 +2257,7 @@ function iDrawYears(){
 function iDrawKpi(){
   try{iDrawYears()}catch(e){}
   const ys=[...new Set(INV.map(a=>a._yr))].sort(),Y=ys[ys.length-1]||"",P=String(+Y-1);
-  const cur=IVIEW.filter(a=>a._yr===Y),prv=INV.filter(a=>a._yr===P&&iMatch(a,"type")&&iMatch(a,"reg")&&iMatch(a,"mod")&&iMatch(a,"stage"));
+  const cur=IVIEW.filter(a=>a._yr===Y),prv=INV.filter(a=>a._yr===P&&iMatch(a,"type")&&iMatch(a,"reg")&&iMatch(a,"mod")&&iMatch(a,"stage")&&iMatch(a,"ta"));
   const sum=g=>g.reduce((s,a)=>s+(a.amount_usd||0),0),med=g=>{const v=g.map(a=>a.amount_usd).filter(x=>x!=null).sort((a,b)=>a-b);return v.length?v[Math.floor(v.length/2)]:null};
   const big=g=>g.reduce((m,a)=>(a.amount_usd||0)>(m?m.amount_usd:-1)?a:m,null);
   const $$=(id,h,s)=>{$(id).innerHTML=h;$(id+"s").textContent=s};
@@ -2251,7 +2288,7 @@ function iDrawList(){
 }
 function iToCSV(rows){const q=v=>{if(v==null)return"";const s=String(v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
   const head=["일자","회사","국가","구분","라운드","금액(USD 백만)","금액(억 원)","리드 투자자","참여 투자자","프리밸류(USD 백만)","포스트밸류(USD 백만)","시장","티커","모달리티","질환영역","단계","리드 파이프라인","회사 소개","주요 파이프라인","자금 용도","이후 경과","출처"];
-  return "﻿"+[head.join(","),...rows.map(a=>[a.date,a.company,a.country,a.type,a.round,a.amount_usd,a.amount_krw,(a.lead||[]).join(" / "),(a.investors||[]).join(" / "),a.valuation_pre,a.valuation_post,a.exchange,a.ticker,a.modality,a.area,a.stage,a.lead_asset,a.about,(a.pipeline||[]).map(p=>[p.name,p.target,p.indication,p.stage].filter(Boolean).join("/")).join(" ; "),a.use_of_proceeds,a.outcome,(a.sources||[]).join(" ")].map(q).join(","))].join("\n")}
+  return "﻿"+[head.join(","),...rows.map(a=>[a.date,a.company,a.country,a.type,a.round,a.amount_usd,a.amount_krw,(a.lead||[]).join(" / "),(a.investors||[]).join(" / "),a.valuation_pre,a.valuation_post,a.exchange,a.ticker,a.modality,a.area,(a._ta||[]).join(" "),a.stage,a.lead_asset,a.about,(a.pipeline||[]).map(p=>[p.name,p.target,p.indication,p.stage].filter(Boolean).join("/")).join(" ; "),a.use_of_proceeds,a.outcome,(a.sources||[]).join(" ")].map(q).join(","))].join("\n")}
 function openInv(a){
   const s=$("sheet"),wasOpen=!s.hidden;if(!wasOpen){lastFocus=document.activeElement;SHEET_STACK.length=0}
   const row=(k,v)=>v==null||v===""||(Array.isArray(v)&&!v.length)?"":`<div class="irow"><span class="label">${k}</span><span>${Array.isArray(v)?v.map(esc).join(", "):v}</span></div>`;
