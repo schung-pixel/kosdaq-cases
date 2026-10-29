@@ -935,7 +935,8 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* modality subtypes: rows that open under a selected major class */
 .opts.msubs{display:flex;flex-direction:column;gap:8px;margin-top:8px}
 .opts.msubs[hidden]{display:none}
-.msubrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 8px 9px;border-radius:10px;background:var(--accent-soft);border:1px dashed color-mix(in srgb,var(--accent) 35%,transparent)}
+.msubrow{flex:0 0 100%;box-sizing:border-box;position:relative;margin:2px 0 4px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 8px 9px;border-radius:10px;background:var(--accent-soft);border:1px dashed color-mix(in srgb,var(--accent) 35%,transparent)}
+.msubrow::before{content:"";position:absolute;top:-6px;left:var(--caret,10%);width:10px;height:10px;transform:translateX(-50%) rotate(45deg);background:var(--accent-soft);border-left:1px dashed color-mix(in srgb,var(--accent) 35%,transparent);border-top:1px dashed color-mix(in srgb,var(--accent) 35%,transparent)}
 .msubl{flex-basis:100%;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.01em}
 .opt.sub{height:28px;padding:0 9px;font-size:12px;background:var(--raised)}
 .tag .msub{font-weight:400;opacity:.78}
@@ -981,7 +982,7 @@ img{max-width:100%}
         <div class="fgroup"><span class="label">원천 지역</span><div class="opts" data-g="reg"></div></div>
         <div class="fgroup"><span class="label">계약시점 단계</span><div class="opts" data-g="stage"></div></div>
         <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-g="ta"></div></div>
-        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-g="mod"></div><div class="opts msubs" data-g="msub" hidden></div></div>
+        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-g="mod"></div></div>
         <div class="fgroup"><span class="label">도입사 유형</span><div class="opts" data-g="le"></div></div>
         <div class="fgroup"><span class="label">계약 구분</span><div class="opts" data-g="kind"></div></div>
       </div>
@@ -998,7 +999,7 @@ img{max-width:100%}
         <div class="fgroup"><span class="label">승인 부서</span><div class="opts" data-fg="ct"></div></div>
         <div class="fgroup"><span class="label">신속 심사·지정</span><div class="opts" data-fg="des"></div><p class="fnote">CBER 승인은 지정 정보가 대부분 비어 있습니다.</p></div>
         <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-fg="ta"></div></div>
-        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-fg="mod"></div><div class="opts msubs" data-fg="msub" hidden></div></div>
+        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-fg="mod"></div></div>
         <div class="fgroup"><span class="label">확보 경로</span><div class="opts" data-fg="org"></div><p class="fnote">허가 보유사가 약을 확보한 경로입니다. 공개 정보로 확인된 경우만 표시했습니다.</p></div>
       </div>
       <div class="fpanel-foot"><button class="btn" id="ffReset" type="button">초기화</button><button class="btn primary" id="ffApply" type="button">결과 보기</button></div>
@@ -1013,7 +1014,7 @@ img{max-width:100%}
         <div class="fgroup"><span class="label">구분</span><div class="opts" data-ig="type"></div></div>
         <div class="fgroup"><span class="label">지역</span><div class="opts" data-ig="reg"></div></div>
         <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-ig="ta"></div></div>
-        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-ig="mod"></div><div class="opts msubs" data-ig="msub" hidden></div></div>
+        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-ig="mod"></div></div>
         <div class="fgroup"><span class="label">조달 시점 단계</span><div class="opts" data-ig="stage"></div></div>
       </div>
       <div class="fpanel-foot"><button class="btn" id="iReset" type="button">초기화</button><button class="btn primary" id="iApply" type="button">결과 보기</button></div>
@@ -1374,9 +1375,10 @@ function buildPanel(){
   });
   $("alertN").textContent=fmt(ALL.filter(d=>hasEv(d,"ret")||hasEv(d,"stop")).length);
 }
-function syncPanel(){modSubFill(document.querySelector('.opts[data-g="msub"]'),ALL,d=>d.modality,d=>d.mod_sub,F.mod,F.msub);
+function syncPanel(){
   document.querySelectorAll(".opts[data-g]").forEach(box=>{const g=box.dataset.g;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",F[g].has(b.dataset.v)))});
   if(F.yFrom!=null){$("yFrom").value=F.yFrom;$("yTo").value=F.yTo}
+  modSubFill(document.querySelector('.opts[data-g="mod"]'),"data-g",ALL,d=>d.modality,d=>d.mod_sub,F.mod,F.msub);
 }
 function yearsDefault(){const ys=[...new Set(ALL.map(d=>d.year))].sort();return[ys[0],ys[ys.length-1]]}
 
@@ -1895,13 +1897,25 @@ function modVals(list){const m={};list.forEach(v=>{m[v]=(m[v]||0)+1});return Obj
 /* 세부 유형: 선택된 대분류 안에서만 좁힘. 대분류마다 선택된 세부가 없으면 그 대분류 전체 */
 function modSubPass(l1,s,selL1,selSub){if(!selSub.size||!selL1.has(l1))return true;const p=l1+"|",mine=[...selSub].filter(v=>v.startsWith(p));return !mine.length||mine.includes(p+s)}
 function modSubPrune(selL1,selSub){[...selSub].forEach(v=>{if(!selL1.has(v.split("|")[0]))selSub.delete(v)})}
-function modSubFill(box,recs,getL1,getSub,selL1,selSub){
+/* 세부 유형 칩: 선택한 대분류 칩이 있는 줄 바로 아래에 펼침. box = 대분류 칩 상자, attr = 그룹 속성명(data-g/data-fg/data-ig) */
+function modSubFill(box,attr,recs,getL1,getSub,selL1,selSub){
   if(!box)return;modSubPrune(selL1,selSub);
-  const html=MOD_ORDER.filter(l=>selL1.has(l)).map(l=>{const cnt={};recs.forEach(r=>{if(getL1(r)===l){const s=getSub(r);cnt[s]=(cnt[s]||0)+1}});
-    const subs=MOD_SUBS[l].filter(s=>cnt[s]);if(subs.length<2)return"";
-    return `<div class="msubrow" role="group" aria-label="${esc(l)} 세부 유형"><span class="msubl">${esc(l)} 세부</span>${subs.map(s=>{const v=l+"|"+s;
-      return `<button type="button" class="opt sub" data-v="${esc(v)}" aria-pressed="${selSub.has(v)}"><span>${esc(s)}</span><small>${cnt[s]}</small></button>`}).join("")}</div>`}).join("");
-  box.innerHTML=html;box.hidden=!html}
+  box.querySelectorAll(":scope>.msubrow").forEach(r=>r.remove());
+  MOD_ORDER.filter(l=>selL1.has(l)).forEach(l=>{const cnt={};recs.forEach(r=>{if(getL1(r)===l){const s=getSub(r);cnt[s]=(cnt[s]||0)+1}});
+    const subs=MOD_SUBS[l].filter(s=>cnt[s]);if(subs.length<2)return;
+    const row=document.createElement("div");row.className="msubrow";row.setAttribute(attr,"msub");row.dataset.l1=l;row.setAttribute("role","group");row.setAttribute("aria-label",l+" 세부 유형");
+    row.innerHTML=`<span class="msubl">${esc(l)} 세부</span>${subs.map(s=>{const v=l+"|"+s;
+      return `<button type="button" class="opt sub" data-v="${esc(v)}" aria-pressed="${selSub.has(v)}"><span>${esc(s)}</span><small>${cnt[s]}</small></button>`}).join("")}`;
+    box.appendChild(row)});
+  modSubPlace(box);
+  if(!box._ro&&typeof ResizeObserver!=="undefined"){box._w=box.offsetWidth;box._ro=new ResizeObserver(()=>{const w=box.offsetWidth;if(w!==box._w){box._w=w;modSubPlace(box)}});box._ro.observe(box)}}
+function modSubPlace(box){
+  const rows=[...box.querySelectorAll(":scope>.msubrow")];if(!rows.length)return;rows.forEach(r=>r.remove());
+  const chips=[...box.querySelectorAll(":scope>.opt")],vis=box.offsetWidth>0,last=new Map();
+  rows.forEach(r=>{const c=chips.find(x=>x.dataset.v===r.dataset.l1);if(!c){box.appendChild(r);return}
+    let a=c;if(vis){const t=c.offsetTop;chips.forEach(x=>{if(Math.abs(x.offsetTop-t)<4)a=x})}
+    const after=last.get(a)||a;after.after(r);last.set(a,r)});
+  rows.forEach(r=>{const c=chips.find(x=>x.dataset.v===r.dataset.l1);if(c){const pct=vis?Math.max(4,Math.min(92,(c.offsetLeft+c.offsetWidth/2-box.offsetLeft)/box.offsetWidth*100)):10;r.style.setProperty("--caret",pct+"%")}})}
 /* ===== 치료영역(therapeutic area) 공통 분류 ===== */
 const TA_ORDER=["항암","면역·염증","신경·정신","대사·내분비","심혈관","감염·백신","호흡기","안과","혈액","신장","간·소화기","피부","희귀·유전질환","기타"];
 const TA_AREA={oncology:"항암",immunology:"면역·염증",fibrosis:"면역·염증",inflammation:"면역·염증",neurology:"신경·정신",cns:"신경·정신",psychiatry:"신경·정신",pain:"신경·정신",neuromuscular:"신경·정신",
@@ -2004,7 +2018,7 @@ function ffYearsLabel(){const s=[...FF.yr].sort();return s.length===1?s[0]+"년"
 function fBuildPanel(){ffYearsBuild();document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg,G=FGROUPS[g];
   box.innerHTML=G.vals().map(v=>{const n=FDA.filter(a=>G.multi?G.get(a).includes(v):G.get(a)===v).length;
     return n?`<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="${FF[g].has(v)}"><span>${esc(G.label(v))}</span><small>${n}</small></button>`:""}).join("")})}
-function fSyncPanel(){ffYearsSync();modSubFill(document.querySelector('#ffpanel [data-fg="msub"]'),FDA,a=>a._mod,a=>a._msub,FF.mod,FF.msub);document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(FF[g].has(b.dataset.v))))})}
+function fSyncPanel(){ffYearsSync();document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(FF[g].has(b.dataset.v))))});modSubFill(document.querySelector('#ffpanel [data-fg="mod"]'),"data-fg",FDA,a=>a._mod,a=>a._msub,FF.mod,FF.msub)}
 const fFilterN=()=>FGS.reduce((n,g)=>n+FF[g].size,0)+(FF.since?1:0);
 function fReset(keepQ){const q=FF.q;FGS.forEach(g=>FF[g].clear());FF.since=null;FF.compsOnly=false;FF.q=keepQ?q:""}
 
@@ -2278,7 +2292,7 @@ function iYearsLabel(){const s=[...IF.yr].sort();return s.length===1?s[0]+"년":
 function iBuildPanel(){iYearsBuild();document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig,G=IGROUPS[g];
   box.innerHTML=G.vals().map(v=>{const n=INV.filter(a=>G.multi?G.get(a).includes(v):G.get(a)===v).length;
     return n?`<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="${IF[g].has(v)}"><span>${esc(G.label(v))}</span><small>${n}</small></button>`:""}).join("")})}
-function iSyncPanel(){iYearsSync();modSubFill(document.querySelector('#ipanel [data-ig="msub"]'),INV,a=>a._mod,a=>a._msub,IF.mod,IF.msub);document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(IF[g].has(b.dataset.v))))})}
+function iSyncPanel(){iYearsSync();document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(IF[g].has(b.dataset.v))))});modSubFill(document.querySelector('#ipanel [data-ig="mod"]'),"data-ig",INV,a=>a._mod,a=>a._msub,IF.mod,IF.msub)}
 const iFilterN=()=>IGS.reduce((n,g)=>n+IF[g].size,0)+(IF.since?1:0)+(IF.mega?1:0);
 function iClearAll(keepQ){const q=IF.q;IGS.forEach(g=>IF[g].clear());IF.since=null;IF.mega=false;IF.compsOnly=false;IF.q=keepQ?q:""}
 /* quick chips (one at a time) */
