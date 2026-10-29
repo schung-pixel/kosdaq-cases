@@ -932,6 +932,13 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .fmodl .k{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .fmodl .v{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
 .fmodl .p{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;color:var(--muted);font-size:11.5px}
+/* modality subtypes: rows that open under a selected major class */
+.opts.msubs{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.opts.msubs[hidden]{display:none}
+.msubrow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 8px 9px;border-radius:10px;background:var(--accent-soft);border:1px dashed color-mix(in srgb,var(--accent) 35%,transparent)}
+.msubl{flex-basis:100%;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.01em}
+.opt.sub{height:28px;padding:0 9px;font-size:12px;background:var(--raised)}
+.tag .msub{font-weight:400;opacity:.78}
 </style>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -974,7 +981,7 @@ img{max-width:100%}
         <div class="fgroup"><span class="label">원천 지역</span><div class="opts" data-g="reg"></div></div>
         <div class="fgroup"><span class="label">계약시점 단계</span><div class="opts" data-g="stage"></div></div>
         <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-g="ta"></div></div>
-        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-g="mod"></div></div>
+        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-g="mod"></div><div class="opts msubs" data-g="msub" hidden></div></div>
         <div class="fgroup"><span class="label">도입사 유형</span><div class="opts" data-g="le"></div></div>
         <div class="fgroup"><span class="label">계약 구분</span><div class="opts" data-g="kind"></div></div>
       </div>
@@ -991,7 +998,7 @@ img{max-width:100%}
         <div class="fgroup"><span class="label">승인 부서</span><div class="opts" data-fg="ct"></div></div>
         <div class="fgroup"><span class="label">신속 심사·지정</span><div class="opts" data-fg="des"></div><p class="fnote">CBER 승인은 지정 정보가 대부분 비어 있습니다.</p></div>
         <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-fg="ta"></div></div>
-        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-fg="mod"></div></div>
+        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-fg="mod"></div><div class="opts msubs" data-fg="msub" hidden></div></div>
         <div class="fgroup"><span class="label">확보 경로</span><div class="opts" data-fg="org"></div><p class="fnote">허가 보유사가 약을 확보한 경로입니다. 공개 정보로 확인된 경우만 표시했습니다.</p></div>
       </div>
       <div class="fpanel-foot"><button class="btn" id="ffReset" type="button">초기화</button><button class="btn primary" id="ffApply" type="button">결과 보기</button></div>
@@ -1006,7 +1013,7 @@ img{max-width:100%}
         <div class="fgroup"><span class="label">구분</span><div class="opts" data-ig="type"></div></div>
         <div class="fgroup"><span class="label">지역</span><div class="opts" data-ig="reg"></div></div>
         <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-ig="ta"></div></div>
-        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-ig="mod"></div></div>
+        <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-ig="mod"></div><div class="opts msubs" data-ig="msub" hidden></div></div>
         <div class="fgroup"><span class="label">조달 시점 단계</span><div class="opts" data-ig="stage"></div></div>
       </div>
       <div class="fpanel-foot"><button class="btn" id="iReset" type="button">초기화</button><button class="btn primary" id="iApply" type="button">결과 보기</button></div>
@@ -1307,7 +1314,7 @@ const REGIONS=["한국","미국","중국","유럽","일본","기타","미상"];
 const BIGPHARMA="글로벌 빅파마(Top20)";
 const $=id=>document.getElementById(id);
 let ALL=[], VIEW=[], shown=60, sortK="date", sortDir=-1, latestTag=null;
-const F={q:"",yFrom:null,yTo:null,since:null,onlyNew:false,compsOnly:false,reg:new Set(),mod:new Set(),stage:new Set(),le:new Set(),kind:new Set(),status:new Set(),ta:new Set()};
+const F={q:"",yFrom:null,yTo:null,since:null,onlyNew:false,compsOnly:false,reg:new Set(),mod:new Set(),stage:new Set(),le:new Set(),kind:new Set(),status:new Set(),ta:new Set(),msub:new Set()};
 const GROUP_LABEL={reg:"원천",mod:"",stage:"",le:"",kind:"",status:""};
 const KIND_LABEL={N:"개별 자산",Y:"플랫폼·디스커버리"};
 const STATUS_LABEL={ret:"권리반환·종료",stop:"개발 중단",down:"우선순위 하향",opt:"옵션 행사·계약 확장",appr:"허가",acq:"인수(원천사·도입사)"};
@@ -1333,10 +1340,10 @@ let compsStore={load:async()=>{try{return JSON.parse(localStorage.getItem("dealb
 function normalize(d,i){
   const r={...d};
   if(!r.id)r.id="x"+i;
-  r.year=+String(d.date).slice(0,4);
+  r.year=+String(d.date).slice(0,4);r.modality=modL1(d.modality);r.mod_sub=modSub(r.modality,d.mod_sub);
   r.stageOrd=STAGES.indexOf(d.stage||"미상"); if(r.stageOrd<0)r.stageOrd=STAGES.length;
   r.ratio=(d.total>0&&d.upfront!=null)?d.upfront/d.total:null;
-  r.hay=[d.licensor,d.lr_ko,d.licensee,d.le_ko,d.kw,d.asset,d.target,d.indication,d.area,d.modality_detail].join(" ").toLowerCase();
+  r.hay=[d.licensor,d.lr_ko,d.licensee,d.le_ko,d.kw,d.asset,d.target,d.indication,d.area,d.modality_detail,modHay(r.modality,r.mod_sub)].join(" ").toLowerCase();
   r.hayNS=r.hay.replace(/\s+/g,"");
   return r;
 }
@@ -1344,7 +1351,8 @@ function normalize(d,i){
 /* ---------- filters ---------- */
 const GROUPS={
   reg:{get:d=>d.lr_region||"미상",values:()=>REGIONS.filter(v=>ALL.some(d=>(d.lr_region||"미상")===v))},
-  mod:{get:d=>d.modality||"기타·미상",values:()=>byCount(d=>d.modality||"기타·미상")},
+  mod:{get:d=>d.modality,values:()=>modVals(ALL.map(d=>d.modality))},
+  msub:{test:d=>modSubPass(d.modality,d.mod_sub,F.mod,F.msub),values:()=>[],label:v=>v.replace("|"," › ")},
   stage:{get:d=>d.stage||"미상",values:()=>STAGES.filter(v=>ALL.some(d=>(d.stage||"미상")===v))},
   le:{get:d=>d.le_type||"미상",values:()=>byCount(d=>d.le_type||"미상")},
   kind:{get:d=>d.platform,values:()=>["N","Y"],label:v=>KIND_LABEL[v]},
@@ -1366,7 +1374,7 @@ function buildPanel(){
   });
   $("alertN").textContent=fmt(ALL.filter(d=>hasEv(d,"ret")||hasEv(d,"stop")).length);
 }
-function syncPanel(){
+function syncPanel(){modSubFill(document.querySelector('.opts[data-g="msub"]'),ALL,d=>d.modality,d=>d.mod_sub,F.mod,F.msub);
   document.querySelectorAll(".opts[data-g]").forEach(box=>{const g=box.dataset.g;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",F[g].has(b.dataset.v)))});
   if(F.yFrom!=null){$("yFrom").value=F.yFrom;$("yTo").value=F.yTo}
 }
@@ -1401,7 +1409,7 @@ function drawActive(){
   const [y0,y1]=yearsDefault();
   if(F.since)t.push(["since","","최근 3개월"]);
   else if(F.yFrom!=null&&(F.yFrom!=y0||F.yTo!=y1))t.push(["years","",F.yFrom===F.yTo?`${F.yFrom}년`:`${F.yFrom}~${F.yTo}년`]);
-  for(const g of ["reg","mod","stage","le","kind","status","ta"])F[g].forEach(v=>t.push([g,v,(g==="reg"?"원천 ":"")+glabel(g,v)]));
+  for(const g of ["reg","mod","msub","stage","le","kind","status","ta"])F[g].forEach(v=>t.push([g,v,(g==="reg"?"원천 ":"")+glabel(g,v)]));
   if(F.onlyNew)t.push(["new","","최근 추가분"]);
   const n=t.length;
   if(F.compsOnly){t.length=0;t.push(["comps","","★ 비교 거래만 보는 중 (다른 조건은 잠시 해제)"])}
@@ -1410,7 +1418,7 @@ function drawActive(){
 }
 function resetFilters(){
   F.q="";$("q").value="";F.since=null;F.onlyNew=false;F.compsOnly=false;
-  for(const g of ["reg","mod","stage","le","kind","status","ta"])F[g]=new Set();
+  for(const g of ["reg","mod","msub","stage","le","kind","status","ta"])F[g]=new Set();
   [F.yFrom,F.yTo]=yearsDefault();
 }
 
@@ -1427,7 +1435,7 @@ function apply(keepShown){
     ALL.forEach(d=>{d._score=0;d._near=null});
     const base=d=>{
       if(F.since){if(d.date<F.since)return false}else if(d.year<y0||d.year>y1)return false;
-      for(const g of ["reg","mod","stage","le","kind","status","ta"]){
+      for(const g of ["reg","mod","msub","stage","le","kind","status","ta"]){
         if(!F[g].size)continue;const G=GROUPS[g];
         if(G.test){if(![...F[g]].some(v=>G.test(d,v)))return false}
         else if(!F[g].has(G.get(d)))return false;
@@ -1596,7 +1604,7 @@ function parseNL(raw){
     if((m=s.match(rx))){P.reg.add(r);P.labels.push(`원천 ${r}`);cut(m[0])}
   }
   for(const [rx,st] of STAGE_RX){if((m=s.match(rx))){st.forEach(x=>P.stage.add(x));P.labels.push(st.join("·"));cut(m[0])}}
-  for(const [rx,md] of MOD_RX){if((m=s.match(rx))){P.mod.add(md);P.labels.push(md);cut(m[0])}}
+  for(const [rx,md] of MOD_RX){if((m=s.match(rx))){P.mod.add(modL1(md));if(md==="유전자치료·편집")P.mod.add("Gene Editing");P.labels.push(modL1(md));cut(m[0])}}
   if((m=s.match(/(플랫폼\s*(기술|계약|딜)?|platform)/))){P.kind="Y";P.labels.push("플랫폼 계약");cut(m[0])}
   else if((m=s.match(/(개별\s*자산|단일\s*물질|단일\s*자산)/))){P.kind="N";P.labels.push("개별 자산");cut(m[0])}
   // remaining words -> keyword groups (with Korean→English synonyms)
@@ -1627,7 +1635,7 @@ function nlFilter(d,P){
   if(P.leReg.size&&![...P.leReg].some(r=>(LE_COUNTRY[r]||[]).includes(d.le_country)))return false;
   if(P.le.size&&!P.le.has(d.le_type))return false;
   if(P.stage.size&&!P.stage.has(d.stage||"미상"))return false;
-  if(P.mod.size&&!P.mod.has(d.modality||"기타·미상"))return false;
+  if(P.mod.size&&!P.mod.has(d.modality))return false;
   if(P.kind&&d.platform!==P.kind)return false;
   if(P.status.size&&![...P.status].some(k=>hasEv(d,k)))return false;
   if(P.since&&d.date<P.since)return false;
@@ -1646,7 +1654,7 @@ function nlFails(d,P){
   if(P.leReg.size&&![...P.leReg].some(r=>(LE_COUNTRY[r]||[]).includes(d.le_country)))f.push("도입사 지역");
   if(P.le.size&&!P.le.has(d.le_type))f.push("도입사 유형");
   if(P.stage.size&&!P.stage.has(d.stage||"미상"))f.push("단계");
-  if(P.mod.size&&!P.mod.has(d.modality||"기타·미상"))f.push("모달리티");
+  if(P.mod.size&&!P.mod.has(d.modality))f.push("모달리티");
   if(P.kind&&d.platform!==P.kind)f.push("계약 구분");
   if((P.since&&d.date<P.since)||(P.yFrom&&d.year<P.yFrom)||(P.yTo&&d.year>P.yTo))f.push("기간");
   if((P.minTotal!=null&&!(d.total>=P.minTotal))||(P.maxTotal!=null&&!(d.total<=P.maxTotal)))f.push("총액");
@@ -1710,7 +1718,7 @@ function miniCard(d){
     <div class="meta"><span class="num">${esc(d.date)}</span>${stTag(d)}<span style="margin-left:auto">${star(d)}</span></div>
     <div class="who">${party(d,"lr",true)}${party(d,"le",true)}</div>
     <div class="an">${esc(d.asset||"물질 비공개")}</div>${drugLine(d)}
-    <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span></div>
+    <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${modTag(d.modality,d.mod_sub)}</span></div>
     <div class="money"><span><span class="lab">총액</span><b>${d.total==null?"–":"$"+fmtM(d.total)+(d.total>=10000?"":"M")}</b></span><span class="${d.upfront==null?"":"up"}"><span class="lab">Upfront</span><b>${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront<10?1:0)+"M"}</b></span></div>
   </div>`;
 }
@@ -1792,7 +1800,7 @@ function drawList(){
       <div class="who">${party(d,"lr",true)}${party(d,"le",true)}</div>
       <div class="drug"><span class="an">${esc(d.asset||"물질 비공개")}</span>${drugLine(d)}</div>
       ${MODE&&MODE.why&&MODE.why[d.id]?`<div class="why">↳ ${esc(MODE.why[d.id])}</div>`:""}${!MODE&&d._near?`<div class="why near">≈ ${esc(d._near)}만 다름</div>`:""}
-      <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span>${d.platform==="Y"?'<span class="tag plat">플랫폼</span>':""}${fdaTag(d)}</div>
+      <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${modTag(d.modality,d.mod_sub)}</span>${d.platform==="Y"?'<span class="tag plat">플랫폼</span>':""}${fdaTag(d)}</div>
       <div class="money"><span><span class="lab">총액</span><b>${d.total==null?"–":"$"+fmtM(d.total)+(d.total>=10000?"":"M")}</b></span><span class="${d.upfront==null?"":"up"}"><span class="lab">Upfront</span><b>${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront<10?1:0)+"M"}</b>${d.ratio==null?"":` <span class="hint">(${fmt(d.ratio*100,1)}%)</span>`}</span>${qaTag(d)}</div>
     </article>`).join("");
   }else{
@@ -1801,7 +1809,7 @@ function drawList(){
       <td class="num" style="white-space:nowrap">${esc(d.date)}${isNew(d)}</td>
       <td><div class="parties">${party(d,"lr",false)}${party(d,"le",false)}</div></td>
       <td><div class="asset">${esc(d.asset||"–")}</div><div class="asset-sub">${esc([d.target,d.indication].filter(Boolean).join(" · "))}</div>${MODE&&MODE.why&&MODE.why[d.id]?`<div class="why">↳ ${esc(MODE.why[d.id])}</div>`:""}${!MODE&&d._near?`<div class="why near">≈ ${esc(d._near)}만 다름</div>`:""}${d.status?`<div style="margin-top:4px">${stTag(d)}</div>`:""}</td>
-      <td><span class="tag ${d.platform==="Y"?"plat":""}">${esc(d.modality||"–")}</span>${fdaTag(d)}</td>
+      <td><span class="tag ${d.platform==="Y"?"plat":""}">${modTag(d.modality,d.mod_sub)}</span>${fdaTag(d)}</td>
       <td>${stageTag(d)}</td>
       <td class="n">${fmtM(d.total)}</td>
       <td class="n${d.upfront==null?"":" up"}">${d.upfront==null?"–":fmt(d.upfront,d.upfront<10?1:0)}</td>
@@ -1833,6 +1841,67 @@ async function initComps(){try{COMPS=new Set(await compsStore.load())}catch(e){C
 
 /* ---------- detail sheet ---------- */
 function link(u){if(!u)return"";return u.split(" | ").filter(Boolean).map(x=>{let h=x;try{h=new URL(x).hostname.replace(/^www\./,"")}catch(e){}return /^https?:/.test(x)?`<a href="${esc(x)}" target="_blank" rel="noopener">${esc(h)}</a>`:esc(x)}).join(" · ")}
+/* ===== 모달리티 2단계 분류 (영문 표시, 한글 검색 별칭) ===== */
+const MOD_SUBS={
+ "Small Molecule":["Kinase Inhibitor","RAS Inhibitor","Other Enzyme Inhibitor","GPCR/Receptor Modulator","Ion Channel/Transporter","PPI/Other","Unspecified"],
+ "Antibody":["Monoclonal Antibody","Fragment/Nanobody","Masked/Conditional Antibody","Other/Unspecified"],
+ "Multispecific Antibody":["T-Cell/Immune Cell Engager","Checkpoint/IO Bispecific","Tri/Multispecific","Other Bispecific","Unspecified"],
+ "ADC":["Topo-I Payload","Microtubule Payload","Other Cytotoxic Payload","Novel Payload","Bispecific ADC","Unspecified"],
+ "Radiopharmaceutical":["Radioligand Therapy","Radio-conjugate Antibody","Imaging/Diagnostic","Unspecified"],
+ "Protein Degrader":["PROTAC/Bifunctional Degrader","Molecular Glue","Other Degrader","Unspecified"],
+ "Peptide":["Incretin/Metabolic Peptide","Macrocyclic Peptide","Peptide Conjugate","Other Peptide","Unspecified"],
+ "Protein Therapeutic":["Enzyme/Enzyme Replacement","Cytokine/Immunocytokine","Hormone/Insulin Analog","Fusion Protein","Other Protein","Unspecified"],
+ "RNA Therapeutics":["siRNA/RNAi","ASO","mRNA","saRNA/circRNA","RNA Editing","Aptamer/Other","Unspecified"],
+ "Gene Therapy":["AAV","Lentiviral/Retroviral","Oncolytic Virus","Non-viral/Other","Unspecified"],
+ "Gene Editing":["CRISPR Nuclease","Base Editing","Prime Editing","Epigenetic Editing","Other Editing","Unspecified"],
+ "Cell Therapy":["Autologous CAR-T","Allogeneic CAR-T","In Vivo CAR-T","NK/CAR-NK","TCR-T/TIL","Treg/Other Immune Cell","Stem Cell/iPSC","Other Cell/Tissue","Unspecified"],
+ "Vaccine":["mRNA Vaccine","Protein/Subunit","Viral Vector/Live","Cancer/Neoantigen","Inactivated/Other","Unspecified"],
+ "Delivery/Formulation Platform":["LNP/Nucleic Acid Delivery","BBB Shuttle","SC Formulation","Oral Delivery","Long-acting","Other Delivery","Unspecified"],
+ "Discovery/AI Platform":["AI/ML Design","Target Discovery","Antibody Discovery","Chemistry Platform","Other Discovery","Unspecified"],
+ "Microbiome/Other":["Live Biotherapeutic","Natural Product/Botanical","Device/Imaging Agent","Multiple Modalities","Unspecified"]};
+const MOD_ORDER=Object.keys(MOD_SUBS);
+/* 이전 한글 값 → 영문 대분류 (구 데이터·주간 업데이트 호환) */
+const MOD_OLD={"저분자":"Small Molecule","항체":"Antibody","이중·다중항체":"Multispecific Antibody","이중항체":"Multispecific Antibody","ADC":"ADC",
+ "TPD(분해제)":"Protein Degrader","펩타이드":"Peptide","RNA(siRNA·ASO·mRNA 등)":"RNA Therapeutics","siRNA/ASO":"RNA Therapeutics","siRNA":"RNA Therapeutics","ASO":"RNA Therapeutics",
+ "유전자치료·편집":"Gene Therapy","유전자치료":"Gene Therapy","세포치료":"Cell Therapy","백신":"Vaccine","방사성의약품":"Radiopharmaceutical",
+ "기타 단백질·융합단백":"Protein Therapeutic","기타 단백질":"Protein Therapeutic","전달·제형 플랫폼":"Delivery/Formulation Platform","디스커버리·AI 플랫폼":"Discovery/AI Platform",
+ "기타·미상":"Microbiome/Other","기타":"Microbiome/Other","미상":"Microbiome/Other"};
+const MOD_KO={"Small Molecule":"저분자 합성신약 화합물","Antibody":"항체 단클론 단일클론 mab","Multispecific Antibody":"이중항체 다중항체 이중·다중항체 삼중항체 bispecific",
+ "ADC":"항체약물접합체 약물접합체","Radiopharmaceutical":"방사성의약품 방사성 핵의학","Protein Degrader":"분해제 tpd 표적단백질분해 단백질분해",
+ "Peptide":"펩타이드 펩티드","Protein Therapeutic":"단백질 융합단백 기타 단백질 재조합단백","RNA Therapeutics":"rna 핵산 올리고뉴클레오타이드 rna치료제",
+ "Gene Therapy":"유전자치료","Gene Editing":"유전자편집 유전자교정 유전자치료·편집","Cell Therapy":"세포치료","Vaccine":"백신",
+ "Delivery/Formulation Platform":"전달 제형 플랫폼 약물전달","Discovery/AI Platform":"디스커버리 ai 인공지능 플랫폼 신약발굴","Microbiome/Other":"마이크로바이옴 기타 미상"};
+const MOD_SUB_KO={"Kinase Inhibitor":"키나아제 키나제 억제제","RAS Inhibitor":"kras ras 억제제","Other Enzyme Inhibitor":"효소 억제제","GPCR/Receptor Modulator":"수용체 작용제 길항제",
+ "Ion Channel/Transporter":"이온채널 수송체","Monoclonal Antibody":"단클론항체 단일클론항체","Fragment/Nanobody":"나노바디 항체절편","T-Cell/Immune Cell Engager":"t세포 인게이저 tce 이중항체",
+ "Checkpoint/IO Bispecific":"면역관문 면역항암 이중항체","Tri/Multispecific":"삼중항체 다중항체","Topo-I Payload":"토포이소머라제 topo-i 페이로드","Microtubule Payload":"미세소관 mmae 페이로드",
+ "Novel Payload":"신규 페이로드","Bispecific ADC":"이중항체 adc","Radioligand Therapy":"방사성리간드 rlt","Radio-conjugate Antibody":"방사성항체","Imaging/Diagnostic":"진단 영상",
+ "PROTAC/Bifunctional Degrader":"프로탁 protac","Molecular Glue":"분자접착제","Incretin/Metabolic Peptide":"glp-1 인크레틴 비만","Macrocyclic Peptide":"고리형 펩타이드 마크로사이클",
+ "Peptide Conjugate":"펩타이드 접합체","Enzyme/Enzyme Replacement":"효소대체 효소","Cytokine/Immunocytokine":"사이토카인","Hormone/Insulin Analog":"호르몬 인슐린","Fusion Protein":"융합단백질 fc융합",
+ "siRNA/RNAi":"sirna rnai","ASO":"aso 안티센스","mRNA":"mrna","saRNA/circRNA":"sarna circrna 원형rna","RNA Editing":"rna편집","Aptamer/Other":"압타머",
+ "AAV":"aav 아데노연관바이러스","Lentiviral/Retroviral":"렌티바이러스 레트로바이러스","Oncolytic Virus":"항암바이러스 종양용해바이러스","CRISPR Nuclease":"크리스퍼 crispr",
+ "Base Editing":"염기편집","Prime Editing":"프라임편집","Epigenetic Editing":"후성유전체편집","Autologous CAR-T":"자가 car-t","Allogeneic CAR-T":"동종 car-t","In Vivo CAR-T":"체내 in vivo car-t",
+ "NK/CAR-NK":"nk세포 car-nk","TCR-T/TIL":"tcr-t til","Treg/Other Immune Cell":"조절t세포 treg","Stem Cell/iPSC":"줄기세포 ipsc 중간엽","mRNA Vaccine":"mrna 백신",
+ "Cancer/Neoantigen":"항암백신 신생항원","LNP/Nucleic Acid Delivery":"lnp 지질나노입자","BBB Shuttle":"bbb 셔틀 뇌혈관장벽","SC Formulation":"피하주사 sc 제형 히알루로니다제",
+ "Oral Delivery":"경구 전달","Long-acting":"지속형 장기지속","AI/ML Design":"ai 인공지능 머신러닝","Target Discovery":"표적발굴","Antibody Discovery":"항체발굴",
+ "Live Biotherapeutic":"생균 마이크로바이옴","Natural Product/Botanical":"천연물 생약"};
+const modL1=v=>MOD_SUBS[v]?v:(MOD_OLD[v]||"Microbiome/Other");
+const modCatch=l1=>{const s=MOD_SUBS[l1]||["Unspecified"];return s[s.length-1]};
+const modSub=(l1,s)=>s&&(MOD_SUBS[l1]||[]).includes(s)?s:modCatch(l1);
+const modUnk=(l1,s)=>!s||s===modCatch(l1);
+const modHay=(l1,s)=>[l1,MOD_KO[l1]||"",modUnk(l1,s)?"":s,MOD_SUB_KO[s]||""].join(" ");
+const modText=(l1,s)=>modUnk(l1,s)?l1:l1+" · "+s;
+const modTag=(l1,s)=>`${esc(l1)}${modUnk(l1,s)?"":`<span class="msub"> · ${esc(s)}</span>`}`;
+function modVals(list){const m={};list.forEach(v=>{m[v]=(m[v]||0)+1});return Object.keys(m).sort((a,b)=>(a==="Microbiome/Other")-(b==="Microbiome/Other")||m[b]-m[a])}
+/* 세부 유형: 선택된 대분류 안에서만 좁힘. 대분류마다 선택된 세부가 없으면 그 대분류 전체 */
+function modSubPass(l1,s,selL1,selSub){if(!selSub.size||!selL1.has(l1))return true;const p=l1+"|",mine=[...selSub].filter(v=>v.startsWith(p));return !mine.length||mine.includes(p+s)}
+function modSubPrune(selL1,selSub){[...selSub].forEach(v=>{if(!selL1.has(v.split("|")[0]))selSub.delete(v)})}
+function modSubFill(box,recs,getL1,getSub,selL1,selSub){
+  if(!box)return;modSubPrune(selL1,selSub);
+  const html=MOD_ORDER.filter(l=>selL1.has(l)).map(l=>{const cnt={};recs.forEach(r=>{if(getL1(r)===l){const s=getSub(r);cnt[s]=(cnt[s]||0)+1}});
+    const subs=MOD_SUBS[l].filter(s=>cnt[s]);if(subs.length<2)return"";
+    return `<div class="msubrow" role="group" aria-label="${esc(l)} 세부 유형"><span class="msubl">${esc(l)} 세부</span>${subs.map(s=>{const v=l+"|"+s;
+      return `<button type="button" class="opt sub" data-v="${esc(v)}" aria-pressed="${selSub.has(v)}"><span>${esc(s)}</span><small>${cnt[s]}</small></button>`}).join("")}</div>`}).join("");
+  box.innerHTML=html;box.hidden=!html}
 /* ===== 치료영역(therapeutic area) 공통 분류 ===== */
 const TA_ORDER=["항암","면역·염증","신경·정신","대사·내분비","심혈관","감염·백신","호흡기","안과","혈액","신장","간·소화기","피부","희귀·유전질환","기타"];
 const TA_AREA={oncology:"항암",immunology:"면역·염증",fibrosis:"면역·염증",inflammation:"면역·염증",neurology:"신경·정신",cns:"신경·정신",psychiatry:"신경·정신",pain:"신경·정신",neuromuscular:"신경·정신",
@@ -1876,8 +1945,8 @@ function termsBlock(d){
 /* ---------- FDA approvals page: search, quick chips, filter rail/sheet, compare, list, detail sheet ---------- */
 let FMODE=null,FSMODE="kw",faiCtl=null;
 let FDA=[],FVIEW=[],FDA_BY_DEAL={},fshown=60,fsortK="date",fsortDir=-1;
-const FF={q:"",since:null,link:new Set(),yr:new Set(),ct:new Set(),des:new Set(),mod:new Set(),org:new Set(),ta:new Set(),compsOnly:false};
-const FGS=["link","yr","ta","ct","des","mod","org"];
+const FF={q:"",since:null,link:new Set(),yr:new Set(),ct:new Set(),des:new Set(),mod:new Set(),msub:new Set(),org:new Set(),ta:new Set(),compsOnly:false};
+const FGS=["link","yr","ta","ct","des","mod","msub","org"];
 let FCOMPS=new Set();
 let fdaCompsStore={load:async()=>{try{return JSON.parse(localStorage.getItem("dealbook-fda-comps")||"[]")}catch(e){return[]}},save:async ids=>{try{localStorage.setItem("dealbook-fda-comps",JSON.stringify(ids))}catch(e){}}};
 async function initFdaComps(){try{FCOMPS=new Set(await fdaCompsStore.load())}catch(e){FCOMPS=new Set()}if(FDA.length)fApply(true)}
@@ -1888,8 +1957,8 @@ const fdaMonths=(a,d)=>{const x=String(a.date||"").slice(0,7).split("-"),y=Strin
 const fDeals=a=>(a.deals||[]).map(l=>({l,d:ALL.find(x=>x.id===l.id)})).filter(x=>x.d).sort((p,q)=>String(p.d.date).localeCompare(String(q.d.date)));
 function fLead(a){let best=null;fDeals(a).forEach(({d})=>{const m=fdaMonths(a,d);if(m!=null&&m>=0&&(best==null||m>best))best=m});return best}
 function fnorm(src){const a={...src};  /* snapshots from the artifact db are frozen: never mutate them */
-  a._yr=String(a.date||"").slice(0,4);a._links=(a.deals||[]).length;a._mod=a.modality||"미상";a._org=a.origin||"불명";a._des=Array.isArray(a.designations)?a.designations:[];a._ta=taFda(a);
-  a._hay=[a.brand,a.generic,a.sponsor,a.indication,a.modality,a.moa,a.hl,a.center,a._des.map(x=>DES_KO[x]||x).join(" "),a._ta.join(" ")].join(" ").toLowerCase();return a}
+  a._yr=String(a.date||"").slice(0,4);a._links=(a.deals||[]).length;a._mod=modL1(a.modality);a._msub=modSub(a._mod,a.mod_sub);a._org=a.origin||"불명";a._des=Array.isArray(a.designations)?a.designations:[];a._ta=taFda(a);
+  a._hay=[a.brand,a.generic,a.sponsor,a.indication,modHay(a._mod,a._msub),a.moa,a.hl,a.center,a._des.map(x=>DES_KO[x]||x).join(" "),a._ta.join(" ")].join(" ").toLowerCase();return a}
 function fdaFailed(msg){FDA_ERR=msg;if(FDA.length)return;$("frows").innerHTML=`<tr><td colspan="7" class="empty">${esc(msg)}</td></tr>`;$("fcards").innerHTML=`<div class="empty">${esc(msg)}</div>`;$("fTitle").textContent="목록"}
 let FDA_ERR="";
 function setFda(arr){
@@ -1920,9 +1989,10 @@ const FGROUPS={
   ct:{vals:()=>["CDER","CBER"],label:v=>v==="CDER"?"CDER · 신약":"CBER · 세포·유전자·백신",get:a=>a.center},
   des:{vals:()=>DES_ORDER,label:v=>DES_KO[v],get:a=>a._des,multi:true},
   ta:{vals:()=>TA_ORDER,label:v=>v,get:a=>a._ta,multi:true},
-  mod:{vals:()=>fCount(a=>a._mod).filter(v=>v!=="미상").concat(FDA.some(a=>a._mod==="미상")?["미상"]:[]),label:v=>v,get:a=>a._mod},
+  mod:{vals:()=>modVals(FDA.map(a=>a._mod)),label:v=>v,get:a=>a._mod},
+  msub:{vals:()=>[],label:v=>v.replace("|"," › "),get:a=>a._msub,test:a=>modSubPass(a._mod,a._msub,FF.mod,FF.msub)},
   org:{vals:()=>["기술도입","인수","공동개발","자체개발","불명"],label:v=>v==="불명"?"확인 안 됨":v,get:a=>a._org}};
-function fMatch(a,g){const s=FF[g];if(!s.size)return true;const v=FGROUPS[g].get(a);return FGROUPS[g].multi?v.some(x=>s.has(x)):s.has(v)}
+function fMatch(a,g){const s=FF[g];if(!s.size)return true;if(FGROUPS[g].test)return FGROUPS[g].test(a);const v=FGROUPS[g].get(a);return FGROUPS[g].multi?v.some(x=>s.has(x)):s.has(v)}
 
 function ffYearsAll(){return [...new Set(FDA.map(a=>a._yr).filter(Boolean))].sort()}
 function ffYearsBuild(){const ys=ffYearsAll();["ffyFrom","ffyTo"].forEach(id=>{const el=$(id);if(el)el.innerHTML=ys.map(y=>`<option value="${y}">${y}년</option>`).join("")});ffYearsSync()}
@@ -1934,7 +2004,7 @@ function ffYearsLabel(){const s=[...FF.yr].sort();return s.length===1?s[0]+"년"
 function fBuildPanel(){ffYearsBuild();document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg,G=FGROUPS[g];
   box.innerHTML=G.vals().map(v=>{const n=FDA.filter(a=>G.multi?G.get(a).includes(v):G.get(a)===v).length;
     return n?`<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="${FF[g].has(v)}"><span>${esc(G.label(v))}</span><small>${n}</small></button>`:""}).join("")})}
-function fSyncPanel(){ffYearsSync();document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(FF[g].has(b.dataset.v))))})}
+function fSyncPanel(){ffYearsSync();modSubFill(document.querySelector('#ffpanel [data-fg="msub"]'),FDA,a=>a._mod,a=>a._msub,FF.mod,FF.msub);document.querySelectorAll("#ffpanel [data-fg]").forEach(box=>{const g=box.dataset.fg;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(FF[g].has(b.dataset.v))))})}
 const fFilterN=()=>FGS.reduce((n,g)=>n+FF[g].size,0)+(FF.since?1:0);
 function fReset(keepQ){const q=FF.q;FGS.forEach(g=>FF[g].clear());FF.since=null;FF.compsOnly=false;FF.q=keepQ?q:""}
 
@@ -2002,7 +2072,7 @@ const FMOD_COL=["var(--c1)","var(--c3)","var(--eosin)","var(--star)","var(--purp
 function drawFMod(){
   const svg=$("fmodChart");if(!svg)return;
   const ys=[...new Set(FDA.map(a=>a._yr).filter(Boolean))].sort(),Y=ys[ys.length-1];
-  const g=FVIEW.filter(a=>a._yr===Y),n=g.length,cnt={};g.forEach(a=>{const m=a._mod==="미상"?"기타":a._mod;cnt[m]=(cnt[m]||0)+1});
+  const g=FVIEW.filter(a=>a._yr===Y),n=g.length,cnt={};g.forEach(a=>{const m=a._mod==="Microbiome/Other"?"기타":a._mod;cnt[m]=(cnt[m]||0)+1});
   let rows=Object.entries(cnt).filter(([k])=>k!=="기타").sort((a,b)=>b[1]-a[1]);let other=cnt["기타"]||0;
   let otherK=cnt["기타"]?[`미상·기타 ${cnt["기타"]}`]:[];
   if(rows.length>6){rows.slice(5).forEach(r=>otherK.unshift(`${r[0]} ${r[1]}`));other+=rows.slice(5).reduce((s,r)=>s+r[1],0);rows=rows.slice(0,5)}
@@ -2059,7 +2129,7 @@ function fDrawList(){
       <div>${fstar(a)}</div>
       <div class="who"><span class="fbn">${esc(a.brand||a.generic)}</span>${a.brand&&a.generic?`<span class="fgn">${esc(a.generic)}</span>`:""}<span class="fsp">${esc(a.sponsor||"허가 보유사 미상")}</span></div>
       <div class="drug"><span class="ti">${esc(a.indication||"–")}</span></div>
-      <div class="tags">${a.modality?`<span class="tag">${esc(a.modality)}</span>`:""}${desTags(a)}</div>
+      <div class="tags"><span class="tag">${modTag(a._mod,a._msub)}</span>${desTags(a)}</div>
       ${a.moa?`<div class="fmoa"><b>MoA</b><span>${esc(a.moa)}</span></div>`:""}
       ${fWhy(a)}
       ${a._links?`<div class="flinkrow">${fLinkLine(a)}</div>`:""}
@@ -2071,7 +2141,7 @@ function fDrawList(){
       <td><div class="fbn">${esc(a.brand||a.generic)}</div>${a.brand&&a.generic?`<div class="asset-sub">${esc(a.generic)}</div>`:""}${fWhy(a)}</td>
       <td style="max-width:180px">${esc(a.sponsor||"–")}</td>
       <td><div class="ind-c">${esc(a.indication||"–")}</div></td>
-      <td><div class="ftags">${ctTag(a)}${a.modality?`<span class="tag">${esc(a.modality)}</span>`:""}${desTags(a)}</div>${a.moa?`<div class="fmoa"><b>MoA</b><span>${esc(a.moa)}</span></div>`:""}</td>
+      <td><div class="ftags">${ctTag(a)}<span class="tag">${modTag(a._mod,a._msub)}</span>${desTags(a)}</div>${a.moa?`<div class="fmoa"><b>MoA</b><span>${esc(a.moa)}</span></div>`:""}</td>
       <td>${d?`<div class="flk"><b>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</b><span class="num">${esc(String(d.date).slice(0,7))}${ls.length>1?` 외 ${ls.length-1}건`:""}</span></div>`:'<span class="hint">–</span>'}</td>
     </tr>`}).join("");
   }
@@ -2086,8 +2156,8 @@ async function toggleFStar(id){
 }
 function fToCSV(rows){
   const q=v=>{if(v==null)return"";const s=String(v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
-  const head=["승인일","상표명","성분명","허가 보유사","승인 부서","구분","모달리티","작용기전(MoA)","신속 심사·지정","확보 경로","적응증","연결 기술거래","계약→승인(개월)","출처"];
-  return "﻿"+[head.join(","),...rows.map(a=>[a.date,a.brand,a.generic,a.sponsor,a.center,a.type,a.modality,a.moa,a._des.map(x=>DES_KO[x]||x).join(" / "),a.origin,a.indication,
+  const head=["승인일","상표명","성분명","허가 보유사","승인 부서","구분","모달리티","세부 모달리티","작용기전(MoA)","신속 심사·지정","확보 경로","적응증","연결 기술거래","계약→승인(개월)","출처"];
+  return "﻿"+[head.join(","),...rows.map(a=>[a.date,a.brand,a.generic,a.sponsor,a.center,a.type,a._mod,modUnk(a._mod,a._msub)?"":a._msub,a.moa,a._des.map(x=>DES_KO[x]||x).join(" / "),a.origin,a.indication,
     fDeals(a).map(({d})=>`${d.licensor}→${d.licensee} (${d.date})`).join(" / "),fLead(a),a.src].map(q).join(","))].join("\n");
 }
 
@@ -2172,8 +2242,8 @@ addEventListener("resize",()=>{const p=isPhone(),c=useCards();
   if(c!==fWasCards){fWasCards=c;fDrawList()}});
 ["ffyFrom","ffyTo"].forEach(id=>$(id)&&$(id).addEventListener("change",ffYearsChange));
 let INV=[],IVIEW=[],ishown=40,isortK="date",isortDir=-1,INV_ERR="";
-const IF={q:"",since:null,type:new Set(),reg:new Set(),yr:new Set(),mod:new Set(),stage:new Set(),ta:new Set(),mega:false,compsOnly:false};
-const IGS=["type","reg","yr","ta","mod","stage"];
+const IF={q:"",since:null,type:new Set(),reg:new Set(),yr:new Set(),mod:new Set(),msub:new Set(),stage:new Set(),ta:new Set(),mega:false,compsOnly:false};
+const IGS=["type","reg","yr","ta","mod","msub","stage"];
 let ICOMPS=new Set();
 let invCompsStore={load:async()=>{try{return JSON.parse(localStorage.getItem("dealbook-inv-comps")||"[]")}catch(e){return[]}},save:async ids=>{try{localStorage.setItem("dealbook-inv-comps",JSON.stringify(ids))}catch(e){}}};
 async function initInvComps(){try{ICOMPS=new Set(await invCompsStore.load())}catch(e){ICOMPS=new Set()}if(INV.length)iApply(true)}
@@ -2181,8 +2251,8 @@ const EUR=new Set(["영국","독일","프랑스","네덜란드","스위스","이
 function iRegion(c){const k=String(c||"").split("/")[0].trim();return k==="한국"?"한국":k==="미국"?"미국":k==="중국"?"중국":EUR.has(k)?"유럽":"기타"}
 const isKR=r=>r.country==="한국";
 const iAmt=r=>isKR(r)&&r.amount_krw!=null?`${fmt(r.amount_krw)}<small>억 원</small>`:(r.amount_usd!=null?`$${fmt(r.amount_usd)}<small>M</small>`:"–");
-function inorm(src){const a={...src};a._yr=String(a.date||"").slice(0,4);a._reg=iRegion(a.country);a._mod=a.modality||"기타·미상";a._stage=a.stage||"미상";a._ta=taInv(a);
-  a._hay=[a.company,a.country,a.round,a.type,a.modality,a.area,(a._ta||[]).join(" "),a.lead_asset,a.about,(a.pipeline||[]).map(p=>[p.name,p.target,p.indication].join(" ")).join(" "),(a.lead||[]).join(" "),(a.investors||[]).join(" "),a.exchange,a.ticker,a.use_of_proceeds].join(" ").toLowerCase();return a}
+function inorm(src){const a={...src};a._yr=String(a.date||"").slice(0,4);a._reg=iRegion(a.country);a._mod=modL1(a.modality);a._msub=modSub(a._mod,a.mod_sub);a._stage=a.stage||"미상";a._ta=taInv(a);
+  a._hay=[a.company,a.country,a.round,a.type,modHay(a._mod,a._msub),a.area,(a._ta||[]).join(" "),a.lead_asset,a.about,(a.pipeline||[]).map(p=>[p.name,p.target,p.indication].join(" ")).join(" "),(a.lead||[]).join(" "),(a.investors||[]).join(" "),a.exchange,a.ticker,a.use_of_proceeds].join(" ").toLowerCase();return a}
 function invFailed(msg){INV_ERR=msg;if(INV.length)return;$("icards").innerHTML=`<div class="empty">${esc(msg)}</div>`;$("iTitle").textContent="목록"}
 function setInv(arr){try{INV=(arr||[]).map(inorm);const last=INV.map(a=>a.date).sort().pop();
   if($("istamp"))$("istamp").innerHTML=last?`${fmt(INV.length)}건 · 최근 <b>${esc(last)}</b>`:"–";
@@ -2193,7 +2263,8 @@ const IGROUPS={
   type:{vals:()=>["시리즈/비공개","IPO"],label:v=>v==="IPO"?"IPO":"비상장 투자",get:a=>a.type},
   reg:{vals:()=>["한국","미국","유럽","중국","기타"],label:v=>v,get:a=>a._reg},
   yr:{vals:()=>[...new Set(INV.map(a=>a._yr))].sort().reverse(),label:v=>v+"년",get:a=>a._yr},
-  mod:{vals:()=>iCount(a=>a._mod).filter(v=>v!=="기타·미상").concat(INV.some(a=>a._mod==="기타·미상")?["기타·미상"]:[]),label:v=>v,get:a=>a._mod},
+  mod:{vals:()=>modVals(INV.map(a=>a._mod)),label:v=>v,get:a=>a._mod},
+  msub:{vals:()=>[],label:v=>v.replace("|"," › "),get:a=>a._msub,test:a=>modSubPass(a._mod,a._msub,IF.mod,IF.msub)},
   ta:{vals:()=>TA_ORDER,label:v=>v,get:a=>a._ta,multi:true},
   stage:{vals:()=>["Discovery","Preclinical","Phase 1","Phase 2","Phase 3","허가신청·승인","복수 단계","미상"],label:v=>v,get:a=>a._stage}};
 
@@ -2207,7 +2278,7 @@ function iYearsLabel(){const s=[...IF.yr].sort();return s.length===1?s[0]+"년":
 function iBuildPanel(){iYearsBuild();document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig,G=IGROUPS[g];
   box.innerHTML=G.vals().map(v=>{const n=INV.filter(a=>G.multi?G.get(a).includes(v):G.get(a)===v).length;
     return n?`<button type="button" class="opt" data-v="${esc(v)}" aria-pressed="${IF[g].has(v)}"><span>${esc(G.label(v))}</span><small>${n}</small></button>`:""}).join("")})}
-function iSyncPanel(){iYearsSync();document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(IF[g].has(b.dataset.v))))})}
+function iSyncPanel(){iYearsSync();modSubFill(document.querySelector('#ipanel [data-ig="msub"]'),INV,a=>a._mod,a=>a._msub,IF.mod,IF.msub);document.querySelectorAll("#ipanel [data-ig]").forEach(box=>{const g=box.dataset.ig;box.querySelectorAll(".opt").forEach(b=>b.setAttribute("aria-pressed",String(IF[g].has(b.dataset.v))))})}
 const iFilterN=()=>IGS.reduce((n,g)=>n+IF[g].size,0)+(IF.since?1:0)+(IF.mega?1:0);
 function iClearAll(keepQ){const q=IF.q;IGS.forEach(g=>IF[g].clear());IF.since=null;IF.mega=false;IF.compsOnly=false;IF.q=keepQ?q:""}
 /* quick chips (one at a time) */
@@ -2236,7 +2307,7 @@ function iSort(){const k=isortK,dir=isortDir;
   IVIEW.sort((a,b)=>{let x=k==="amt"?a.amount_usd:a[k],y=k==="amt"?b.amount_usd:b[k];
     if(x==null||x==="")return 1;if(y==null||y==="")return -1;
     const c=typeof x==="number"?x-y:String(x).localeCompare(String(y),"ko");return c*dir||String(b.date).localeCompare(String(a.date))})}
-function iMatch(a,g){const s=IF[g];if(!s.size)return true;const v=IGROUPS[g].get(a);return IGROUPS[g].multi?v.some(x=>s.has(x)):s.has(v)}
+function iMatch(a,g){const s=IF[g];if(!s.size)return true;if(IGROUPS[g].test)return IGROUPS[g].test(a);const v=IGROUPS[g].get(a);return IGROUPS[g].multi?v.some(x=>s.has(x)):s.has(v)}
 function iApply(keep){
   const terms=IF.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
   IVIEW=INV.filter(a=>(!IF.compsOnly||ICOMPS.has(a.id))&&(!IF.since||String(a.date)>=IF.since)&&(!IF.mega||(a.amount_usd||0)>=200)&&IGS.every(g=>iMatch(a,g))&&terms.every(t=>a._hay.includes(t)));
@@ -2264,7 +2335,7 @@ function iDrawYears(){
 function iDrawKpi(){
   try{iDrawYears()}catch(e){}
   const ys=[...new Set(INV.map(a=>a._yr))].sort(),Y=ys[ys.length-1]||"",P=String(+Y-1);
-  const cur=IVIEW.filter(a=>a._yr===Y),prv=INV.filter(a=>a._yr===P&&iMatch(a,"type")&&iMatch(a,"reg")&&iMatch(a,"mod")&&iMatch(a,"stage")&&iMatch(a,"ta"));
+  const cur=IVIEW.filter(a=>a._yr===Y),prv=INV.filter(a=>a._yr===P&&iMatch(a,"type")&&iMatch(a,"reg")&&iMatch(a,"mod")&&iMatch(a,"msub")&&iMatch(a,"stage")&&iMatch(a,"ta"));
   const sum=g=>g.reduce((s,a)=>s+(a.amount_usd||0),0),med=g=>{const v=g.map(a=>a.amount_usd).filter(x=>x!=null).sort((a,b)=>a-b);return v.length?v[Math.floor(v.length/2)]:null};
   const big=g=>g.reduce((m,a)=>(a.amount_usd||0)>(m?m.amount_usd:-1)?a:m,null);
   const $$=(id,h,s)=>{$(id).innerHTML=h;$(id+"s").textContent=s};
@@ -2275,7 +2346,7 @@ function iDrawKpi(){
   const b=big(cur);$$("ikB",b?`$${fmt(b.amount_usd)}<small>M</small>`:"–",b?b.company:" ");
 }
 const iNew=a=>(Date.now()-Date.parse(a.date))/864e5<=14?'<span class="new">NEW</span>':"";
-const iTags=a=>[`<span class="tag ${a.type==="IPO"?"plat":""}">${esc(a.type==="시리즈/비공개"?(a.round||"비공개 라운드"):a.type+(a.exchange?" · "+a.exchange:""))}</span>`,a.modality&&a.modality!=="기타·미상"?`<span class="tag">${esc(a.modality)}</span>`:"",a.area&&a.area!=="Other"?`<span class="tag">${esc(a.area)}</span>`:"",a.stage&&a.stage!=="미상"?`<span class="tag">${esc(a.stage)}</span>`:""].join("");
+const iTags=a=>[`<span class="tag ${a.type==="IPO"?"plat":""}">${esc(a.type==="시리즈/비공개"?(a.round||"비공개 라운드"):a.type+(a.exchange?" · "+a.exchange:""))}</span>`,a._mod!=="Microbiome/Other"||!modUnk(a._mod,a._msub)?`<span class="tag">${modTag(a._mod,a._msub)}</span>`:"",a.area&&a.area!=="Other"?`<span class="tag">${esc(a.area)}</span>`:"",a.stage&&a.stage!=="미상"?`<span class="tag">${esc(a.stage)}</span>`:""].join("");
 const iStageShort=s=>({"Discovery":"탐색","Preclinical":"전임상","Phase 1":"1상","Phase 2":"2상","Phase 3":"3상","Phase 1/2":"1/2상","허가신청·승인":"허가","상업화":"상업화","미확인":""}[s]??(String(s||"").startsWith("미확인")?"":s||""));
 function iPipeLine(a){const p=(a.pipeline||[]).slice(0,3);
   if(p.length)return `<div class="ipipe"><b>주요 파이프라인</b>${p.map(x=>`<span class="ipp"><i>${esc(x.name||"")}</i>${x.target?` · ${esc(x.target)}`:""}${x.indication?` · ${esc(x.indication)}`:""}${x.stage?` <em>${esc(iStageShort(x.stage))}</em>`:""}</span>`).join("")}</div>`;
@@ -2294,8 +2365,8 @@ function iDrawList(){
   $("imoreWrap").hidden=IVIEW.length<=ishown;
 }
 function iToCSV(rows){const q=v=>{if(v==null)return"";const s=String(v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
-  const head=["일자","회사","국가","구분","라운드","금액(USD 백만)","금액(억 원)","리드 투자자","참여 투자자","프리밸류(USD 백만)","포스트밸류(USD 백만)","시장","티커","모달리티","질환영역","단계","리드 파이프라인","회사 소개","주요 파이프라인","자금 용도","이후 경과","출처"];
-  return "﻿"+[head.join(","),...rows.map(a=>[a.date,a.company,a.country,a.type,a.round,a.amount_usd,a.amount_krw,(a.lead||[]).join(" / "),(a.investors||[]).join(" / "),a.valuation_pre,a.valuation_post,a.exchange,a.ticker,a.modality,a.area,(a._ta||[]).join(" "),a.stage,a.lead_asset,a.about,(a.pipeline||[]).map(p=>[p.name,p.target,p.indication,p.stage].filter(Boolean).join("/")).join(" ; "),a.use_of_proceeds,a.outcome,(a.sources||[]).join(" ")].map(q).join(","))].join("\n")}
+  const head=["일자","회사","국가","구분","라운드","금액(USD 백만)","금액(억 원)","리드 투자자","참여 투자자","프리밸류(USD 백만)","포스트밸류(USD 백만)","시장","티커","모달리티","세부 모달리티","질환영역","단계","리드 파이프라인","회사 소개","주요 파이프라인","자금 용도","이후 경과","출처"];
+  return "﻿"+[head.join(","),...rows.map(a=>[a.date,a.company,a.country,a.type,a.round,a.amount_usd,a.amount_krw,(a.lead||[]).join(" / "),(a.investors||[]).join(" / "),a.valuation_pre,a.valuation_post,a.exchange,a.ticker,a._mod,modUnk(a._mod,a._msub)?"":a._msub,a.area,(a._ta||[]).join(" "),a.stage,a.lead_asset,a.about,(a.pipeline||[]).map(p=>[p.name,p.target,p.indication,p.stage].filter(Boolean).join("/")).join(" ; "),a.use_of_proceeds,a.outcome,(a.sources||[]).join(" ")].map(q).join(","))].join("\n")}
 function openInv(a){
   const s=$("sheet"),wasOpen=!s.hidden;if(!wasOpen){lastFocus=document.activeElement;SHEET_STACK.length=0}
   const row=(k,v)=>v==null||v===""||(Array.isArray(v)&&!v.length)?"":`<div class="irow"><span class="label">${k}</span><span>${Array.isArray(v)?v.map(esc).join(", "):v}</span></div>`;
@@ -2452,7 +2523,7 @@ function paneOv(a){
   const p=FDAPI[a.id]||{},ls=fDeals(a),org=a.origin&&a.origin!=="불명"?a.origin:"확인 안 됨";
   const moa=a.moa||p.moa_s;
   return `<div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm sstar" id="fsStar" data-id="${esc(a.id)}" type="button">${FCOMPS.has(a.id)?"★ 비교 승인에서 빼기":"☆ 비교 승인에 담기"}</button></div>
-   <div class="terms"><div><span class="label">승인일</span><span class="v">${esc(a.date)}</span></div><div><span class="label">승인 구분</span><span class="v sm">${esc(a.center||"–")}${a.type?` · ${esc(a.type)}`:""}</span></div><div><span class="label">모달리티</span><span class="v sm">${esc(a.modality||"–")}</span></div><div><span class="label">확보 경로</span><span class="v sm">${esc(org)}</span></div></div>
+   <div class="terms"><div><span class="label">승인일</span><span class="v">${esc(a.date)}</span></div><div><span class="label">승인 구분</span><span class="v sm">${esc(a.center||"–")}${a.type?` · ${esc(a.type)}`:""}</span></div><div><span class="label">모달리티</span><span class="v sm">${modTag(a._mod||modL1(a.modality),a._msub)}</span></div><div><span class="label">확보 경로</span><span class="v sm">${esc(org)}</span></div></div>
    ${moa||p.moa_l?`<div class="mcard"><span class="label">작용기전 (MoA)</span><div class="mt">${esc(moa||"")}</div>${p.moa_l?`<div class="md">${esc(p.moa_l)}</div>`:""}</div>`:""}
    ${chemCard(a)}
    <div class="tsec"><div class="label">적응증</div><div class="tsum">${esc(a.indication||"–")}</div></div>
@@ -2513,7 +2584,7 @@ function setFSMode(m,focus){
   fApply();
   if(focus)q.focus({preventScroll:true});
 }
-const fBrief=a=>`[${a.id}] ${a.date.slice(0,7)} ${a.brand||a.generic}${a.brand&&a.generic?`(${a.generic})`:""} | ${a.sponsor||"-"} | ${a.modality||"-"} | ${a.moa||"-"} | ${(a.indication||"-").slice(0,50)}`;
+const fBrief=a=>`[${a.id}] ${a.date.slice(0,7)} ${a.brand||a.generic}${a.brand&&a.generic?`(${a.generic})`:""} | ${a.sponsor||"-"} | ${modText(a._mod||modL1(a.modality),a._msub)} | ${a.moa||"-"} | ${(a.indication||"-").slice(0,50)}`;
 const fDetail=a=>`${fBrief(a)} | ${a.center}${a.type?" "+a.type:""} | 지정: ${a._des.map(x=>DES_KO[x]||x).join("·")||"-"} | 확보: ${a.origin||"불명"}${a.hl?` | 핵심 효능: ${a.hl}`:""}${a._links?` | 연결 거래: ${fDeals(a).map(({d})=>`${d.lr_ko||d.licensor}→${d.le_ko||d.licensee} ${d.date.slice(0,7)}`).join("; ")}`:""}`;
 function fCandidates(q){
   const toks=q.toLowerCase().split(/[\s,，、/]+/).filter(t=>t.length>1);
@@ -2604,7 +2675,7 @@ function drawChem(root){[...(root||document).querySelectorAll(".chemsvg[data-smi
 function openSheet(d){
   lastFocus=document.activeElement;
   const kv=[["기술수출(라이선서)",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["기술도입(라이선시)",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
-    ["물질·플랫폼",esc(d.asset)],["모달리티",`${esc(d.modality)}${d.modality_detail&&d.modality_detail!==d.modality?` <span class="hint">· ${esc(d.modality_detail)}</span>`:""}`],["타깃·MoA",esc(d.target)],["적응증",esc(d.indication)],["치료영역",esc(d.area)],
+    ["물질·플랫폼",esc(d.asset)],["모달리티",`${modTag(d.modality,d.mod_sub)}${d.modality_detail&&!/^(small molecule|antibody|adc|peptide|tpd|bispecific\/multispecific|gene therapy|gene editing|cell therapy|sirna|aso|mrna|vaccine|radiopharmaceutical|other ?\(undisclosed\))$/i.test(d.modality_detail)&&d.modality_detail!==d.mod_sub?` <span class="hint">(${esc(d.modality_detail)})</span>`:""}`],["타깃·MoA",esc(d.target)],["적응증",esc(d.indication)],["치료영역",esc(d.area)],
     ["계약시점 단계",esc(d.stage)],["계약 형태",`${esc(d.deal_type)}${d.platform==="Y"?' <span class="tag plat">플랫폼</span>':""}`],["권리지역",esc(d.territory)],["로열티",esc(d.royalty)],["통화·환산",esc(d.currency_note)],
     ["데이터 상태",esc(d.qa)],["출처",link(d.src1)],["추가 출처",link(d.src2)],["수록",esc(d.added)]].filter(x=>x[1]);
   const s=$("sheet");
@@ -2675,7 +2746,7 @@ let wasPhone=isPhone(),wasCards=useCards();addEventListener("resize",()=>{const 
   if(c!==wasCards){wasCards=c;drawList()}layoutInd()});
 
 function toCSV(rows){
-  const cols=[["date","발표일"],["licensor","라이선서"],["lr_ko","라이선서(한글)"],["lr_country","라이선서 국가"],["licensee","라이선시"],["le_ko","라이선시(한글)"],["le_country","라이선시 국가"],["le_type","도입사 유형"],["asset","물질·플랫폼"],["modality","모달리티"],["modality_detail","모달리티 상세"],["platform","플랫폼 계약"],["target","타깃·MoA"],["indication","적응증"],["stage","단계"],["deal_type","계약 형태"],["territory","권리지역"],["total","총액($M)"],["upfront","Upfront($M)"],["near_term","Near-term($M)"],["equity","지분투자($M)"],["royalty","로열티"],["currency_note","통화 메모"],["status","사후 경과"],["qa","데이터 상태"],["src1","출처1"],["src2","출처2"],["notes","메모"],["added","수록"]];
+  const cols=[["date","발표일"],["licensor","라이선서"],["lr_ko","라이선서(한글)"],["lr_country","라이선서 국가"],["licensee","라이선시"],["le_ko","라이선시(한글)"],["le_country","라이선시 국가"],["le_type","도입사 유형"],["asset","물질·플랫폼"],["modality","모달리티"],["mod_sub","세부 모달리티"],["modality_detail","모달리티 상세"],["platform","플랫폼 계약"],["target","타깃·MoA"],["indication","적응증"],["stage","단계"],["deal_type","계약 형태"],["territory","권리지역"],["total","총액($M)"],["upfront","Upfront($M)"],["near_term","Near-term($M)"],["equity","지분투자($M)"],["royalty","로열티"],["currency_note","통화 메모"],["status","사후 경과"],["qa","데이터 상태"],["src1","출처1"],["src2","출처2"],["notes","메모"],["added","수록"]];
   cols.splice(cols.findIndex(c=>c[0]==="status")+1,0,["events","사후 경과 이력"],["status_checked","사후 경과 확인"]);
   const q=v=>{if(v==null)return"";if(Array.isArray(v))v=v.map(e=>`[${e.date||""}] ${evType(e)}: ${e.text||""}${e.src?` (${e.src})`:""}`).join(" / ");const s=String(v);return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s};
   return "﻿"+[cols.map(c=>c[1]).join(","),...rows.map(d=>cols.map(c=>q(d[c[0]])).join(","))].join("\n");
