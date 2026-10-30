@@ -940,6 +940,9 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 .msubl{flex-basis:100%;font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.01em}
 .opt.sub{height:28px;padding:0 9px;font-size:12px;background:var(--raised)}
 .tag .msub{font-weight:400;opacity:.78}
+.tag.mtag{white-space:nowrap;max-width:none}
+.msubt{font-size:11px;line-height:1.35;color:var(--faint);align-self:center}
+td .msubt{display:block;margin-top:4px;max-width:150px}
 </style>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -1720,7 +1723,7 @@ function miniCard(d){
     <div class="meta"><span class="num">${esc(d.date)}</span>${stTag(d)}<span style="margin-left:auto">${star(d)}</span></div>
     <div class="who">${party(d,"lr",true)}${party(d,"le",true)}</div>
     <div class="an">${esc(d.asset||"물질 비공개")}</div>${drugLine(d)}
-    <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${modTag(d.modality,d.mod_sub)}</span></div>
+    <div class="tags">${stageTag(d)}${modPill(d.modality,d.mod_sub,d.platform==="Y"?"plat":"")}</div>
     <div class="money"><span><span class="lab">총액</span><b>${d.total==null?"–":"$"+fmtM(d.total)+(d.total>=10000?"":"M")}</b></span><span class="${d.upfront==null?"":"up"}"><span class="lab">Upfront</span><b>${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront<10?1:0)+"M"}</b></span></div>
   </div>`;
 }
@@ -1802,7 +1805,7 @@ function drawList(){
       <div class="who">${party(d,"lr",true)}${party(d,"le",true)}</div>
       <div class="drug"><span class="an">${esc(d.asset||"물질 비공개")}</span>${drugLine(d)}</div>
       ${MODE&&MODE.why&&MODE.why[d.id]?`<div class="why">↳ ${esc(MODE.why[d.id])}</div>`:""}${!MODE&&d._near?`<div class="why near">≈ ${esc(d._near)}만 다름</div>`:""}
-      <div class="tags">${stageTag(d)}<span class="tag ${d.platform==="Y"?"plat":""}">${modTag(d.modality,d.mod_sub)}</span>${d.platform==="Y"?'<span class="tag plat">플랫폼</span>':""}${fdaTag(d)}</div>
+      <div class="tags">${stageTag(d)}${modPill(d.modality,d.mod_sub,d.platform==="Y"?"plat":"")}${d.platform==="Y"?'<span class="tag plat">플랫폼</span>':""}${fdaTag(d)}</div>
       <div class="money"><span><span class="lab">총액</span><b>${d.total==null?"–":"$"+fmtM(d.total)+(d.total>=10000?"":"M")}</b></span><span class="${d.upfront==null?"":"up"}"><span class="lab">Upfront</span><b>${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront<10?1:0)+"M"}</b>${d.ratio==null?"":` <span class="hint">(${fmt(d.ratio*100,1)}%)</span>`}</span>${qaTag(d)}</div>
     </article>`).join("");
   }else{
@@ -1811,7 +1814,7 @@ function drawList(){
       <td class="num" style="white-space:nowrap">${esc(d.date)}${isNew(d)}</td>
       <td><div class="parties">${party(d,"lr",false)}${party(d,"le",false)}</div></td>
       <td><div class="asset">${esc(d.asset||"–")}</div><div class="asset-sub">${esc([d.target,d.indication].filter(Boolean).join(" · "))}</div>${MODE&&MODE.why&&MODE.why[d.id]?`<div class="why">↳ ${esc(MODE.why[d.id])}</div>`:""}${!MODE&&d._near?`<div class="why near">≈ ${esc(d._near)}만 다름</div>`:""}${d.status?`<div style="margin-top:4px">${stTag(d)}</div>`:""}</td>
-      <td><span class="tag ${d.platform==="Y"?"plat":""}">${modTag(d.modality,d.mod_sub)}</span>${fdaTag(d)}</td>
+      <td>${modPill(d.modality,d.mod_sub,d.platform==="Y"?"plat":"")}${fdaTag(d)}</td>
       <td>${stageTag(d)}</td>
       <td class="n">${fmtM(d.total)}</td>
       <td class="n${d.upfront==null?"":" up"}">${d.upfront==null?"–":fmt(d.upfront,d.upfront<10?1:0)}</td>
@@ -1916,6 +1919,9 @@ function modSubPlace(box){
     let a=c;if(vis){const t=c.offsetTop;chips.forEach(x=>{if(Math.abs(x.offsetTop-t)<4)a=x})}
     const after=last.get(a)||a;after.after(r);last.set(a,r)});
   rows.forEach(r=>{const c=chips.find(x=>x.dataset.v===r.dataset.l1);if(c){const pct=vis?Math.max(4,Math.min(92,(c.offsetLeft+c.offsetWidth/2-box.offsetLeft)/box.offsetWidth*100)):10;r.style.setProperty("--caret",pct+"%")}})}
+/* 목록용: 대분류는 짧은 칩, 세부 유형은 칩 밖 작은 글씨 */
+const MOD_SHORT={"Multispecific Antibody":"Multispecific","Delivery/Formulation Platform":"Delivery Platform","Discovery/AI Platform":"Discovery/AI","Protein Therapeutic":"Protein","Radiopharmaceutical":"Radiopharma","RNA Therapeutics":"RNA","Microbiome/Other":"Other"};
+const modPill=(l1,s,cls)=>`<span class="tag mtag${cls?" "+cls:""}" title="${esc(modText(l1,s))}">${esc(MOD_SHORT[l1]||l1)}</span>${modUnk(l1,s)?"":`<span class="msubt">${esc(s)}</span>`}`;
 /* ===== 치료영역(therapeutic area) 공통 분류 ===== */
 const TA_ORDER=["항암","면역·염증","신경·정신","대사·내분비","심혈관","감염·백신","호흡기","안과","혈액","신장","간·소화기","피부","희귀·유전질환","기타"];
 const TA_AREA={oncology:"항암",immunology:"면역·염증",fibrosis:"면역·염증",inflammation:"면역·염증",neurology:"신경·정신",cns:"신경·정신",psychiatry:"신경·정신",pain:"신경·정신",neuromuscular:"신경·정신",
@@ -2143,7 +2149,7 @@ function fDrawList(){
       <div>${fstar(a)}</div>
       <div class="who"><span class="fbn">${esc(a.brand||a.generic)}</span>${a.brand&&a.generic?`<span class="fgn">${esc(a.generic)}</span>`:""}<span class="fsp">${esc(a.sponsor||"허가 보유사 미상")}</span></div>
       <div class="drug"><span class="ti">${esc(a.indication||"–")}</span></div>
-      <div class="tags"><span class="tag">${modTag(a._mod,a._msub)}</span>${desTags(a)}</div>
+      <div class="tags">${modPill(a._mod,a._msub)}${desTags(a)}</div>
       ${a.moa?`<div class="fmoa"><b>MoA</b><span>${esc(a.moa)}</span></div>`:""}
       ${fWhy(a)}
       ${a._links?`<div class="flinkrow">${fLinkLine(a)}</div>`:""}
@@ -2155,7 +2161,7 @@ function fDrawList(){
       <td><div class="fbn">${esc(a.brand||a.generic)}</div>${a.brand&&a.generic?`<div class="asset-sub">${esc(a.generic)}</div>`:""}${fWhy(a)}</td>
       <td style="max-width:180px">${esc(a.sponsor||"–")}</td>
       <td><div class="ind-c">${esc(a.indication||"–")}</div></td>
-      <td><div class="ftags">${ctTag(a)}<span class="tag">${modTag(a._mod,a._msub)}</span>${desTags(a)}</div>${a.moa?`<div class="fmoa"><b>MoA</b><span>${esc(a.moa)}</span></div>`:""}</td>
+      <td><div class="ftags">${ctTag(a)}${modPill(a._mod,a._msub)}${desTags(a)}</div>${a.moa?`<div class="fmoa"><b>MoA</b><span>${esc(a.moa)}</span></div>`:""}</td>
       <td>${d?`<div class="flk"><b>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</b><span class="num">${esc(String(d.date).slice(0,7))}${ls.length>1?` 외 ${ls.length-1}건`:""}</span></div>`:'<span class="hint">–</span>'}</td>
     </tr>`}).join("");
   }
@@ -2360,7 +2366,7 @@ function iDrawKpi(){
   const b=big(cur);$$("ikB",b?`$${fmt(b.amount_usd)}<small>M</small>`:"–",b?b.company:" ");
 }
 const iNew=a=>(Date.now()-Date.parse(a.date))/864e5<=14?'<span class="new">NEW</span>':"";
-const iTags=a=>[`<span class="tag ${a.type==="IPO"?"plat":""}">${esc(a.type==="시리즈/비공개"?(a.round||"비공개 라운드"):a.type+(a.exchange?" · "+a.exchange:""))}</span>`,a._mod!=="Microbiome/Other"||!modUnk(a._mod,a._msub)?`<span class="tag">${modTag(a._mod,a._msub)}</span>`:"",a.area&&a.area!=="Other"?`<span class="tag">${esc(a.area)}</span>`:"",a.stage&&a.stage!=="미상"?`<span class="tag">${esc(a.stage)}</span>`:""].join("");
+const iTags=a=>[`<span class="tag ${a.type==="IPO"?"plat":""}">${esc(a.type==="시리즈/비공개"?(a.round||"비공개 라운드"):a.type+(a.exchange?" · "+a.exchange:""))}</span>`,a._mod!=="Microbiome/Other"||!modUnk(a._mod,a._msub)?`${modPill(a._mod,a._msub)}`:"",a.area&&a.area!=="Other"?`<span class="tag">${esc(a.area)}</span>`:"",a.stage&&a.stage!=="미상"?`<span class="tag">${esc(a.stage)}</span>`:""].join("");
 const iStageShort=s=>({"Discovery":"탐색","Preclinical":"전임상","Phase 1":"1상","Phase 2":"2상","Phase 3":"3상","Phase 1/2":"1/2상","허가신청·승인":"허가","상업화":"상업화","미확인":""}[s]??(String(s||"").startsWith("미확인")?"":s||""));
 function iPipeLine(a){const p=(a.pipeline||[]).slice(0,3);
   if(p.length)return `<div class="ipipe"><b>주요 파이프라인</b>${p.map(x=>`<span class="ipp"><i>${esc(x.name||"")}</i>${x.target?` · ${esc(x.target)}`:""}${x.indication?` · ${esc(x.indication)}`:""}${x.stage?` <em>${esc(iStageShort(x.stage))}</em>`:""}</span>`).join("")}</div>`;
