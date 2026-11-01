@@ -3614,5 +3614,37 @@
  "Nouscom": {
   "ko": "누스콤",
   "alias": ""
+ },
+ "Audax Biosciences": {
+  "ko": "오닥스 바이오사이언스",
+  "alias": ""
+ },
+ "BioMarin Pharmaceutical": {
+  "ko": "바이오마린",
+  "alias": ""
+ },
+ "GC Biopharma": {
+  "ko": "GC녹십자",
+  "alias": ""
+ },
+ "GC Biopharma / Hanmi Pharmaceutical": {
+  "ko": "GC녹십자 / 한미약품",
+  "alias": ""
+ },
+ "Inovio Pharmaceuticals, Inc.": {
+  "ko": "이노비오",
+  "alias": ""
+ },
+ "Bambusa Therapeutics": {
+  "ko": "밤부사 테라퓨틱스",
+  "alias": ""
+ },
+ "Aspen Neuroscience": {
+  "ko": "애스펀 뉴로사이언스",
+  "alias": ""
+ },
+ "Star Therapeutics": {
+  "ko": "스타 테라퓨틱스",
+  "alias": ""
  }
 }
