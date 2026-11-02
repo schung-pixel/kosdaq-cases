@@ -976,6 +976,11 @@ td .msubt{display:block;margin-top:4px;max-width:150px}
 #sClose,#fClose,#ffClose,#iClose{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip-path:inset(50%)!important;border:0!important;opacity:0!important}
 .qanote{display:flex;gap:8px;align-items:baseline;font-size:12.5px;line-height:1.5;color:var(--ink);background:var(--warn-soft);border-radius:12px;padding:10px 12px}
 .qa[title]{cursor:help}
+/* info page: long period labels wrap instead of widening the card */
+.info,.info>header,.info .pbody{min-width:0;max-width:100%;box-sizing:border-box}
+.info .stamp{display:block;border-radius:12px;white-space:normal;max-width:100%;overflow-wrap:anywhere;line-height:1.45;height:auto;padding-block:4px}
+.info .stamp b{white-space:nowrap;display:inline}
+.runs .run{min-width:0}.runs .run>*{min-width:0;overflow-wrap:anywhere}
 </style>
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
