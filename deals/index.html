@@ -971,7 +971,12 @@ td .msubt{display:block;margin-top:4px;max-width:150px}
 .cmpchip .cnt:not(:empty)::before{content:""}
 .cmpchip[aria-pressed="true"]{background:var(--warn-soft);color:var(--warn);border-color:color-mix(in srgb,var(--star) 60%,var(--line))}
 .cmpchip[aria-pressed="true"] svg{fill:currentColor}
-@media (max-width:820px){.cmpchip .lbl{display:none}.cmpchip{padding:0 12px}}
+.crow .cmpchip{order:2;margin-left:auto}
+@media (max-width:820px){.cmpchip .lbl{display:none}
+  .cmpchip{position:relative;width:42px;height:42px;padding:0;justify-content:center;gap:0}
+  .cmpchip .cnt{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;line-height:18px;padding:0 4px;box-sizing:border-box;text-align:center;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-size:10.5px}
+  .cmpchip .cnt:empty{display:none}
+  .cmpchip[aria-pressed="true"] .cnt{background:var(--star);color:#fff}}
 /* popups: no X button (close by tapping outside, dragging the handle down, Esc or back) */
 #sClose,#fClose,#ffClose,#iClose{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip-path:inset(50%)!important;border:0!important;opacity:0!important}
 .qanote{display:flex;gap:8px;align-items:baseline;font-size:12.5px;line-height:1.5;color:var(--ink);background:var(--warn-soft);border-radius:12px;padding:10px 12px}
