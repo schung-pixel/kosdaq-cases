@@ -1328,8 +1328,8 @@ img{max-width:100%}
           <div class="panel">
             <header><h2>FDA 승인 데이터</h2><span class="stamp" id="fstamp">불러오는 중</span></header>
             <div class="pbody"><div class="basis">
-              <p>2021년 1월 이후 FDA가 처음 승인한 신약을 모았습니다. CDER 신약(신규 성분, Novel Drug Approvals)과 CBER 신규 바이오(세포·유전자치료, 백신 등)가 대상이고, 적응증 추가·바이오시밀러·혈장 유래 제품·진단키트는 제외했습니다.</p>
-              <p>승인일·제품명·적응증은 FDA 목록 기준입니다. 허가 보유사와 신속 심사·지정은 FDA 연례 보고서와 2차 자료로 보완했고, CBER 2021~2022년은 FDA 공식 목록을 열지 못해 일부 빠졌을 수 있습니다.</p>
+              <p>2015년 1월 이후 FDA가 처음 승인한 신약을 모았습니다. CDER 신약(신규 성분, Novel Drug Approvals)과 CBER 신규 바이오(세포·유전자치료, 백신 등)가 대상이고, 적응증 추가·바이오시밀러·혈장 유래 제품·진단키트는 제외했습니다.</p>
+              <p>승인일·제품명·적응증은 FDA 목록 기준입니다. 허가 보유사와 신속 심사·지정은 FDA 연례 보고서와 2차 자료로 보완했고, CBER 2021~2022년은 FDA 공식 목록을 열지 못해 일부 빠졌을 수 있습니다. 2015~2020년 CDER 승인의 허가 보유사와 지정은 FDA의 신약 승인 집계 자료(Compilation of CDER NME and New Biologic Approvals) 기준이고, 라벨 상세는 최초 승인 라벨 또는 현행 라벨에서 정리했습니다.</p>
               <p>기술거래 연결은 약물명·코드명이 같은 수록 거래를 이은 것입니다. 수록 범위(2021년 이후, 총액 또는 upfront $200M 이상) 밖의 계약은 나타나지 않습니다.</p>
             </div></div>
           </div>
@@ -2668,7 +2668,7 @@ function fCandidates(q){
 function fAskPrompt(q){
   const cand=fCandidates(q),cs=new Set(cand.map(a=>a.id));
   const rest=FDA.filter(a=>!cs.has(a.id)).map(fBrief).join("\n");
-  return `당신은 바이오·헬스케어 IB 담당자입니다. 아래는 2021년 이후 FDA가 승인한 신약(CDER 신약 NME/BLA, CBER 세포·유전자치료·백신 등) 데이터베이스입니다. '연결 거래'는 같은 약의 기술거래(총액 또는 upfront $200M 이상)입니다.
+  return `당신은 바이오·헬스케어 IB 담당자입니다. 아래는 2015년 이후 FDA가 승인한 신약(CDER 신약 NME/BLA, CBER 세포·유전자치료·백신 등) 데이터베이스입니다. '연결 거래'는 같은 약의 기술거래(총액 또는 upfront $200M 이상)입니다.
 
 사용자 질문:
 """${q}"""
