@@ -239,7 +239,8 @@ def cber(cand):
 
 def candidates(fda):
     cand = load('candidates.json', {'updated': '', 'items': []})
-    known = {c['url'] + c.get('title', '') for c in cand['items']}
+    cand['items'] = [c for c in cand['items'] if c.get('title')]
+    known = {c['url'] + c.get('title', '') for c in cand['items']} | {c['url'] for c in cand['items'] if c.get('kind') != 'fda_cber'}
     fda_names = {norm(i['brand']) for i in fda['items']}
     new = []
     for c in cber(cand):
@@ -250,12 +251,12 @@ def candidates(fda):
     for n, u in FEEDS: raw += rss(n, u)
     for r in raw:
         k = classify(r['title'], r['desc'])
-        if not k or r['url'] + r['title'] in known: continue
+        if not k or r['url'] in known or not r['title']: continue
         new.append({'kind': k[0], 'title': r['title'], 'desc': r['desc'][:300], 'date': r['date'], 'url': r['url'], 'source': r['source'], 'amount_musd': k[1]})
-        known.add(r['url'] + r['title'])
+        known.add(r['url'])
     for r in sec_fts():
-        if r['url'] + r['title'] in known: continue
-        new.append({'kind': 'deal_filing', **r, 'amount_musd': None}); known.add(r['url'] + r['title'])
+        if r['url'] in known: continue
+        new.append({'kind': 'deal_filing', **r, 'amount_musd': None}); known.add(r['url'])
     for c in new:
         c['id'] = 'c' + hashlib.md5((c['url'] + c['title']).encode()).hexdigest()[:10]
         c['found'] = TODAY.strftime('%Y-%m-%d')
