@@ -1778,8 +1778,8 @@ function similarTo(base){
 /* ---------- Claude에게 묻기 (Claude 딜북 only; SAMPLE is set by the loader when available) ---------- */
 let SAMPLE=null, askCtl=null, aiCtl=null, aiQuery="", ASK_LAST=null;
 const ASK_ERR={not_granted:"Claude 사용이 허용되지 않아 이 기능을 쓸 수 없습니다.",sampling_disabled:"이 계정에서는 Claude를 쓸 수 없습니다.",rate_limited:"요청이 많아 잠시 뒤에 다시 시도해 주세요.",session_expired:"Claude에 다시 로그인해 주세요.",refused:"이 질문에는 답할 수 없다고 합니다. 문장을 바꿔 보세요.",invalid_json:"답을 읽지 못했습니다. 다시 시도해 주세요.",prompt_too_large:"질문이 너무 깁니다. 줄여서 다시 시도해 주세요."};
-const detail=d=>`[${d.id}] ${d.date} | ${d.lr_ko||d.licensor}(${d.lr_region||"-"}) → ${d.le_ko||d.licensee}(${d.le_type||"-"}) | 물질: ${d.asset||"-"} | 표적: ${d.target||"-"} | 적응증: ${d.indication||"-"} | ${d.modality||"-"}${d.platform==="Y"?"(플랫폼)":""} | 단계: ${d.stage||"미상"} | 총액 ${d.total==null?"비공개":"$"+d.total+"M"}, upfront ${d.upfront==null?"비공개":"$"+d.upfront+"M"}${d.status?` | ${d.status}`:""}`;
-const brief=d=>`[${d.id}] ${d.date.slice(0,7)} ${d.lr_ko||d.licensor}→${d.le_ko||d.licensee} | ${d.asset||"-"} | ${d.target||"-"} | ${d.modality||"-"} | ${d.stage||"-"}`;
+const detail=d=>`[${d.id}] ${d.date} | ${NM(d,"lr")}(${d.lr_region||"-"}) → ${NM(d,"le")}(${d.le_type||"-"}) | 물질: ${d.asset||"-"} | 표적: ${d.target||"-"} | 적응증: ${d.indication||"-"} | ${d.modality||"-"}${d.platform==="Y"?"(플랫폼)":""} | 단계: ${d.stage||"미상"} | 총액 ${d.total==null?"비공개":"$"+d.total+"M"}, upfront ${d.upfront==null?"비공개":"$"+d.upfront+"M"}${d.status?` | ${d.status}`:""}`;
+const brief=d=>`[${d.id}] ${d.date.slice(0,7)} ${NM(d,"lr")}→${NM(d,"le")} | ${d.asset||"-"} | ${d.target||"-"} | ${d.modality||"-"} | ${d.stage||"-"}`;
 function askCandidates(q){
   const P=parseNL(q);let ranked=[];
   ALL.forEach(d=>{const fails=nlFails(d,P);if(P.noReg.size&&P.noReg.has(d.lr_region))return;
@@ -1874,9 +1874,11 @@ function drawBench(){
 const star=d=>`<button type="button" class="starbtn" data-star="${esc(d.id)}" aria-pressed="${COMPS.has(d.id)}" aria-label="${COMPS.has(d.id)?"비교 거래에서 빼기":"비교 거래에 담기"}">★</button>`;
 const isNew=d=>latestTag&&d.added===latestTag?'<span class="new">NEW</span>':"";
 const stTag=d=>clsTag(d)+(d.status?`<span class="st ${statusClass(d.status)}">${esc(d.status)}</span>`:"");
+const KRC=/^(south korea|korea|republic of korea|kr|한국|대한민국)$/i;
+const isKRco=(d,side)=>side==="lr"?(d.lr_region==="한국"||KRC.test(d.lr_country||"")):KRC.test(d.le_country||"");
+const NM=(d,side)=>{const en=side==="lr"?d.licensor:d.licensee, ko=side==="lr"?d.lr_ko:d.le_ko;return isKRco(d,side)&&ko?ko:en};
 function party(d,side,koFirst){
-  const en=side==="lr"?d.licensor:d.licensee, ko=side==="lr"?d.lr_ko:d.le_ko;
-  const main=koFirst?(ko||en):en, sub=koFirst?(ko?en:""):(ko||"");
+  const main=NM(d,side), sub="";
   return `<span class="party ${side}"><span class="role">${(ROLE[DCLS(d)]||["수출","도입"])[side==="lr"?0:1]}</span><span class="nm">${esc(main)}${sub?`<small class="ko">${esc(sub)}</small>`:""}</span></span>`;
 }
 const drugLine=d=>{const t=[];if(d.target)t.push(`<b>표적</b>${esc(d.target)}`);if(d.indication)t.push(`<b>적응증</b>${esc(d.indication)}`);return t.length?`<span class="ti">${t.join(" &nbsp;")}</span>`:""};
@@ -2231,7 +2233,7 @@ const desTags=a=>DES_ORDER.filter(x=>a._des.includes(x)).map(x=>`<span class="ta
 const fWhy=a=>FMODE&&FMODE.why&&FMODE.why[a.id]?`<div class="why fwhy">${esc(FMODE.why[a.id])}</div>`:"";
 const fNew=a=>(Date.now()-Date.parse(a.date))/864e5<=14?'<span class="new">NEW</span>':"";
 function fLinkLine(a){const ls=fDeals(a);if(!ls.length)return"";const d=ls[0].d;
-  return `<b>기술거래</b><span>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</span><span class="num">${esc(String(d.date).slice(0,7))}</span>${ls.length>1?`<span>외 ${ls.length-1}건</span>`:""}`}
+  return `<b>기술거래</b><span>${esc(NM(d,"lr"))} → ${esc(NM(d,"le"))}</span><span class="num">${esc(String(d.date).slice(0,7))}</span>${ls.length>1?`<span>외 ${ls.length-1}건</span>`:""}`}
 function fDrawList(){
   $("fTitle").textContent=`목록 (${fmt(FVIEW.length)}건)`;
   if(!FDA.length)return;
@@ -2257,7 +2259,7 @@ function fDrawList(){
       <td style="max-width:180px">${esc(a.sponsor||"–")}</td>
       <td><div class="ind-c">${esc(a.indication||"–")}</div></td>
       <td><div class="ftags">${ctTag(a)}${modPill(a._mod,a._msub,"",a.mod_multi)}${desTags(a)}</div>${a.moa?`<div class="fmoa"><b>MoA</b><span>${esc(a.moa)}</span></div>`:""}</td>
-      <td>${d?`<div class="flk"><b>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</b><span class="num">${esc(String(d.date).slice(0,7))}${ls.length>1?` 외 ${ls.length-1}건`:""}</span></div>`:'<span class="hint">–</span>'}</td>
+      <td>${d?`<div class="flk"><b>${esc(NM(d,"lr"))} → ${esc(NM(d,"le"))}</b><span class="num">${esc(String(d.date).slice(0,7))}${ls.length>1?` 외 ${ls.length-1}건`:""}</span></div>`:'<span class="hint">–</span>'}</td>
     </tr>`}).join("");
   }
   $("fmoreWrap").hidden=FVIEW.length<=fshown;
@@ -2650,7 +2652,7 @@ function paneOv(a){
    ${p.basis?`<div class="tsec"><div class="label">승인 근거</div><div class="tsum">${esc(p.basis)}</div>${(p.trials||[]).length?`<button type="button" class="btn sm ptabgo" data-go="tr" style="justify-self:start">임상 결과 자세히 ›</button>`:""}</div>`:""}
    <div class="tsec"><div class="label">신속 심사·지정</div><div class="ftags">${desTags(a)||'<span class="hint">확인된 지정 없음</span>'}</div></div>
    <div class="fsec"><div class="label">연결된 기술거래 <span class="tag fda">${ls.length}건</span></div>${ls.length?ls.map(({l,d})=>{const m=fdaMonths(a,d);
-     return `<button type="button" class="fdeal" data-deal="${esc(d.id)}"><span><b>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</b></span>
+     return `<button type="button" class="fdeal" data-deal="${esc(d.id)}"><span><b>${esc(NM(d,"lr"))} → ${esc(NM(d,"le"))}</b></span>
        <span class="hint"><span class="num">${esc(d.date)}</span> 계약${m!=null?(m>=0?` · 승인까지 ${fmt(m)}개월`:" · 승인 후 계약"):""}</span>
        <span class="hint">${d.total!=null?`총액 $${fmtM(d.total)}${d.total>=10000?"":"M"}`:"총액 비공개"}${d.upfront!=null?` · Upfront $${fmt(d.upfront,d.upfront<10?1:0)}M`:""}${l.confidence&&l.confidence!=="high"?` · 연결 신뢰도 ${esc(l.confidence)}`:""}</span>
        ${l.note?`<span class="hint">${esc(l.note)}</span>`:""}</button>`}).join(""):'<p class="hint" style="margin:0">수록된 기술거래(2021년 이후, 총액 $100M 이상)와 연결된 계약이 없습니다.</p>'}</div>
@@ -2705,7 +2707,7 @@ function setFSMode(m,focus){
   if(focus)q.focus({preventScroll:true});
 }
 const fBrief=a=>`[${a.id}] ${a.date.slice(0,7)} ${a.brand||a.generic}${a.brand&&a.generic?`(${a.generic})`:""} | ${a.sponsor||"-"} | ${modText(a._mod||modL1(a.modality),a._msub)} | ${a.moa||"-"} | ${(a.indication||"-").slice(0,50)}`;
-const fDetail=a=>`${fBrief(a)} | ${a.center}${a.type?" "+a.type:""} | 지정: ${a._des.map(x=>DES_KO[x]||x).join("·")||"-"} | 확보: ${a.origin||"불명"}${a.hl?` | 핵심 효능: ${a.hl}`:""}${a._links?` | 연결 거래: ${fDeals(a).map(({d})=>`${d.lr_ko||d.licensor}→${d.le_ko||d.licensee} ${d.date.slice(0,7)}`).join("; ")}`:""}`;
+const fDetail=a=>`${fBrief(a)} | ${a.center}${a.type?" "+a.type:""} | 지정: ${a._des.map(x=>DES_KO[x]||x).join("·")||"-"} | 확보: ${a.origin||"불명"}${a.hl?` | 핵심 효능: ${a.hl}`:""}${a._links?` | 연결 거래: ${fDeals(a).map(({d})=>`${NM(d,"lr")}→${NM(d,"le")} ${d.date.slice(0,7)}`).join("; ")}`:""}`;
 function fCandidates(q){
   const toks=q.toLowerCase().split(/[\s,，、/]+/).filter(t=>t.length>1);
   const sc=FDA.map(a=>({a,s:toks.reduce((n,t)=>n+(a._hay.includes(t)?(t.length>3?2:1):0),0)})).filter(x=>x.s>0).sort((x,y)=>y.s-x.s||String(y.a.date).localeCompare(x.a.date));
@@ -2794,12 +2796,12 @@ function drawChem(root){[...(root||document).querySelectorAll(".chemsvg[data-smi
     .then(t=>{if(!/^\s*<svg/.test(t))throw 0;CHEM_SVG[cid]=t;if(el.isConnected)put(t)}).catch(()=>sdDraw(el))})}
 function openSheet(d){
   lastFocus=document.activeElement;
-  const kv=[["기술수출(라이선서)",`${esc(d.licensor)}${d.lr_ko?` · ${esc(d.lr_ko)}`:""} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["기술도입(라이선시)",`${esc(d.licensee)}${d.le_ko?` · ${esc(d.le_ko)}`:""} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
+  const kv=[["기술수출(라이선서)",`${esc(NM(d,"lr"))} <span class="hint">(${esc(d.lr_country||"국가 미상")})</span>`],["기술도입(라이선시)",`${esc(NM(d,"le"))} <span class="hint">(${esc(d.le_country||"국가 미상")} · ${esc(d.le_type)})</span>`],
     ["물질·플랫폼",esc(d.asset)],["모달리티",`${modTag(d.modality,d.mod_sub)}${d.modality_detail&&!/^(small molecule|antibody|adc|peptide|tpd|bispecific\/multispecific|gene therapy|gene editing|cell therapy|sirna|aso|mrna|vaccine|radiopharmaceutical|other ?\(undisclosed\))$/i.test(d.modality_detail)&&d.modality_detail!==d.mod_sub?` <span class="hint">(${esc(d.modality_detail)})</span>`:""}`],["타깃·MoA",esc(d.target)],["적응증",esc(d.indication)],["치료영역",esc(d.area)],
     ["계약시점 단계",esc(d.stage)],["계약 형태",`${esc(d.deal_type)}${d.platform==="Y"?' <span class="tag plat">플랫폼</span>':""}`],["권리지역",esc(d.territory)],["로열티",esc(d.royalty)],["통화·환산",esc(d.currency_note)],
     ["데이터 상태",esc(d.qa)],["출처",link(d.src1)],["추가 출처",link(d.src2)],["수록",esc(d.added)]].filter(x=>x[1]);
   const s=$("sheet");
-  s.innerHTML=`<div class="sheet-head"><div><div class="label">${esc(d.date)}</div><h2 id="sTitle">${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</h2><div class="sub">${esc(d.asset||"")}</div></div><button class="xbtn glass" id="sClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  s.innerHTML=`<div class="sheet-head"><div><div class="label">${esc(d.date)}</div><h2 id="sTitle">${esc(NM(d,"lr"))} → ${esc(NM(d,"le"))}</h2><div class="sub">${esc(d.asset||"")}</div></div><button class="xbtn glass" id="sClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
    <div class="sbody"><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm sstar" id="sStar" data-id="${esc(d.id)}" type="button">${COMPS.has(d.id)?"★ 비교 거래에서 빼기":"☆ 비교 거래에 담기"}</button><button class="btn sm acc" id="sSim" type="button">비슷한 거래 보기</button></div>
    <div class="terms"><div><span class="label">총액</span><span class="v">${d.total==null?"–":"$"+fmt(d.total,d.total%1?1:0)+"M"}</span></div><div><span class="label">Upfront</span><span class="v gold">${d.upfront==null?"비공개":"$"+fmt(d.upfront,d.upfront%1?1:0)+"M"}</span></div><div><span class="label">Near-term</span><span class="v">${d.near_term==null?"–":"$"+fmt(d.near_term)+"M"}</span></div><div><span class="label">지분투자</span><span class="v">${d.equity==null?"–":"$"+fmt(d.equity)+"M"}</span></div></div>
    ${qaNote(d)}${termsBlock(d)}${fdaBlock(d)}<div class="evsec"><div class="label" style="margin-bottom:6px">사후 경과${d.status_checked?` <span class="hint">· ${esc(d.status_checked)} 기준</span>`:""}</div>${(d.events&&d.events.length)?`<ol class="tl">${d.events.map(e=>{const t=evType(e);return `<li><span class="num">${esc(e.date||"")}</span><span class="st ${statusClass(t)}">${esc(t)}</span><span class="tx">${esc(e.text||"")}${e.src?` <a href="${esc(e.src)}" target="_blank" rel="noopener">출처</a>`:""}</span></li>`}).join("")}</ol>`:`<p class="hint" style="margin:0">${d.status_checked?"계약 이후 반환·중단·옵션 행사·허가 등 특이사항이 확인되지 않았습니다.":"사후 경과를 아직 확인하지 않은 거래입니다."}</p>`}</div>
@@ -2808,7 +2810,7 @@ function openSheet(d){
   const wasOpen=!s.hidden;
   s.hidden=false;$("sheetBg").hidden=false;lockSync();$("sClose").onclick=closeSheet;if(!wasOpen)pushLayer("sheet");$("sStar").onclick=()=>toggleStar(d.id);
   $("sSim").onclick=()=>{const r=similarTo(d);closeSheet();aiCtl?.abort();
-    MODE={type:"similar",label:`${d.lr_ko||d.licensor} → ${d.le_ko||d.licensee} (${d.asset||d.date})와 비슷한 거래 ${r.length}건`,ids:r.map(x=>x.d.id),why:Object.fromEntries(r.map(x=>[x.d.id,x.why.join(" · ")]))};
+    MODE={type:"similar",label:`${NM(d,"lr")} → ${NM(d,"le")} (${d.asset||d.date})와 비슷한 거래 ${r.length}건`,ids:r.map(x=>x.d.id),why:Object.fromEntries(r.map(x=>[x.d.id,x.why.join(" · ")]))};
     apply();setPage("deals",false);document.querySelector(".summary").scrollIntoView({behavior:"smooth",block:"start"})};$("sClose").focus();
   const sb=s.querySelector(".sbody");if(sb)sb.scrollTop=0;
 }
