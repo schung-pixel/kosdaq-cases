@@ -1014,6 +1014,16 @@ img{max-width:100%}
 .newsband.collapsed .nb-row,.newsband.collapsed .nb-note{display:none}
 @media (max-width:820px){.newsband{order:4}}
 </style>
+<style id="cls-css">
+.cls{display:inline-block;font-size:11px;font-weight:600;line-height:18px;padding:0 8px;border-radius:999px;white-space:nowrap}
+.cls.ma{background:var(--purple-soft);color:var(--purple)}
+.cls.roy{background:var(--good-soft);color:var(--good)}
+.cls.rt{background:var(--info-soft);color:var(--info)}
+.cls.eq{background:var(--bad-soft);color:var(--bad)}
+.cls.oth{background:var(--neutral-soft);color:var(--neutral)}
+.kbasis{margin:0;font-size:12px;color:var(--muted);font-weight:400}
+.kbasis:empty{display:none}
+</style>
 </head>
 <body>
 
@@ -1050,6 +1060,7 @@ img{max-width:100%}
         <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-g="ta"></div></div>
         <div class="fgroup"><span class="label">모달리티</span><div class="opts" data-g="mod"></div></div>
         <div class="fgroup"><span class="label">도입사 유형</span><div class="opts" data-g="le"></div></div>
+        <div class="fgroup"><span class="label">거래 구분</span><div class="opts" data-g="cls"></div></div>
         <div class="fgroup"><span class="label">계약 구분</span><div class="opts" data-g="kind"></div></div>
       </div>
       <div class="fpanel-foot"><button class="btn" id="fReset" type="button">초기화</button><button class="btn primary" id="fApply" type="button">결과 보기</button></div>
@@ -1077,6 +1088,7 @@ img{max-width:100%}
       <div class="psum" data-src="iactive" hidden></div>
       <div class="fgrid">
         <div class="fgroup"><span class="label">기간</span><div class="years"><select id="iyFrom" aria-label="시작 연도"></select><span class="hint">~</span><select id="iyTo" aria-label="끝 연도"></select></div></div>
+        <div class="fgroup"><span class="label">투자 구분</span><div class="opts" data-ig="icls"></div></div>
         <div class="fgroup"><span class="label">구분</span><div class="opts" data-ig="type"></div></div>
         <div class="fgroup"><span class="label">지역</span><div class="opts" data-ig="reg"></div></div>
         <div class="fgroup"><span class="label">치료영역</span><div class="opts" data-ig="ta"></div></div>
@@ -1154,7 +1166,7 @@ img{max-width:100%}
       <div class="newsband" id="nbDeals" data-pg="deals" hidden></div>
 <section class="ledger" id="secList" data-pg="deals" aria-label="거래 목록">
         <div class="ledger-top">
-          <h2 id="ledgerTitle">목록</h2>
+          <div style="display:grid;gap:2px;min-width:0"><h2 id="ledgerTitle">목록</h2><p class="kbasis" id="kBasis"></p></div>
           <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
             <div class="dd" id="sortDD"></div>
             <button class="btn sm" id="csv" type="button" aria-label="CSV 내려받기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>CSV<span class="csvx"> 내려받기</span></button>
@@ -1279,7 +1291,7 @@ img{max-width:100%}
           <div class="pglass"><div class="chips" id="ichipsWrap" role="group" aria-label="투자 사례 바로가기"><span class="ind" aria-hidden="true"></span><span class="chips-in" id="ichips"></span></div></div>
         </div>
       </section>
-      <p class="invnote" data-pg="inv">수집 진행 중인 자료입니다. 비상장 단계 투자와 IPO만 수록하며(후속공모 제외), 일부 구간은 아직 누락돼 건수·합계가 실제보다 적습니다.</p>
+      <p class="invnote" data-pg="inv">수집 진행 중인 자료입니다. 신약 회사의 비상장 투자와 IPO가 중심이며, 상장 후 조달(후속공모, 유상증자, PIPE)과 신약 외 헬스케어 회사는 범위를 넓히며 채우는 중이라 건수와 합계가 실제보다 적을 수 있습니다. 위 통계는 신약 회사의 비상장 투자와 IPO 기준입니다.</p>
 
       <section class="kcar" id="ikcar" data-pg="inv" aria-roledescription="carousel" aria-label="투자 요약과 통계">
         <div class="ktrack" id="iktrack">
@@ -1310,7 +1322,7 @@ img{max-width:100%}
       <div class="newsband" id="nbInv" data-pg="inv" hidden></div>
 <section class="ledger" id="secInv" data-pg="inv" aria-label="투자 사례 목록">
         <div class="ledger-top">
-          <h2 id="iTitle">목록</h2>
+          <div style="display:grid;gap:2px;min-width:0"><h2 id="iTitle">목록</h2><p class="kbasis" id="ikBasis"></p></div>
           <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
             <div class="dd" id="isortDD"></div>
             <button class="btn sm" id="icsv" type="button" aria-label="CSV 내려받기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>CSV<span class="csvx"> 내려받기</span></button>
@@ -1332,7 +1344,7 @@ img{max-width:100%}
           <div class="panel">
             <header><h2>수록 기준과 업데이트</h2><span class="stamp" id="stamp" title="최근 업데이트">불러오는 중</span></header>
             <div class="pbody">
-              <div class="basis"><p>2021년 이후 발표된 글로벌 신약 라이선스·플랫폼 계약 중 총액 또는 upfront가 $200M 이상인 거래를 모았습니다. 금액 단위는 USD 백만입니다. 매주 월요일 새벽 직전 주의 신규 거래·FDA 승인·투자 사례와 권리반환·허가 소식을 반영합니다.</p></div>
+              <div class="basis"><p>2021년 이후 발표된 글로벌 신약 라이선스와 플랫폼 계약(총액 $100M 이상, 2026년 11월 이전 수집분은 $200M 이상)을 중심으로 모았고, M&A, 로열티 매각, 판권 이전, 지분투자, 옵션 행사, 제네릭과 바이오시밀러, 진단과 기기 거래도 단계적으로 추가하고 있습니다. 요약 통계와 벤치마크는 라이선스 거래만 기준으로 계산합니다. 금액 단위는 USD 백만입니다. 매주 월요일 새벽 직전 주의 신규 거래·FDA 승인·투자 사례와 권리반환·허가 소식을 반영합니다.</p></div>
               <div class="runs" id="runs"><p class="hint" style="margin:0">아직 자동 업데이트 기록이 없습니다.</p></div>
               <details class="more-t"><summary>유의사항</summary><div class="notes-d">
                 <p>총 계약규모는 발표된 최대치(biobucks)로 실제 지급액이 아닙니다.</p>
@@ -1347,7 +1359,7 @@ img{max-width:100%}
             <div class="pbody"><div class="basis">
               <p>2015년 1월 이후 FDA가 처음 승인한 신약을 모았습니다. CDER 신약(신규 성분, Novel Drug Approvals)과 CBER 신규 바이오(세포·유전자치료, 백신 등)가 대상이고, 적응증 추가·바이오시밀러·혈장 유래 제품·진단키트는 제외했습니다.</p>
               <p>승인일·제품명·적응증은 FDA 목록 기준입니다. 허가 보유사와 신속 심사·지정은 FDA 연례 보고서와 2차 자료로 보완했고, CBER 2021~2022년은 FDA 공식 목록을 열지 못해 일부 빠졌을 수 있습니다. 2015~2020년 CDER 승인의 허가 보유사와 지정은 FDA의 신약 승인 집계 자료(Compilation of CDER NME and New Biologic Approvals) 기준이고, 라벨 상세는 최초 승인 라벨 또는 현행 라벨에서 정리했습니다.</p>
-              <p>기술거래 연결은 약물명·코드명이 같은 수록 거래를 이은 것입니다. 수록 범위(2021년 이후, 총액 또는 upfront $200M 이상) 밖의 계약은 나타나지 않습니다.</p>
+              <p>기술거래 연결은 약물명·코드명이 같은 수록 거래를 이은 것입니다. 수록 범위(2021년 이후, 총액 $100M 이상) 밖의 계약은 나타나지 않습니다.</p>
             </div></div>
           </div>
           <div class="panel">
@@ -1384,7 +1396,7 @@ const REGIONS=["한국","미국","중국","유럽","일본","기타","미상"];
 const BIGPHARMA="글로벌 빅파마(Top20)";
 const $=id=>document.getElementById(id);
 let ALL=[], VIEW=[], shown=60, sortK="date", sortDir=-1, latestTag=null;
-const F={q:"",yFrom:null,yTo:null,since:null,onlyNew:false,compsOnly:false,reg:new Set(),mod:new Set(),stage:new Set(),le:new Set(),kind:new Set(),status:new Set(),ta:new Set(),msub:new Set()};
+const F={q:"",yFrom:null,yTo:null,since:null,onlyNew:false,compsOnly:false,cls:new Set(),reg:new Set(),mod:new Set(),stage:new Set(),le:new Set(),kind:new Set(),status:new Set(),ta:new Set(),msub:new Set()};
 const GROUP_LABEL={reg:"원천",mod:"",stage:"",le:"",kind:"",status:""};
 const KIND_LABEL={N:"개별 자산",Y:"플랫폼·디스커버리"};
 const STATUS_LABEL={ret:"권리반환·종료",stop:"개발 중단",down:"우선순위 하향",opt:"옵션 행사·계약 확장",appr:"허가",acq:"인수(원천사·도입사)"};
@@ -1419,7 +1431,14 @@ function normalize(d,i){
 }
 
 /* ---------- filters ---------- */
+const CLS_ORDER=["라이선스","M&A","로열티 매각","판권 이전","지분투자","옵션 행사","제네릭/바이오시밀러","진단/기기"];
+const CLS_CSS={"M&A":"ma","로열티 매각":"roy","판권 이전":"rt","지분투자":"eq"};
+const DCLS=d=>d.deal_class||"라이선스", isLic=d=>DCLS(d)==="라이선스";
+const clsTag=d=>isLic(d)?"":`<span class="cls ${CLS_CSS[DCLS(d)]||"oth"}">${esc(DCLS(d))}</span>`;
+const ROLE={"M&A":["피인수","인수"],"로열티 매각":["매도","매수"],"판권 이전":["매도","매수"],"지분투자":["피투자","투자"]};
+let LVIEW=[];
 const GROUPS={
+  cls:{get:d=>DCLS(d),values:()=>CLS_ORDER.filter(v=>ALL.some(d=>DCLS(d)===v))},
   reg:{get:d=>d.lr_region||"미상",values:()=>REGIONS.filter(v=>ALL.some(d=>(d.lr_region||"미상")===v))},
   mod:{test:(d,v)=>d.modality===v||(d.mod_multi||[]).includes(v),values:()=>modVals(ALL.map(d=>d.modality))},
   msub:{test:d=>modSubPass(d.modality,d.mod_sub,F.mod,F.msub),values:()=>[],label:v=>v.replace("|"," › ")},
@@ -1455,6 +1474,9 @@ function yearsDefault(){const ys=[...new Set(ALL.map(d=>d.year))].sort();return[
 const sinceISO=()=>{const d=new Date();d.setMonth(d.getMonth()-3);return d.toISOString().slice(0,10)};
 const only=(set,v)=>set.size===1&&set.has(v);
 const CHIPS=[
+  {id:"lic",label:"라이선스",on:()=>only(F.cls,"라이선스"),set:on=>{F.cls=on?new Set(["라이선스"]):new Set()},disabled:()=>!ALL.some(d=>!isLic(d))},
+  {id:"ma",label:"M&A",on:()=>only(F.cls,"M&A"),set:on=>{F.cls=on?new Set(["M&A"]):new Set()},disabled:()=>!ALL.some(d=>DCLS(d)==="M&A")},
+  {id:"roy",label:"로열티·판권",on:()=>F.cls.size===2&&F.cls.has("로열티 매각")&&F.cls.has("판권 이전"),set:on=>{F.cls=on?new Set(["로열티 매각","판권 이전"]):new Set()},disabled:()=>!ALL.some(d=>/로열티|판권/.test(DCLS(d)))},
   {id:"kr",label:"한국 기술수출",on:()=>only(F.reg,"한국"),set:on=>{F.reg=on?new Set(["한국"]):new Set()}},
   {id:"3m",label:"최근 3개월",on:()=>!!F.since,set:on=>{F.since=on?sinceISO():null}},
   {id:"cn",label:"중국 원천",on:()=>only(F.reg,"중국"),set:on=>{F.reg=on?new Set(["중국"]):new Set()}},
@@ -1470,7 +1492,7 @@ function drawChips(){
   if(!box.dataset.built){box.innerHTML=[CHIP_ALL,...CHIPS].map(c=>`<button type="button" class="chip" data-c="${c.id}" aria-pressed="false">${c.label}</button>`).join("");box.dataset.built="1"}
   const any=CHIPS.some(c=>c.on()),on=[];
   box.querySelectorAll(".chip").forEach(b=>{const id=b.dataset.c;let p;
-    if(id==="all")p=!any;else{const c=CHIPS.find(x=>x.id===id);p=c.on();const dis=!!(c.disabled&&c.disabled());b.disabled=dis;b.title=dis?"아직 월간 업데이트 추가분이 없습니다":""}
+    if(id==="all")p=!any;else{const c=CHIPS.find(x=>x.id===id);p=c.on();const dis=!!(c.disabled&&c.disabled());b.disabled=dis;b.title=dis?"아직 월간 업데이트 추가분이 없습니다":"";if(/^(lic|ma|roy)$/.test(id))b.hidden=dis}
     b.setAttribute("aria-pressed",String(p));b.classList.remove("solo");if(p)on.push(b)});
   on.slice(1).forEach(b=>b.classList.add("solo"));
   chipInd(true);
@@ -1506,7 +1528,7 @@ function apply(keepShown){
     ALL.forEach(d=>{d._score=0;d._near=null});
     const base=d=>{
       if(F.since){if(d.date<F.since)return false}else if(d.year<y0||d.year>y1)return false;
-      for(const g of ["reg","mod","msub","stage","le","kind","status","ta"]){
+      for(const g of ["cls","reg","mod","msub","stage","le","kind","status","ta"]){
         if(!F[g].size)continue;const G=GROUPS[g];
         if(G.test){if(![...F[g]].some(v=>G.test(d,v)))return false}
         else if(!F[g].has(G.get(d)))return false;
@@ -1769,7 +1791,7 @@ function askCandidates(q){
 function askPrompt(q){
   const cand=askCandidates(q), cset=new Set(cand.map(d=>d.id));
   const rest=cand.length<20?ALL.filter(d=>!cset.has(d.id)).map(brief).join("\n"):"";
-  return `당신은 바이오·헬스케어 기술거래와 기술특례상장에 밝은 IB 담당자입니다. 아래는 2021년 이후 발표된 총액 $200M 이상 글로벌 신약 기술거래(라이선스·옵션·공동개발·플랫폼) 데이터베이스입니다. 금액은 USD 백만, '총액'은 발표된 최대치(마일스톤 포함)입니다.
+  return `당신은 바이오·헬스케어 기술거래와 기술특례상장에 밝은 IB 담당자입니다. 아래는 2021년 이후 발표된 글로벌 신약 기술거래(라이선스·옵션·공동개발·플랫폼, 그리고 deal_class가 표시된 M&A 등) 데이터베이스입니다. 금액은 USD 백만, '총액'은 발표된 최대치(마일스톤 포함)입니다.
 
 사용자 질문:
 """${q}"""
@@ -1796,9 +1818,10 @@ function miniCard(d){
 
 /* ---------- render ---------- */
 function render(){
-  const n=VIEW.length, AS=VIEW.filter(d=>d.platform==="N"), PF=VIEW.filter(d=>d.platform!=="N");
+  LVIEW=VIEW.filter(isLic);const nAll=VIEW.length,nX=nAll-LVIEW.length;
+  const n=LVIEW.length, AS=LVIEW.filter(d=>d.platform==="N"), PF=LVIEW.filter(d=>d.platform!=="N");
   const iso=t=>new Date(t).toISOString().slice(0,10),now=Date.now(),d1=iso(now-365*864e5),d2=iso(now-730*864e5);
-  const r12=VIEW.filter(d=>d.date>d1).length,p12=VIEW.filter(d=>d.date>d2&&d.date<=d1).length;
+  const r12=LVIEW.filter(d=>d.date>d1).length,p12=LVIEW.filter(d=>d.date>d2&&d.date<=d1).length;
   $("kN").textContent=fmt(n);
   $("kNs").textContent=n?`최근 1년 ${fmt(r12)}건`+(p12?` ${r12>=p12?"▲":"▼"}${fmt(Math.abs(r12/p12-1)*100,0)}%`:""):" ";
   const mT=median(AS.map(d=>d.total)),mP=median(PF.map(d=>d.total));
@@ -1807,9 +1830,10 @@ function render(){
   const aU=AS.map(d=>d.upfront),mU=median(aU),rU=median(AS.map(d=>d.ratio));
   $("kMedU").innerHTML=mU==null?"–":`${fmt(mU,1).replace(/\.0$/,"")}<small>$M</small>`;
   $("kMedUs").textContent=rU==null?" ":`총액 대비 ${fmt(rU*100,1)}%`;
-  const KR=VIEW.filter(d=>d.lr_region==="한국"),mK=median(KR.map(d=>d.total));
+  const KR=LVIEW.filter(d=>d.lr_region==="한국"),mK=median(KR.map(d=>d.total));
+  {const kb=$("kBasis");if(kb)kb.textContent=nX?`통계 기준: 라이선스 거래만 · M&A 등 ${fmt(nX)}건 제외`:""}
   $("kRatio").innerHTML=`${fmt(KR.length)}<small>건</small>`;$("kKrs").textContent=KR.length?`최근 1년 ${fmt(KR.filter(d=>d.date>d1).length)}건`:" ";
-  $("ledgerTitle").textContent=F.compsOnly?`비교 목록 (${fmt(n)}건)`:`목록 (${fmt(n)}건)`;
+  $("ledgerTitle").textContent=F.compsOnly?`비교 목록 (${fmt(nAll)}건)`:`목록 (${fmt(nAll)}건)`;
   drawYears(); drawBench(); drawList(); drawComps();
 }
 
@@ -1817,7 +1841,7 @@ function drawYears(){
   const svg=$("yearChart"), years=[...new Set(ALL.map(d=>d.year))].sort();
   const box=svg.parentElement,W=Math.max(260,Math.round(box.clientWidth||460)),H=Math.max(100,Math.round(box.clientHeight||150)),L=40,R=36,T=24,B=22, iw=W-L-R, ih=H-T-B, NT=ih<120?2:4;
   svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
-  const by=years.map(y=>{const g=VIEW.filter(d=>d.year===y);return{y,n:g.length,t:g.reduce((a,d)=>a+(d.total||0),0)/1000}});
+  const by=years.map(y=>{const g=LVIEW.filter(d=>d.year===y);return{y,n:g.length,t:g.reduce((a,d)=>a+(d.total||0),0)/1000}});
   const maxN=Math.max(1,...by.map(b=>b.n)), maxT=Math.max(1,...by.map(b=>b.t));
   const stepN=maxN>100?50:maxN>40?20:maxN>10?5:1, niceN=Math.ceil(maxN/stepN/4)*stepN*4||4;
   const stepT=maxT>400?100:maxT>200?50:maxT>80?20:maxT>40?10:maxT>16?5:2, niceT=Math.ceil(maxT/stepT/4)*stepT*4||4;
@@ -1837,7 +1861,7 @@ function drawYears(){
 }
 
 function drawBench(){
-  const base=VIEW.filter(d=>d.platform==="N");
+  const base=LVIEW.filter(d=>d.platform==="N");
   const rows=BENCH_STAGES.map(s=>{const g=base.filter(d=>d.stage===s);const u=g.map(d=>d.upfront).filter(v=>v!=null);const t=g.map(d=>d.total);
     return{s,n:g.length,un:u.length,u25:pct(u,.25),u50:pct(u,.5),u75:pct(u,.75),t50:median(t),r:median(g.map(d=>d.ratio))}});
   const maxU=Math.max(1,...rows.map(r=>r.u75||0));
@@ -1849,11 +1873,11 @@ function drawBench(){
 
 const star=d=>`<button type="button" class="starbtn" data-star="${esc(d.id)}" aria-pressed="${COMPS.has(d.id)}" aria-label="${COMPS.has(d.id)?"비교 거래에서 빼기":"비교 거래에 담기"}">★</button>`;
 const isNew=d=>latestTag&&d.added===latestTag?'<span class="new">NEW</span>':"";
-const stTag=d=>d.status?`<span class="st ${statusClass(d.status)}">${esc(d.status)}</span>`:"";
+const stTag=d=>clsTag(d)+(d.status?`<span class="st ${statusClass(d.status)}">${esc(d.status)}</span>`:"");
 function party(d,side,koFirst){
   const en=side==="lr"?d.licensor:d.licensee, ko=side==="lr"?d.lr_ko:d.le_ko;
   const main=koFirst?(ko||en):en, sub=koFirst?(ko?en:""):(ko||"");
-  return `<span class="party ${side}"><span class="role">${side==="lr"?"수출":"도입"}</span><span class="nm">${esc(main)}${sub?`<small class="ko">${esc(sub)}</small>`:""}</span></span>`;
+  return `<span class="party ${side}"><span class="role">${(ROLE[DCLS(d)]||["수출","도입"])[side==="lr"?0:1]}</span><span class="nm">${esc(main)}${sub?`<small class="ko">${esc(sub)}</small>`:""}</span></span>`;
 }
 const drugLine=d=>{const t=[];if(d.target)t.push(`<b>표적</b>${esc(d.target)}`);if(d.indication)t.push(`<b>적응증</b>${esc(d.indication)}`);return t.length?`<span class="ti">${t.join(" &nbsp;")}</span>`:""};
 const stageTag=d=>d.stage&&d.stage!=="미상"?`<span class="stage">${esc(d.stage)}</span>`:`<span class="stage none">단계 미상</span>`;
@@ -2333,8 +2357,9 @@ addEventListener("resize",()=>{const p=isPhone(),c=useCards();
   if(c!==fWasCards){fWasCards=c;fDrawList()}});
 ["ffyFrom","ffyTo"].forEach(id=>$(id)&&$(id).addEventListener("change",ffYearsChange));
 let INV=[],IVIEW=[],ishown=40,isortK="date",isortDir=-1,INV_ERR="";
-const IF={q:"",since:null,type:new Set(),reg:new Set(),yr:new Set(),mod:new Set(),msub:new Set(),stage:new Set(),ta:new Set(),mega:false,compsOnly:false};
-const IGS=["type","reg","yr","ta","mod","msub","stage"];
+const IF={q:"",since:null,icls:new Set(),type:new Set(),reg:new Set(),yr:new Set(),mod:new Set(),msub:new Set(),stage:new Set(),ta:new Set(),mega:false,compsOnly:false};
+const IGS=["icls","type","reg","yr","ta","mod","msub","stage"];
+const ICLS=a=>a.sector&&a.sector!=="신약"?"신약 외 회사":(a.type==="시리즈/비공개"||a.type==="IPO")?"라운드·IPO":"상장 후 조달", iCore=a=>ICLS(a)==="라운드·IPO";
 let ICOMPS=new Set();
 let invCompsStore={load:async()=>{try{return JSON.parse(localStorage.getItem("dealbook-inv-comps")||"[]")}catch(e){return[]}},save:async ids=>{try{localStorage.setItem("dealbook-inv-comps",JSON.stringify(ids))}catch(e){}}};
 async function initInvComps(){try{ICOMPS=new Set(await invCompsStore.load())}catch(e){ICOMPS=new Set()}if(INV.length)iApply(true)}
@@ -2351,7 +2376,8 @@ function setInv(arr){try{INV=(arr||[]).map(inorm);const last=INV.map(a=>a.date).
 /* filter groups */
 const iCount=fn=>{const m={};INV.forEach(a=>{const v=fn(a);m[v]=(m[v]||0)+1});return Object.keys(m).sort((x,y)=>m[y]-m[x])};
 const IGROUPS={
-  type:{vals:()=>["시리즈/비공개","IPO"],label:v=>v==="IPO"?"IPO":"비상장 투자",get:a=>a.type},
+  icls:{vals:()=>["라운드·IPO","상장 후 조달","신약 외 회사"],label:v=>v,get:a=>ICLS(a)},
+  type:{vals:()=>["시리즈/비공개","IPO","후속공모","유상증자","PIPE"],label:v=>v==="IPO"?"IPO":v==="시리즈/비공개"?"비상장 투자":v,get:a=>a.type},
   reg:{vals:()=>["한국","미국","유럽","중국","기타"],label:v=>v,get:a=>a._reg},
   yr:{vals:()=>[...new Set(INV.map(a=>a._yr))].sort().reverse(),label:v=>v+"년",get:a=>a._yr},
   mod:{vals:()=>modVals(INV.map(a=>a._mod)),label:v=>v,get:a=>modSet(a._mod,a.mod_multi),multi:true},
@@ -2381,12 +2407,14 @@ const ICHIPS=[
   {id:"priv",label:"비상장 투자",on:()=>iOnly(IF.type,"시리즈/비공개"),set:iset("type","시리즈/비공개")},
   {id:"ipo",label:"IPO",on:()=>iOnly(IF.type,"IPO"),set:iset("type","IPO")},
   {id:"mega",label:"대형 ($200M+)",on:()=>IF.mega,set:b=>{IF.mega=b}},
-  {id:"kr",label:"국내",on:()=>iOnly(IF.reg,"한국"),set:iset("reg","한국")}];
+  {id:"kr",label:"국내",on:()=>iOnly(IF.reg,"한국"),set:iset("reg","한국")},
+  {id:"post",label:"상장 후 조달",on:()=>iOnly(IF.icls,"상장 후 조달"),set:iset("icls","상장 후 조달"),disabled:()=>!INV.some(a=>ICLS(a)==="상장 후 조달")},
+  {id:"nondrug",label:"신약 외 회사",on:()=>iOnly(IF.icls,"신약 외 회사"),set:iset("icls","신약 외 회사"),disabled:()=>!INV.some(a=>ICLS(a)==="신약 외 회사")}];
 function iDrawChips(){
   const box=$("ichips");
   if(!box.dataset.built){box.innerHTML=[{id:"all",label:"전체"},...ICHIPS].map(c=>`<button type="button" class="chip" data-c="${c.id}" aria-pressed="false">${c.label}</button>`).join("");box.dataset.built="1"}
   const any=ICHIPS.some(c=>c.on());
-  box.querySelectorAll(".chip").forEach(b=>{const id=b.dataset.c;b.setAttribute("aria-pressed",String(id==="all"?!any:ICHIPS.find(x=>x.id===id).on()))});
+  box.querySelectorAll(".chip").forEach(b=>{const id=b.dataset.c,c=ICHIPS.find(x=>x.id===id);b.setAttribute("aria-pressed",String(id==="all"?!any:c.on()));if(c&&c.disabled){const dz=c.disabled()&&!c.on();b.disabled=dz;b.hidden=dz}});
   iChipInd(true)}
 function iChipInd(reveal){const w=$("ichipsWrap");if(w)moveInd(w,$("ichips").querySelector('.chip[aria-pressed="true"]'),reveal)}
 function iDrawActive(){
@@ -2411,7 +2439,7 @@ function iDrawYears(){
   const W=Math.max(260,Math.round(box.clientWidth||460)),H=Math.max(100,Math.round(box.clientHeight||150)),L=40,R=30,T=24,B=22,iw=W-L-R,ih=H-T-B;
   svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
   const years=[...new Set(INV.map(a=>a._yr))].sort();if(!years.length){svg.innerHTML="";return}
-  const by=years.map(y=>{const g=IVIEW.filter(a=>a._yr===y);return{y,n:g.length,usd:g.reduce((s,a)=>s+(a.amount_usd||0),0)}});
+  const by=years.map(y=>{const g=IVIEW.filter(a=>a._yr===y&&iCore(a));return{y,n:g.length,usd:g.reduce((s,a)=>s+(a.amount_usd||0),0)}});
   const mxN=Math.max(1,...by.map(b=>b.n)),mxU=Math.max(1,...by.map(b=>b.usd)),NT=ih<120?2:4;
   const nU=Math.ceil(mxU*1.1/NT/100)*100*NT||NT*100,nN=Math.ceil(mxN*1.15/NT)*NT||NT,bw=iw/years.length,out=[];
   for(let i=0;i<=NT;i++){const y=T+ih-ih*i/NT;out.push(`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="var(--line)" stroke-dasharray="2 4"/><text x="${L-6}" y="${y+4}" text-anchor="end">${fmt(nU*i/NT/1000,1)}B</text><text x="${W-R+6}" y="${y+4}" text-anchor="start" fill="var(--c3)">${fmt(nN*i/NT)}</text>`)}
@@ -2426,7 +2454,8 @@ function iDrawYears(){
 function iDrawKpi(){
   try{iDrawYears()}catch(e){}
   const ys=[...new Set(INV.map(a=>a._yr))].sort(),Y=ys[ys.length-1]||"",P=String(+Y-1);
-  const cur=IVIEW.filter(a=>a._yr===Y),prv=INV.filter(a=>a._yr===P&&iMatch(a,"type")&&iMatch(a,"reg")&&iMatch(a,"mod")&&iMatch(a,"msub")&&iMatch(a,"stage")&&iMatch(a,"ta"));
+  const nX=IVIEW.filter(a=>!iCore(a)).length;{const kb=$("ikBasis");if(kb)kb.textContent=nX?`통계 기준: 신약 회사의 비상장 라운드와 IPO만 · 상장 후 조달 등 ${fmt(nX)}건 제외`:""}
+  const cur=IVIEW.filter(a=>a._yr===Y&&iCore(a)),prv=INV.filter(a=>a._yr===P&&iCore(a)&&iMatch(a,"icls")&&iMatch(a,"type")&&iMatch(a,"reg")&&iMatch(a,"mod")&&iMatch(a,"msub")&&iMatch(a,"stage")&&iMatch(a,"ta"));
   const sum=g=>g.reduce((s,a)=>s+(a.amount_usd||0),0),med=g=>{const v=g.map(a=>a.amount_usd).filter(x=>x!=null).sort((a,b)=>a-b);return v.length?v[Math.floor(v.length/2)]:null};
   const big=g=>g.reduce((m,a)=>(a.amount_usd||0)>(m?m.amount_usd:-1)?a:m,null);
   const $$=(id,h,s)=>{$(id).innerHTML=h;$(id+"s").textContent=s};
@@ -2437,7 +2466,7 @@ function iDrawKpi(){
   const b=big(cur);$$("ikB",b?`$${fmt(b.amount_usd)}<small>M</small>`:"–",b?b.company:" ");
 }
 const iNew=a=>(Date.now()-Date.parse(a.date))/864e5<=14?'<span class="new">NEW</span>':"";
-const iTags=a=>[`<span class="tag ${a.type==="IPO"?"plat":""}">${esc(a.type==="시리즈/비공개"?(a.round||"비공개 라운드"):a.type+(a.exchange?" · "+a.exchange:""))}</span>`,a._mod!=="Microbiome/Other"||!modUnk(a._mod,a._msub)?`${modPill(a._mod,a._msub,"",a.mod_multi)}`:"",a.area&&a.area!=="Other"?`<span class="tag">${esc(a.area)}</span>`:"",a.stage&&a.stage!=="미상"?`<span class="tag">${esc(a.stage)}</span>`:""].join("");
+const iTags=a=>[(a.sector&&a.sector!=="신약"?`<span class="cls oth">${esc(a.sector)}</span>`:""),`<span class="tag ${a.type==="IPO"?"plat":""}">${esc(a.type==="시리즈/비공개"?(a.round||"비공개 라운드"):a.type+(a.exchange?" · "+a.exchange:""))}</span>`,a._mod!=="Microbiome/Other"||!modUnk(a._mod,a._msub)?`${modPill(a._mod,a._msub,"",a.mod_multi)}`:"",a.area&&a.area!=="Other"?`<span class="tag">${esc(a.area)}</span>`:"",a.stage&&a.stage!=="미상"?`<span class="tag">${esc(a.stage)}</span>`:""].join("");
 const iStageShort=s=>({"Discovery":"탐색","Preclinical":"전임상","Phase 1":"1상","Phase 2":"2상","Phase 3":"3상","Phase 1/2":"1/2상","허가신청·승인":"허가","상업화":"상업화","미확인":""}[s]??(String(s||"").startsWith("미확인")?"":s||""));
 function iPipeLine(a){const p=(a.pipeline||[]).slice(0,3);
   if(p.length)return `<div class="ipipe"><b>주요 파이프라인</b>${p.map(x=>`<span class="ipp"><i>${esc(x.name||"")}</i>${x.target?` · ${esc(x.target)}`:""}${x.indication?` · ${esc(x.indication)}`:""}${x.stage?` <em>${esc(iStageShort(x.stage))}</em>`:""}</span>`).join("")}</div>`;
@@ -2624,7 +2653,7 @@ function paneOv(a){
      return `<button type="button" class="fdeal" data-deal="${esc(d.id)}"><span><b>${esc(d.lr_ko||d.licensor)} → ${esc(d.le_ko||d.licensee)}</b></span>
        <span class="hint"><span class="num">${esc(d.date)}</span> 계약${m!=null?(m>=0?` · 승인까지 ${fmt(m)}개월`:" · 승인 후 계약"):""}</span>
        <span class="hint">${d.total!=null?`총액 $${fmtM(d.total)}${d.total>=10000?"":"M"}`:"총액 비공개"}${d.upfront!=null?` · Upfront $${fmt(d.upfront,d.upfront<10?1:0)}M`:""}${l.confidence&&l.confidence!=="high"?` · 연결 신뢰도 ${esc(l.confidence)}`:""}</span>
-       ${l.note?`<span class="hint">${esc(l.note)}</span>`:""}</button>`}).join(""):'<p class="hint" style="margin:0">수록된 기술거래(2021년 이후, 총액 또는 upfront $200M 이상)와 연결된 계약이 없습니다.</p>'}</div>
+       ${l.note?`<span class="hint">${esc(l.note)}</span>`:""}</button>`}).join(""):'<p class="hint" style="margin:0">수록된 기술거래(2021년 이후, 총액 $100M 이상)와 연결된 계약이 없습니다.</p>'}</div>
    <dl class="kv"><dt>허가 보유사</dt><dd>${esc(a.sponsor||"–")}</dd><dt>성분명</dt><dd>${esc(a.generic||"–")}</dd><dt>출처</dt><dd>${link(a.src)||"–"}</dd></dl>
    <p class="hint" style="margin:0">허가 보유사·지정·확보 경로는 FDA 목록 외 공개 자료로 보완한 값입니다.</p>`;
 }
@@ -2685,7 +2714,7 @@ function fCandidates(q){
 function fAskPrompt(q){
   const cand=fCandidates(q),cs=new Set(cand.map(a=>a.id));
   const rest=FDA.filter(a=>!cs.has(a.id)).map(fBrief).join("\n");
-  return `당신은 바이오·헬스케어 IB 담당자입니다. 아래는 2015년 이후 FDA가 승인한 신약(CDER 신약 NME/BLA, CBER 세포·유전자치료·백신 등) 데이터베이스입니다. '연결 거래'는 같은 약의 기술거래(총액 또는 upfront $200M 이상)입니다.
+  return `당신은 바이오·헬스케어 IB 담당자입니다. 아래는 2015년 이후 FDA가 승인한 신약(CDER 신약 NME/BLA, CBER 세포·유전자치료·백신 등) 데이터베이스입니다. '연결 거래'는 같은 약의 기술거래(총액 $100M 이상)입니다.
 
 사용자 질문:
 """${q}"""

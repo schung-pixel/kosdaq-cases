@@ -146,9 +146,9 @@ def fda_cder(fda):
     return added
 
 # ---------- 2. 후보 ----------
-DEAL_RX = re.compile(r'licen[cs]|collaborat|option to|partnership|exclusive rights|co-develop|strategic agreement|worldwide rights', re.I)
-INV_RX = re.compile(r'series [a-f]\b|seed|financing|crossover|private placement|raises?|closes? .* round|initial public offering|\bipo\b|prices? .* offering', re.I)
-EXCL_RX = re.compile(r'generic|biosimilar|diagnostic|medical device|cdmo|manufacturing agreement|royalty|market (size|report)|delveinsight|research and markets|webinar|conference call', re.I)
+DEAL_RX = re.compile(r'licen[cs]|collaborat|option to|partnership|exclusive rights|co-develop|strategic agreement|worldwide rights|acqui|merger|to buy|royalt|equity investment|strategic investment|commerciali[sz]ation rights', re.I)
+INV_RX = re.compile(r'series [a-f]\b|seed|financing|crossover|private placement|pipe\b|raises?|closes? .* round|initial public offering|\bipo\b|prices? .* offering|public offering|registered direct', re.I)
+EXCL_RX = re.compile(r'market (size|report|analysis)|delveinsight|research and markets|webinar|conference call|to present at|annual meeting|at-the-market|convertible (notes?|senior)', re.I)
 AMT_RX = re.compile(r'(?:US)?\$\s?([\d.,]+)\s*(billion|million|bn|mn|m|b)\b', re.I)
 
 def amounts(s):
@@ -165,7 +165,7 @@ def classify(title, desc):
     s = f'{title} {desc}'
     if EXCL_RX.search(s): return None
     amt = max(amounts(s) or [0])
-    if DEAL_RX.search(s) and amt >= 200: return 'deal', amt
+    if DEAL_RX.search(s) and amt >= 100: return 'deal', amt
     if INV_RX.search(s) and amt >= 100: return ('ipo' if re.search(r'initial public offering|\bipo\b', s, re.I) else 'invest'), amt
     return None
 
