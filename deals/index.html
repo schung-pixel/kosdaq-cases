@@ -1426,7 +1426,7 @@ function normalize(d,i){
   r.stageOrd=STAGES.indexOf(d.stage||"미상"); if(r.stageOrd<0)r.stageOrd=STAGES.length;
   r.ratio=(d.total>0&&d.upfront!=null)?d.upfront/d.total:null;
   r.hay=[d.licensor,d.lr_ko,d.licensee,d.le_ko,d.kw,d.asset,d.target,d.indication,d.area,d.modality_detail,modHay(r.modality,r.mod_sub,r.mod_multi)].join(" ").toLowerCase();
-  r.hayNS=r.hay.replace(/\s+/g,"");
+  r.hayNS=r.hay.replace(/\s+/g,"");r.hayPH=PH(r.hay);
   return r;
 }
 
@@ -1516,14 +1516,14 @@ function resetFilters(){
 }
 
 function apply(keepShown){
-  const qRaw=F.q.trim(), q=qRaw.toLowerCase(), qNS=q.replace(/\s+/g,"");
+  const qRaw=F.q.trim(), q=qRaw.toLowerCase(), qNS=q.replace(/\s+/g,""), qPH=HG.test(qRaw)?PH(qRaw):"";
   const y0=Math.min(F.yFrom,F.yTo), y1=Math.max(F.yFrom,F.yTo);
   NLP=null;
   if(MODE){
     const byId=new Map(ALL.map(d=>[d.id,d]));VIEW=MODE.ids.map(id=>byId.get(id)).filter(Boolean);
   }else if(F.compsOnly){VIEW=ALL.filter(d=>COMPS.has(d.id))}
   else{
-    if(qRaw){const P=parseNL(qRaw);const direct=ALL.some(d=>d.hay.includes(q)||d.hayNS.includes(qNS));
+    if(qRaw){const P=parseNL(qRaw);const direct=ALL.some(d=>d.hay.includes(q)||d.hayNS.includes(qNS)||(qPH&&d.hayPH.includes(qPH)));
       if(P.structured||(!direct&&P.groups.length))NLP=P}
     ALL.forEach(d=>{d._score=0;d._near=null});
     const base=d=>{
@@ -1535,7 +1535,7 @@ function apply(keepShown){
       }
       if(F.onlyNew&&d.added!==latestTag)return false;
       return true};
-    if(!NLP){VIEW=ALL.filter(d=>base(d)&&(!qRaw||d.hay.includes(q)||d.hayNS.includes(qNS)))}
+    if(!NLP){VIEW=ALL.filter(d=>base(d)&&(!qRaw||d.hay.includes(q)||d.hayNS.includes(qNS)||(qPH&&d.hayPH.includes(qPH))))}
     else{
       const strict=[],near=[];
       for(const d of ALL){
@@ -1874,6 +1874,15 @@ function drawBench(){
 const star=d=>`<button type="button" class="starbtn" data-star="${esc(d.id)}" aria-pressed="${COMPS.has(d.id)}" aria-label="${COMPS.has(d.id)?"비교 거래에서 빼기":"비교 거래에 담기"}">★</button>`;
 const isNew=d=>latestTag&&d.added===latestTag?'<span class="new">NEW</span>':"";
 const stTag=d=>clsTag(d)+(d.status?`<span class="st ${statusClass(d.status)}">${esc(d.status)}</span>`:"");
+const HG=/[가-힣]/;
+const PH=(()=>{const LM=[0,0,2,3,3,5,6,7,7,9,9,11,12,12,12,0,3,7,18],VM={1:5,3:7,10:15,11:15,16:17,19:20},FV={9:0,14:4,16:20,10:5,11:5,15:5},
+TM=[0,1,1,1,4,4,4,7,8,8,8,8,8,8,8,8,16,17,17,7,7,21,7,7,1,7,17,7];
+return s=>{let o="";for(const ch of String(s||"").toLowerCase()){const c=ch.charCodeAt(0)-0xAC00;
+ if(c>=0&&c<11172){let L=Math.floor(c/588),V=Math.floor(c%588/28),T=c%28;
+  if(L===18&&V in FV){L=7;V=FV[V]}else{L=LM[L];if(V in VM)V=VM[V]}
+  o+=String.fromCharCode(0xAC00+(L*21+V)*28+TM[T])}
+ else if(!/[\s\-·.,()&/'"]/.test(ch))o+=ch}return o}})();
+const phOf=a=>a._ph||(a._ph=PH(a._hay));
 const KRC=/^(south korea|korea|republic of korea|kr|한국|대한민국)$/i;
 const isKRco=(d,side)=>side==="lr"?(d.lr_region==="한국"||KRC.test(d.lr_country||"")):KRC.test(d.le_country||"");
 const NM=(d,side)=>{const en=side==="lr"?d.licensor:d.licensee, ko=side==="lr"?d.lr_ko:d.le_ko;return isKRco(d,side)&&ko?ko:en};
@@ -2177,7 +2186,7 @@ function drawFYears(){
 }
 function fApply(keep){
   const terms=FF.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  FVIEW=FDA.filter(a=>(!FF.compsOnly||FCOMPS.has(a.id))&&(!FF.since||String(a.date)>=FF.since)&&FGS.every(g=>fMatch(a,g))&&terms.every(t=>a._hay.includes(t)));
+  FVIEW=FDA.filter(a=>(!FF.compsOnly||FCOMPS.has(a.id))&&(!FF.since||String(a.date)>=FF.since)&&FGS.every(g=>fMatch(a,g))&&terms.every(t=>a._hay.includes(t)||(HG.test(t)&&phOf(a).includes(PH(t)))));
   if(FMODE&&FMODE.type==='ai'&&!FMODE.loading&&!FMODE.error){const by=new Map(FDA.map(a=>[a.id,a]));FVIEW=FMODE.ids.map(id=>by.get(id)).filter(Boolean);fshown=Math.max(fshown,FVIEW.length)}else fSort();
   if(!keep)fshown=60;
   fDrawChips();fDrawActive();fSyncPanel();fDrawKpi();fDrawComps();fDrawList();drawFMode();
@@ -2431,7 +2440,7 @@ function iSort(){const k=isortK,dir=isortDir;
 function iMatch(a,g){const s=IF[g];if(!s.size)return true;if(IGROUPS[g].test)return IGROUPS[g].test(a);const v=IGROUPS[g].get(a);return IGROUPS[g].multi?v.some(x=>s.has(x)):s.has(v)}
 function iApply(keep){
   const terms=IF.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  IVIEW=INV.filter(a=>(!IF.compsOnly||ICOMPS.has(a.id))&&(!IF.since||String(a.date)>=IF.since)&&(!IF.mega||(a.amount_usd||0)>=200)&&IGS.every(g=>iMatch(a,g))&&terms.every(t=>a._hay.includes(t)));
+  IVIEW=INV.filter(a=>(!IF.compsOnly||ICOMPS.has(a.id))&&(!IF.since||String(a.date)>=IF.since)&&(!IF.mega||(a.amount_usd||0)>=200)&&IGS.every(g=>iMatch(a,g))&&terms.every(t=>a._hay.includes(t)||(HG.test(t)&&phOf(a).includes(PH(t)))));
   iSort();if(!keep)ishown=40;
   iDrawChips();iDrawActive();iSyncPanel();iDrawKpi();iDrawComps();iDrawList();
   const n=iFilterN();[$("iCnt"),$("iCnt2")].forEach(el=>el.textContent=n?String(n):"");
