@@ -186,7 +186,10 @@ def rss(name, url):
     except Exception as e:
         log('RSS 실패', name, str(e)[:80]); return out
     for it in root.iter('item'):
-        t = (it.findtext('title') or '').strip(); l = (it.findtext('link') or '').strip()
+        te = it.find('title'); t = text(''.join(te.itertext())) if te is not None else ''
+        if not t:
+            m = re.search(r'/([a-z0-9-]{12,})/?$', it.findtext('link') or ''); t = m.group(1).replace('-', ' ') if m else ''
+        l = (it.findtext('link') or '').strip()
         d = text(it.findtext('description') or '')[:600]; pd = it.findtext('pubDate') or ''
         try:
             date = dt.datetime.strptime(pd[:25].strip(), '%a, %d %b %Y %H:%M:%S').strftime('%Y-%m-%d')
