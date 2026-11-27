@@ -1000,6 +1000,20 @@ img{max-width:100%}
 [hidden]{display:none!important}
 .offline{font-size:11px;color:var(--warn);margin-left:6px}
 </style>
+<style id="newsband-css">
+.newsband{border:1px dashed color-mix(in srgb,var(--warn) 55%,var(--line));background:var(--warn-soft);border-radius:14px;padding:10px 14px;display:grid;gap:8px;min-width:0}
+.newsband .nb-hd{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:var(--warn)}
+.newsband .nb-hd:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.newsband .nb-hd span{font-weight:400;font-size:12px}
+.newsband .nb-row{display:grid;gap:2px;padding-top:8px;border-top:1px dashed color-mix(in srgb,var(--warn) 35%,transparent);min-width:0}
+.newsband .nb-row a{color:var(--ink);font-weight:500;font-size:13.5px;line-height:1.4;text-decoration:none;overflow-wrap:anywhere}
+.newsband .nb-row a:hover{text-decoration:underline}
+.newsband .nb-m{font-size:12px;color:var(--muted)}
+.newsband .nb-m b{font-family:var(--f-mono);font-weight:500;color:var(--eosin)}
+.newsband .nb-note{margin:0;font-size:11.5px;color:var(--muted);line-height:1.5}
+.newsband.collapsed .nb-row,.newsband.collapsed .nb-note{display:none}
+@media (max-width:820px){.newsband{order:4}}
+</style>
 </head>
 <body>
 
@@ -1137,7 +1151,8 @@ img{max-width:100%}
         </span>
       </section>
 
-      <section class="ledger" id="secList" data-pg="deals" aria-label="거래 목록">
+      <div class="newsband" id="nbDeals" data-pg="deals" hidden></div>
+<section class="ledger" id="secList" data-pg="deals" aria-label="거래 목록">
         <div class="ledger-top">
           <h2 id="ledgerTitle">목록</h2>
           <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
@@ -1215,7 +1230,8 @@ img{max-width:100%}
         </span>
       </section>
 
-      <section class="ledger" id="secFda" data-pg="fda" aria-label="FDA 승인 목록">
+      <div class="newsband" id="nbFda" data-pg="fda" hidden></div>
+<section class="ledger" id="secFda" data-pg="fda" aria-label="FDA 승인 목록">
         <div class="ledger-top">
           <h2 id="fTitle">목록</h2>
           <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
@@ -1291,7 +1307,8 @@ img{max-width:100%}
         </span>
       </section>
 
-      <section class="ledger" id="secInv" data-pg="inv" aria-label="투자 사례 목록">
+      <div class="newsband" id="nbInv" data-pg="inv" hidden></div>
+<section class="ledger" id="secInv" data-pg="inv" aria-label="투자 사례 목록">
         <div class="ledger-top">
           <h2 id="iTitle">목록</h2>
           <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
@@ -3101,6 +3118,24 @@ document.querySelectorAll(".psum").forEach(ps=>{const src=$(ps.dataset.src);if(!
     const t=[...src.querySelectorAll(".tagx")].find(x=>x.dataset.g===b.dataset.g&&(x.dataset.v||"")===(b.dataset.v||""));if(t)t.click()})});
 
 /* 업데이트 기준일: 가장 최근 업데이트 기록의 실행일 */
+
+/* ===== 새 소식: 매일 자동 수집한 미확인 후보(data/candidates.json) ===== */
+function drawNews(cands,runs){try{
+  const last=(runs||[]).map(r=>String(r.run_at||"").slice(0,10)).filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x)).sort().pop()||"";
+  const recent=(cands||[]).filter(c=>c&&c.title&&String(c.found||c.date||"")>last);
+  const map={deals:["deal","deal_filing"],inv:["invest","ipo"],fda:["fda_cber"]},ids={deals:"nbDeals",inv:"nbInv",fda:"nbFda"};
+  let col=false;try{col=localStorage.getItem("dealbook-news-collapsed")==="1"}catch(e){}
+  for(const pg in map){const el=document.getElementById(ids[pg]);if(!el)continue;
+    const items=recent.filter(c=>map[pg].includes(c.kind)).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+    if(!items.length){el.hidden=true;el.innerHTML="";continue}
+    const md=d=>String(d||"").slice(5,10).replace("-",".");
+    el.innerHTML=`<button type="button" class="nb-hd" aria-expanded="${!col}"><b>새 소식 ${items.length}건 · 미확인</b><span>${col?"펼치기 ▾":"접기 ▴"}</span></button>`+
+      items.map(c=>`<div class="nb-row"><a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a><div class="nb-m">${esc(c.source||"")} · ${md(c.date)}${c.amount_musd?` · <b>$${Math.round(c.amount_musd).toLocaleString()}M</b> 언급`:""} · 원문 ›</div></div>`).join("")+
+      `<p class="nb-note">매일 자동 수집한 후보입니다. 원문 확인 전이라 통계와 비교에는 들어가지 않고, 월요일 주간 업데이트에서 확인되면 목록에 정식으로 들어갑니다.</p>`;
+    el.classList.toggle("collapsed",col);el.hidden=false;
+    el.querySelector(".nb-hd").onclick=()=>{col=!col;try{localStorage.setItem("dealbook-news-collapsed",col?"1":"0")}catch(e){}
+      document.querySelectorAll(".newsband").forEach(b=>{b.classList.toggle("collapsed",col);const h=b.querySelector(".nb-hd");if(h){h.setAttribute("aria-expanded",String(!col));h.querySelector("span").textContent=col?"펼치기 ▾":"접기 ▴"}})};
+  }}catch(e){}}
 function updStamp(runs){try{const d=(runs||[]).map(r=>String(r.run_at||"").slice(0,10)).filter(x=>/^\d{4}-\d{2}-\d{2}$/.test(x)).sort().pop();
   const el=document.getElementById("updStamp");if(!el)return;if(d){document.getElementById("updDate").textContent=d;el.hidden=false}else el.hidden=true}catch(e){}}
 
@@ -3117,6 +3152,7 @@ useHistory=true;
     const d=await dRes.json(); let runs=[];
     try{if(rRes&&rRes.ok)runs=(await rRes.json()).runs||[]}catch(e){}
     setRuns(runs);
+    fetch("data/candidates.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>j&&drawNews(j.items||[],runs)).catch(()=>{});
     setData(d.deals||[]);
     try{if(fRes&&fRes.ok)setFda((await fRes.json()).items||[]);else fdaFailed("FDA 승인 데이터를 불러오지 못했습니다 ("+(fRes?fRes.status:"네트워크")+").")}catch(e){fdaFailed("FDA 승인 데이터를 읽지 못했습니다: "+(e&&e.message||e))}
     if(!navigator.onLine)$("stamp").insertAdjacentHTML("beforeend",'<span class="offline">오프라인 · 저장된 데이터</span>');
