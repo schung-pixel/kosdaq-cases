@@ -1339,7 +1339,7 @@ html.hdr-up .top,html.hdr-up .srow{transform:translateY(calc(-.5 * var(--hup,120
       <section class="kcar" id="kcar" data-pg="deals" aria-roledescription="carousel" aria-label="요약과 통계">
         <div class="ktrack" id="ktrack">
           <div class="kslide" role="group" aria-roledescription="slide" aria-label="1 / 3 · 요약"><section class="summary" id="secKpi" data-pg="deals" aria-label="선택 조건 요약">
-        <div><span class="label">거래 수</span><span class="v num" id="kN">–</span><span class="s" id="kNs">&nbsp;</span></div>
+        <div><span class="label">라이선스 거래</span><span class="v num" id="kN">–</span><span class="s" id="kNs">&nbsp;</span></div>
         <div><span class="label" title="플랫폼 계약 제외">총액 중앙값 · 개별 자산</span><span class="v num" id="kMedT">–</span><span class="s" id="kSum">&nbsp;</span></div>
         <div><span class="label">Upfront 중앙값 · 개별 자산</span><span class="v num gold" id="kMedU">–</span><span class="s" id="kMedUs">&nbsp;</span></div>
         <div><span class="label">한국 기술수출</span><span class="v num" id="kRatio">–</span><span class="s" id="kKrs">&nbsp;</span></div>
@@ -2039,7 +2039,7 @@ function render(){
   $("kMedU").innerHTML=mU==null?"–":`${fmt(mU,1).replace(/\.0$/,"")}<small>$M</small>`;
   $("kMedUs").textContent=rU==null?" ":`총액 대비 ${fmt(rU*100,1)}%`;
   const KR=LVIEW.filter(d=>d.lr_region==="한국"),mK=median(KR.map(d=>d.total));
-  {const kb=$("kBasis");if(kb)kb.textContent=nX?`통계 기준: 라이선스 거래만 · M&A 등 ${fmt(nX)}건 제외`:""}
+  {const kb=$("kBasis");if(kb)kb.textContent=""}
   $("kRatio").innerHTML=`${fmt(KR.length)}<small>건</small>`;$("kKrs").textContent=KR.length?`최근 1년 ${fmt(KR.filter(d=>d.date>d1).length)}건`:" ";
   $("ledgerTitle").textContent=F.compsOnly?`비교 목록 (${fmt(nAll)}건)`:`목록 (${fmt(nAll)}건)`;
   drawYears(); drawBench(); drawList(); drawComps();
