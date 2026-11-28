@@ -3484,7 +3484,7 @@ if(typeof curPage!=="undefined"&&curPage==="info"){_sp("deals",false);openInfo(f
  const H=document.documentElement,ph=()=>matchMedia("(max-width:820px)").matches;
  const setUp=on=>{if(on){const s=[...document.querySelectorAll('.srow')].find(e=>e.offsetParent);const b=s?Math.max(s.getBoundingClientRect().bottom,0)+6:120;H.style.setProperty('--hup',b+'px')}H.classList.toggle('hdr-up',on)};
  new MutationObserver(()=>{if(!ph())return;const lk=H.classList.contains('lock');if(lk&&!H.classList.contains('hdr-up')&&!H.classList.contains('closing'))setUp(true);if(!lk&&H.classList.contains('hdr-up')&&!H.classList.contains('closing'))setUp(false)}).observe(H,{attributes:true,attributeFilter:['class']});
- const _cs=closeSheet;closeSheet=function(fromPop){const s=$("sheet"),bg=$("sheetBg");if(s.hidden||!ph()||s.dataset.closing)return _cs.apply(this,arguments);
+ const _cs=closeSheet;closeSheet=function(fromPop){const s=$("sheet"),bg=$("sheetBg");if(s.hidden||!ph()||s.dataset.closing||s.classList.contains('dragging'))return _cs.apply(this,arguments);
   s.dataset.closing=1;H.classList.add('closing');const d=V==='V3'?0:0;
   s.style.transition='transform .3s cubic-bezier(.4,0,.9,.6)';s.style.transform='translateY(105%)';bg.style.transition='opacity .3s';bg.style.opacity='0';
   setTimeout(()=>setUp(false),V==='V3'?220:0);
