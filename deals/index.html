@@ -1137,9 +1137,20 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))!important}
 .top .tgl button{width:38px;height:38px!important;padding:0!important;border-radius:50%!important;border:1px solid rgba(255,255,255,.26)!important;color:#fff!important}
 .top .tgl .tl{display:none!important}
 .top .tgl button:focus-visible{outline:2px solid #3CC5A0;outline-offset:2px}
+/* 머리글: BIO. 로고 + 화면 이름과 날짜 두 줄(로고 높이에 맞춤) */
+.brand{display:grid!important;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;align-items:center;column-gap:14px;row-gap:0}
+.brand h1{display:contents!important}
+.brand .bt{grid-row:1 / 3;grid-column:1;color:#fff!important;font-size:0!important;line-height:0!important;margin:0!important;padding-right:14px;border-right:1px solid rgba(255,255,255,.22);height:46px;display:flex!important;align-items:center}
+.lg-word{height:36px;width:auto;display:block}
+.brand .pt{grid-row:1;grid-column:2;display:block!important;color:#fff!important;font-size:22px!important;line-height:27px!important;align-self:end;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.brand .pt::after{display:none!important}
+.brand .upd{grid-row:2;grid-column:2;border:0!important;padding:0!important;margin:0!important;flex-direction:row!important;gap:6px;align-items:baseline;line-height:19px!important;align-self:start;justify-self:start!important;justify-content:flex-start!important;display:flex!important}
+.brand .upd[hidden]{display:none!important}
+.brand .ul{display:none!important}
+.brand .ud{font-size:13px!important;line-height:inherit!important}
 </style>
   <header class="top glass" id="top">
-    <div class="brand"><h1><span class="bt">신약 딜북</span><span class="pt" id="pgTitle">기술거래</span></h1><span class="upd" id="updStamp" hidden><span class="ul">업데이트</span><span class="ud" id="updDate"></span></span></div>
+    <div class="brand"><h1><span class="bt"><svg class="lg-word" viewBox="92.7 188.4 339.3 141.6" role="img" aria-label="신약 딜북 BIO"><path d="M94.67822265625 322.0H155.69189453125C183.76513671875 322.0 200.36572265625 306.529296875 200.36572265625 285.322265625C200.36572265625 267.0703125 187.67626953125 254.5546875 170.98876953125 253.9462890625V253.7724609375C186.02490234375 250.904296875 196.02001953125 239.8662109375 196.02001953125 224.830078125C196.02001953125 205.9697265625 180.37548828125 192.498046875 150.82470703125 192.498046875H94.67822265625ZM129.79150390625 294.8828125V269.330078125H148.91259765625C157.69091796875 269.330078125 163.34033203125 274.37109375 163.34033203125 282.1064453125C163.34033203125 289.841796875 157.69091796875 294.8828125 148.91259765625 294.8828125ZM129.79150390625 243.77734375V219.615234375H146.73974609375C154.73583984375 219.615234375 159.86376953125 224.3955078125 159.86376953125 231.6962890625C159.86376953125 238.9970703125 154.73583984375 243.77734375 146.73974609375 243.77734375ZM245.51708984375 192.498046875H209.36083984375V322.0H245.51708984375ZM317.87255859375 324.0859375C353.07275390625 324.0859375 380.79833984375 300.5322265625 380.79833984375 257.3359375C380.79833984375 214.052734375 353.07275390625 190.412109375 317.87255859375 190.412109375C282.49853515625 190.412109375 254.94677734375 214.052734375 254.94677734375 257.3359375C254.94677734375 300.271484375 282.49853515625 324.0859375 317.87255859375 324.0859375ZM317.87255859375 292.796875C300.92431640625 292.796875 291.45068359375 279.6728515625 291.45068359375 257.3359375C291.45068359375 234.912109375 300.92431640625 221.701171875 317.87255859375 221.701171875C334.90771484375 221.701171875 344.29443359375 234.912109375 344.29443359375 257.3359375C344.29443359375 279.6728515625 334.90771484375 292.796875 317.87255859375 292.796875Z" fill="currentColor"/><circle cx="410" cy="308" r="20" fill="#3CC5A0"/></svg></span><span class="pt" id="pgTitle">기술거래</span></h1><span class="upd" id="updStamp" hidden><span class="ul">업데이트</span><span class="ud" id="updDate"></span></span></div>
     <nav class="tabs" id="tabs" aria-label="페이지">
       <span class="ind" aria-hidden="true"></span>
       <button class="tab" type="button" data-sec="secList">기술거래</button>
