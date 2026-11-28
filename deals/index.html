@@ -1219,6 +1219,16 @@ html:not([data-page="issue"]) #secIssue{display:none!important}
 /* 상세 팝업 전환: 팝업이 올라오면 검색 헤더가 절반 올라가며 흐려지고, 닫히면 함께 내려옴(휴대폰) */
 @media (max-width:820px){.top,.srow{transition:transform .42s cubic-bezier(.25,1,.4,1),opacity .3s ease}
 html.hdr-up .top,html.hdr-up .srow{transform:translateY(calc(-.5 * var(--hup,120px)));opacity:0}}
+/* 이슈 상세: 핵심 수치 상자, 요약, 다음 일정 */
+.nw-sh{gap:14px!important}
+.dm-why{font-size:14.5px;line-height:1.6;color:var(--ink);margin:0}
+.dm-ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:13.5px;line-height:1.6;color:var(--ink)}
+.dm-ul li::marker{color:#3CC5A0}
+.dm-next{font-size:13px;line-height:1.55;color:var(--muted);padding:10px 12px;border-left:3px solid #3CC5A0;background:var(--surface2);border-radius:0 8px 8px 0}
+.dm-next b{color:var(--accent);margin-right:4px}
+.dm-figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:12px;overflow:hidden}
+.dm-figs div{background:var(--surface);padding:10px;display:grid;gap:3px;min-width:0}
+.dm-figs span{font-size:11px;color:var(--faint)}.dm-figs b{font-size:14.5px;font-family:var(--f-mono);color:var(--accent);line-height:1.25;overflow-wrap:anywhere}
 </style>
   <header class="top glass" id="top">
     <div class="brand"><h1><span class="bt"><svg class="lg-word" viewBox="92.7 188.4 339.3 141.6" role="img" aria-label="신약 딜북 BIO"><path d="M94.67822265625 322.0H155.69189453125C183.76513671875 322.0 200.36572265625 306.529296875 200.36572265625 285.322265625C200.36572265625 267.0703125 187.67626953125 254.5546875 170.98876953125 253.9462890625V253.7724609375C186.02490234375 250.904296875 196.02001953125 239.8662109375 196.02001953125 224.830078125C196.02001953125 205.9697265625 180.37548828125 192.498046875 150.82470703125 192.498046875H94.67822265625ZM129.79150390625 294.8828125V269.330078125H148.91259765625C157.69091796875 269.330078125 163.34033203125 274.37109375 163.34033203125 282.1064453125C163.34033203125 289.841796875 157.69091796875 294.8828125 148.91259765625 294.8828125ZM129.79150390625 243.77734375V219.615234375H146.73974609375C154.73583984375 219.615234375 159.86376953125 224.3955078125 159.86376953125 231.6962890625C159.86376953125 238.9970703125 154.73583984375 243.77734375 146.73974609375 243.77734375ZM245.51708984375 192.498046875H209.36083984375V322.0H245.51708984375ZM317.87255859375 324.0859375C353.07275390625 324.0859375 380.79833984375 300.5322265625 380.79833984375 257.3359375C380.79833984375 214.052734375 353.07275390625 190.412109375 317.87255859375 190.412109375C282.49853515625 190.412109375 254.94677734375 214.052734375 254.94677734375 257.3359375C254.94677734375 300.271484375 282.49853515625 324.0859375 317.87255859375 324.0859375ZM317.87255859375 292.796875C300.92431640625 292.796875 291.45068359375 279.6728515625 291.45068359375 257.3359375C291.45068359375 234.912109375 300.92431640625 221.701171875 317.87255859375 221.701171875C334.90771484375 221.701171875 344.29443359375 234.912109375 344.29443359375 257.3359375C344.29443359375 279.6728515625 334.90771484375 292.796875 317.87255859375 292.796875Z" fill="currentColor"/><circle cx="410" cy="308" r="20" fill="#3CC5A0"/></svg></span><span class="pt" id="pgTitle">기술거래</span></h1><span class="upd" id="updStamp" hidden><span class="ul">업데이트</span><span class="ud" id="updDate"></span></span></div>
@@ -3441,7 +3451,7 @@ if(typeof curPage!=="undefined"&&curPage==="info"){_sp("deals",false);openInfo(f
     const rel=(x.rel||[]).map(r=>(typeof ALL!=="undefined"?ALL:[]).find(d=>d.id===r)).filter(Boolean);
     const kv=[["회사",x.co],["물질",x.asset],["적응증",x.area],["단계",x.phase],["출처",x.src]].filter(r=>r[1]);
     s.innerHTML=`<div class="sheet-head"><div><div class="label">${md(x.date)} ${x.cat==="trial"?"임상 결과":"업계 뉴스"}</div><h2 id="sTitle">${E(x.title)}</h2></div><button class="xbtn glass" id="sClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-    <div class="sbody nw-sh"><div>${badge(x)}</div><p class="nw-why" style="font-size:14.5px;color:var(--ink)">${E(x.why)}</p>${x.detail?`<p class="nw-why">${E(x.detail)}</p>`:""}
+    <div class="sbody nw-sh"><div>${badge(x)}</div>${(x.figs||[]).length?`<div class="dm-figs">${x.figs.slice(0,3).map(f=>`<div><span>${E(f[0])}</span><b>${E(f[1])}</b></div>`).join("")}</div>`:""}<p class="dm-why">${E(x.why)}</p>${(x.points||[]).length?`<ul class="dm-ul">${x.points.map(t=>`<li>${E(t)}</li>`).join("")}</ul>`:(x.detail?`<p class="nw-why">${E(x.detail)}</p>`:"")}${x.next?`<div class="dm-next"><b>다음 일정</b> ${E(x.next)}</div>`:""}
     <dl class="nw-kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${E(v)}</dd>`).join("")}</dl>
     ${x.url?`<a class="nw-go" href="${E(x.url)}" target="_blank" rel="noopener noreferrer">원문 보기 ›</a>`:""}
     ${rel.length?`<div class="fsec"><div class="label">딜북의 관련 거래</div><div class="nw-rel">${rel.map(d=>`<button type="button" data-rel="${E(d.id)}">${E(d.licensor||"")} → ${E(d.licensee||"")} <span class="hint">${E(d.date||"")}</span></button>`).join("")}</div></div>`:""}</div>`;
