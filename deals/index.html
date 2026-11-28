@@ -1166,6 +1166,39 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))!important}
 .sheet:has(.info-sb) #sClose{position:static!important;width:36px!important;height:36px!important;margin:0!important;overflow:visible!important;clip-path:none!important;opacity:1!important;border:1px solid var(--line)!important;background:var(--surface2)!important;box-shadow:none!important}
 .sheet:has(.info-sb) .sheet-head{align-items:center}
 @media (min-width:821px){.sheet:has(.info-sb){width:min(640px,calc(100vw - 48px))!important}}
+/* 이슈 탭 */
+html[data-page="issue"] [data-pg]:not([data-pg="issue"]){display:none!important}
+html[data-page="issue"] .main{grid-template-columns:minmax(0,1fr)}
+html[data-page="issue"] #fpanel,html[data-page="issue"] #ffpanel,html[data-page="issue"] #ipanel{display:none!important}
+html:not([data-page="issue"]) #secIssue{display:none!important}
+#secIssue{display:grid;gap:14px;padding:6px 0 24px;min-width:0}
+#secIssue .nw-h{font-size:16px;margin:4px 0 0;letter-spacing:-.01em}
+.nw-b{display:inline-block;font-size:11px;font-weight:700;line-height:19px;padding:0 7px;border-radius:5px;vertical-align:1px;white-space:nowrap}
+.nw-b-good{background:var(--eosin-soft);color:var(--eosin)}.nw-b-bad{background:var(--bad-soft);color:var(--bad)}.nw-b-warn{background:var(--warn-soft);color:var(--warn)}
+.nw-b-purple{background:var(--purple-soft);color:var(--purple)}.nw-b-info{background:var(--accent-soft);color:var(--accent)}.nw-b-neutral{background:var(--neutral-soft);color:var(--neutral)}
+.nw-t{font-size:15px;line-height:1.4;font-weight:650;display:block;margin:6px 0 3px;color:var(--ink)}
+.nw-why{margin:0;font-size:13px;line-height:1.55;color:var(--muted)}
+.nw-m{display:flex;flex-wrap:wrap;gap:2px 10px;font-size:11.5px;color:var(--faint);margin-top:6px}.nw-src{color:var(--accent);margin-left:auto}
+.nw-d{font-size:11.5px;color:var(--faint);font-family:var(--f-mono)}
+.nw-hot{display:flex;gap:10px;overflow-x:auto;margin:0 calc(-1*max(16px,env(safe-area-inset-left,0px)));padding:2px max(16px,env(safe-area-inset-left,0px)) 6px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.nw-hot::-webkit-scrollbar{display:none}
+.nw-hc{flex:0 0 78%;scroll-snap-align:start;background:linear-gradient(150deg,#24317F,#141B4A);color:#fff;border-radius:16px;padding:16px;position:relative;display:flex;flex-direction:column;min-height:170px;cursor:pointer;text-align:left;border:0;font:inherit}
+.nw-hc .nw-t{color:#fff;padding-right:28px}.nw-hc .nw-why{color:rgba(255,255,255,.72);flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.nw-hc .nw-d{color:rgba(255,255,255,.55);margin-top:8px}
+.nw-rank{position:absolute;right:14px;top:10px;font:800 26px/1 var(--f-mono);color:#3CC5A0}
+.nw-chips{display:flex;gap:18px;border-bottom:1px solid var(--line2);padding:0 2px}
+.nw-chips button{border:0;background:none;padding:10px 0;font-size:14px;color:var(--muted);position:relative;font-family:inherit;cursor:pointer}
+.nw-chips button[aria-pressed="true"]{color:var(--accent);font-weight:700}
+.nw-chips button[aria-pressed="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:3px;background:#3CC5A0}
+.nw-chips .nw-n{font-size:11.5px;color:var(--faint);font-weight:500;margin-left:3px}
+.nw-list{background:var(--surface);border:1px solid var(--line2);border-radius:12px;overflow:hidden}
+.nw-row{padding:14px 16px;border-top:1px solid var(--line2);cursor:pointer}.nw-row:first-child{border-top:0}.nw-row:active{background:var(--surface2)}
+.nw-row:focus-visible,.nw-hc:focus-visible{outline:2px solid #3CC5A0;outline-offset:-2px}
+.nw-top{display:flex;align-items:center;gap:8px}.nw-top .nw-d{margin-left:auto}
+.nw-empty{padding:28px 16px;text-align:center;color:var(--muted);font-size:13.5px}
+.nw-sh .nw-t{font-size:18px}.nw-kv{display:grid;grid-template-columns:72px minmax(0,1fr);gap:6px 10px;font-size:13.5px;margin:4px 0 0}.nw-kv dt{color:var(--faint);font-size:12.5px}.nw-kv dd{margin:0}
+.nw-go{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 16px;border-radius:10px;background:var(--accent);color:var(--accent-ink)!important;font-weight:600;text-decoration:none;font-size:14px;width:fit-content}
+.nw-rel{display:grid;gap:6px}.nw-rel button{all:unset;cursor:pointer;padding:10px 12px;border:1px solid var(--line2);border-radius:10px;font-size:13.5px}
+@media (min-width:821px){#secIssue{max-width:920px;width:100%;margin:0 auto}.nw-hot{margin:0;padding:2px 0 6px}.nw-hc{flex-basis:300px}}
 </style>
   <header class="top glass" id="top">
     <div class="brand"><h1><span class="bt"><svg class="lg-word" viewBox="92.7 188.4 339.3 141.6" role="img" aria-label="신약 딜북 BIO"><path d="M94.67822265625 322.0H155.69189453125C183.76513671875 322.0 200.36572265625 306.529296875 200.36572265625 285.322265625C200.36572265625 267.0703125 187.67626953125 254.5546875 170.98876953125 253.9462890625V253.7724609375C186.02490234375 250.904296875 196.02001953125 239.8662109375 196.02001953125 224.830078125C196.02001953125 205.9697265625 180.37548828125 192.498046875 150.82470703125 192.498046875H94.67822265625ZM129.79150390625 294.8828125V269.330078125H148.91259765625C157.69091796875 269.330078125 163.34033203125 274.37109375 163.34033203125 282.1064453125C163.34033203125 289.841796875 157.69091796875 294.8828125 148.91259765625 294.8828125ZM129.79150390625 243.77734375V219.615234375H146.73974609375C154.73583984375 219.615234375 159.86376953125 224.3955078125 159.86376953125 231.6962890625C159.86376953125 238.9970703125 154.73583984375 243.77734375 146.73974609375 243.77734375ZM245.51708984375 192.498046875H209.36083984375V322.0H245.51708984375ZM317.87255859375 324.0859375C353.07275390625 324.0859375 380.79833984375 300.5322265625 380.79833984375 257.3359375C380.79833984375 214.052734375 353.07275390625 190.412109375 317.87255859375 190.412109375C282.49853515625 190.412109375 254.94677734375 214.052734375 254.94677734375 257.3359375C254.94677734375 300.271484375 282.49853515625 324.0859375 317.87255859375 324.0859375ZM317.87255859375 292.796875C300.92431640625 292.796875 291.45068359375 279.6728515625 291.45068359375 257.3359375C291.45068359375 234.912109375 300.92431640625 221.701171875 317.87255859375 221.701171875C334.90771484375 221.701171875 344.29443359375 234.912109375 344.29443359375 257.3359375C344.29443359375 279.6728515625 334.90771484375 292.796875 317.87255859375 292.796875Z" fill="currentColor"/><circle cx="410" cy="308" r="20" fill="#3CC5A0"/></svg></span><span class="pt" id="pgTitle">기술거래</span></h1><span class="upd" id="updStamp" hidden><span class="ul">업데이트</span><span class="ud" id="updDate"></span></span></div>
@@ -1174,6 +1207,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))!important}
       <button class="tab" type="button" data-sec="secList">기술거래</button>
       <button class="tab" type="button" data-sec="secFda">FDA 승인</button>
       <button class="tab" type="button" data-sec="secInv">투자 사례</button>
+      <button class="tab" type="button" data-sec="secIssue">이슈</button>
       <button class="tab" type="button" data-sec="secInfo">정보</button>
     </nav>
     <div class="topacts">
@@ -1475,6 +1509,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))!important}
         <div class="more" id="imoreWrap" hidden><button class="btn sm" id="imore" type="button">더 보기</button></div>
       </section>
 
+      <section class="issue" id="secIssue" data-pg="issue" aria-label="이슈"></section>
       <section class="info" id="secInfo" data-pg="info" aria-label="정보">
         <h2>수록 기준과 설정</h2>
         <div class="infogrid">
@@ -1520,6 +1555,7 @@ body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))!important}
   <button class="tb" type="button" data-sec="secList"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>기술거래</button>
   <button class="tb" type="button" data-sec="secFda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l7 3v5.2c0 4.2-2.9 7.3-7 8.8-4.1-1.5-7-4.6-7-8.8V6.5z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>FDA 승인</button>
   <button class="tb" type="button" data-sec="secInv"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3.5-4 3 2.5L20 7"/></svg>투자 사례</button>
+  <button class="tb" type="button" data-sec="secIssue">이슈</button>
   <button class="tb" type="button" data-sec="secInfo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.2"/></svg>정보</button>
 </nav>
 
@@ -3355,6 +3391,59 @@ u.setAttribute("role","button");u.setAttribute("tabindex","0");u.setAttribute("a
 u.addEventListener("click",function(){openInfo(false)});u.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();openInfo(false)}});
 try{var _sp=setPage;setPage=function(p){if(p==="info"){openInfo(false);return}return _sp.apply(this,arguments)};
 if(typeof curPage!=="undefined"&&curPage==="info"){_sp("deals",false);openInfo(false)}}catch(e){}})();
+</script>
+<script>
+/* 이슈 탭: 최근 핫한 임상 결과와 업계 뉴스(매일 아침 갱신) */
+(function(){
+  const E=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  try{PAGE_OF.secIssue="issue";PAGE_TAB.issue="secIssue";PAGE_NAME.issue="이슈"}catch(e){return}
+  let NEWS=[],NUPD=null,NF="all";
+  const md=d=>{const p=String(d||"").split("-");return p.length===3?`${+p[1]}월 ${+p[2]}일`:E(d)};
+  const BG=x=>x.cat==="trial"?({pos:["성공","good"],neg:["실패","bad"],mixed:["확인 필요","warn"]}[x.result]||["발표","neutral"])
+    :({"M&A":["M&A","purple"],"CRL":["CRL","bad"],"허가":["허가","good"],"지연":["심사 지연","warn"],"IPO":["IPO","info"],"투자":["투자","info"],"PDUFA":["결정 예정","neutral"],"정책":["정책","neutral"],"전략":["전략","neutral"],"라이선스":["라이선스","purple"]}[x.kind]||[x.kind||"뉴스","neutral"]);
+  const badge=x=>{const [t,c]=BG(x);return `<span class="nw-b nw-b-${c}">${E(t)}</span>`};
+  const meta=x=>`<span class="nw-m">${[x.co,x.area,x.phase].filter(Boolean).map(t=>`<span>${E(t)}</span>`).join("")}${x.src?`<span class="nw-src">${E(x.src)} ›</span>`:""}</span>`;
+  function draw(){
+    const sec=$("secIssue");if(!sec)return;
+    if(!NEWS.length){sec.innerHTML=`<div class="nw-list"><div class="nw-empty">이슈를 불러오는 중입니다.</div></div>`;return}
+    const hot=NEWS.filter(x=>x.hot).sort((a,b)=>a.hot-b.hot).slice(0,5);
+    const nT=NEWS.filter(x=>x.cat==="trial").length,nW=NEWS.length-nT;
+    const list=NEWS.filter(x=>NF==="all"||x.cat===NF);
+    sec.innerHTML=`${hot.length?`<h3 class="nw-h">이번 주 핫 이슈</h3><div class="nw-hot">${hot.map((x,i)=>`<button type="button" class="nw-hc" data-nid="${E(x.id)}"><span class="nw-rank">${i+1}</span><span>${badge(x)}</span><b class="nw-t">${E(x.title)}</b><p class="nw-why">${E(x.why)}</p><span class="nw-d">${md(x.date)}</span></button>`).join("")}</div>`:""}
+    <div class="nw-chips" role="group" aria-label="이슈 분류">${[["all","전체",NEWS.length],["trial","임상 결과",nT],["news","업계 뉴스",nW]].map(([k,t,n])=>`<button type="button" data-nf="${k}" aria-pressed="${NF===k}">${t}<span class="nw-n">${n}</span></button>`).join("")}</div>
+    <div class="nw-list">${list.length?list.map(x=>`<article class="nw-row" tabindex="0" data-nid="${E(x.id)}"><div class="nw-top">${badge(x)}<span class="nw-d">${md(x.date)}</span></div><b class="nw-t">${E(x.title)}</b><p class="nw-why">${E(x.why)}</p>${meta(x)}</article>`).join(""):`<div class="nw-empty">해당하는 이슈가 없습니다.</div>`}</div>`;
+    sec.querySelectorAll("[data-nf]").forEach(b=>b.onclick=()=>{NF=b.dataset.nf;draw()});
+    sec.querySelectorAll("[data-nid]").forEach(el=>{el.onclick=()=>openNews(el.dataset.nid);el.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();openNews(el.dataset.nid)}}});
+  }
+  function openNews(id){
+    const x=NEWS.find(a=>a.id===id);if(!x)return;
+    const s=$("sheet"),wasOpen=!s.hidden;if(!wasOpen){lastFocus=document.activeElement;SHEET_STACK.length=0}
+    const rel=(x.rel||[]).map(r=>(typeof ALL!=="undefined"?ALL:[]).find(d=>d.id===r)).filter(Boolean);
+    const kv=[["회사",x.co],["물질",x.asset],["적응증",x.area],["단계",x.phase],["출처",x.src]].filter(r=>r[1]);
+    s.innerHTML=`<div class="sheet-head"><div><div class="label">${md(x.date)} ${x.cat==="trial"?"임상 결과":"업계 뉴스"}</div><h2 id="sTitle">${E(x.title)}</h2></div><button class="xbtn glass" id="sClose" type="button" aria-label="닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="sbody nw-sh"><div>${badge(x)}</div><p class="nw-why" style="font-size:14.5px;color:var(--ink)">${E(x.why)}</p>${x.detail?`<p class="nw-why">${E(x.detail)}</p>`:""}
+    <dl class="nw-kv">${kv.map(([k,v])=>`<dt>${k}</dt><dd>${E(v)}</dd>`).join("")}</dl>
+    ${x.url?`<a class="nw-go" href="${E(x.url)}" target="_blank" rel="noopener noreferrer">원문 보기 ›</a>`:""}
+    ${rel.length?`<div class="fsec"><div class="label">딜북의 관련 거래</div><div class="nw-rel">${rel.map(d=>`<button type="button" data-rel="${E(d.id)}">${E(d.licensor||"")} → ${E(d.licensee||"")} <span class="hint">${E(d.date||"")}</span></button>`).join("")}</div></div>`:""}</div>`;
+    $("sheetBg").hidden=false;s.hidden=false;lockSync();if(!wasOpen)pushLayer("sheet");s._fda=null;
+    $("sClose").onclick=closeSheet;s.querySelectorAll("[data-rel]").forEach(b=>b.onclick=()=>{const d=ALL.find(a=>a.id===b.dataset.rel);if(d)openSheet(d)});
+    const sb=s.querySelector(".sbody");if(sb){sb.scrollTop=0;if(typeof fadeMask==="function")fadeMask(sb)}
+  }
+  function stamp(){const u=$("updDate");if(!u)return;if(document.documentElement.dataset.page==="issue"){if(!u.dataset.deal)u.dataset.deal=u.textContent;if(NUPD)u.textContent=String(NUPD).slice(0,10)}else if(u.dataset.deal){u.textContent=u.dataset.deal;delete u.dataset.deal}}
+  function setNews(items,upd){
+    const cut=new Date(Date.now()-62*864e5).toISOString().slice(0,10);
+    NEWS=(items||[]).filter(x=>x&&x.id&&x.title&&(!x.date||x.date>=cut)).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+    NUPD=upd||null;draw();stamp()}
+  const viaFile=()=>fetch("data/news.json",{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject(r.status)).then(j=>setNews(j.items,j.updated)).catch(()=>{const sec=$("secIssue");if(sec&&!NEWS.length)sec.innerHTML=`<div class="nw-list"><div class="nw-empty">이슈를 불러오지 못했습니다. 인터넷에 연결한 뒤 다시 열어 주세요.</div></div>`});
+  if(window.claude&&typeof claude.use==="function"){claude.use("db").then(db=>{if(!db)return viaFile();
+    db.collection("news").onSnapshot(sn=>{const o=[];let u=null;sn.docs.forEach(d=>{const v=d.data()||{};(v.items||[]).forEach(a=>o.push(a));if(v.updated&&(!u||v.updated>u))u=v.updated});if(o.length)setNews(o,u);else viaFile()},()=>viaFile())}).catch(viaFile)}
+  else viaFile();
+  draw();
+  new MutationObserver(stamp).observe(document.documentElement,{attributes:true,attributeFilter:["data-page"]});
+  const ud=$("updDate");if(ud)new MutationObserver(()=>{if(document.documentElement.dataset.page!=="issue"||!NUPD)return;const t=String(NUPD).slice(0,10);if(ud.textContent!==t){ud.dataset.deal=ud.textContent;ud.textContent=t}}).observe(ud,{childList:true,characterData:true,subtree:true});
+  let h0="";try{const nv=performance.getEntriesByType("navigation")[0];h0=new URL(nv?nv.name:location.href).hash}catch(e){}
+  if((h0||location.hash||"").replace("#","")==="issue")setPage("issue");
+})();
 </script>
 </body>
 </html>

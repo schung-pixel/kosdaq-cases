@@ -1,5 +1,5 @@
 // 신약 딜북 - 오프라인 캐시
-const VERSION = 'dealbook-2026-11-28-infopop';
+const VERSION = 'dealbook-2026-11-28-issue';
 const CORE = ['./', './index.html', './manifest.webmanifest', './data/deals.json', './data/runs.json', './data/fda.json', './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
@@ -28,5 +28,6 @@ self.addEventListener('fetch', e => {
   if (url.pathname.endsWith('/data/fda.json')) { e.respondWith(networkFirst(req, './data/fda.json')); return; }
   if (url.pathname.endsWith('/data/invest.json')) { e.respondWith(networkFirst(req, './data/invest.json')); return; }
   if (url.pathname.endsWith('/data/fdapi.json')) { e.respondWith(networkFirst(req, './data/fdapi.json')); return; }
+  if (url.pathname.endsWith('/data/news.json')) { e.respondWith(networkFirst(req, './data/news.json')); return; }
   e.respondWith(caches.match(req).then(hit => hit || fetch(req)));
 });
