@@ -75,7 +75,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);fo
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(52vw 46vh at 6% -4%,var(--g1),transparent 70%),radial-gradient(44vw 42vh at 100% 18%,var(--g2),transparent 70%),radial-gradient(56vw 50vh at 38% 104%,var(--g3),transparent 70%)}
 .safeband{position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
-html.lock,html.lock body{overflow:hidden}
+html.lock{overflow:hidden}
 .num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
 h1,h2,h3{font-family:var(--f-body);font-weight:600;margin:0;letter-spacing:-.02em;text-wrap:balance}
 h2{font-size:16px;line-height:1.35}
