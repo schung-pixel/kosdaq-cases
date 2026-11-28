@@ -1093,7 +1093,9 @@ body::after{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-
 .pglass{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;border-radius:0!important}
 .pglass .chip{color:var(--muted)!important;font-weight:500}
 .pglass .chip[aria-pressed="true"]{color:var(--accent)!important;font-weight:700}
-.pglass .chips .ind{background:transparent!important;box-shadow:inset 0 -3px 0 var(--mint2,#3CC5A0)!important;border-radius:0!important}
+.pglass .chips{border-radius:0!important}
+.pglass .chips .ind{background:transparent!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important}
+.pglass .chips .ind::after{content:"";position:absolute;left:14px;right:14px;bottom:0;height:3px;border-radius:3px;background:#3CC5A0}
 .cmpbtn{background:var(--surface)!important;box-shadow:none!important}
 .tabbar{left:0!important;right:0!important;bottom:0!important;border-radius:0!important;border:0!important;border-top:1px solid var(--line)!important;background:var(--surface)!important;box-shadow:none!important;padding:4px 8px calc(4px + env(safe-area-inset-bottom,0px))!important}
 .tabbar .ind{display:none!important}
